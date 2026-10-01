@@ -1996,3 +1996,212 @@ Câu 249 [BÀI 7 - PHẦN 3: みんなで楽しいパーティー]
 → Đáp án: D
 ────────────────────────────────────────────────────────────
 `;
+
+/**
+ * ============================================================
+ * DỮ LIỆU CÂU HỎI MÔN: TIẾNG NHẬT - TỪ HÁN (KANJI)
+ * Form câu hỏi: Hán tự (vd: 前) -> Đáp án: まえ: phía trước (đảo ngược được)
+ * ============================================================
+ */
+window.RAW_DATABASE_KANJI = `
+Câu 1 [HÁN TỰ: 東 (ĐÔNG)]
+東
+  A. とうきょう: Tokyo
+  B. ひがし: phía đông  ✓
+  C. まえ: phía trước
+  D. くに: đất nước
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+Câu 2 [HÁN TỰ: 東 (ĐÔNG)]
+東京
+  A. とうきょう: Tokyo  ✓
+  B. ぜんじつ: ngày trước
+  C. なまえ: tên
+  D. おとこのひと: người đàn ông
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 3 [HÁN TỰ: 京 (KINH)]
+東京
+  A. きょうと: Kyoto
+  B. とうきょう: Tokyo  ✓
+  C. だんじょ: nam nữ
+  D. こくご: quốc ngữ
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+Câu 4 [HÁN TỰ: 京 (KINH)]
+京都
+  A. ひがし: phía đông
+  B. めいじん: danh nhân
+  C. きょうと: Kyoto  ✓
+  D. まえ: phía trước
+→ Đáp án: C
+────────────────────────────────────────────────────────────
+Câu 5 [HÁN TỰ: 名 (DANH)]
+名前
+  A. なまえ: tên  ✓
+  B. めいじん: danh nhân
+  C. おんなのひと: người phụ nữ
+  D. く: khu, quận
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 6 [HÁN TỰ: 名 (DANH)]
+名人
+  A. ぜんじつ: ngày trước
+  B. めいじん: danh nhân  ✓
+  C. おとこのひと: người đàn ông
+  D. とうきょう: Tokyo
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+Câu 7 [HÁN TỰ: 前 (TIỀN)]
+前
+  A. まえ: phía trước  ✓
+  B. ぜんじつ: ngày trước
+  C. ひがし: phía đông
+  D. くに: đất nước
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 8 [HÁN TỰ: 前 (TIỀN)]
+前日
+  A. なまえ: tên
+  B. ぜんじつ: ngày trước  ✓
+  C. こくご: quốc ngữ
+  D. だんじょ: nam nữ
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+Câu 9 [HÁN TỰ: 国 (QUỐC)]
+国
+  A. くに: đất nước  ✓
+  B. こくご: quốc ngữ
+  C. まえ: phía trước
+  D. とうきょう: Tokyo
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 10 [HÁN TỰ: 国 (QUỐC)]
+国語
+  A. めいじん: danh nhân
+  B. こくご: quốc ngữ  ✓
+  C. おんなのひと: người phụ nữ
+  D. ひがし: phía đông
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+Câu 11 [HÁN TỰ: 男 (NAM)]
+男の人
+  A. おとこのひと: người đàn ông  ✓
+  B. だんじょ: nam nữ
+  C. おんなのひと: người phụ nữ
+  D. なまえ: tên
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 12 [HÁN TỰ: 男 (NAM)]
+男女
+  A. ぜんじつ: ngày trước
+  B. おとこのひと: người đàn ông
+  C. だんじょ: nam nữ  ✓
+  D. くに: đất nước
+→ Đáp án: C
+────────────────────────────────────────────────────────────
+Câu 13 [HÁN TỰ: 女 (NỮ)]
+女の人
+  A. おんなのひと: người phụ nữ  ✓
+  B. おんなのこ: bé gái
+  C. おとこのひと: người đàn ông
+  D. めいじん: danh nhân
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 14 [HÁN TỰ: 女 (NỮ)]
+女の子
+  A. おんなのひと: người phụ nữ
+  B. おんなのこ: bé gái  ✓
+  C. だんじょ: nam nữ
+  D. なまえ: tên
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+Câu 15 [HÁN TỰ: 区 (KHU)]
+区
+  A. く: khu, quận  ✓
+  B. なごやく: quận Nagoya
+  C. ホーチミンし: TP. Hồ Chí Minh
+  D. ひがし: phía đông
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 16 [HÁN TỰ: 区 (KHU)]
+なごや区
+  A. ハノイし: thành phố Hà Nội
+  B. なごやく: quận Nagoya  ✓
+  C. く: khu, quận
+  D. ぜんじつ: ngày trước
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+Câu 17 [HÁN TỰ: 市 (THỊ)]
+市
+  A. し: thành phố, thị xã  ✓
+  B. ホーチミンし: TP. Hồ Chí Minh
+  C. ハノイし: thành phố Hà Nội
+  D. く: khu, quận
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 18 [HÁN TỰ: 市 (THỊ)]
+ホーチミン市
+  A. ホーチミンし: TP. Hồ Chí Minh  ✓
+  B. ハノイし: thành phố Hà Nội
+  C. なごやく: quận Nagoya
+  D. とうきょう: Tokyo
+→ Đáp án: A
+────────────────────────────────────────────────────────────
+Câu 19 [HÁN TỰ: 市 (THỊ)]
+ハノイ市
+  A. ホーチミンし: TP. Hồ Chí Minh
+  B. ハノイし: thành phố Hà Nội  ✓
+  C. く: khu, quận
+  D. なまえ: tên
+→ Đáp án: B
+────────────────────────────────────────────────────────────
+`;
+
+/**
+ * ============================================================
+ * CẤU HÌNH CÁC MÔN HỌC (SUBJECTS REGISTRY)
+ * ============================================================
+ * Khi muốn thêm môn mới, bạn có thể thêm một cấu hình vào object window.APP_SUBJECTS dưới đây:
+ */
+window.APP_SUBJECTS = {
+    "japanese": {
+        id: "japanese",
+        name: "Tiếng Nhật",
+        fullName: "Tiếng Nhật (できる日本語 Bài 4 - 7)",
+        icon: "🇯🇵",
+        badge: "できる日本語",
+        category: "japanese",
+        hasFurigana: true,
+        quizType: "vocab",
+        langFrom: "Tiếng Nhật",
+        langTo: "Tiếng Việt",
+        modeLabels: {
+            "jp-vi": "🇯🇵 ➔ 🇻🇳 Nhật - Việt",
+            "vi-jp": "🇻🇳 ➔ 🇯🇵 Việt - Nhật",
+            "mix": "🔀 Trộn cả hai"
+        },
+        lessonParts: (typeof LESSON_PARTS !== 'undefined' ? LESSON_PARTS : (window.LESSON_PARTS || {})),
+        rawText: window.RAW_DATABASE
+    },
+    "japanese_kanji": {
+        id: "japanese_kanji",
+        name: "Hán tự (Kanji)",
+        fullName: "Tiếng Nhật (Ôn tập Từ Hán Kanji)",
+        icon: "🈸",
+        badge: "Từ Hán (Kanji)",
+        category: "japanese",
+        hasFurigana: false,
+        quizType: "vocab",
+        langFrom: "Chữ Hán",
+        langTo: "Cách đọc & Nghĩa",
+        modeLabels: {
+            "jp-vi": "🈸 ➔ 🇻🇳 Hán - Việt",
+            "vi-jp": "🇻🇳 ➔ 🈸 Việt - Hán",
+            "mix": "🔀 Trộn cả hai"
+        },
+        lessonParts: {},
+        rawText: window.RAW_DATABASE_KANJI
+    }
+};
+

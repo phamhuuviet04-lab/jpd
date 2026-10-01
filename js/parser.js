@@ -20,6 +20,7 @@ const LESSON_PARTS = {
     "14": { "1": "初めて見た！初めて聞いた！", "2": "ルール・マナー", "3": "私の意見" },
     "15": { "1": "これ、知ってる？", "2": "雑誌を見て町へ", "3": "町を歩いて" }
 };
+window.LESSON_PARTS = LESSON_PARTS;
 
 // Mảng chứa các câu lỗi để chẩn đoán khi cần
 window.__parseFailed = [];
@@ -27,9 +28,10 @@ window.__parseFailed = [];
 /**
  * Phân tích dữ liệu văn bản thô thành danh sách câu hỏi
  * @param {string} text - Văn bản chứa các câu hỏi thô
+ * @param {Object} [customLessonParts] - Bảng ánh xạ tiêu đề bài/phần tùy biến cho từng môn học
  * @returns {Array<Object>} Danh sách câu hỏi đã chuẩn hóa
  */
-function parseRawText(text) {
+function parseRawText(text, customLessonParts = null) {
     const safeText = '\n' + (text || '');
 
     // Tách block + giữ lại số câu
@@ -100,31 +102,34 @@ function parseRawText(text) {
         const uniqueCorrect = [...new Set(correctOptionsText)];
 
         if (options.length > 1 && uniqueCorrect.length > 0) {
-            // Trích xuất Bài và Phần ví dụ [BÀI 4 - PHẦN 1: どこ？] hoặc [BÀI 4 - PHẦN 1] hoặc [BÀI 4]
+            // Trích xuất Bài/Unit/Chương/Hán tự và Phần/Part ví dụ [BÀI 4 - PHẦN 1: どこ？] hoặc [HÁN TỰ: TIỀN (前)]
             let lesson = 'all';
             let part = 'all';
             let partTitle = '';
 
-            const tagMatch = questionText.match(/\[BÀI\s*(\d+)(?:\s*-\s*PHẦN\s*(\d+)(?::\s*([^\]]+))?)?\]/i);
+            const tagMatch = questionText.match(/\[(?:BÀI|UNIT|CHƯƠNG|HÁN TỰ|KANJI)(?:\s*:\s*|\s+)([^:\]-]+?)(?:\s*-\s*(?:PHẦN|PART|P)\s*([^:\]]+?))?(?::\s*([^\]]+))?\]/i);
             if (tagMatch) {
-                lesson = tagMatch[1];
-                if (tagMatch[2]) part = tagMatch[2];
-                if (tagMatch[3]) partTitle = tagMatch[3].trim();
+                lesson = tagMatch[1].trim();
+                if (tagMatch[2]) part = tagMatch[2].trim();
+                if (tagMatch[3]) {
+                    partTitle = tagMatch[3].trim();
+                }
             } else {
-                const lMatch = questionText.match(/\[BÀI\s*(\d+)\]/i);
-                if (lMatch) lesson = lMatch[1];
-                const pMatch = questionText.match(/\[(?:PHẦN|P)\s*(\d+)\]/i);
-                if (pMatch) part = pMatch[1];
+                const lMatch = questionText.match(/\[(?:BÀI|UNIT|CHƯƠNG|HÁN TỰ|KANJI)(?:\s*:\s*|\s+)([^\]]+)\]/i);
+                if (lMatch) lesson = lMatch[1].trim();
+                const pMatch = questionText.match(/\[(?:PHẦN|PART|P)\s*([^\]]+)\]/i);
+                if (pMatch) part = pMatch[1].trim();
             }
 
-            if (!partTitle && LESSON_PARTS[lesson]?.[part]) {
-                partTitle = LESSON_PARTS[lesson][part];
+            const partsDict = customLessonParts || window.LESSON_PARTS || LESSON_PARTS;
+            if (!partTitle && partsDict && partsDict[lesson]?.[part]) {
+                partTitle = partsDict[lesson][part];
             }
 
             // Xóa tag khỏi text hiển thị câu hỏi
             const cleanQuestion = questionText
-                .replace(/\s*\[BÀI\s*\d+(?:\s*-\s*PHẦN\s*\d+)?(?::\s*[^\]]+)?\]/gi, '')
-                .replace(/\s*\[(?:PHẦN|P)\s*\d+\]/gi, '')
+                .replace(/\s*\[(?:BÀI|UNIT|CHƯƠNG|HÁN TỰ|KANJI)(?:\s*:\s*|\s+)[^\]]+\]/gi, '')
+                .replace(/\s*\[(?:PHẦN|PART|P)\s*[^\]]+\]/gi, '')
                 .trim();
 
             questions.push({

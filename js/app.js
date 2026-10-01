@@ -1,23 +1,24 @@
 /**
- * Main Application Module cho ứng dụng Ôn tập Từ vựng Tiếng Nhật (jpd)
- * Quản lý trạng thái học, giao diện quiz, giao diện danh sách, lưu trữ cục bộ và phím tắt.
+ * Main Application Module cho ứng dụng Ôn tập Từ vựng Đa môn học (jpd)
+ * Quản lý trạng thái học, chọn môn học, phân loại Từ vựng / Hán tự, giao diện quiz, giao diện danh sách, lưu trữ cục bộ và phím tắt.
  */
 
 // ==========================================
 // TRẠNG THÁI ỨNG DỤNG (STATE)
 // ==========================================
+const STORAGE_KEY_SELECTED_SUBJECT = 'selectedSubject_quizlet';
+const STORAGE_KEY_CUSTOM_SUBJECTS = 'custom_subjects_v1';
+
+let currentSubjectId = 'japanese';
+let currentSubject = null;
+
 let allQuestions = [];
-let selectedLesson = 'all'; // 'all', '4', '5', '6', '7'
-let selectedPart = 'all'; // 'all', '1', '2', '3'
+let selectedLesson = 'all'; // 'all' hoặc ID bài học (vd: '1', '2', '東 (ĐÔNG)', ...)
+let selectedPart = 'all';   // 'all' hoặc ID phần (vd: '1', '2', ...)
 
-const STORAGE_KEY_MARKED = 'markedQuestions_jp_v2';
-const STORAGE_KEY_LAST = 'lastMarkedQuestionId_jp_v2';
-const STORAGE_KEY_MODE = 'quizMode_jp_v2';
-
-let markedQuestions = JSON.parse(localStorage.getItem(STORAGE_KEY_MARKED) || '[]');
-const savedLastMarkedId = localStorage.getItem(STORAGE_KEY_LAST);
-let lastMarkedQuestionId = savedLastMarkedId !== null ? Number(savedLastMarkedId) : null;
-let currentQuizMode = localStorage.getItem(STORAGE_KEY_MODE) || 'jp-vi';
+let markedQuestions = [];
+let lastMarkedQuestionId = null;
+let currentQuizMode = 'jp-vi';
 
 let reviewQueue = [];
 let currentQuestion = null;
@@ -25,6 +26,258 @@ let focusedListIndex = 0;
 
 // Tham chiếu phần tử UI (sẽ khởi tạo khi DOM sẵn sàng)
 let ui = {};
+
+// ==========================================
+// QUẢN LÝ MÔN HỌC (SUBJECTS MANAGEMENT)
+// ==========================================
+function getAllSubjects() {
+    const builtIn = window.APP_SUBJECTS || {};
+    
+    // Tải các môn học tùy chỉnh người dùng thêm trên trình duyệt
+    let custom = {};
+    try {
+        custom = JSON.parse(localStorage.getItem(STORAGE_KEY_CUSTOM_SUBJECTS) || '{}');
+    } catch (e) {
+        console.error('Lỗi khi đọc custom_subjects:', e);
+    }
+
+    return { ...builtIn, ...custom };
+}
+
+function getStorageKey(type) {
+    // Tương thích ngược dữ liệu bài học Tiếng Nhật đã có từ trước
+    if (currentSubjectId === 'japanese') {
+        if (type === 'marked') return 'markedQuestions_jp_v2';
+        if (type === 'last') return 'lastMarkedQuestionId_jp_v2';
+        if (type === 'mode') return 'quizMode_jp_v2';
+    }
+    return `${type}_${currentSubjectId}_v1`;
+}
+
+function loadSubjectState() {
+    const markedKey = getStorageKey('marked');
+    const lastKey = getStorageKey('last');
+    const modeKey = getStorageKey('mode');
+
+    try {
+        markedQuestions = JSON.parse(localStorage.getItem(markedKey) || '[]');
+    } catch (e) {
+        markedQuestions = [];
+    }
+
+    const savedLast = localStorage.getItem(lastKey);
+    lastMarkedQuestionId = savedLast !== null ? Number(savedLast) : null;
+
+    const defaultMode = currentSubject.quizType === 'standard' ? 'standard' : 'jp-vi';
+    currentQuizMode = localStorage.getItem(modeKey) || defaultMode;
+}
+
+function saveMarkedState() {
+    localStorage.setItem(getStorageKey('marked'), JSON.stringify(markedQuestions));
+}
+
+function saveLastMarkedState() {
+    if (lastMarkedQuestionId !== null) {
+        localStorage.setItem(getStorageKey('last'), String(lastMarkedQuestionId));
+    } else {
+        localStorage.removeItem(getStorageKey('last'));
+    }
+}
+
+function saveQuizModeState() {
+    localStorage.setItem(getStorageKey('mode'), currentQuizMode);
+}
+
+function switchSubject(newSubjectId) {
+    const subjects = getAllSubjects();
+    if (!subjects[newSubjectId]) {
+        newSubjectId = Object.keys(subjects)[0];
+    }
+
+    currentSubjectId = newSubjectId;
+    currentSubject = subjects[currentSubjectId];
+    localStorage.setItem(STORAGE_KEY_SELECTED_SUBJECT, currentSubjectId);
+
+    // Nạp câu hỏi của môn học này
+    allQuestions = parseRawText(currentSubject.rawText, currentSubject.lessonParts);
+
+    // Nạp trạng thái môn học (tiến độ đã học, mode hỏi đáp)
+    loadSubjectState();
+
+    // Reset bộ lọc bài học
+    selectedLesson = 'all';
+    selectedPart = 'all';
+
+    // Cập nhật giao diện thanh môn học & thông tin
+    updateSubjectHeaderUI();
+    renderSubjectMenu();
+    renderLessonTabs();
+    renderPartTabs();
+    updateQuizModeUI();
+
+    // Điều hướng lại màn hình đang mở
+    if (!ui.listScreen.classList.contains('hidden')) {
+        renderListScreen();
+    } else {
+        startQuiz();
+    }
+}
+
+function updateSubjectHeaderUI() {
+    if (!currentSubject) return;
+
+    const iconEl = document.getElementById('active-subject-icon');
+    const nameEl = document.getElementById('active-subject-name');
+    const badgeEl = document.getElementById('active-subject-badge');
+    const subtitleEl = document.getElementById('quiz-subtitle');
+    const listTitleEl = document.getElementById('list-screen-title');
+    const furiganaWrapper = document.getElementById('furigana-toggle-wrapper');
+    const japaneseSubTabs = document.getElementById('japanese-sub-tabs');
+    const subTabVocab = document.getElementById('sub-tab-vocab');
+    const subTabKanji = document.getElementById('sub-tab-kanji');
+    const japaneseSubDesc = document.getElementById('japanese-sub-desc');
+
+    if (iconEl) iconEl.innerText = currentSubject.icon || '📚';
+    if (nameEl) {
+        if (currentSubjectId === 'japanese_kanji') {
+            nameEl.innerText = "Tiếng Nhật (Hán tự)";
+        } else {
+            nameEl.innerText = currentSubject.name || 'Môn học';
+        }
+    }
+    if (badgeEl) {
+        badgeEl.innerText = currentSubject.badge || `${allQuestions.length} câu`;
+        badgeEl.style.display = currentSubject.badge ? 'inline-block' : 'none';
+    }
+    if (subtitleEl) {
+        subtitleEl.innerText = `jpd • ${currentSubject.fullName || currentSubject.name}`;
+    }
+    if (listTitleEl) {
+        listTitleEl.innerText = `Danh sách câu hỏi - ${currentSubject.fullName || currentSubject.name}`;
+    }
+
+    // Hiển thị hoặc ẩn tùy chọn Furigana
+    if (furiganaWrapper) {
+        if (currentSubject.hasFurigana) {
+            furiganaWrapper.classList.remove('hidden');
+            furiganaWrapper.classList.add('flex');
+        } else {
+            furiganaWrapper.classList.add('hidden');
+            furiganaWrapper.classList.remove('flex');
+        }
+    }
+
+    // Quản lý thanh chủ đề con cho Tiếng Nhật (Từ vựng / Hán tự)
+    if (japaneseSubTabs) {
+        const isJapanese = currentSubject.category === 'japanese' || currentSubjectId.startsWith('japanese');
+        if (isJapanese) {
+            japaneseSubTabs.classList.remove('hidden');
+            japaneseSubTabs.classList.add('flex');
+
+            if (currentSubjectId === 'japanese_kanji') {
+                if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
+                if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `Ôn tập 9 chữ Hán & từ ghép (${allQuestions.length} câu)`;
+            } else {
+                if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
+                if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `Giáo trình Dekiru Nihongo Bài 4 - 7 (${allQuestions.length} câu)`;
+            }
+        } else {
+            japaneseSubTabs.classList.add('hidden');
+            japaneseSubTabs.classList.remove('flex');
+        }
+    }
+}
+
+function renderSubjectMenu() {
+    const container = document.getElementById('subject-tabs-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const subjects = getAllSubjects();
+    const customSubjects = JSON.parse(localStorage.getItem(STORAGE_KEY_CUSTOM_SUBJECTS) || '{}');
+
+    // Gom nhóm các môn chính để thanh menu trên cùng luôn gọn đẹp
+    // Tiếng Nhật (gồm cả vocab và kanji), và các môn tự tạo
+    const mainEntries = [
+        {
+            id: 'japanese',
+            label: 'Tiếng Nhật',
+            icon: '🇯🇵',
+            isActive: currentSubjectId === 'japanese' || currentSubjectId === 'japanese_kanji',
+            onSelect: () => {
+                // Giữ lại môn con đang học hoặc chuyển sang japanese
+                if (currentSubjectId !== 'japanese' && currentSubjectId !== 'japanese_kanji') {
+                    switchSubject('japanese');
+                }
+            }
+        }
+    ];
+
+    // Thêm các môn custom do người dùng tự tạo
+    Object.keys(customSubjects).forEach(subId => {
+        const sub = customSubjects[subId];
+        mainEntries.push({
+            id: subId,
+            label: sub.name,
+            icon: sub.icon || '📖',
+            isCustom: true,
+            isActive: currentSubjectId === subId,
+            onSelect: () => switchSubject(subId)
+        });
+    });
+
+    mainEntries.forEach(entry => {
+        const btn = document.createElement('div');
+        btn.className = `group relative inline-flex items-center rounded-lg text-xs md:text-sm font-bold transition select-none ${
+            entry.isActive
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'text-gray-600 hover:text-blue-600 hover:bg-white'
+        }`;
+
+        const mainBtn = document.createElement('button');
+        mainBtn.className = "px-3 py-1.5 flex items-center gap-1.5 focus:outline-none";
+        mainBtn.innerHTML = `
+            <span>${entry.icon}</span>
+            <span>${entry.label}</span>
+        `;
+        mainBtn.addEventListener('click', entry.onSelect);
+        btn.appendChild(mainBtn);
+
+        // Nút xóa nếu là custom môn
+        if (entry.isCustom) {
+            const delBtn = document.createElement('button');
+            delBtn.className = `pr-2 pl-0.5 opacity-60 hover:opacity-100 transition text-xs font-normal ${entry.isActive ? 'text-blue-100 hover:text-white' : 'text-gray-400 hover:text-red-500'}`;
+            delBtn.title = "Xóa môn học này";
+            delBtn.innerHTML = "×";
+            delBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (confirm(`Bạn có chắc muốn xóa môn "${entry.label}" khỏi trình duyệt không?`)) {
+                    deleteCustomSubject(entry.id);
+                }
+            });
+            btn.appendChild(delBtn);
+        }
+
+        container.appendChild(btn);
+    });
+}
+
+function deleteCustomSubject(subId) {
+    try {
+        const custom = JSON.parse(localStorage.getItem(STORAGE_KEY_CUSTOM_SUBJECTS) || '{}');
+        delete custom[subId];
+        localStorage.setItem(STORAGE_KEY_CUSTOM_SUBJECTS, JSON.stringify(custom));
+        if (currentSubjectId === subId) {
+            switchSubject('japanese');
+        } else {
+            renderSubjectMenu();
+        }
+    } catch (e) {
+        console.error('Lỗi khi xóa môn:', e);
+    }
+}
 
 // ==========================================
 // HÀM TIỆN ÍCH & LỌC CÂU HỎI
@@ -38,21 +291,64 @@ function getFilteredQuestions() {
 }
 
 function updateQuizModeUI() {
-    document.querySelectorAll('.quiz-mode-btn').forEach(btn => {
+    const container = document.getElementById('quiz-mode-container');
+    if (!container) return;
+
+    const isVocab = currentSubject.quizType !== 'standard';
+
+    if (!isVocab) {
+        // Môn trắc nghiệm thông thường (không cần đảo ngược)
+        container.innerHTML = `
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm" data-mode="standard">
+                📝 Trắc nghiệm tiêu chuẩn
+            </button>
+        `;
+        currentQuizMode = 'standard';
+        return;
+    }
+
+    const labels = currentSubject.modeLabels || {
+        'jp-vi': `${currentSubject.icon || '📖'} ➔ 🇻🇳 ${currentSubject.name} - Việt`,
+        'vi-jp': `🇻🇳 ➔ ${currentSubject.icon || '📖'} Việt - ${currentSubject.name}`,
+        'mix': '🔀 Trộn cả hai'
+    };
+
+    container.innerHTML = `
+        <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="jp-vi">
+            ${labels['jp-vi']}
+        </button>
+        <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="vi-jp">
+            ${labels['vi-jp']}
+        </button>
+        <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="mix">
+            ${labels['mix']}
+        </button>
+    `;
+
+    container.querySelectorAll('.quiz-mode-btn').forEach(btn => {
         const mode = btn.getAttribute('data-mode');
         if (mode === currentQuizMode) {
             btn.className = "quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm";
         } else {
             btn.className = "quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-blue-50";
         }
+
+        btn.addEventListener('click', () => {
+            if (mode && mode !== currentQuizMode) {
+                currentQuizMode = mode;
+                saveQuizModeState();
+                updateQuizModeUI();
+                startQuiz();
+            }
+        });
     });
 }
 
 function updateQuestionDisplay() {
     if (!currentQuestion) return;
-    const hideFurigana = document.getElementById('toggle-furigana')?.checked;
+    const hideFurigana = currentSubject.hasFurigana && document.getElementById('toggle-furigana')?.checked;
 
-    if (currentQuestion.direction === 'jp-vi') {
+    if (currentQuestion.direction === 'jp-vi' || currentQuestion.direction === 'standard') {
         ui.question.innerText = hideFurigana 
             ? currentQuestion.prompt.replace(/\s*\([^)]+\)/g, '') 
             : currentQuestion.prompt;
@@ -79,12 +375,12 @@ function updateQuestionDisplay() {
 function updateLastMarkedQuestion(id) {
     if (id === null || id === undefined || Number.isNaN(Number(id))) return;
     lastMarkedQuestionId = Number(id);
-    localStorage.setItem(STORAGE_KEY_LAST, String(lastMarkedQuestionId));
+    saveLastMarkedState();
 }
 
 function clearLastMarkedQuestion() {
     lastMarkedQuestionId = null;
-    localStorage.removeItem(STORAGE_KEY_LAST);
+    saveLastMarkedState();
 }
 
 function getMostRecentMarkedQuestionId() {
@@ -106,7 +402,6 @@ function syncLastMarkedQuestionFromSelection() {
         return;
     }
 
-    // Giữ lại lịch sử câu gần nhất đã chọn trước đó, ngay cả khi danh sách hiện tại đang rỗng.
     if (lastMarkedQuestionId === null) {
         clearLastMarkedQuestion();
     }
@@ -159,7 +454,7 @@ function activateListItem(index, moveToNext = true) {
 function scrollToLastLearned() {
     const targetId = getTargetLastQuestionId();
     if (targetId === null) {
-        alert('Bạn chưa đánh dấu câu nào là đã học!');
+        alert('Bạn chưa đánh dấu câu nào là đã học trong mục này!');
         return;
     }
 
@@ -202,13 +497,21 @@ function renderListScreen() {
         
         const header = document.createElement('div');
         header.className = "flex justify-between items-start gap-4 mb-3";
+
+        let lessonInfo = '';
+        if (q.lesson && q.lesson !== 'all') {
+            const prefix = currentSubjectId === 'japanese_kanji' ? 'Hán tự: ' : (/^\d+$/.test(q.lesson) ? 'Bài ' : '');
+            const partInfo = q.partTitle ? ` • Phần ${q.part}: ${q.partTitle}` : (q.part && q.part !== 'all' ? ` • Phần ${q.part}` : '');
+            lessonInfo = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 mb-1">${prefix}${q.lesson}${partInfo}</span>`;
+        }
+
         header.innerHTML = `
             <div class="flex items-start gap-3 flex-1">
                 <span class="inline-flex items-center justify-center min-w-9 h-9 rounded-full bg-blue-100 text-blue-700 font-bold text-sm shadow-sm">
                     ${index + 1}
                 </span>
                 <div class="flex-1">
-                    <span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 mb-1">Bài ${q.lesson}${q.partTitle ? ` • Phần ${q.part}: ${q.partTitle}` : (q.part !== 'all' ? ` • Phần ${q.part}` : '')}</span>
+                    ${lessonInfo}
                     <h3 class="font-bold text-gray-800 whitespace-pre-wrap">${q.question}</h3>
                 </div>
             </div>
@@ -254,7 +557,7 @@ function renderListScreen() {
                 markedQuestions = markedQuestions.filter(mId => mId !== id);
                 syncLastMarkedQuestionFromSelection();
             }
-            localStorage.setItem(STORAGE_KEY_MARKED, JSON.stringify(markedQuestions));
+            saveMarkedState();
             ui.selectedCount.innerText = markedQuestions.length;
             updateSelectAllButtonState();
         });
@@ -268,7 +571,7 @@ function renderListScreen() {
 // ==========================================
 // CHỨC NĂNG HỌC & TẠO CÂU HỎI (QUIZ)
 // ==========================================
-function getJapaneseDistractors(baseQ, candidatePool, count = 3) {
+function getDistractors(baseQ, candidatePool, count = 3) {
     const isDifferent = item => 
         item.question !== baseQ.question && 
         item.correct[0] !== baseQ.correct[0];
@@ -299,8 +602,10 @@ function getJapaneseDistractors(baseQ, candidatePool, count = 3) {
 }
 
 function createQuizItem(baseQ, direction, candidatePool) {
-    if (direction === 'vi-jp') {
-        const distractors = getJapaneseDistractors(baseQ, candidatePool, 3);
+    const isReverse = (direction === 'vi-jp' && currentSubject.quizType !== 'standard');
+
+    if (isReverse) {
+        const distractors = getDistractors(baseQ, candidatePool, 3);
         const options = [baseQ.question, ...distractors].sort(() => Math.random() - 0.5);
         return {
             id: baseQ.id,
@@ -312,6 +617,9 @@ function createQuizItem(baseQ, direction, candidatePool) {
             part: baseQ.part,
             partTitle: baseQ.partTitle,
             type: 'radio',
+            correctPrimary: baseQ.question,
+            correctSecondary: baseQ.correct[0],
+            // Giữ alias cho Tiếng Nhật
             correctJapanese: baseQ.question,
             correctVietnamese: baseQ.correct[0],
             baseQ: baseQ
@@ -319,7 +627,7 @@ function createQuizItem(baseQ, direction, candidatePool) {
     } else {
         return {
             id: baseQ.id,
-            direction: 'jp-vi',
+            direction: direction === 'standard' ? 'standard' : 'jp-vi',
             prompt: baseQ.question,
             options: [...baseQ.options].sort(() => Math.random() - 0.5),
             correct: [...baseQ.correct],
@@ -327,6 +635,9 @@ function createQuizItem(baseQ, direction, candidatePool) {
             part: baseQ.part,
             partTitle: baseQ.partTitle,
             type: baseQ.type,
+            correctPrimary: baseQ.question,
+            correctSecondary: baseQ.correct[0],
+            // Giữ alias cho Tiếng Nhật
             correctJapanese: baseQ.question,
             correctVietnamese: baseQ.correct[0],
             baseQ: baseQ
@@ -387,7 +698,7 @@ function startQuiz() {
 
 function loadNextQuestion() {
     if (reviewQueue.length === 0) {
-        ui.question.innerHTML = "🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ bài ôn tập.";
+        ui.question.innerHTML = "🎉 Tuyệt vời! Bạn đã hoàn thành toàn bộ bài ôn tập mục này.";
         ui.options.innerHTML = "";
         ui.skipBtn.style.display = "none";
         ui.progress.style.display = "none";
@@ -401,20 +712,43 @@ function loadNextQuestion() {
     
     const lessonBadge = document.getElementById('lesson-badge');
     if (lessonBadge) {
-        const partInfo = currentQuestion.partTitle 
-            ? ` • Phần ${currentQuestion.part}: ${currentQuestion.partTitle}` 
-            : (currentQuestion.part !== 'all' ? ` • Phần ${currentQuestion.part}` : '');
-        lessonBadge.innerText = `Bài ${currentQuestion.lesson}${partInfo}`;
+        if (currentQuestion.lesson && currentQuestion.lesson !== 'all') {
+            const prefix = currentSubjectId === 'japanese_kanji' ? 'Hán tự: ' : (/^\d+$/.test(currentQuestion.lesson) ? 'Bài ' : '');
+            const partInfo = currentQuestion.partTitle 
+                ? ` • Phần ${currentQuestion.part}: ${currentQuestion.partTitle}` 
+                : (currentQuestion.part && currentQuestion.part !== 'all' ? ` • Phần ${currentQuestion.part}` : '');
+            lessonBadge.style.display = "inline-block";
+            lessonBadge.innerText = `${prefix}${currentQuestion.lesson}${partInfo}`;
+        } else {
+            lessonBadge.style.display = "none";
+        }
     }
 
     if (ui.directionBadge) {
         ui.directionBadge.style.display = "";
-        if (currentQuestion.direction === 'vi-jp') {
-            ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-flex items-center gap-1 border border-emerald-300";
-            ui.directionBadge.innerHTML = "<span>🇻🇳 ➔ 🇯🇵</span><span>Chọn từ tiếng Nhật tương ứng</span>";
+
+        if (currentSubjectId === 'japanese_kanji') {
+            if (currentQuestion.direction === 'vi-jp') {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-flex items-center gap-1 border border-emerald-300";
+                ui.directionBadge.innerHTML = "<span>🇻🇳 ➔ 🈸</span><span>Chọn chữ Hán tương ứng</span>";
+            } else {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-blue-100 text-blue-800 rounded-full inline-flex items-center gap-1 border border-blue-200";
+                ui.directionBadge.innerHTML = "<span>🈸 ➔ 🇻🇳</span><span>Chọn cách đọc & nghĩa của từ này</span>";
+            }
         } else {
-            ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-blue-100 text-blue-800 rounded-full inline-flex items-center gap-1 border border-blue-200";
-            ui.directionBadge.innerHTML = "<span>🇯🇵 ➔ 🇻🇳</span><span>Chọn nghĩa tiếng Việt của từ này</span>";
+            const icon = currentSubject.icon || '📖';
+            const subName = currentSubject.name || 'Môn';
+
+            if (currentQuestion.direction === 'vi-jp') {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-flex items-center gap-1 border border-emerald-300";
+                ui.directionBadge.innerHTML = `<span>🇻🇳 ➔ ${icon}</span><span>Chọn từ ${subName} tương ứng</span>`;
+            } else if (currentQuestion.direction === 'jp-vi') {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-blue-100 text-blue-800 rounded-full inline-flex items-center gap-1 border border-blue-200";
+                ui.directionBadge.innerHTML = `<span>${icon} ➔ 🇻🇳</span><span>Chọn nghĩa tiếng Việt của từ này</span>`;
+            } else {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full inline-flex items-center gap-1 border border-purple-200";
+                ui.directionBadge.innerHTML = `<span>${icon}</span><span>Chọn đáp án đúng nhất</span>`;
+            }
         }
     }
 
@@ -426,7 +760,7 @@ function loadNextQuestion() {
     }
     
     ui.options.innerHTML = "";
-    const hideFurigana = document.getElementById('toggle-furigana')?.checked;
+    const hideFurigana = currentSubject.hasFurigana && document.getElementById('toggle-furigana')?.checked;
 
     currentQuestion.options.forEach((opt, index) => {
         const label = document.createElement('label');
@@ -485,28 +819,50 @@ function checkAnswer() {
         node.parentElement.classList.add('bg-gray-100');
     });
 
+    const isVocab = currentSubject.quizType !== 'standard';
+
     if (isCorrect) {
         ui.feedback.className = "mt-6 p-5 rounded-lg bg-green-50 text-green-800 border-2 border-green-200";
         ui.feedbackTitle.innerText = "✅ Chính xác!";
-        ui.feedbackText.innerHTML = `
-            <div class="mt-1 flex items-baseline gap-2 flex-wrap">
-                <span class="text-xl font-bold text-green-900">${currentQuestion.correctJapanese}</span>
-                <span class="text-gray-400">•</span>
-                <span class="text-base font-semibold text-green-800">${currentQuestion.correctVietnamese}</span>
-            </div>
-            <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
-        `;
+
+        if (isVocab) {
+            ui.feedbackText.innerHTML = `
+                <div class="mt-1 flex items-baseline gap-2 flex-wrap">
+                    <span class="text-xl font-bold text-green-900">${currentQuestion.correctPrimary}</span>
+                    <span class="text-gray-400">•</span>
+                    <span class="text-base font-semibold text-green-800">${currentQuestion.correctSecondary}</span>
+                </div>
+                <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+            `;
+        } else {
+            ui.feedbackText.innerHTML = `
+                <div class="mt-1 font-semibold text-green-900">
+                    Đáp án đúng: ${currentQuestion.correct.join(', ')}
+                </div>
+                <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+            `;
+        }
         reviewQueue.shift(); 
     } else {
         ui.feedback.className = "mt-6 p-5 rounded-lg bg-red-50 text-red-800 border-2 border-red-200";
         ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
-        ui.feedbackText.innerHTML = `
-            <div class="mt-2 p-3 bg-white rounded-lg border border-red-200 shadow-sm">
-                <div class="text-xl font-bold text-red-900 mb-1">${currentQuestion.correctJapanese}</div>
-                <div class="text-sm font-semibold text-gray-700">Nghĩa: <span class="text-red-700 font-bold">${currentQuestion.correctVietnamese}</span></div>
-            </div>
-            <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
-        `;
+
+        if (isVocab) {
+            ui.feedbackText.innerHTML = `
+                <div class="mt-2 p-3 bg-white rounded-lg border border-red-200 shadow-sm">
+                    <div class="text-xl font-bold text-red-900 mb-1">${currentQuestion.correctPrimary}</div>
+                    <div class="text-sm font-semibold text-gray-700">Nghĩa: <span class="text-red-700 font-bold">${currentQuestion.correctSecondary}</span></div>
+                </div>
+                <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+            `;
+        } else {
+            ui.feedbackText.innerHTML = `
+                <div class="mt-2 p-3 bg-white rounded-lg border border-red-200 shadow-sm">
+                    <div class="text-base font-bold text-red-900 mb-1">Đáp án: ${currentQuestion.correct.join(', ')}</div>
+                </div>
+                <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+            `;
+        }
         
         const failedItem = reviewQueue.shift();
         reviewQueue.push(failedItem);
@@ -522,19 +878,65 @@ function handleNextAction() {
 }
 
 // ==========================================
-// TABS & BỘ LỌC BÀI HỌC / PHẦN
+// TABS & BỘ LỌC BÀI HỌC / PHẦN (DYNAMIC)
 // ==========================================
-function updateLessonCounts() {
-    document.querySelectorAll('.lesson-tab').forEach(tab => {
-        const les = tab.getAttribute('data-lesson');
-        let count;
+function renderLessonTabs() {
+    const container = document.getElementById('lesson-tabs');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // Tìm tất cả các bài học riêng biệt trong câu hỏi
+    const lessonSet = new Set();
+    allQuestions.forEach(q => {
+        if (q.lesson && q.lesson !== 'all') {
+            lessonSet.add(q.lesson);
+        }
+    });
+
+    const uniqueLessons = Array.from(lessonSet).sort((a, b) => {
+        const numA = parseInt(a);
+        const numB = parseInt(b);
+        if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+        return a.localeCompare(b);
+    });
+
+    const lessonsToRender = ['all', ...uniqueLessons];
+
+    lessonsToRender.forEach(les => {
+        let label = '';
+        let count = 0;
         if (les === 'all') {
+            label = 'Tất cả';
             count = allQuestions.length;
         } else {
+            const prefix = currentSubjectId === 'japanese_kanji' ? '' : (/^\d+$/.test(les) ? 'Bài ' : '');
+            label = `${prefix}${les}`;
             count = allQuestions.filter(q => q.lesson === les).length;
         }
-        const label = les === 'all' ? 'Tất cả' : `Bài ${les}`;
-        tab.textContent = `${label} (${count})`;
+
+        const isActive = selectedLesson === les;
+        const btn = document.createElement('button');
+        btn.setAttribute('data-lesson', les);
+        btn.className = `lesson-tab px-4 py-1.5 rounded-full font-bold text-sm shadow-sm transition border-2 ${
+            isActive
+                ? 'border-indigo-500 bg-indigo-500 text-white'
+                : 'border-indigo-300 bg-white text-indigo-600 hover:bg-indigo-50'
+        }`;
+        btn.textContent = `${label} (${count})`;
+
+        btn.addEventListener('click', () => {
+            selectedLesson = les;
+            selectedPart = 'all';
+            renderLessonTabs();
+            renderPartTabs();
+            if (!ui.listScreen.classList.contains('hidden')) {
+                renderListScreen();
+            } else {
+                startQuiz();
+            }
+        });
+
+        container.appendChild(btn);
     });
 }
 
@@ -543,7 +945,31 @@ function renderPartTabs() {
     if (!container) return;
     container.innerHTML = '';
 
-    const parts = ['all', '1', '2', '3'];
+    // Tìm tất cả các phần thuộc bài đã chọn
+    const partSet = new Set();
+    allQuestions.forEach(q => {
+        if ((selectedLesson === 'all' || q.lesson === selectedLesson) && q.part && q.part !== 'all') {
+            partSet.add(q.part);
+        }
+    });
+
+    // Nếu không có phần nào, ẩn thanh tab phần đi cho gọn gàng
+    if (partSet.size === 0) {
+        container.style.display = 'none';
+        return;
+    }
+    container.style.display = 'flex';
+
+    const uniqueParts = Array.from(partSet).sort((a, b) => {
+        const numA = parseInt(a);
+        const numB = parseInt(b);
+        if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+        return a.localeCompare(b);
+    });
+
+    const parts = ['all', ...uniqueParts];
+    const lessonPartsDict = currentSubject.lessonParts || {};
+
     parts.forEach(p => {
         let label = '';
         let count = 0;
@@ -551,8 +977,8 @@ function renderPartTabs() {
             label = 'Tất cả phần';
             count = allQuestions.filter(q => selectedLesson === 'all' || q.lesson === selectedLesson).length;
         } else {
-            const title = (selectedLesson !== 'all' && LESSON_PARTS[selectedLesson]?.[p])
-                ? `: ${LESSON_PARTS[selectedLesson][p]}`
+            const title = (selectedLesson !== 'all' && lessonPartsDict[selectedLesson]?.[p])
+                ? `: ${lessonPartsDict[selectedLesson][p]}`
                 : '';
             label = `Phần ${p}${title}`;
             count = allQuestions.filter(q => (selectedLesson === 'all' || q.lesson === selectedLesson) && q.part === p).length;
@@ -583,6 +1009,119 @@ function renderPartTabs() {
 }
 
 // ==========================================
+// MODAL THÊM MÔN HỌC MỚI
+// ==========================================
+function setupModal() {
+    const modal = document.getElementById('add-subject-modal');
+    const openBtn = document.getElementById('add-subject-btn');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const tabQuick = document.getElementById('tab-btn-quick');
+    const tabCode = document.getElementById('tab-btn-code');
+    const formQuick = document.getElementById('quick-add-form');
+    const guideCode = document.getElementById('code-add-guide');
+    const saveBtn = document.getElementById('save-new-subject-btn');
+
+    if (!modal) return;
+
+    if (openBtn) {
+        openBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    }
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+
+    if (tabQuick && tabCode) {
+        tabQuick.addEventListener('click', () => {
+            tabQuick.className = "font-bold pb-2 px-3 border-b-2 border-blue-600 text-blue-600";
+            tabCode.className = "font-semibold pb-2 px-3 text-gray-500 hover:text-gray-800 border-b-2 border-transparent";
+            formQuick.classList.remove('hidden');
+            guideCode.classList.add('hidden');
+        });
+
+        tabCode.addEventListener('click', () => {
+            tabCode.className = "font-bold pb-2 px-3 border-b-2 border-blue-600 text-blue-600";
+            tabQuick.className = "font-semibold pb-2 px-3 text-gray-500 hover:text-gray-800 border-b-2 border-transparent";
+            guideCode.classList.remove('hidden');
+            formQuick.classList.add('hidden');
+        });
+    }
+
+    if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+            const subId = (document.getElementById('new-sub-id')?.value || '').trim().toLowerCase().replace(/[^a-z0-9_-]/g, '_');
+            const subName = (document.getElementById('new-sub-name')?.value || '').trim();
+            const subIcon = (document.getElementById('new-sub-icon')?.value || '').trim() || '📖';
+            const subBadge = (document.getElementById('new-sub-badge')?.value || '').trim() || 'Tự tạo';
+            const subRaw = (document.getElementById('new-sub-raw')?.value || '').trim();
+
+            if (!subId) {
+                alert('Vui lòng nhập Mã định danh ID (ví dụ: korean, tienganh, toan)');
+                return;
+            }
+            if (!subName) {
+                alert('Vui lòng nhập Tên môn học (ví dụ: Tiếng Hàn, Tiếng Anh)');
+                return;
+            }
+            if (!subRaw) {
+                alert('Vui lòng dán nội dung câu hỏi');
+                return;
+            }
+
+            // Kiểm tra phân tích câu hỏi thử
+            const testParsed = parseRawText(subRaw);
+            if (testParsed.length === 0) {
+                alert('Không thể nhận diện câu hỏi nào từ nội dung vừa dán! Vui lòng kiểm tra lại định dạng câu hỏi theo mẫu: Câu 1 [BÀI X] ...');
+                return;
+            }
+
+            const newSubjectConfig = {
+                id: subId,
+                name: subName,
+                fullName: `${subName} (${testParsed.length} câu)`,
+                icon: subIcon,
+                badge: subBadge,
+                hasFurigana: false,
+                quizType: 'vocab',
+                langFrom: subName,
+                langTo: 'Tiếng Việt',
+                modeLabels: {
+                    'jp-vi': `${subIcon} ➔ 🇻🇳 ${subName} - Việt`,
+                    'vi-jp': `🇻🇳 ➔ ${subIcon} Việt - ${subName}`,
+                    'mix': '🔀 Trộn cả hai'
+                },
+                lessonParts: {},
+                rawText: subRaw
+            };
+
+            // Lưu vào localStorage
+            try {
+                const custom = JSON.parse(localStorage.getItem(STORAGE_KEY_CUSTOM_SUBJECTS) || '{}');
+                custom[subId] = newSubjectConfig;
+                localStorage.setItem(STORAGE_KEY_CUSTOM_SUBJECTS, JSON.stringify(custom));
+            } catch (err) {
+                alert('Lỗi lưu trữ: ' + err.message);
+                return;
+            }
+
+            modal.classList.add('hidden');
+            switchSubject(subId);
+            alert(`Đã thêm thành công môn "${subName}" với ${testParsed.length} câu hỏi!`);
+        });
+    }
+}
+
+// ==========================================
 // KHỞI TẠO ỨNG DỤNG & SỰ KIỆN
 // ==========================================
 function initApp() {
@@ -607,10 +1146,20 @@ function initApp() {
         nextBtn: document.getElementById('next-btn'),
     };
 
-    // 2. Nạp dữ liệu từ window.RAW_DATABASE hoặc thẻ <script id="database">
-    const rawData = window.RAW_DATABASE || document.getElementById('database')?.textContent || '';
-    allQuestions = parseRawText(rawData);
-    
+    // 2. Xác định môn học ban đầu
+    const allSubs = getAllSubjects();
+    const savedSubjectId = localStorage.getItem(STORAGE_KEY_SELECTED_SUBJECT);
+    if (savedSubjectId && allSubs[savedSubjectId]) {
+        currentSubjectId = savedSubjectId;
+    } else {
+        currentSubjectId = Object.keys(allSubs)[0] || 'japanese';
+    }
+    currentSubject = allSubs[currentSubjectId];
+
+    // Nạp câu hỏi môn học ban đầu
+    allQuestions = parseRawText(currentSubject.rawText, currentSubject.lessonParts);
+    loadSubjectState();
+
     if (allQuestions.length === 0) {
         ui.loadingScreen.innerText = "❌ Lỗi: Không tìm thấy dữ liệu câu hỏi. Hãy kiểm tra lại file code!";
         return;
@@ -631,22 +1180,22 @@ function initApp() {
         renderListScreen();
     });
 
-    // 4. Sự kiện chọn chế độ hỏi (Nhật-Việt, Việt-Nhật, Trộn)
-    document.querySelectorAll('.quiz-mode-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const mode = btn.getAttribute('data-mode');
-            if (mode && mode !== currentQuizMode) {
-                currentQuizMode = mode;
-                localStorage.setItem(STORAGE_KEY_MODE, currentQuizMode);
-                updateQuizModeUI();
-                startQuiz();
-            }
-        });
-    });
-
-    // 5. Sự kiện Furigana
+    // 4. Sự kiện Furigana
     document.getElementById('toggle-furigana')?.addEventListener('change', () => {
         updateQuestionDisplay();
+    });
+
+    // 5. Sự kiện chuyển đổi Từ vựng / Hán tự của Tiếng Nhật
+    document.getElementById('sub-tab-vocab')?.addEventListener('click', () => {
+        if (currentSubjectId !== 'japanese') {
+            switchSubject('japanese');
+        }
+    });
+
+    document.getElementById('sub-tab-kanji')?.addEventListener('click', () => {
+        if (currentSubjectId !== 'japanese_kanji') {
+            switchSubject('japanese_kanji');
+        }
     });
 
     // 6. Sự kiện các nút chức năng trong Quiz
@@ -657,29 +1206,7 @@ function initApp() {
         loadNextQuestion();
     };
 
-    // 7. Sự kiện các tab bài học
-    document.querySelectorAll('.lesson-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            selectedLesson = tab.getAttribute('data-lesson');
-            selectedPart = 'all';
-            document.querySelectorAll('.lesson-tab').forEach(t => {
-                if (t.getAttribute('data-lesson') === selectedLesson) {
-                    t.className = 'lesson-tab px-4 py-1.5 rounded-full font-bold text-sm shadow-sm transition border-2 border-indigo-500 bg-indigo-500 text-white';
-                } else {
-                    t.className = 'lesson-tab px-4 py-1.5 rounded-full font-bold text-sm shadow-sm transition border-2 border-indigo-300 bg-white text-indigo-600 hover:bg-indigo-50';
-                }
-            });
-            updateLessonCounts();
-            renderPartTabs();
-            if (!ui.listScreen.classList.contains('hidden')) {
-                renderListScreen();
-            } else {
-                startQuiz();
-            }
-        });
-    });
-
-    // 8. Sự kiện các nút hành động trong Màn hình danh sách
+    // 7. Sự kiện các nút hành động trong Màn hình danh sách
     document.getElementById('scroll-last-btn')?.addEventListener('click', () => {
         scrollToLastLearned();
     });
@@ -691,7 +1218,7 @@ function initApp() {
             if (!markedQuestions.includes(q.id)) markedQuestions.push(q.id);
         });
         updateLastMarkedQuestion(filtered[filtered.length - 1]?.id ?? null);
-        localStorage.setItem(STORAGE_KEY_MARKED, JSON.stringify(markedQuestions));
+        saveMarkedState();
         renderListScreen();
     });
 
@@ -705,11 +1232,11 @@ function initApp() {
         } else {
             clearLastMarkedQuestion();
         }
-        localStorage.setItem(STORAGE_KEY_MARKED, JSON.stringify(markedQuestions));
+        saveMarkedState();
         renderListScreen();
     });
 
-    // 9. Nút cuộn về đầu trang
+    // 8. Nút cuộn về đầu trang
     const backToTopBtn = document.getElementById('back-to-top-btn');
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -728,7 +1255,7 @@ function initApp() {
         });
     }
 
-    // 10. Xử lý chuột phụ (Back / Forward side buttons)
+    // 9. Xử lý chuột phụ (Back / Forward side buttons)
     document.addEventListener('mousedown', (e) => {
         if (e.button === 3) {
             e.preventDefault();
@@ -741,7 +1268,7 @@ function initApp() {
         }
     });
 
-    // 11. Xử lý phím tắt
+    // 10. Xử lý phím tắt
     document.addEventListener('keydown', (e) => {
         // Trong màn hình danh sách
         if (!ui.listScreen.classList.contains('hidden')) {
@@ -794,9 +1321,14 @@ function initApp() {
         }
     });
 
+    // 11. Khởi tạo modal thêm môn học
+    setupModal();
+
     // 12. Cập nhật giao diện ban đầu và bắt đầu học
+    updateSubjectHeaderUI();
+    renderSubjectMenu();
     updateQuizModeUI();
-    updateLessonCounts();
+    renderLessonTabs();
     renderPartTabs();
     ui.loadingScreen.classList.add('hidden');
     startQuiz();
