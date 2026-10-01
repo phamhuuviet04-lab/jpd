@@ -6,15 +6,15 @@
 - **Phân loại Tiếng Nhật chuyên sâu (Mới)**:
   - **📖 Từ vựng (できる日本語)**: 249 câu từ vựng theo giáo trình Bài 4 - 7 (chia nhỏ theo 3 phần).
   - **🈸 Ôn tập Từ Hán (Kanji)**: Ôn tập 9 chữ Hán và các từ ghép tiêu biểu:
-    - **東 (ĐÔNG)**: 東 (ひがし: phía đông), 東京 (とうきょう: Tokyo)
-    - **京 (KINH)**: 東京 (とうきょう: Tokyo), 京都 (きょうと: Kyoto)
-    - **名 (DANH)**: 名前 (なまえ: tên), 名人 (めいじん: danh nhân)
-    - **前 (TIỀN)**: 前 (まえ: phía trước), 前日 (ぜんじつ: ngày trước)
+    - **東 (ĐÔNG)**: 東 (ひがし: phía đông)
+    - **京 (KINH)**: 東京 (とうきょう: Tokyo)
+    - **名 (DANH)**: 名 (な: tên), 名人 (めいじん: danh nhân)
+    - **前 (TIỀN)**: 前 (まえ: phía trước), 前日 (ぜんじつ: ngày trước), 名前 (なまえ: tên)
     - **国 (QUỐC)**: 国 (くに: đất nước), 国語 (こくご: quốc ngữ)
-    - **男 (NAM)**: 男の人 (おとこのひと: người đàn ông), 男女 (だんじょ: nam nữ)
-    - **女 (NỮ)**: 女の人 (おannaのひと: người phụ nữ), 女の子 (おんなのこ: bé gái), 男女 (だんじょ: nam nữ)
+    - **男 (NAM)**: 男 (おとこ: đàn ông, con trai), 男の人 (おとこのひと: người đàn ông)
+    - **女 (NỮ)**: 女 (おんな: con gái, nữ giới), 女の人 (おんなのひと: người phụ nữ), 男女 (だんじょ: nam nữ)
     - **区 (KHU)**: 区 (く: khu, quận), なごや区 (なごやく: quận Nagoya)
-    - **市 (THỊ)**: 市 (し: thành phố), ホーチミン市 (ホーチミンし: TP. Hồ Chí Minh), ハノイ市 (ハノイし: thành phố Hà Nội)
+    - **市 (THỊ)**: 市 (し: thành phố), ホーチミン市 (ホーチミンし: TP. HCM), ハノイ市 (ハノイし: TP. Hà Nội)
   - **Hỗ trợ 2 chiều hỏi đáp linh hoạt cho Hán tự**:
     - **Thuận**: Câu hỏi: `前` ➔ Đáp án: `まえ: phía trước`
     - **Nghịch**: Câu hỏi: `まえ: phía trước` ➔ Đáp án: `前`
