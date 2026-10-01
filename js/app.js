@@ -177,7 +177,7 @@ function updateSubjectHeaderUI() {
             if (currentSubjectId === 'japanese_kanji') {
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
-                if (japaneseSubDesc) japaneseSubDesc.innerText = `Ôn tập 9 chữ Hán & từ ghép (${allQuestions.length} câu)`;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `Hán tự Bài 4 (${allQuestions.length} câu)`;
             } else {
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
@@ -500,7 +500,7 @@ function renderListScreen() {
 
         let lessonInfo = '';
         if (q.lesson && q.lesson !== 'all') {
-            const prefix = currentSubjectId === 'japanese_kanji' ? 'Hán tự: ' : (/^\d+$/.test(q.lesson) ? 'Bài ' : '');
+            const prefix = /^\d+$/.test(q.lesson) ? 'Bài ' : '';
             const partInfo = q.partTitle ? ` • Phần ${q.part}: ${q.partTitle}` : (q.part && q.part !== 'all' ? ` • Phần ${q.part}` : '');
             lessonInfo = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 mb-1">${prefix}${q.lesson}${partInfo}</span>`;
         }
@@ -713,7 +713,7 @@ function loadNextQuestion() {
     const lessonBadge = document.getElementById('lesson-badge');
     if (lessonBadge) {
         if (currentQuestion.lesson && currentQuestion.lesson !== 'all') {
-            const prefix = currentSubjectId === 'japanese_kanji' ? 'Hán tự: ' : (/^\d+$/.test(currentQuestion.lesson) ? 'Bài ' : '');
+            const prefix = /^\d+$/.test(currentQuestion.lesson) ? 'Bài ' : '';
             const partInfo = currentQuestion.partTitle 
                 ? ` • Phần ${currentQuestion.part}: ${currentQuestion.partTitle}` 
                 : (currentQuestion.part && currentQuestion.part !== 'all' ? ` • Phần ${currentQuestion.part}` : '');
@@ -909,7 +909,7 @@ function renderLessonTabs() {
             label = 'Tất cả';
             count = allQuestions.length;
         } else {
-            const prefix = currentSubjectId === 'japanese_kanji' ? '' : (/^\d+$/.test(les) ? 'Bài ' : '');
+            const prefix = /^\d+$/.test(les) ? 'Bài ' : '';
             label = `${prefix}${les}`;
             count = allQuestions.filter(q => q.lesson === les).length;
         }

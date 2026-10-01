@@ -5,7 +5,7 @@
 ## Tính năng nổi bật
 - **Phân loại Tiếng Nhật chuyên sâu (Mới)**:
   - **📖 Từ vựng (できる日本語)**: 249 câu từ vựng theo giáo trình Bài 4 - 7 (chia nhỏ theo 3 phần).
-  - **🈸 Ôn tập Từ Hán (Kanji)**: Ôn tập 9 chữ Hán và các từ ghép tiêu biểu:
+  - **🈸 Ôn tập Từ Hán (Kanji)**: Toàn bộ 19 từ vựng và chữ Hán ghép được gom gọn thành **Bài 4**:
     - **東 (ĐÔNG)**: 東 (ひがし: phía đông)
     - **京 (KINH)**: 東京 (とうきょう: Tokyo)
     - **名 (DANH)**: 名 (な: tên), 名人 (めいじん: danh nhân)
@@ -19,7 +19,7 @@
     - **Thuận**: Câu hỏi: `前` ➔ Đáp án: `まえ: phía trước`
     - **Nghịch**: Câu hỏi: `まえ: phía trước` ➔ Đáp án: `前`
     - **Trộn cả hai chiều** ngẫu nhiên.
-  - Bộ lọc bài theo từng chữ Hán để luyện tập trọng tâm từng từ.
+  - Gom toàn bộ 19 từ vào **Bài 4** giúp ôn tập liền mạch hoặc kết hợp với các bài học khác.
 - **Menu chọn môn học linh hoạt**:
   - Chuyển đổi nhanh giữa các môn học chỉ với 1 cú click ngay ở thanh đầu trang.
   - Tự động lưu môn học đang chọn vào trình duyệt (`LocalStorage`).
