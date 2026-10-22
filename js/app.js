@@ -177,7 +177,7 @@ function updateSubjectHeaderUI() {
             if (currentSubjectId === 'japanese_kanji') {
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
-                if (japaneseSubDesc) japaneseSubDesc.innerText = `Hán tự Bài 4 (${allQuestions.length} câu)`;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Hán tự Bài 4 - 6'} (${allQuestions.length} câu)`;
             } else {
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
