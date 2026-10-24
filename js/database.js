@@ -2650,6 +2650,23 @@ window.APP_SUBJECTS = {
         },
         lessonParts: {},
         rawText: window.RAW_DATABASE_KANJI
+    },
+    "japanese_grammar": {
+        id: "japanese_grammar",
+        name: "Ngữ pháp (文法)",
+        fullName: "Tiếng Nhật (Ngữ pháp Bài 4 - 6)",
+        icon: "📐",
+        badge: "Ngữ pháp Bài 4 - 6",
+        category: "japanese",
+        hasFurigana: true,
+        quizType: "standard",
+        langFrom: "Câu hỏi Ngữ pháp",
+        langTo: "Đáp án",
+        modeLabels: {
+            "standard": "📐 Trắc nghiệm Ngữ pháp"
+        },
+        lessonParts: (typeof GRAMMAR_LESSON_PARTS !== 'undefined' ? GRAMMAR_LESSON_PARTS : (window.GRAMMAR_LESSON_PARTS || {})),
+        rawText: (typeof RAW_DATABASE_GRAMMAR !== 'undefined' ? RAW_DATABASE_GRAMMAR : (window.RAW_DATABASE_GRAMMAR || ""))
     }
 };
 

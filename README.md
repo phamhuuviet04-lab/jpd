@@ -1,11 +1,19 @@
-# jpd - Ứng dụng Ôn tập Từ vựng & Hán tự Tiếng Nhật (Hỗ trợ Đa môn học)
+# jpd - Ứng dụng Ôn tập Từ vựng, Hán tự & Ngữ pháp Tiếng Nhật (Hỗ trợ Đa môn học)
 
-Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), trắc nghiệm hỗ trợ đa môn học (mặc định gồm **Tiếng Nhật Từ vựng できる日本語** và **Tiếng Nhật Ôn tập Từ Hán Kanji**, dễ dàng mở rộng thêm các môn khác như Tiếng Anh, Tiếng Hàn, Lịch sử, v.v.).
+Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), ngữ pháp (Grammar), trắc nghiệm hỗ trợ đa môn học (mặc định gồm **Tiếng Nhật Từ vựng できる日本語**, **Tiếng Nhật Ôn tập Từ Hán Kanji** và **Tiếng Nhật Ngữ pháp 文法**, dễ dàng mở rộng thêm các môn khác như Tiếng Anh, Tiếng Hàn, Lịch sử, v.v.).
 
 ## Tính năng nổi bật
-- **Phân loại Tiếng Nhật chuyên sâu (Mới)**:
+- **Phân loại Tiếng Nhật chuyên sâu 3 trong 1 (Mới)**:
   - **📖 Từ vựng (できる日本語)**: 249 câu từ vựng theo giáo trình Bài 4 - 7 (chia nhỏ theo 3 phần).
-  - **🈸 Ôn tập Từ Hán (Kanji)**: Đầy đủ 75 từ vựng và chữ Hán ghép từ giáo trình FPT University (Bài 4 - 6):
+  - **🈸 Ôn tập Từ Hán (Kanji)**: Đầy đủ 75 từ vựng và chữ Hán ghép từ giáo trình FPT University (Bài 4 - 6).
+  - **📐 Ngữ pháp (文法 - Mới)**: Trọn bộ **160 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 6:
+    - **Hỏi bản chất / ý nghĩa / cấu trúc ngữ pháp**: Ví dụ `N は どうですか` dùng để làm gì? (Hỏi tính chất, đặc điểm của N "N trông như thế nào?" ở Bài 4.2; Đưa ra đề xuất, gợi ý "Thế còn N thì sao?" ở Bài 6.3), phân biệt trợ từ cuối câu `ね` và `よ`, phân biệt `であります` (diễn ra sự kiện) và `にあります` (tồn tại tĩnh), quy tắc chia tính từ đuôi い/な ở hiện tại và quá khứ, phó từ chỉ mức độ (`とても`, `すこし`, `あまり`, `ぜんぜん`), v.v.
+    - **Hỏi vận dụng thực tế / hoàn thành câu / hội thoại ngữ cảnh**: Đáp án là câu trả lời hoặc cách dùng đúng ngữ pháp theo đúng bài học.
+    - **Có giải thích chi tiết (💡 Giải thích)** ngay dưới mỗi câu trả lời và trong màn hình danh sách câu hỏi.
+    - **Phân chia theo từng Bài và từng Phần**:
+      - **Bài 4**: Phần 1: *どこ？ (Vị trí, Phương tiện, Thời gian)* | Phần 2: *どんなところ？ (Tính từ, Tồn tại, Nối câu)* | Phần 3: *季節・料理 (Phó từ, Trợ từ ね, Thời tiết)*
+      - **Bài 5**: Phần 1: *週末 (Quá khứ Động từ, Đi đâu, と, それから)* | Phần 2: *休みの後で (Quá khứ Tính từ, どうでしたか, Lý do 〜から)* | Phần 3: *今度の休みに (ほしい, 〜たい, Mục đích di chuyển)*
+      - **Bài 6**: Phần 1: *一緒に行きませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)* | Phần 2: *どちらがいいですか。 (So sánh hơn より, どちら, 一番)* | Phần 3: *約束 (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ)*
     - **Bài 4 (19 từ)**:
       - **東 (ĐÔNG)**: 東 (ひがし: phía đông)
       - **京 (KINH)**: 東京 (とうきょう: Tokyo)
@@ -64,11 +72,12 @@
 
 ```text
 quizlet/
-├── index.html          # Khung giao diện HTML với Menu chọn môn học & Sub-tabs
+├── index.html          # Khung giao diện HTML với Menu chọn môn học & Sub-tabs (Từ vựng, Hán tự, Ngữ pháp)
 ├── css/
 │   └── style.css       # Tùy chỉnh giao diện, thanh cuộn, hiệu ứng
 ├── js/
 │   ├── database.js     # Kho dữ liệu câu hỏi (Từ vựng, Hán tự) & cấu hình APP_SUBJECTS
+│   ├── grammar_data.js # Kho 160 câu hỏi ngữ pháp (Bài 4 - 6) & phân loại GRAMMAR_LESSON_PARTS
 │   ├── parser.js       # Bộ phân tích dữ liệu câu hỏi và ánh xạ bài học
 │   └── app.js          # Logic điều khiển chính (Chuyển môn, Quiz, Danh sách, Phím tắt, LocalStorage)
 └── README.md           # Tài liệu hướng dẫn

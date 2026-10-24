@@ -135,12 +135,15 @@ function updateSubjectHeaderUI() {
     const japaneseSubTabs = document.getElementById('japanese-sub-tabs');
     const subTabVocab = document.getElementById('sub-tab-vocab');
     const subTabKanji = document.getElementById('sub-tab-kanji');
+    const subTabGrammar = document.getElementById('sub-tab-grammar');
     const japaneseSubDesc = document.getElementById('japanese-sub-desc');
 
     if (iconEl) iconEl.innerText = currentSubject.icon || '📚';
     if (nameEl) {
         if (currentSubjectId === 'japanese_kanji') {
             nameEl.innerText = "Tiếng Nhật (Hán tự)";
+        } else if (currentSubjectId === 'japanese_grammar') {
+            nameEl.innerText = "Tiếng Nhật (Ngữ pháp)";
         } else {
             nameEl.innerText = currentSubject.name || 'Môn học';
         }
@@ -167,7 +170,7 @@ function updateSubjectHeaderUI() {
         }
     }
 
-    // Quản lý thanh chủ đề con cho Tiếng Nhật (Từ vựng / Hán tự)
+    // Quản lý thanh chủ đề con cho Tiếng Nhật (Từ vựng / Hán tự / Ngữ pháp)
     if (japaneseSubTabs) {
         const isJapanese = currentSubject.category === 'japanese' || currentSubjectId.startsWith('japanese');
         if (isJapanese) {
@@ -177,10 +180,17 @@ function updateSubjectHeaderUI() {
             if (currentSubjectId === 'japanese_kanji') {
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (subTabGrammar) subTabGrammar.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Hán tự Bài 4 - 6'} (${allQuestions.length} câu)`;
+            } else if (currentSubjectId === 'japanese_grammar') {
+                if (subTabGrammar) subTabGrammar.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
+                if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Ngữ pháp Bài 4 - 6'} (${allQuestions.length} câu)`;
             } else {
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (subTabGrammar) subTabGrammar.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `Giáo trình Dekiru Nihongo Bài 4 - 7 (${allQuestions.length} câu)`;
             }
         } else {
@@ -199,16 +209,16 @@ function renderSubjectMenu() {
     const customSubjects = JSON.parse(localStorage.getItem(STORAGE_KEY_CUSTOM_SUBJECTS) || '{}');
 
     // Gom nhóm các môn chính để thanh menu trên cùng luôn gọn đẹp
-    // Tiếng Nhật (gồm cả vocab và kanji), và các môn tự tạo
+    // Tiếng Nhật (gồm cả vocab, kanji và ngữ pháp), và các môn tự tạo
     const mainEntries = [
         {
             id: 'japanese',
             label: 'Tiếng Nhật',
             icon: '🇯🇵',
-            isActive: currentSubjectId === 'japanese' || currentSubjectId === 'japanese_kanji',
+            isActive: currentSubjectId === 'japanese' || currentSubjectId === 'japanese_kanji' || currentSubjectId === 'japanese_grammar',
             onSelect: () => {
                 // Giữ lại môn con đang học hoặc chuyển sang japanese
-                if (currentSubjectId !== 'japanese' && currentSubjectId !== 'japanese_kanji') {
+                if (currentSubjectId !== 'japanese' && currentSubjectId !== 'japanese_kanji' && currentSubjectId !== 'japanese_grammar') {
                     switchSubject('japanese');
                 }
             }
@@ -533,6 +543,12 @@ function renderListScreen() {
         
         qDiv.appendChild(header);
         qDiv.appendChild(optionsDiv);
+        if (q.explanation && !q.explanation.startsWith('→ Đáp án:')) {
+            const explDiv = document.createElement('div');
+            explDiv.className = "mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs md:text-sm text-blue-900 leading-relaxed";
+            explDiv.innerHTML = `💡 <b>Giải thích:</b> ${q.explanation}`;
+            qDiv.appendChild(explDiv);
+        }
         qDiv.addEventListener('click', (event) => {
             if (event.target.closest('.mark-checkbox')) return;
             const itemIndex = Array.from(container.children).indexOf(qDiv);
@@ -735,6 +751,9 @@ function loadNextQuestion() {
                 ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-blue-100 text-blue-800 rounded-full inline-flex items-center gap-1 border border-blue-200";
                 ui.directionBadge.innerHTML = "<span>🈸 ➔ 🇻🇳</span><span>Chọn cách đọc & nghĩa của từ này</span>";
             }
+        } else if (currentSubjectId === 'japanese_grammar') {
+            ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full inline-flex items-center gap-1 border border-indigo-200";
+            ui.directionBadge.innerHTML = "<span>📐</span><span>Chọn đáp án đúng ngữ pháp</span>";
         } else {
             const icon = currentSubject.icon || '📖';
             const subName = currentSubject.name || 'Môn';
@@ -835,10 +854,13 @@ function checkAnswer() {
                 <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
         } else {
+            const expl = currentQuestion.baseQ?.explanation;
+            const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             ui.feedbackText.innerHTML = `
                 <div class="mt-1 font-semibold text-green-900">
                     Đáp án đúng: ${currentQuestion.correct.join(', ')}
                 </div>
+                ${hasExpl ? `<div class="mt-3 text-xs md:text-sm bg-white p-3 rounded-lg border border-green-300 text-green-900 leading-relaxed shadow-sm">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
                 <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
         }
@@ -856,9 +878,12 @@ function checkAnswer() {
                 <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         } else {
+            const expl = currentQuestion.baseQ?.explanation;
+            const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             ui.feedbackText.innerHTML = `
                 <div class="mt-2 p-3 bg-white rounded-lg border border-red-200 shadow-sm">
-                    <div class="text-base font-bold text-red-900 mb-1">Đáp án: ${currentQuestion.correct.join(', ')}</div>
+                    <div class="text-base font-bold text-red-900 mb-1">Đáp án đúng: ${currentQuestion.correct.join(', ')}</div>
+                    ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-red-50 p-2.5 rounded border border-red-200 text-red-900 leading-relaxed">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
                 </div>
                 <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
@@ -1195,6 +1220,12 @@ function initApp() {
     document.getElementById('sub-tab-kanji')?.addEventListener('click', () => {
         if (currentSubjectId !== 'japanese_kanji') {
             switchSubject('japanese_kanji');
+        }
+    });
+
+    document.getElementById('sub-tab-grammar')?.addEventListener('click', () => {
+        if (currentSubjectId !== 'japanese_grammar') {
+            switchSubject('japanese_grammar');
         }
     });
 

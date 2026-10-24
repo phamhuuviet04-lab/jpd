@@ -55,6 +55,7 @@ function parseRawText(text, customLessonParts = null) {
         
         let fallbackAnswers = [];
         const ansLineStr = lines.find(l => l.match(/Đáp án:\s*([A-Z,\s]+)/i));
+        const explLineStr = lines.find(l => l.match(/^(?:Giải thích|Ghi chú|Note):\s*(.*)/i));
         if (ansLineStr) {
             const matchAns = ansLineStr.match(/Đáp án:\s*([A-Z,\s]+)/i);
             if (matchAns && matchAns[1]) {
@@ -70,7 +71,7 @@ function parseRawText(text, customLessonParts = null) {
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
-            if (line.match(/Đáp án:/i) || line.match(/^\[MULTI-SELECT\]/i) || line.match(/^\[TRUE\/FALSE\]/i)) continue;
+            if (line.match(/Đáp án:/i) || line.match(/^(?:Giải thích|Ghi chú|Note):/i) || line.match(/^\[MULTI-SELECT\]/i) || line.match(/^\[TRUE\/FALSE\]/i)) continue;
 
             const match = line.match(optionRegex);
             if (match) {
@@ -141,7 +142,7 @@ function parseRawText(text, customLessonParts = null) {
                 type: uniqueCorrect.length > 1 ? 'checkbox' : 'radio',
                 options: options,
                 correct: uniqueCorrect,
-                explanation: ansLineStr ? ("" + ansLineStr) : "Đáp án đúng đã được đánh dấu."
+                explanation: explLineStr ? explLineStr.replace(/^(?:Giải thích|Ghi chú|Note):\s*/i, '').trim() : (ansLineStr ? ("" + ansLineStr) : "Đáp án đúng đã được đánh dấu.")
             });
         } else {
             const reason = options.length <= 1 ? 'Không tìm thấy options' : 'Không tìm thấy đáp án đúng';
