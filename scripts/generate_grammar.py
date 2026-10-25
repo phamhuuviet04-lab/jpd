@@ -58,11 +58,14 @@ Giải thích: {concept_expl.strip()}
         check = "  ✓" if letter == trans_ans else ""
         opt_lines2.append(f"  {letter}. {opt}{check}")
     
+    clean_rule = concept_expl.strip().replace('💡 Chuẩn ngữ pháp: ', '').strip()
+    full_trans_expl = f"{trans_expl.strip()} ➔ 📐 Cấu trúc ngữ pháp: {clean_rule}"
+
     q_str2 = f"""Câu {q_num2} [BÀI {lesson} - PHẦN {part}: {part_title}] [DỊCH CÂU]
 {trans_prompt.strip()}
 """ + "\n".join(opt_lines2) + f"""
 → Đáp án: {trans_ans}
-Giải thích: {trans_expl.strip()}
+Giải thích: {full_trans_expl}
 ────────────────────────────────────────────────────────────"""
     questions.append((q_str2, 'translation', lesson, part))
 

@@ -628,9 +628,19 @@ function renderListScreen() {
         qDiv.appendChild(header);
         qDiv.appendChild(optionsDiv);
         if (q.explanation && !q.explanation.startsWith('→ Đáp án:')) {
+            const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
             const explDiv = document.createElement('div');
-            explDiv.className = "mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs md:text-sm text-blue-900 leading-relaxed";
-            explDiv.innerHTML = `💡 <b>Giải thích:</b> ${q.explanation}`;
+            explDiv.className = isGrammar
+                ? "mt-3 p-3.5 bg-indigo-50 border border-indigo-200 rounded-lg text-xs md:text-sm text-indigo-950 leading-relaxed shadow-sm"
+                : "mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs md:text-sm text-blue-900 leading-relaxed";
+            
+            const formatted = q.explanation
+                .replace(/➔/g, '<br>➔')
+                .replace(/📌/g, '<br>📌');
+            
+            explDiv.innerHTML = isGrammar 
+                ? `<div class="font-bold text-indigo-900 mb-1 flex items-center gap-1"><span>📐</span> <span>Cấu trúc ngữ pháp & Giải thích:</span></div><div class="text-gray-800 leading-relaxed">${formatted}</div>`
+                : `💡 <b>Giải thích:</b> ${q.explanation}`;
             qDiv.appendChild(explDiv);
         }
         qDiv.addEventListener('click', (event) => {
@@ -934,13 +944,43 @@ function checkAnswer() {
         node.parentElement.classList.add('bg-gray-100');
     });
 
-    const isVocab = currentSubject.quizType !== 'standard';
+    const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
+    const isVocab = !isGrammar && currentSubject.quizType !== 'standard';
 
     if (isCorrect) {
         ui.feedback.className = "mt-6 p-5 rounded-lg bg-green-50 text-green-800 border-2 border-green-200";
         ui.feedbackTitle.innerText = "✅ Chính xác!";
 
-        if (isVocab) {
+        if (isGrammar) {
+            const expl = currentQuestion.baseQ?.explanation;
+            const hasExpl = expl && !expl.startsWith('→ Đáp án:');
+            let explHtml = '';
+            if (hasExpl) {
+                const formatted = expl
+                    .replace(/➔/g, '<br>➔')
+                    .replace(/📌/g, '<br>📌')
+                    .replace(/💡/g, '');
+                explHtml = `
+                    <div class="mt-3 p-3.5 bg-white border border-green-300 rounded-lg text-sm text-green-950 leading-relaxed shadow-sm">
+                        <div class="font-bold text-green-900 flex items-center gap-1.5 mb-1.5">
+                            <span class="text-base">📐</span> <span>Cấu trúc ngữ pháp & Quy tắc:</span>
+                        </div>
+                        <div class="text-gray-800 text-sm leading-relaxed">
+                            ${formatted}
+                        </div>
+                    </div>
+                `;
+            }
+
+            ui.feedbackText.innerHTML = `
+                <div class="mt-1">
+                    <span class="text-xs uppercase font-bold text-green-700">Đáp án đúng:</span>
+                    <div class="text-base font-bold text-green-900 mt-0.5">${currentQuestion.correct.join(', ')}</div>
+                </div>
+                ${explHtml}
+                <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+            `;
+        } else if (isVocab) {
             ui.feedbackText.innerHTML = `
                 <div class="mt-1 flex items-baseline gap-2 flex-wrap">
                     <span class="text-xl font-bold text-green-900">${currentQuestion.correctPrimary}</span>
@@ -965,7 +1005,36 @@ function checkAnswer() {
         ui.feedback.className = "mt-6 p-5 rounded-lg bg-red-50 text-red-800 border-2 border-red-200";
         ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
 
-        if (isVocab) {
+        if (isGrammar) {
+            const expl = currentQuestion.baseQ?.explanation;
+            const hasExpl = expl && !expl.startsWith('→ Đáp án:');
+            let explHtml = '';
+            if (hasExpl) {
+                const formatted = expl
+                    .replace(/➔/g, '<br>➔')
+                    .replace(/📌/g, '<br>📌')
+                    .replace(/💡/g, '');
+                explHtml = `
+                    <div class="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-950 leading-relaxed shadow-sm">
+                        <div class="font-bold text-red-900 flex items-center gap-1.5 mb-1.5">
+                            <span class="text-base">📐</span> <span>Cấu trúc ngữ pháp & Quy tắc:</span>
+                        </div>
+                        <div class="text-gray-800 text-sm leading-relaxed">
+                            ${formatted}
+                        </div>
+                    </div>
+                `;
+            }
+
+            ui.feedbackText.innerHTML = `
+                <div class="mt-1 p-3 bg-white rounded-lg border border-red-200 shadow-sm">
+                    <span class="text-xs uppercase font-bold text-red-700">Đáp án đúng:</span>
+                    <div class="text-base font-bold text-red-900 mt-0.5 mb-1">${currentQuestion.correct.join(', ')}</div>
+                    ${explHtml}
+                </div>
+                <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+            `;
+        } else if (isVocab) {
             ui.feedbackText.innerHTML = `
                 <div class="mt-2 p-3 bg-white rounded-lg border border-red-200 shadow-sm">
                     <div class="text-xl font-bold text-red-900 mb-1">${currentQuestion.correctPrimary}</div>
