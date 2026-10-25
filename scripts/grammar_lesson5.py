@@ -243,7 +243,7 @@ def register_lesson_5(add_pair):
     add_pair("5", "2", P5_2,
         "Khi được hỏi:「きのうのホテルは たかかったですか。」, nếu bạn muốn trả lời là \"Khách sạn hôm qua đã không đắt lắm\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "あまり たかいじゃなかったです。",
+            "あまり たかいじゃありませんでした。",
             "あまり たかくなかったです。",
             "あまり たかくないでした。",
             "あまり たかいでした。"
@@ -252,7 +252,7 @@ def register_lesson_5(add_pair):
         "💡 Chuẩn ngữ pháp: Tính từ đuôi い thì quá khứ phủ định: Bỏ「い」➔ thêm「くなかったです」➔ たかい thành「たかくなかったです」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Khách sạn hôm qua đã không đắt lắm.\"",
         [
-            "きのうの ホテルは あまり たかいじゃなかったです。",
+            "きのうの ホテルは あまり たかいじゃありませんでした。",
             "きのうの ホテルは あまり たかくなかったです。",
             "きのうの ホテルは あまり たかくないでした。",
             "きのうの ホテルは あまり たかいでした。"
@@ -305,26 +305,26 @@ def register_lesson_5(add_pair):
         "にぎやか là tính từ đuôi な, quá khứ khẳng định là:「とても にぎやかでした。」"
     )
 
-    # Cặp 14: Tính từ đuôi な quá khứ phủ định: 〜じゃなかったです
+    # Cặp 14: Tính từ đuôi な quá khứ phủ định: 〜じゃありませんでした
     add_pair("5", "2", P5_2,
-        "Khi được hỏi:「まえの アパートは べんりでしたか。」, nếu bạn muốn trả lời là \"Phòng trọ trước đây đã không tiện lợi\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
+        "Khi được hỏi:「まえの アパートは べんりでしたか。」, nếu bạn muốn trả lời là \"Phòng trọ trước đây đã không tiện lợi\" thì theo chuẩn ngữ pháp (lịch sự, trang trọng) phải nói như thế nào?",
         [
             "いいえ、べんりくなかったです。",
-            "いいえ、べんりじゃなかったです。",
+            "いいえ、べんりじゃありませんでした。",
             "いいえ、べんりないでした。",
             "いいえ、べんりでした。"
         ],
         "B",
-        "💡 Chuẩn ngữ pháp: Tính từ đuôi な thì quá khứ phủ định: Bỏ「な」➔ thêm「じゃなかったです」(hoặc「ではありませんでした」) ➔「べんりじゃなかったです。」",
+        "💡 Chuẩn ngữ pháp: Tính từ đuôi な thì quá khứ phủ định: Bỏ「な」➔ thêm「じゃありませんでした」(lịch sự, trang trọng hơn một chút so với「じゃなかったです」) ➔「いいえ、べんりじゃありませんでした。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Phòng trọ trước đây của tôi đã không tiện lợi.\"",
         [
             "まえの アパートは べんりくなかったです。",
-            "まえの アパートは べんりじゃなかったです。",
+            "まえの アパートは べんりじゃありませんでした。",
             "まえの アパートは べんりないでした。",
             "まえの アパートは べんりでした。"
         ],
         "B",
-        "べんり là tính từ đuôi な, quá khứ phủ định là:「べんりじゃなかったです。」"
+        "べんり là tính từ đuôi な, quá khứ phủ định chuẩn lịch sự, trang trọng là:「まえの アパートは べんりじゃありませんでした。」"
     )
 
     # Cặp 15: Hỏi cảm nhận sự kiện quá khứ: 〜は どうでしたか
@@ -445,7 +445,7 @@ def register_lesson_5(add_pair):
     add_pair("5", "3", P5_3,
         "Khi được hỏi:「くるまが ほしいですか。」, nếu bạn muốn trả lời là \"Bây giờ tôi không muốn có ô tô\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "くるまは ほしいじゃないです。",
+            "くるまは ほしいじゃありません。",
             "くるまは ほしくないです。",
             "くるまは ほしいくないです。",
             "くるまは ほしくありませんでした。"
@@ -454,7 +454,7 @@ def register_lesson_5(add_pair):
         "💡 Chuẩn ngữ pháp:「ほしい」chia như tính từ đuôi い ➔ Thể phủ định \"không muốn có\" bỏ đuôi「い」thêm「くないです」➔「くるまは ほしくないです。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Bây giờ tôi không muốn có ô tô.\"",
         [
-            "いま くるまは ほしいじゃないです。",
+            "いま くるまは ほしいじゃありません。",
             "いま くるまは ほしくないです。",
             "いま くるまは ほしいくないです。",
             "いま くるまは ほしくありませんでした。"
@@ -489,7 +489,7 @@ def register_lesson_5(add_pair):
     add_pair("5", "3", P5_3,
         "Khi bạn bè hỏi:「なにか たべますか。」, nếu bạn muốn trả lời là \"Hôm nay tôi mệt nên không muốn ăn gì cả\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "きょうは つかれましたから、なにも たべたいじゃないです。",
+            "きょうは つかれましたから、なにも たべたいじゃありません。",
             "きょうは つかれましたから、なにも たべたくないです。",
             "きょうは つかれましたから、なにか たべたくないです。",
             "きょうは つかれましたから、なんでも たべたいです。"
@@ -498,7 +498,7 @@ def register_lesson_5(add_pair):
         "💡 Chuẩn ngữ pháp: Không muốn làm V: V(bỏ ます) + たくないです. Hoàn toàn không muốn ăn gì:「なにも たべたくないです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Hôm nay tôi mệt nên không muốn ăn gì cả.\"",
         [
-            "きょうは つかれましたから、なにも たべたいじゃないです。",
+            "きょうは つかれましたから、なにも たべたいじゃありません。",
             "きょうは つかれましたから、なにも たべたくないです。",
             "きょうは つかれましたから、なにか たべたくないです。",
             "きょうは つかれましたから、なんでも たべたいです。"

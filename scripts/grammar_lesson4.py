@@ -397,18 +397,18 @@ def register_lesson_4(add_pair):
     add_pair("4", "2", P4_2,
         "Khi muốn diễn đạt phủ định \"Căn phòng này không rộng\", theo chuẩn ngữ pháp tính từ đuôi い (ひろい) được chia như thế nào?",
         [
-            "Bỏ đuôi い và thêm じゃないです",
+            "Bỏ đuôi い và thêm じゃありません",
             "Bỏ đuôi い và thêm くないです",
-            "Giữ nguyên đuôi い và thêm ではないです",
+            "Giữ nguyên đuôi い và thêm ではありません",
             "Đổi đuôi い thành くありませんでした"
         ],
         "B",
         "💡 Chuẩn ngữ pháp: Phủ định tính từ đuôi い hiện tại: Bỏ đuôi「い」➔ thêm「くないです」➔ ひろい thành「ひろくないです」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Căn phòng này không rộng.\"",
         [
-            "このへやは ひろいじゃないです。",
+            "このへやは ひろいじゃありません。",
             "このへやは ひろくないです。",
-            "このへやは ひろいではないです。",
+            "このへやは ひろいではありません。",
             "このへやは ひろくありませんでした。"
         ],
         "B",
@@ -421,8 +421,8 @@ def register_lesson_4(add_pair):
         [
             "きょうの てんきは あまり いくないです。",
             "きょうの てんきは あまり よくないです。",
-            "きょうの てんきは あまり いいじゃないです。",
-            "きょうの てんきは あまり よいじゃないです。"
+            "きょうの てんきは あまり いいじゃありません。",
+            "きょうの てんきは あまり よいじゃありません。"
         ],
         "B",
         "💡 Chuẩn ngữ pháp: Tính từ「いい」có nguồn gốc là「よい」➔ Khi muốn trả lời phủ định \"không tốt\", chuẩn ngữ pháp BẮT BUỘC là「よくないです」(TUYỆT ĐỐI không nói いくないです).",
@@ -430,38 +430,38 @@ def register_lesson_4(add_pair):
         [
             "きょうの てんきは あまり いくないです。",
             "きょうの てんきは あまり よくないです。",
-            "きょうの てんきは あまり いいじゃないです。",
-            "きょうの てんきは あまり よいじゃないです。"
+            "きょうの てんきは あまり いいじゃありません。",
+            "きょうの てんきは あまり よいじゃありません。"
         ],
         "B",
         "Không tốt là「よくないです」. Kết hợp phó từ あまり:「きょうの てんきは あまり よくないです。」"
     )
 
-    # Cặp 20: Phủ định tính từ đuôi な: 〜じゃないです
+    # Cặp 20: Phủ định tính từ đuôi な: 〜じゃありません
     add_pair("4", "2", P4_2,
-        "Khi được hỏi:「このまちは にぎやかですか。」, nếu bạn muốn trả lời là \"Không, thị trấn này không náo nhiệt\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
+        "Khi được hỏi:「このまちは にぎやかですか。」, nếu bạn muốn trả lời là \"Không, thị trấn này không náo nhiệt\" thì theo chuẩn ngữ pháp (lịch sự, trang trọng) phải nói như thế nào?",
         [
-            "いいえ、にぎやかじゃないです。",
+            "いいえ、にぎやかじゃありません。",
             "いいえ、にぎやかくなないです。",
             "いいえ、にぎやかないです。",
             "いいえ、にぎやかでした。"
         ],
         "A",
-        "💡 Chuẩn ngữ pháp: Tính từ đuôi な khi chia phủ định: Bỏ「な」➔ thêm「じゃないです」(hoặc「ではありません」) ➔「にぎやかじゃないです。」.",
+        "💡 Chuẩn ngữ pháp: Tính từ đuôi な khi chia phủ định: Bỏ「な」➔ thêm「じゃありません」(cách nói lịch sự, trang trọng hơn một chút so với「じゃないです」) ➔「いいえ、にぎやかじゃありません。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Thị trấn này không náo nhiệt.\"",
         [
-            "このまちは にぎやかじゃないです。",
+            "このまちは にぎやかじゃありません。",
             "このまちは にぎやかくなないです。",
             "このまちは にぎやかないです。",
             "このまちは にぎやかでした。"
         ],
         "A",
-        "にぎやか là tính từ đuôi な, phủ định là:「にぎやかじゃないです。」"
+        "にぎやか là tính từ đuôi な, thể phủ định chuẩn lịch sự, trang trọng là:「このまちは にぎやかじゃありません。」"
     )
 
-    # Cặp 21: Phủ định tính từ đuôi な lịch sự: 〜ではありません
+    # Cặp 21: Phủ định tính từ đuôi な trang trọng nhất / văn viết: 〜ではありません
     add_pair("4", "2", P4_2,
-        "Dạng phủ định trang trọng / lịch sự hơn của「〜じゃないです」với tính từ đuôi な và Danh từ là gì?",
+        "Dạng phủ định trang trọng hơn / văn viết (thay thế cho「〜じゃありません」) với tính từ đuôi な và Danh từ là gì?",
         [
             "〜くないです",
             "〜ではありません",
@@ -469,10 +469,10 @@ def register_lesson_4(add_pair):
             "〜ませんでした"
         ],
         "B",
-        "💡 Chuẩn ngữ pháp: Trong văn viết hoặc giao tiếp trang trọng,「〜じゃないです」được thay thế bằng dạng lịch sự「〜ではありません」(Ví dụ: べんりではありません).",
-        "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Nơi này hoàn toàn không tiện lợi chút nào (cách nói lịch sự).\"",
+        "💡 Chuẩn ngữ pháp: Trong văn viết hoặc hoàn cảnh trang trọng nhất,「〜じゃありません」được thay thế bằng dạng「〜ではありません」(Ví dụ: べんりではありません).",
+        "Dịch câu tiếng Việt sau sang tiếng Nhật theo phong cách trang trọng nhất / văn viết: \"Nơi này hoàn toàn không tiện lợi chút nào.\"",
         [
-            "ここは ぜんぜん べんりじゃないです。",
+            "ここは ぜんぜん べんりないです。",
             "ここは ぜんぜん べんりではありません。",
             "ここは ぜんぜん べんりくないです。",
             "ここは ぜんぜん べんりでした。"
@@ -578,21 +578,21 @@ def register_lesson_4(add_pair):
         "Khi được hỏi:「にほんごは かんたんですか。」(Tiếng Nhật có đơn giản không?), nếu bạn muốn trả lời là \"Hoàn toàn không đơn giản chút nào\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
             "ぜんぜん かんたんです。",
-            "ぜんぜん かんたんじゃないです。",
+            "ぜんぜん かんたんじゃありません。",
             "あまり かんたんです。",
-            "とても かんたんじゃないです。"
+            "とても かんたんじゃありません。"
         ],
         "B",
-        "💡 Chuẩn ngữ pháp: Phó từ「ぜんぜん」(hoàn toàn không...) BẮT BUỘC kết hợp với thể PHỦ ĐỊNH ➔「ぜんぜん かんたんじゃないです。」.",
+        "💡 Chuẩn ngữ pháp: Phó từ「ぜんぜん」(hoàn toàn không...) BẮT BUỘC kết hợp với thể PHỦ ĐỊNH ➔「ぜんぜん かんたんじゃありません。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tiếng Nhật hoàn toàn không dễ chút nào.\"",
         [
             "にほんごは ぜんぜん やさしいです。",
-            "にほんごは ぜんぜん かんたんじゃないです。",
-            "にほんごは とても かんたんじゃないです。",
+            "にほんごは ぜんぜん かんたんじゃありません。",
+            "にほんごは とても かんたんじゃありません。",
             "にほんごは あまり かんたんです。"
         ],
         "B",
-        "ぜんぜん + Phủ định:「ぜんぜん かんたんじゃないです。」(hoàn toàn không đơn giản)."
+        "ぜんぜん + Phủ định:「ぜんぜん かんたんじゃありません。」(hoàn toàn không đơn giản)."
     )
 
     # Cặp 27: Cấu trúc miêu tả thời tiết theo mùa: Địa điểm は Mùa, Adj です

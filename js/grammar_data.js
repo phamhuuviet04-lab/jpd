@@ -319,18 +319,18 @@ Giải thích: Một vế khen (rất ngon), một vế chê (hơi đắt) ➔ d
 ────────────────────────────────────────────────────────────
 Câu 35 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)] [HỎI NGỮ PHÁP]
 Khi muốn diễn đạt phủ định "Căn phòng này không rộng", theo chuẩn ngữ pháp tính từ đuôi い (ひろい) được chia như thế nào?
-  A. Bỏ đuôi い và thêm じゃないです
+  A. Bỏ đuôi い và thêm じゃありません
   B. Bỏ đuôi い và thêm くないです  ✓
-  C. Giữ nguyên đuôi い và thêm ではないです
+  C. Giữ nguyên đuôi い và thêm ではありません
   D. Đổi đuôi い thành くありませんでした
 → Đáp án: B
 Giải thích: 💡 Chuẩn ngữ pháp: Phủ định tính từ đuôi い hiện tại: Bỏ đuôi「い」➔ thêm「くないです」➔ ひろい thành「ひろくないです」.
 ────────────────────────────────────────────────────────────
 Câu 36 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)] [DỊCH CÂU]
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Căn phòng này không rộng."
-  A. このへやは ひろいじゃないです。
+  A. このへやは ひろいじゃありません。
   B. このへやは ひろくないです。  ✓
-  C. このへやは ひろいではないです。
+  C. このへやは ひろいではありません。
   D. このへやは ひろくありませんでした。
 → Đáp án: B
 Giải thích: Tính từ ひろい bỏ đuôi い thêm くないです:「このへやは ひろくないです。」
@@ -339,8 +339,8 @@ Câu 37 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nố
 Khi được hỏi:「きょうの てんきは どうですか。」, nếu bạn muốn trả lời là "Thời tiết hôm nay không tốt lắm" thì theo chuẩn ngữ pháp phải nói như thế nào?
   A. きょうの てんきは あまり いくないです。
   B. きょうの てんきは あまり よくないです。  ✓
-  C. きょうの てんきは あまり いいじゃないです。
-  D. きょうの てんきは あまり よいじゃないです。
+  C. きょうの てんきは あまり いいじゃありません。
+  D. きょうの てんきは あまり よいじゃありません。
 → Đáp án: B
 Giải thích: 💡 Chuẩn ngữ pháp: Tính từ「いい」có nguồn gốc là「よい」➔ Khi muốn trả lời phủ định "không tốt", chuẩn ngữ pháp BẮT BUỘC là「よくないです」(TUYỆT ĐỐI không nói いくないです).
 ────────────────────────────────────────────────────────────
@@ -348,41 +348,41 @@ Câu 38 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nố
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Thời tiết hôm nay không tốt lắm."
   A. きょうの てんきは あまり いくないです。
   B. きょうの てんきは あまり よくないです。  ✓
-  C. きょうの てんきは あまり いいじゃないです。
-  D. きょうの てんきは あまり よいじゃないです。
+  C. きょうの てんきは あまり いいじゃありません。
+  D. きょうの てんきは あまり よいじゃありません。
 → Đáp án: B
 Giải thích: Không tốt là「よくないです」. Kết hợp phó từ あまり:「きょうの てんきは あまり よくないです。」
 ────────────────────────────────────────────────────────────
 Câu 39 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)] [HỎI NGỮ PHÁP]
-Khi được hỏi:「このまちは にぎやかですか。」, nếu bạn muốn trả lời là "Không, thị trấn này không náo nhiệt" thì theo chuẩn ngữ pháp phải nói như thế nào?
-  A. いいえ、にぎやかじゃないです。  ✓
+Khi được hỏi:「このまちは にぎやかですか。」, nếu bạn muốn trả lời là "Không, thị trấn này không náo nhiệt" thì theo chuẩn ngữ pháp (lịch sự, trang trọng) phải nói như thế nào?
+  A. いいえ、にぎやかじゃありません。  ✓
   B. いいえ、にぎやかくなないです。
   C. いいえ、にぎやかないです。
   D. いいえ、にぎやかでした。
 → Đáp án: A
-Giải thích: 💡 Chuẩn ngữ pháp: Tính từ đuôi な khi chia phủ định: Bỏ「な」➔ thêm「じゃないです」(hoặc「ではありません」) ➔「にぎやかじゃないです。」.
+Giải thích: 💡 Chuẩn ngữ pháp: Tính từ đuôi な khi chia phủ định: Bỏ「な」➔ thêm「じゃありません」(cách nói lịch sự, trang trọng hơn một chút so với「じゃないです」) ➔「いいえ、にぎやかじゃありません。」.
 ────────────────────────────────────────────────────────────
 Câu 40 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)] [DỊCH CÂU]
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Thị trấn này không náo nhiệt."
-  A. このまちは にぎやかじゃないです。  ✓
+  A. このまちは にぎやかじゃありません。  ✓
   B. このまちは にぎやかくなないです。
   C. このまちは にぎやかないです。
   D. このまちは にぎやかでした。
 → Đáp án: A
-Giải thích: にぎやか là tính từ đuôi な, phủ định là:「にぎやかじゃないです。」
+Giải thích: にぎやか là tính từ đuôi な, thể phủ định chuẩn lịch sự, trang trọng là:「このまちは にぎやかじゃありません。」
 ────────────────────────────────────────────────────────────
 Câu 41 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)] [HỎI NGỮ PHÁP]
-Dạng phủ định trang trọng / lịch sự hơn của「〜じゃないです」với tính từ đuôi な và Danh từ là gì?
+Dạng phủ định trang trọng hơn / văn viết (thay thế cho「〜じゃありません」) với tính từ đuôi な và Danh từ là gì?
   A. 〜くないです
   B. 〜ではありません  ✓
   C. 〜でした
   D. 〜ませんでした
 → Đáp án: B
-Giải thích: 💡 Chuẩn ngữ pháp: Trong văn viết hoặc giao tiếp trang trọng,「〜じゃないです」được thay thế bằng dạng lịch sự「〜ではありません」(Ví dụ: べんりではありません).
+Giải thích: 💡 Chuẩn ngữ pháp: Trong văn viết hoặc hoàn cảnh trang trọng nhất,「〜じゃありません」được thay thế bằng dạng「〜ではありません」(Ví dụ: べんりではありません).
 ────────────────────────────────────────────────────────────
 Câu 42 [BÀI 4 - PHẦN 2: どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)] [DỊCH CÂU]
-Dịch câu tiếng Việt sau sang tiếng Nhật: "Nơi này hoàn toàn không tiện lợi chút nào (cách nói lịch sự)."
-  A. ここは ぜんぜん べんりじゃないです。
+Dịch câu tiếng Việt sau sang tiếng Nhật theo phong cách trang trọng nhất / văn viết: "Nơi này hoàn toàn không tiện lợi chút nào."
+  A. ここは ぜんぜん べんりないです。
   B. ここは ぜんぜん べんりではありません。  ✓
   C. ここは ぜんぜん べんりくないです。
   D. ここは ぜんぜん べんりでした。
@@ -464,20 +464,20 @@ Giải thích: Phó từ あまり đi kèm vị ngữ phủ định:「あま�
 Câu 51 [BÀI 4 - PHẦN 3: きせつ・りょうり (Phó từ, Trợ từ ね, Thời tiết)] [HỎI NGỮ PHÁP]
 Khi được hỏi:「にほんごは かんたんですか。」(Tiếng Nhật có đơn giản không?), nếu bạn muốn trả lời là "Hoàn toàn không đơn giản chút nào" thì theo chuẩn ngữ pháp phải nói như thế nào?
   A. ぜんぜん かんたんです。
-  B. ぜんぜん かんたんじゃないです。  ✓
+  B. ぜんぜん かんたんじゃありません。  ✓
   C. あまり かんたんです。
-  D. とても かんたんじゃないです。
+  D. とても かんたんじゃありません。
 → Đáp án: B
-Giải thích: 💡 Chuẩn ngữ pháp: Phó từ「ぜんぜん」(hoàn toàn không...) BẮT BUỘC kết hợp với thể PHỦ ĐỊNH ➔「ぜんぜん かんたんじゃないです。」.
+Giải thích: 💡 Chuẩn ngữ pháp: Phó từ「ぜんぜん」(hoàn toàn không...) BẮT BUỘC kết hợp với thể PHỦ ĐỊNH ➔「ぜんぜん かんたんじゃありません。」.
 ────────────────────────────────────────────────────────────
 Câu 52 [BÀI 4 - PHẦN 3: きせつ・りょうり (Phó từ, Trợ từ ね, Thời tiết)] [DỊCH CÂU]
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Tiếng Nhật hoàn toàn không dễ chút nào."
   A. にほんごは ぜんぜん やさしいです。
-  B. にほんごは ぜんぜん かんたんじゃないです。  ✓
-  C. にほんごは とても かんたんじゃないです。
+  B. にほんごは ぜんぜん かんたんじゃありません。  ✓
+  C. にほんごは とても かんたんじゃありません。
   D. にほんごは あまり かんたんです。
 → Đáp án: B
-Giải thích: ぜんぜん + Phủ định:「ぜんぜん かんたんじゃないです。」(hoàn toàn không đơn giản).
+Giải thích: ぜんぜん + Phủ định:「ぜんぜん かんたんじゃありません。」(hoàn toàn không đơn giản).
 ────────────────────────────────────────────────────────────
 Câu 53 [BÀI 4 - PHẦN 3: きせつ・りょうり (Phó từ, Trợ từ ね, Thời tiết)] [HỎI NGỮ PHÁP]
 Mẫu câu「N(quốc gia/thành phố) は [thời gian/mùa]、Adj です。」dùng để diễn đạt điều gì?
@@ -715,7 +715,7 @@ Giải thích: Tính từ たのしい (vui) chuyển sang quá khứ là たの
 ────────────────────────────────────────────────────────────
 Câu 79 [BÀI 5 - PHẦN 2: やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)] [HỎI NGỮ PHÁP]
 Khi được hỏi:「きのうのホテルは たかかったですか。」, nếu bạn muốn trả lời là "Khách sạn hôm qua đã không đắt lắm" thì theo chuẩn ngữ pháp phải nói như thế nào?
-  A. あまり たかいじゃなかったです。
+  A. あまり たかいじゃありませんでした。
   B. あまり たかくなかったです。  ✓
   C. あまり たかくないでした。
   D. あまり たかいでした。
@@ -724,7 +724,7 @@ Giải thích: 💡 Chuẩn ngữ pháp: Tính từ đuôi い thì quá khứ p
 ────────────────────────────────────────────────────────────
 Câu 80 [BÀI 5 - PHẦN 2: やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)] [DỊCH CÂU]
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Khách sạn hôm qua đã không đắt lắm."
-  A. きのうの ホテルは あまり たかいじゃなかったです。
+  A. きのうの ホテルは あまり たかいじゃありませんでした。
   B. きのうの ホテルは あまり たかくなかったです。  ✓
   C. きのうの ホテルは あまり たかくないでした。
   D. きのうの ホテルは あまり たかいでした。
@@ -768,22 +768,22 @@ Dịch câu tiếng Việt sau sang tiếng Nhật: "Bữa tiệc tối hôm qua
 Giải thích: にぎやか là tính từ đuôi な, quá khứ khẳng định là:「とても にぎやかでした。」
 ────────────────────────────────────────────────────────────
 Câu 85 [BÀI 5 - PHẦN 2: やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)] [HỎI NGỮ PHÁP]
-Khi được hỏi:「まえの アパートは べんりでしたか。」, nếu bạn muốn trả lời là "Phòng trọ trước đây đã không tiện lợi" thì theo chuẩn ngữ pháp phải nói như thế nào?
+Khi được hỏi:「まえの アパートは べんりでしたか。」, nếu bạn muốn trả lời là "Phòng trọ trước đây đã không tiện lợi" thì theo chuẩn ngữ pháp (lịch sự, trang trọng) phải nói như thế nào?
   A. いいえ、べんりくなかったです。
-  B. いいえ、べんりじゃなかったです。  ✓
+  B. いいえ、べんりじゃありませんでした。  ✓
   C. いいえ、べんりないでした。
   D. いいえ、べんりでした。
 → Đáp án: B
-Giải thích: 💡 Chuẩn ngữ pháp: Tính từ đuôi な thì quá khứ phủ định: Bỏ「な」➔ thêm「じゃなかったです」(hoặc「ではありませんでした」) ➔「べんりじゃなかったです。」
+Giải thích: 💡 Chuẩn ngữ pháp: Tính từ đuôi な thì quá khứ phủ định: Bỏ「な」➔ thêm「じゃありませんでした」(lịch sự, trang trọng hơn một chút so với「じゃなかったです」) ➔「いいえ、べんりじゃありませんでした。」
 ────────────────────────────────────────────────────────────
 Câu 86 [BÀI 5 - PHẦN 2: やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)] [DỊCH CÂU]
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Phòng trọ trước đây của tôi đã không tiện lợi."
   A. まえの アパートは べんりくなかったです。
-  B. まえの アパートは べんりじゃなかったです。  ✓
+  B. まえの アパートは べんりじゃありませんでした。  ✓
   C. まえの アパートは べんりないでした。
   D. まえの アパートは べんりでした。
 → Đáp án: B
-Giải thích: べんり là tính từ đuôi な, quá khứ phủ định là:「べんりじゃなかったです。」
+Giải thích: べんり là tính từ đuôi な, quá khứ phủ định chuẩn lịch sự, trang trọng là:「まえの アパートは べんりじゃありませんでした。」
 ────────────────────────────────────────────────────────────
 Câu 87 [BÀI 5 - PHẦN 2: やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)] [HỎI NGỮ PHÁP]
 Khi được hỏi:「しゅうまつの りょこうは どうでしたか。」, nếu bạn muốn trả lời là "Đã rất tuyệt vời / rất vui" thì theo chuẩn ngữ pháp phải nói như thế nào?
@@ -877,7 +877,7 @@ Giải thích: Muốn có danh từ đi với trợ từ が:「あたらしい 
 ────────────────────────────────────────────────────────────
 Câu 97 [BÀI 5 - PHẦN 3: こんどのやすみに (ほしい, 〜たい, Mục đích di chuyển)] [HỎI NGỮ PHÁP]
 Khi được hỏi:「くるまが ほしいですか。」, nếu bạn muốn trả lời là "Bây giờ tôi không muốn có ô tô" thì theo chuẩn ngữ pháp phải nói như thế nào?
-  A. くるまは ほしいじゃないです。
+  A. くるまは ほしいじゃありません。
   B. くるまは ほしくないです。  ✓
   C. くるまは ほしいくないです。
   D. くるまは ほしくありませんでした。
@@ -886,7 +886,7 @@ Giải thích: 💡 Chuẩn ngữ pháp:「ほしい」chia như tính từ đu�
 ────────────────────────────────────────────────────────────
 Câu 98 [BÀI 5 - PHẦN 3: こんどのやすみに (ほしい, 〜たい, Mục đích di chuyển)] [DỊCH CÂU]
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Bây giờ tôi không muốn có ô tô."
-  A. いま くるまは ほしいじゃないです。
+  A. いま くるまは ほしいじゃありません。
   B. いま くるまは ほしくないです。  ✓
   C. いま くるまは ほしいくないです。
   D. いま くるまは ほしくありませんでした。
@@ -913,7 +913,7 @@ Giải thích: Động từ りょこうします bỏ ます thêm たいです
 ────────────────────────────────────────────────────────────
 Câu 101 [BÀI 5 - PHẦN 3: こんどのやすみに (ほしい, 〜たい, Mục đích di chuyển)] [HỎI NGỮ PHÁP]
 Khi bạn bè hỏi:「なにか たべますか。」, nếu bạn muốn trả lời là "Hôm nay tôi mệt nên không muốn ăn gì cả" thì theo chuẩn ngữ pháp phải nói như thế nào?
-  A. きょうは つかれましたから、なにも たべたいじゃないです。
+  A. きょうは つかれましたから、なにも たべたいじゃありません。
   B. きょうは つかれましたから、なにも たべたくないです。  ✓
   C. きょうは つかれましたから、なにか たべたくないです。
   D. きょうは つかれましたから、なんでも たべたいです。
@@ -922,7 +922,7 @@ Giải thích: 💡 Chuẩn ngữ pháp: Không muốn làm V: V(bỏ ます) + 
 ────────────────────────────────────────────────────────────
 Câu 102 [BÀI 5 - PHẦN 3: こんどのやすみに (ほしい, 〜たい, Mục đích di chuyển)] [DỊCH CÂU]
 Dịch câu tiếng Việt sau sang tiếng Nhật: "Hôm nay tôi mệt nên không muốn ăn gì cả."
-  A. きょうは つかれましたから、なにも たべたいじゃないです。
+  A. きょうは つかれましたから、なにも たべたいじゃありません。
   B. きょうは つかれましたから、なにも たべたくないです。  ✓
   C. きょうは つかれましたから、なにか たべたくないです。
   D. きょうは つかれましたから、なんでも たべたいです。
