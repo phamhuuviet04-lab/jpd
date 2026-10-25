@@ -2653,7 +2653,7 @@ window.APP_SUBJECTS = {
     },
     "japanese_grammar": {
         id: "japanese_grammar",
-        name: "Ngữ pháp (文法)",
+        name: "Ngữ pháp (ぶんぽう)",
         fullName: "Tiếng Nhật (Ngữ pháp Bài 4 - 6)",
         icon: "📐",
         badge: "Ngữ pháp Bài 4 - 6",

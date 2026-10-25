@@ -179,3 +179,7 @@ function parseRawText(text, customLessonParts = null) {
 
     return questions;
 }
+
+if (typeof window !== 'undefined') {
+    window.parseRawText = parseRawText;
+}

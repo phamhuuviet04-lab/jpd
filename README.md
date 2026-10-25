@@ -15,10 +15,11 @@
       - ✍️ **Dịch từ câu tiếng Việt qua**: Chuyên luyện dịch câu Việt ➔ Nhật.
     - **Có thanh lọc dạng câu hỏi đồng bộ** ở cả Màn hình Học (Quiz) và Màn hình Danh sách câu hỏi (List view).
     - **Có giải thích chi tiết (💡 Giải thích)** ngay dưới mỗi câu trả lời và trong màn hình danh sách câu hỏi.
-    - **Phân chia theo từng Bài và từng Phần**:
-      - **Bài 4**: Phần 1: *どこ？ (Vị trí, Phương tiện, Thời gian)* | Phần 2: *どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)* | Phần 3: *季節・料理 (Phó từ, Trợ từ ね, Thời tiết)*
-      - **Bài 5**: Phần 1: *週末 (Quá khứ Động từ, Đi đâu, と, それから)* | Phần 2: *休みの後で (Quá khứ Tính từ, どうでしたか, Lý do 〜から)* | Phần 3: *今度の休みに (ほしい, 〜たい, Mục đích di chuyển)*
-      - **Bài 6**: Phần 1: *一緒に行きませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)* | Phần 2: *どちらがいいですか。 (So sánh hơn より, どちら, 一番)* | Phần 3: *約束 (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)*
+    - **Chuyển hóa 100% từ Hán tự (Kanji) sang Hiragana**: Giúp người học tập trung hoàn toàn vào cấu trúc và quy tắc ngữ pháp mà không bị cản trở bởi chữ Hán chưa học.
+    - **Phân chia theo từng Bài và từng Phần (Toàn bộ bằng Hiragana)**:
+      - **Bài 4**: Phần 1: *どこ？ (Vị trí, Phương tiện, Thời gian)* | Phần 2: *どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)* | Phần 3: *きせつ・りょうり (Phó từ, Trợ từ ね, Thời tiết)*
+      - **Bài 5**: Phần 1: *しゅうまつ (Quá khứ Động từ, Đi đâu, と, それから)* | Phần 2: *やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)* | Phần 3: *こんどのやすみに (ほしい, 〜たい, Mục đích di chuyển)*
+      - **Bài 6**: Phần 1: *いっしょにいきませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)* | Phần 2: *どちらがいいですか。 (So sánh hơn より, どちら, いちばん)* | Phần 3: *やくそく (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)*
     - **Bài 4 (19 từ)**:
       - **東 (ĐÔNG)**: 東 (ひがし: phía đông)
       - **京 (KINH)**: 東京 (とうきょう: Tokyo)

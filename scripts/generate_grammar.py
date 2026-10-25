@@ -90,8 +90,8 @@ full_content = """/**
  * 
  * Nội dung bao quát toàn bộ giáo trình Dekiru Nihongo:
  * - Bài 4: Phương hướng, Vị trí, Phương tiện, Thời gian di chuyển, Tính từ い/な, Tồn tại にあります, Nối câu そして/が, Phó từ, Trợ từ ね, Thời tiết
- * - Bài 5: Quá khứ Động từ, どこか/どこも, Làm cùng ai と/ひとりで, それから, Quá khứ Tính từ, どうでしたか, Lý do 〜から, ほしい, 〜たい, Mục đích di chuyển に行きます
- * - Bài 6: Rủ rê 〜ませんか/〜ましょう, Từ chối 〜から, Sự kiện diễn ra であります, Lượng từ 〜まい, So sánh hơn より, So sánh lựa chọn どちら, So sánh nhất 一番, Đã làm chưa もう〜ましたか, Gợi ý Nはどうですか, Phân biệt ね/よ, Đồng ý そうしましょう
+ * - Bài 5: Quá khứ Động từ, どこか/どこも, Làm cùng ai と/ひとりで, それから, Quá khứ Tính từ, どうでしたか, Lý do 〜から, ほしい, 〜たい, Mục đích di chuyển にいきます
+ * - Bài 6: Rủ rê 〜ませんか/〜ましょう, Từ chối 〜から, Sự kiện diễn ra であります, Lượng từ 〜まい, So sánh hơn より, So sánh lựa chọn どちら, So sánh nhất いちばん, Đã làm chưa もう〜ましたか, Gợi ý Nはどうですか, Phân biệt ね/よ, Đồng ý そうしましょう
  */
 
 window.RAW_DATABASE_GRAMMAR = `
@@ -102,17 +102,17 @@ window.GRAMMAR_LESSON_PARTS = {
     "4": {
         "1": "どこ？ (Vị trí, Phương tiện, Thời gian)",
         "2": "どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)",
-        "3": "季節・料理 (Phó từ, Trợ từ ね, Thời tiết)"
+        "3": "きせつ・りょうり (Phó từ, Trợ từ ね, Thời tiết)"
     },
     "5": {
-        "1": "週末 (Quá khứ Động từ, Đi đâu, と, それから)",
-        "2": "休みの後で (Quá khứ Tính từ, どうでしたか, Lý do 〜から)",
-        "3": "今度の休みに (ほしい, 〜たい, Mục đích di chuyển)"
+        "1": "しゅうまつ (Quá khứ Động từ, Đi đâu, と, それから)",
+        "2": "やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)",
+        "3": "こんどのやすみに (ほしい, 〜たい, Mục đích di chuyển)"
     },
     "6": {
-        "1": "一緒に行きませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)",
-        "2": "どちらがいいですか。 (So sánh hơn より, どちら, 一番)",
-        "3": "約束 (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)"
+        "1": "いっしょにいきませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)",
+        "2": "どちらがいいですか。 (So sánh hơn より, どちら, いちばん)",
+        "3": "やくそく (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)"
     }
 };
 """
