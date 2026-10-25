@@ -127,10 +127,26 @@ function parseRawText(text, customLessonParts = null) {
                 partTitle = partsDict[lesson][part];
             }
 
+            // Trích xuất phân loại dạng câu hỏi ngữ pháp: [HỎI NGỮ PHÁP] hoặc [DỊCH CÂU]
+            let grammarType = null;
+            const gTypeMatch = questionText.match(/\[(HỎI NGỮ PHÁP|NGỮ PHÁP|LÝ THUYẾT|DỊCH CÂU|DỊCH|DỊCH VIỆT - NHẬT)\]/i);
+            if (gTypeMatch) {
+                const tag = gTypeMatch[1].toUpperCase();
+                grammarType = tag.includes('DỊCH') ? 'translation' : 'concept';
+            } else {
+                const lowerText = questionText.toLowerCase();
+                if (lowerText.startsWith('dịch') || lowerText.includes('sang tiếng nhật')) {
+                    grammarType = 'translation';
+                } else {
+                    grammarType = 'concept';
+                }
+            }
+
             // Xóa tag khỏi text hiển thị câu hỏi
             const cleanQuestion = questionText
                 .replace(/\s*\[(?:BÀI|UNIT|CHƯƠNG|HÁN TỰ|KANJI)(?:\s*:\s*|\s+)[^\]]+\]/gi, '')
                 .replace(/\s*\[(?:PHẦN|PART|P)\s*[^\]]+\]/gi, '')
+                .replace(/\s*\[(HỎI NGỮ PHÁP|NGỮ PHÁP|LÝ THUYẾT|DỊCH CÂU|DỊCH|DỊCH VIỆT - NHẬT)\]/gi, '')
                 .trim();
 
             questions.push({
@@ -139,6 +155,7 @@ function parseRawText(text, customLessonParts = null) {
                 lesson: lesson,
                 part: part,
                 partTitle: partTitle,
+                grammarType: grammarType,
                 type: uniqueCorrect.length > 1 ? 'checkbox' : 'radio',
                 options: options,
                 correct: uniqueCorrect,

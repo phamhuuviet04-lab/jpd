@@ -6,14 +6,19 @@
 - **Phân loại Tiếng Nhật chuyên sâu 3 trong 1 (Mới)**:
   - **📖 Từ vựng (できる日本語)**: 249 câu từ vựng theo giáo trình Bài 4 - 7 (chia nhỏ theo 3 phần).
   - **🈸 Ôn tập Từ Hán (Kanji)**: Đầy đủ 75 từ vựng và chữ Hán ghép từ giáo trình FPT University (Bài 4 - 6).
-  - **📐 Ngữ pháp (文法 - Mới)**: Trọn bộ **160 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 6:
-    - **Hỏi bản chất / ý nghĩa / cấu trúc ngữ pháp**: Ví dụ `N は どうですか` dùng để làm gì? (Hỏi tính chất, đặc điểm của N "N trông như thế nào?" ở Bài 4.2; Đưa ra đề xuất, gợi ý "Thế còn N thì sao?" ở Bài 6.3), phân biệt trợ từ cuối câu `ね` và `よ`, phân biệt `であります` (diễn ra sự kiện) và `にあります` (tồn tại tĩnh), quy tắc chia tính từ đuôi い/な ở hiện tại và quá khứ, phó từ chỉ mức độ (`とても`, `すこし`, `あまり`, `ぜんぜん`), v.v.
-    - **Hỏi vận dụng thực tế / hoàn thành câu / hội thoại ngữ cảnh**: Đáp án là câu trả lời hoặc cách dùng đúng ngữ pháp theo đúng bài học.
+  - **📐 Ngữ pháp (文法 - Tách 2 dạng câu hỏi song hành)**: Trọn bộ **166 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 6, được tách thành **2 dạng câu hỏi khoa học** cho từng điểm ngữ pháp:
+    - **1. 📖 Hỏi ngữ pháp là gì (83 câu)**: Hỏi khái niệm, bản chất, cấu trúc, công thức, quy tắc chia, trợ từ, cách dùng. Ví dụ: `N は どうですか` dùng để làm gì? (Hỏi tính chất nơi chốn ở Bài 4.2; Đưa ra gợi ý/đề xuất ở Bài 6.3), phân biệt trợ từ cuối câu `ね` và `よ`, phân biệt `であります` (diễn ra sự kiện) và `にあります` (tồn tại tĩnh), quy tắc chia tính từ đuôi い/な ở hiện tại và quá khứ, phó từ chỉ mức độ (`とても`, `すこし`, `あまり`, `ぜんぜん`), câu phủ định với `まだです`, v.v.
+    - **2. ✍️ Dịch từ câu tiếng Việt qua (83 câu)**: Vận dụng ngay điểm ngữ pháp vừa học để dịch một câu tiếng Việt cụ thể sang câu tiếng Nhật chuẩn xác.
+    - **Hỗ trợ 3 chế độ lọc & học linh hoạt**:
+      - 🌟 **Tất cả (Cả 2 dạng)**: Học toàn diện cả lý thuyết và luyện dịch.
+      - 📖 **Hỏi ngữ pháp là gì**: Chuyên ôn lý thuyết, công thức và quy tắc.
+      - ✍️ **Dịch từ câu tiếng Việt qua**: Chuyên luyện dịch câu Việt ➔ Nhật.
+    - **Có thanh lọc dạng câu hỏi đồng bộ** ở cả Màn hình Học (Quiz) và Màn hình Danh sách câu hỏi (List view).
     - **Có giải thích chi tiết (💡 Giải thích)** ngay dưới mỗi câu trả lời và trong màn hình danh sách câu hỏi.
     - **Phân chia theo từng Bài và từng Phần**:
-      - **Bài 4**: Phần 1: *どこ？ (Vị trí, Phương tiện, Thời gian)* | Phần 2: *どんなところ？ (Tính từ, Tồn tại, Nối câu)* | Phần 3: *季節・料理 (Phó từ, Trợ từ ね, Thời tiết)*
+      - **Bài 4**: Phần 1: *どこ？ (Vị trí, Phương tiện, Thời gian)* | Phần 2: *どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)* | Phần 3: *季節・料理 (Phó từ, Trợ từ ね, Thời tiết)*
       - **Bài 5**: Phần 1: *週末 (Quá khứ Động từ, Đi đâu, と, それから)* | Phần 2: *休みの後で (Quá khứ Tính từ, どうでしたか, Lý do 〜から)* | Phần 3: *今度の休みに (ほしい, 〜たい, Mục đích di chuyển)*
-      - **Bài 6**: Phần 1: *一緒に行きませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)* | Phần 2: *どちらがいいですか。 (So sánh hơn より, どちら, 一番)* | Phần 3: *約束 (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ)*
+      - **Bài 6**: Phần 1: *一緒に行きませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)* | Phần 2: *どちらがいいですか。 (So sánh hơn より, どちら, 一番)* | Phần 3: *約束 (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)*
     - **Bài 4 (19 từ)**:
       - **東 (ĐÔNG)**: 東 (ひがし: phía đông)
       - **京 (KINH)**: 東京 (とうきょう: Tokyo)

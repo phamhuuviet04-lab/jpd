@@ -68,8 +68,20 @@ function loadSubjectState() {
     const savedLast = localStorage.getItem(lastKey);
     lastMarkedQuestionId = savedLast !== null ? Number(savedLast) : null;
 
-    const defaultMode = currentSubject.quizType === 'standard' ? 'standard' : 'jp-vi';
-    currentQuizMode = localStorage.getItem(modeKey) || defaultMode;
+    const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
+    let defaultMode = 'jp-vi';
+    if (isGrammar) {
+        defaultMode = 'all';
+    } else if (currentSubject.quizType === 'standard') {
+        defaultMode = 'standard';
+    }
+
+    const savedMode = localStorage.getItem(modeKey);
+    if (isGrammar) {
+        currentQuizMode = (savedMode && ['all', 'concept', 'translation'].includes(savedMode)) ? savedMode : 'all';
+    } else {
+        currentQuizMode = savedMode || defaultMode;
+    }
 }
 
 function saveMarkedState() {
@@ -186,7 +198,9 @@ function updateSubjectHeaderUI() {
                 if (subTabGrammar) subTabGrammar.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
-                if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Ngữ pháp Bài 4 - 6'} (${allQuestions.length} câu)`;
+                const cCount = allQuestions.filter(q => q.grammarType === 'concept').length;
+                const tCount = allQuestions.filter(q => q.grammarType === 'translation').length;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `Ngữ pháp Bài 4 - 6 (${allQuestions.length} câu: ${cCount} Hỏi ngữ pháp • ${tCount} Dịch câu)`;
             } else {
                 if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
                 if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
@@ -292,64 +306,122 @@ function deleteCustomSubject(subId) {
 // ==========================================
 // HÀM TIỆN ÍCH & LỌC CÂU HỎI
 // ==========================================
+function countMatchesGrammar(q) {
+    if (currentSubject.quizType !== 'grammar' && currentSubjectId !== 'japanese_grammar') return true;
+    if (currentQuizMode === 'concept') return q.grammarType === 'concept';
+    if (currentQuizMode === 'translation') return q.grammarType === 'translation';
+    return true;
+}
+
 function getFilteredQuestions() {
     return allQuestions.filter(q => {
         const matchLesson = (selectedLesson === 'all' || q.lesson === selectedLesson);
         const matchPart = (selectedPart === 'all' || q.part === selectedPart);
-        return matchLesson && matchPart;
+        const matchGrammar = countMatchesGrammar(q);
+        return matchLesson && matchPart && matchGrammar;
     });
 }
 
+function switchQuizMode(mode) {
+    if (mode && mode !== currentQuizMode) {
+        currentQuizMode = mode;
+        saveQuizModeState();
+        updateQuizModeUI();
+        renderLessonTabs();
+        renderPartTabs();
+        if (!ui.listScreen.classList.contains('hidden')) {
+            renderListScreen();
+        } else {
+            startQuiz();
+        }
+    }
+}
+
 function updateQuizModeUI() {
-    const container = document.getElementById('quiz-mode-container');
-    if (!container) return;
+    const quizContainer = document.getElementById('quiz-mode-container');
+    const listContainer = document.getElementById('list-mode-container');
+    const listToolbar = document.getElementById('list-mode-toolbar');
+    const listDesc = document.getElementById('list-mode-desc');
 
-    const isVocab = currentSubject.quizType !== 'standard';
+    const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
+    const isVocab = currentSubject.quizType !== 'standard' && !isGrammar;
 
-    if (!isVocab) {
-        // Môn trắc nghiệm thông thường (không cần đảo ngược)
-        container.innerHTML = `
+    let buttonsHTML = '';
+
+    if (isGrammar) {
+        const labels = currentSubject.modeLabels || {
+            'all': '🌟 Tất cả (Cả 2 dạng)',
+            'concept': '📖 Hỏi ngữ pháp là gì',
+            'translation': '✍️ Dịch từ câu tiếng Việt qua'
+        };
+
+        buttonsHTML = `
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="all">
+                ${labels['all']}
+            </button>
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="concept">
+                ${labels['concept']}
+            </button>
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="translation">
+                ${labels['translation']}
+            </button>
+        `;
+
+        if (listToolbar) listToolbar.style.display = 'flex';
+        if (listDesc) {
+            if (currentQuizMode === 'concept') {
+                listDesc.innerText = '📖 Chế độ: Chỉ hỏi ngữ pháp là gì (Cấu trúc & Quy tắc)';
+            } else if (currentQuizMode === 'translation') {
+                listDesc.innerText = '✍️ Chế độ: Chỉ dịch từ câu tiếng Việt sang tiếng Nhật';
+            } else {
+                listDesc.innerText = '🌟 Chế độ: Tất cả 2 dạng câu hỏi (Song hành)';
+            }
+        }
+    } else if (isVocab) {
+        const labels = currentSubject.modeLabels || {
+            'jp-vi': `${currentSubject.icon || '📖'} ➔ 🇻🇳 ${currentSubject.name} - Việt`,
+            'vi-jp': `🇻🇳 ➔ ${currentSubject.icon || '📖'} Việt - ${currentSubject.name}`,
+            'mix': '🔀 Trộn cả hai'
+        };
+
+        buttonsHTML = `
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="jp-vi">
+                ${labels['jp-vi']}
+            </button>
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="vi-jp">
+                ${labels['vi-jp']}
+            </button>
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="mix">
+                ${labels['mix']}
+            </button>
+        `;
+
+        if (listToolbar) listToolbar.style.display = 'flex';
+        if (listDesc) listDesc.innerText = '';
+    } else {
+        buttonsHTML = `
             <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm" data-mode="standard">
                 📝 Trắc nghiệm tiêu chuẩn
             </button>
         `;
         currentQuizMode = 'standard';
-        return;
+        if (listToolbar) listToolbar.style.display = 'none';
     }
 
-    const labels = currentSubject.modeLabels || {
-        'jp-vi': `${currentSubject.icon || '📖'} ➔ 🇻🇳 ${currentSubject.name} - Việt`,
-        'vi-jp': `🇻🇳 ➔ ${currentSubject.icon || '📖'} Việt - ${currentSubject.name}`,
-        'mix': '🔀 Trộn cả hai'
-    };
-
-    container.innerHTML = `
-        <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="jp-vi">
-            ${labels['jp-vi']}
-        </button>
-        <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="vi-jp">
-            ${labels['vi-jp']}
-        </button>
-        <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="mix">
-            ${labels['mix']}
-        </button>
-    `;
-
-    container.querySelectorAll('.quiz-mode-btn').forEach(btn => {
-        const mode = btn.getAttribute('data-mode');
-        if (mode === currentQuizMode) {
-            btn.className = "quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm";
-        } else {
-            btn.className = "quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-blue-50";
-        }
-
-        btn.addEventListener('click', () => {
-            if (mode && mode !== currentQuizMode) {
-                currentQuizMode = mode;
-                saveQuizModeState();
-                updateQuizModeUI();
-                startQuiz();
+    [quizContainer, listContainer].forEach(cnt => {
+        if (!cnt) return;
+        cnt.innerHTML = buttonsHTML;
+        cnt.querySelectorAll('.quiz-mode-btn').forEach(btn => {
+            const mode = btn.getAttribute('data-mode');
+            if (mode === currentQuizMode) {
+                btn.className = "quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm";
+            } else {
+                btn.className = "quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-blue-50";
             }
+
+            btn.addEventListener('click', () => {
+                switchQuizMode(mode);
+            });
         });
     });
 }
@@ -515,13 +587,25 @@ function renderListScreen() {
             lessonInfo = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 mb-1">${prefix}${q.lesson}${partInfo}</span>`;
         }
 
+        let grammarTypeBadge = '';
+        if (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar' || q.grammarType) {
+            if (q.grammarType === 'concept') {
+                grammarTypeBadge = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200 mb-1">📖 Hỏi ngữ pháp là gì</span>`;
+            } else if (q.grammarType === 'translation') {
+                grammarTypeBadge = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200 mb-1">✍️ Dịch từ câu tiếng Việt qua</span>`;
+            }
+        }
+
         header.innerHTML = `
             <div class="flex items-start gap-3 flex-1">
                 <span class="inline-flex items-center justify-center min-w-9 h-9 rounded-full bg-blue-100 text-blue-700 font-bold text-sm shadow-sm">
                     ${index + 1}
                 </span>
                 <div class="flex-1">
-                    ${lessonInfo}
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        ${lessonInfo}
+                        ${grammarTypeBadge}
+                    </div>
                     <h3 class="font-bold text-gray-800 whitespace-pre-wrap">${q.question}</h3>
                 </div>
             </div>
@@ -618,7 +702,8 @@ function getDistractors(baseQ, candidatePool, count = 3) {
 }
 
 function createQuizItem(baseQ, direction, candidatePool) {
-    const isReverse = (direction === 'vi-jp' && currentSubject.quizType !== 'standard');
+    const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
+    const isReverse = (!isGrammar && direction === 'vi-jp' && currentSubject.quizType !== 'standard');
 
     if (isReverse) {
         const distractors = getDistractors(baseQ, candidatePool, 3);
@@ -643,7 +728,7 @@ function createQuizItem(baseQ, direction, candidatePool) {
     } else {
         return {
             id: baseQ.id,
-            direction: direction === 'standard' ? 'standard' : 'jp-vi',
+            direction: isGrammar || direction === 'standard' ? 'standard' : 'jp-vi',
             prompt: baseQ.question,
             options: [...baseQ.options].sort(() => Math.random() - 0.5),
             correct: [...baseQ.correct],
@@ -689,7 +774,9 @@ function startQuiz() {
 
     const items = questionsToLearn.map(baseQ => {
         let dir = currentQuizMode;
-        if (dir === 'mix') {
+        if (currentSubject.quizType === 'grammar' || currentSubject.quizType === 'standard') {
+            dir = 'standard';
+        } else if (dir === 'mix') {
             dir = Math.random() < 0.5 ? 'jp-vi' : 'vi-jp';
         }
         return createQuizItem(baseQ, dir, candidatePool);
@@ -751,9 +838,18 @@ function loadNextQuestion() {
                 ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-blue-100 text-blue-800 rounded-full inline-flex items-center gap-1 border border-blue-200";
                 ui.directionBadge.innerHTML = "<span>🈸 ➔ 🇻🇳</span><span>Chọn cách đọc & nghĩa của từ này</span>";
             }
-        } else if (currentSubjectId === 'japanese_grammar') {
-            ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full inline-flex items-center gap-1 border border-indigo-200";
-            ui.directionBadge.innerHTML = "<span>📐</span><span>Chọn đáp án đúng ngữ pháp</span>";
+        } else if (currentSubjectId === 'japanese_grammar' || currentSubject.quizType === 'grammar') {
+            const gType = currentQuestion.baseQ?.grammarType;
+            if (gType === 'concept') {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full inline-flex items-center gap-1 border border-purple-300";
+                ui.directionBadge.innerHTML = "<span>📖</span><span>Hỏi ngữ pháp là gì: Chọn quy tắc & cách dùng đúng</span>";
+            } else if (gType === 'translation') {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-flex items-center gap-1 border border-emerald-300";
+                ui.directionBadge.innerHTML = "<span>🇻🇳 ➔ 🇯🇵</span><span>Dịch câu: Chọn câu tiếng Nhật đúng cho câu tiếng Việt</span>";
+            } else {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full inline-flex items-center gap-1 border border-indigo-200";
+                ui.directionBadge.innerHTML = "<span>📐</span><span>Chọn đáp án đúng ngữ pháp</span>";
+            }
         } else {
             const icon = currentSubject.icon || '📖';
             const subName = currentSubject.name || 'Môn';
@@ -932,11 +1028,11 @@ function renderLessonTabs() {
         let count = 0;
         if (les === 'all') {
             label = 'Tất cả';
-            count = allQuestions.length;
+            count = allQuestions.filter(countMatchesGrammar).length;
         } else {
             const prefix = /^\d+$/.test(les) ? 'Bài ' : '';
             label = `${prefix}${les}`;
-            count = allQuestions.filter(q => q.lesson === les).length;
+            count = allQuestions.filter(q => q.lesson === les && countMatchesGrammar(q)).length;
         }
 
         const isActive = selectedLesson === les;
@@ -1000,13 +1096,13 @@ function renderPartTabs() {
         let count = 0;
         if (p === 'all') {
             label = 'Tất cả phần';
-            count = allQuestions.filter(q => selectedLesson === 'all' || q.lesson === selectedLesson).length;
+            count = allQuestions.filter(q => (selectedLesson === 'all' || q.lesson === selectedLesson) && countMatchesGrammar(q)).length;
         } else {
             const title = (selectedLesson !== 'all' && lessonPartsDict[selectedLesson]?.[p])
                 ? `: ${lessonPartsDict[selectedLesson][p]}`
                 : '';
             label = `Phần ${p}${title}`;
-            count = allQuestions.filter(q => (selectedLesson === 'all' || q.lesson === selectedLesson) && q.part === p).length;
+            count = allQuestions.filter(q => (selectedLesson === 'all' || q.lesson === selectedLesson) && q.part === p && countMatchesGrammar(q)).length;
         }
 
         const btn = document.createElement('button');

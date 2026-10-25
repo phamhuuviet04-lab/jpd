@@ -2659,11 +2659,13 @@ window.APP_SUBJECTS = {
         badge: "Ngữ pháp Bài 4 - 6",
         category: "japanese",
         hasFurigana: true,
-        quizType: "standard",
+        quizType: "grammar",
         langFrom: "Câu hỏi Ngữ pháp",
         langTo: "Đáp án",
         modeLabels: {
-            "standard": "📐 Trắc nghiệm Ngữ pháp"
+            "all": "🌟 Tất cả (Cả 2 dạng)",
+            "concept": "📖 Hỏi ngữ pháp là gì",
+            "translation": "✍️ Dịch từ câu tiếng Việt qua"
         },
         lessonParts: (typeof GRAMMAR_LESSON_PARTS !== 'undefined' ? GRAMMAR_LESSON_PARTS : (window.GRAMMAR_LESSON_PARTS || {})),
         rawText: (typeof RAW_DATABASE_GRAMMAR !== 'undefined' ? RAW_DATABASE_GRAMMAR : (window.RAW_DATABASE_GRAMMAR || ""))
