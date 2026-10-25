@@ -2,7 +2,7 @@
 """
 Dữ liệu câu hỏi ngữ pháp Bài 6 - Dekiru Nihongo
 Chia làm 2 dạng câu hỏi rõ ràng:
-1. [HỎI NGỮ PHÁP]: Hỏi khái niệm, cấu trúc, quy tắc, ý nghĩa ngữ pháp
+1. [HỎI NGỮ PHÁP]: Hỏi khái niệm, cấu trúc, quy tắc, cách trả lời theo chuẩn ngữ pháp
 2. [DỊCH CÂU]: Dịch từ câu tiếng Việt sang tiếng Nhật tương ứng
 """
 
@@ -25,7 +25,7 @@ def register_lesson_6(add_pair):
             "Mệnh lệnh bắt buộc đối phương phải làm"
         ],
         "B",
-        "「〜ませんか」là mẫu câu rủ rê, mời mọc lịch sự: \"Cùng làm... với tôi không?\" (Ví dụ: いっしょに えいがを 見に行きませんか).",
+        "💡 Chuẩn ngữ pháp:「〜ませんか」là mẫu câu rủ rê, mời mọc lịch sự: \"Cùng làm... với tôi không?\" (Ví dụ: いっしょに えいがを 見ませんか: cùng đi xem phim với tôi không?).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Cuối tuần cùng đi xem phim với tôi không?\"",
         [
             "しゅうまつ いっしょに えいがを 見ませんか。",
@@ -39,15 +39,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 2: Đồng ý lời rủ rê / Khởi xướng cùng làm: Vましょう
     add_pair("6", "1", P6_1,
-        "Mẫu câu「Vましょう。」dùng trong hoàn cảnh giao tiếp nào?",
+        "Khi được rủ:「いっしょに コーヒーを 飲みませんか。」, nếu bạn muốn ĐỒNG Ý và hào hứng đề xuất đi ngay thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "Chỉ dùng khi ra lệnh cho cấp dưới",
-            "Dùng để hào hứng đồng ý với một lời rủ rê, hoặc chủ động khởi xướng đề xuất: \"Chúng ta hãy cùng làm... nhé!\"",
-            "Dùng khi từ chối một lời đề nghị",
-            "Dùng để diễn tả một thói quen hàng ngày"
+            "いいですね。飲みません。",
+            "いいですね。飲みましょう。",
+            "いいですね。飲みたいです。",
+            "いいですね。飲みます。"
         ],
         "B",
-        "「〜ましょう」dùng để đồng ý lời rủ rê:「いいですね。行きましょう」(Được đấy, cùng đi nào!) hoặc khởi xướng:「食べましょう」(Cùng ăn nào!).",
+        "💡 Chuẩn ngữ pháp: Khi đồng ý với lời rủ rê và khởi xướng cùng đi làm hành động, ta dùng「Vましょう」➔「いいですね。飲みましょう。」(Được đấy, cùng uống nhé!).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Ý kiến hay đấy, chúng ta cùng đi uống cà phê nhé!\"",
         [
             "いいですね。コーヒーを 飲みませんか。",
@@ -61,15 +61,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 3: Từ chối khéo lời rủ rê: すみません、ちょっと… [Lý do] から
     add_pair("6", "1", P6_1,
-        "Khi muốn từ chối khéo một lời rủ rê mà không gây mất lòng đối phương, người Nhật thường sử dụng mẫu câu nào?",
+        "Khi ai đó rủ bạn đi chơi, nếu bạn muốn TỪ CHỐI KHÉO vì ngày mai có việc bận thì theo chuẩn ngữ pháp và văn hóa giao tiếp phải nói như thế nào?",
         [
             "「嫌です。(Tôi ghét)」",
-            "「すみません、ちょっと… [Lý do] から。」",
+            "「すみません、あしたは ちょっと 用事(ようじ)が ありますから…」",
             "「絶対に行きません。(Tuyệt đối không đi)」",
             "「なぜですか。(Tại sao lại rủ tôi)」"
         ],
         "B",
-        "Cách từ chối khéo léo, lịch sự của người Nhật: Nói「すみません、ちょっと…」(Xin lỗi, tôi hơi kẹt một chút...) rồi nêu lý do kết thúc bằng「〜から」.",
+        "💡 Chuẩn ngữ pháp: Cách từ chối khéo léo, lịch sự: Nói「すみません、ちょっと…」rồi nêu lý do kết thúc bằng「〜から」➔「すみません、あしたは ちょっと 用事がありますから…」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Xin lỗi, ngày mai tôi có chút việc bận rồi (nên không đi được).\"",
         [
             "すみません、あしたは 用事(ようじ)が ありますから…",
@@ -83,15 +83,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 4: Từ chối vì có hẹn trước: 約束がありますから
     add_pair("6", "1", P6_1,
-        "Để giải thích lý do từ chối lời mời là \"vì tôi có hẹn trước rồi\", câu tiếng Nhật nào sau đây là đúng?",
+        "Khi bạn bè rủ:「日曜日、サッカーを しませんか。」, nếu bạn muốn từ chối vì \"đã có hẹn với bạn bè rồi\" thì câu nói chuẩn ngữ pháp là:",
         [
             "すみません、しごとが ありますから。",
-            "すみません、約束(やくそく)が ありますから。",
+            "すみません、ともだちと 約束(やくそく)が ありますから。",
             "すみません、時間が ありますから。",
             "すみません、お金が ありますから。"
         ],
         "B",
-        "Cuộc hẹn trước, lời hứa là「約束 (やくそく)」. Giải thích lý do từ chối:「約束が ありますから。」(vì tôi có hẹn trước rồi).",
+        "💡 Chuẩn ngữ pháp: Cuộc hẹn trước, lời hứa là「約束 (やくそく)」. Giải thích lý do từ chối:「すみません、ともだちと 約束が ありますから。」(vì tôi có hẹn với bạn rồi).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Chủ nhật cùng đi đá bóng không?\" - \"Xin lỗi, tôi có hẹn với bạn rồi.\"",
         [
             "「日曜日、サッカーを しませんか。」「すみません、ともだちと 約束が ありますから。」",
@@ -105,7 +105,7 @@ def register_lesson_6(add_pair):
 
     # Cặp 5: Sự kiện, lễ hội diễn ra tại địa điểm: Địa điểm で Sự kiện が あります
     add_pair("6", "1", P6_1,
-        "Khi muốn diễn đạt một sự kiện, buổi hòa nhạc hay lễ hội DIỄN RA tại một địa điểm, ta dùng trợ từ nào đi sau địa điểm đó?",
+        "Khi muốn diễn đạt một sự kiện, buổi hòa nhạc hay lễ hội DIỄN RA tại một địa điểm, theo chuẩn ngữ pháp ta dùng trợ từ nào đi sau địa điểm đó?",
         [
             "Trợ từ に",
             "Trợ từ で",
@@ -113,7 +113,7 @@ def register_lesson_6(add_pair):
             "Trợ từ へ"
         ],
         "B",
-        "Với sự kiện/hoạt động diễn ra (lễ hội, concert, kỳ thi, tiệc tùng): [Địa điểm] + で + [Sự kiện] + が あります.",
+        "💡 Chuẩn ngữ pháp: Với sự kiện/hoạt động diễn ra (lễ hội, concert, kỳ thi, tiệc tùng): [Địa điểm] + で + [Sự kiện] + が あります (Ví dụ: 浅草公園で お祭りが あります).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Vào thứ Bảy tuần này, ở công viên Asakusa có lễ hội hoa anh đào.\"",
         [
             "こんどの 土曜日、浅草公園に お祭りが あります。",
@@ -127,7 +127,7 @@ def register_lesson_6(add_pair):
 
     # Cặp 6: Phân biệt trợ từ に và で khi đi với あります
     add_pair("6", "1", P6_1,
-        "PHÂN BIỆT TRỢ TỪ: Điểm khác biệt về mặt ngữ pháp giữa「Địa điểm に あります」và「Địa điểm で あります」là gì?",
+        "PHÂN BIỆT TRỢ TỪ: Điểm khác biệt về mặt chuẩn ngữ pháp giữa「Địa điểm に あります」và「Địa điểm で あります」là gì?",
         [
             "Hai cấu trúc hoàn toàn giống nhau, dùng thay thế tự do",
             "「に あります」dùng cho đồ vật, công trình tồn tại tĩnh; còn「で あります」dùng cho sự kiện, hoạt động tổ chức diễn ra",
@@ -135,7 +135,7 @@ def register_lesson_6(add_pair):
             "「に あります」chỉ dùng cho người và động vật"
         ],
         "B",
-        "Quy tắc vàng: Tồn tại tĩnh (đồ vật, toà nhà, chùa chiền) dùng [Địa điểm] + に; Tổ chức sự kiện (lễ hội, thi cử, tiệc tùng, hòa nhạc) dùng [Địa điểm] + で.",
+        "💡 Chuẩn ngữ pháp: Tồn tại tĩnh (đồ vật, toà nhà, chùa chiền) dùng [Địa điểm] + に; Tổ chức sự kiện (lễ hội, thi cử, tiệc tùng, hòa nhạc) dùng [Địa điểm] + で ➔「大学で テストが あります。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Ngày mai ở trường đại học có kỳ thi tiếng Nhật.\"",
         [
             "あした 大学に 日本語の テストが あります。",
@@ -157,7 +157,7 @@ def register_lesson_6(add_pair):
             "Đếm các vật dài hình trụ như cây bút, cái chai"
         ],
         "B",
-        "Lượng từ「〜まい (枚)」chuyên dùng để đếm các vật mỏng, phẳng: vé (チケット), áo (シャツ), giấy (かみ), đĩa CD, ảnh (しゃしん)...",
+        "💡 Chuẩn ngữ pháp: Lượng từ「〜まい (枚)」chuyên dùng để đếm các vật mỏng, phẳng: vé (チケット), áo sơ mi (シャツ), giấy (かみ), đĩa CD, ảnh (しゃしん)...",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tôi có 2 tấm vé xem buổi hòa nhạc.\"",
         [
             "コンサートの チケットが 2ほん あります。",
@@ -179,7 +179,7 @@ def register_lesson_6(add_pair):
             "いちだい / さんだい"
         ],
         "B",
-        "Đếm lượng từ 〜まい: 1まい (いちまい), 2まい (にまい), 3まい (さんまい), 4まい (よんまい)...",
+        "💡 Chuẩn ngữ pháp: Đếm lượng từ 〜まい: 1まい (いちまい), 2まい (にまい), 3まい (さんまい), 4まい (よんまい)...",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Hôm qua tôi đã mua 3 chiếc áo sơ mi ở cửa hàng.\"",
         [
             "きのう 店で シャツを 3まい 買いました。",
@@ -193,15 +193,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 9: Rủ rê dựa trên số lượng có sẵn
     add_pair("6", "1", P6_1,
-        "Khi bạn có sẵn vé và muốn mời bạn đi cùng xem, cấu trúc hội thoại chuẩn thường dùng là gì?",
+        "Khi bạn có sẵn 2 tấm vé xem phim và muốn rủ đối phương cùng đi xem, câu nói chuẩn ngữ pháp giao tiếp là gì?",
         [
             "チケットが ありますから、お金を ください。",
-            "チケットが 2枚 あります。いっしょに 行きませんか。",
-            "チケットを 買いました。ひとりで行きます。",
+            "えいがの チケットが 2枚 あります。いっしょに 行きませんか。",
+            "チケットを 買いました。ひとりで 行きます。",
             "チケットが ありません。行きましょう。"
         ],
         "B",
-        "Mẫu giao tiếp thực tế Dekiru Nihongo: Nêu số lượng vé có sẵn + Rủ rê bằng「いっしょに 行きませんか。」(Tôi có 2 tấm vé. Cùng đi với tôi không?).",
+        "💡 Chuẩn ngữ pháp: Nêu số lượng vé có sẵn [Danh từ] + が + [Số lượng] + あります kết hợp rủ rê「いっしょに 行きませんか。」(Tôi có 2 tấm vé. Cùng đi với tôi không?).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tôi có 2 tấm vé xem phim. Cùng đi xem với tôi không?\"",
         [
             "えいがの チケットが 2まい あります。いっしょに 行きませんか。",
@@ -227,7 +227,7 @@ def register_lesson_6(add_pair):
             "Cả N1 và N2 đều không đạt tính chất đó"
         ],
         "B",
-        "Cấu trúc: N1 は N2 より Adj です = \"N1 thì [Tính từ] hơn N2\" (Đối tượng đứng trước は là đối tượng có tính chất cao hơn).",
+        "💡 Chuẩn ngữ pháp: Cấu trúc: N1 は N2 より Adj です = \"N1 thì [Tính từ] hơn N2\" (Đối tượng đứng trước は là đối tượng có tính chất cao hơn). Ví dụ: 新幹線は でんしゃより はやいです。",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tàu Shinkansen nhanh hơn tàu điện thông thường.\"",
         [
             "新幹線は でんしゃより はやいです。",
@@ -241,15 +241,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 11: So sánh hơn về tính chất: [Đối tượng 1] は [Đối tượng 2] より [Tính từ]
     add_pair("6", "2", P6_2,
-        "Trong câu so sánh hơn「ハノイは ダナンより にぎやかです。」, thành phố nào náo nhiệt hơn?",
+        "Trong câu so sánh hơn「東京は 京都より にぎやかです。」, thành phố nào náo nhiệt hơn?",
         [
-            "Đà Nẵng náo nhiệt hơn",
-            "Hà Nội náo nhiệt hơn",
+            "Kyoto náo nhiệt hơn",
+            "Tokyo náo nhiệt hơn",
             "Cả hai thành phố đều yên tĩnh",
             "Không xác định được"
         ],
         "B",
-        "Chủ ngữ đi với trợ từ「は」là đối tượng được khẳng định có tính chất nổi trội hơn so với đối tượng sau「より」➔ Hà Nội náo nhiệt hơn.",
+        "💡 Chuẩn ngữ pháp: Đối tượng đi với trợ từ「は」là đối tượng được khẳng định có tính chất nổi trội hơn so với đối tượng sau「より」➔ Tokyo náo nhiệt hơn Kyoto.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tokyo náo nhiệt hơn Kyoto.\"",
         [
             "京都は 東京より にぎやかです。",
@@ -263,7 +263,7 @@ def register_lesson_6(add_pair):
 
     # Cặp 12: Câu hỏi so sánh lựa chọn: N1 と N2 と どちらが Adj ですか
     add_pair("6", "2", P6_2,
-        "Cấu trúc câu hỏi so sánh lựa chọn giữa 2 đối tượng là gì?",
+        "Cấu trúc câu hỏi so sánh lựa chọn giữa 2 đối tượng theo chuẩn ngữ pháp là gì?",
         [
             "N1 や N2 や どれが Adj ですか。",
             "N1 と N2 と どちらが Adj ですか。",
@@ -271,7 +271,7 @@ def register_lesson_6(add_pair):
             "N1 も N2 も どこが Adj ですか。"
         ],
         "B",
-        "Mẫu câu hỏi lựa chọn giữa 2 đối tượng:「N1 と N2 と どちら (hoặc どっち) が Adj ですか。」(N1 và N2, cái nào... hơn?).",
+        "💡 Chuẩn ngữ pháp: Mẫu câu hỏi lựa chọn giữa 2 đối tượng:「N1 と N2 と どちら (hoặc どっち) が Adj ですか。」(N1 và N2, cái nào... hơn?).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Thịt bò và thịt cá, món nào ngon hơn?\"",
         [
             "ぎゅうにくと さかなと どれが おいしいですか。",
@@ -285,15 +285,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 13: Trả lời chọn một đối tượng hơn: N の ほうが Adj です
     add_pair("6", "2", P6_2,
-        "Khi trả lời câu hỏi lựa chọn「N1 と N2 と どちらが Adj ですか。」và bạn CHỌN N1 HƠN, mẫu câu trả lời chuẩn là gì?",
+        "Khi được hỏi:「英語と 日本語と どちらが 難しいですか。」, nếu bạn muốn trả lời là \"Tiếng Nhật khó hơn\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "N1 の ほうが Adj です。",
-            "N1 より Adj です。",
-            "N1 は どちらも Adj です。",
-            "N1 が 一番 Adj です。"
+            "日本語の ほうが 難しいです。",
+            "英語の ほうが 難しいです。",
+            "日本語より 難しいです。",
+            "どちらも 難しいです。"
         ],
         "A",
-        "Khi lựa chọn một phía hơn trong 2 đối tượng, ta dùng mẫu「[Đối tượng] の ほうが Adj です。」(Phía... hơn).",
+        "💡 Chuẩn ngữ pháp: Khi trả lời câu hỏi lựa chọn và bạn chọn một phía hơn, mẫu câu chuẩn là: [Đối tượng] + の ほうが + [Tính từ] です ➔「日本語の ほうが 難しいです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tiếng Nhật và tiếng Anh, tiếng Nhật khó hơn.\"",
         [
             "日本語の ほうが むずかしいです。",
@@ -307,15 +307,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 14: Trả lời cả hai đều như nhau: どちらも Adj です
     add_pair("6", "2", P6_2,
-        "Khi trả lời câu hỏi lựa chọn giữa 2 đối tượng và bạn thấy CẢ HAI ĐỀU NHƯ NHAU, mẫu câu trả lời là gì?",
+        "Khi được hỏi:「犬と 猫と どちらが 好きですか。」, nếu bạn muốn trả lời là \"Cả hai con tôi đều thích cả\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "どちらが Adj です。",
-            "どちらも Adj です。",
-            "どちらの ほうが Adj です。",
-            "どれも Adj です。"
+            "犬の ほうが 好きです。",
+            "どちらも 好きです。",
+            "どちらが 好きです。",
+            "どちらの ほうが 好きです。"
         ],
         "B",
-        "Khi cả hai đều như nhau:「どちらも + Tính từ khẳng định / phủ định」(Cả hai đều...; Ví dụ: どちらも すきです: cả hai tôi đều thích).",
+        "💡 Chuẩn ngữ pháp: Khi cả hai đối tượng đều như nhau: dùng「どちらも + Tính từ」➔「どちらも 好きです。」(Cả hai con tôi đều thích).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Chó và mèo, con nào tôi cũng thích cả.\"",
         [
             "いぬの ほうが すきです。",
@@ -329,7 +329,7 @@ def register_lesson_6(add_pair):
 
     # Cặp 15: So sánh nhất trong một phạm vi: [Phạm vi] で N が 一番 Adj です
     add_pair("6", "2", P6_2,
-        "Cấu trúc so sánh nhất trong một phạm vi / tập hợp là gì?",
+        "Cấu trúc so sánh nhất trong một phạm vi / tập hợp theo chuẩn ngữ pháp là gì?",
         [
             "[Phạm vi] に N が 一番 Adj です。",
             "[Phạm vi] で N が 一番 Adj です。",
@@ -337,7 +337,7 @@ def register_lesson_6(add_pair):
             "[Phạm vi] より N が 一番 Adj です。"
         ],
         "B",
-        "Cấu trúc so sánh nhất: [Phạm vi/Tập hợp] + で + [Danh từ] + が + 一番 (いちばん) + [Tính từ] + です (Trong phạm vi..., N là... nhất).",
+        "💡 Chuẩn ngữ pháp: Cấu trúc so sánh nhất: [Phạm vi/Tập hợp] + で + [Danh từ] + が + 一番 (いちばん) + [Tính từ] + です (Trong phạm vi..., N là... nhất). Ví dụ: 1年で 7月が 一番 あついです。",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Trong một năm, tháng 7 là nóng nhất.\"",
         [
             "1年で 7月が 一番 あついです。",
@@ -351,15 +351,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 16: Từ để hỏi về đồ vật trong so sánh nhất: 何が 一番
     add_pair("6", "2", P6_2,
-        "Để hỏi về ĐỒ VẬT / MÓN ĂN trong câu hỏi so sánh nhất, từ để hỏi nào được sử dụng?",
+        "Khi được hỏi:「日本料理で 何が 一番 好きですか。」, nếu bạn muốn trả lời là \"Tôi thích món sushi nhất\" thì câu trả lời chuẩn ngữ pháp là:",
         [
-            "だれが 一番〜",
-            "何(なに)が 一番〜",
-            "どこが 一番〜",
-            "いつが 一番〜"
+            "すしが 一番 好きです。",
+            "すしは 一番 好きです。",
+            "すしの ほうが 好きです。",
+            "すしより 好きです。"
         ],
-        "B",
-        "Hỏi về đồ vật, món ăn dùng từ để hỏi「何 (なに)」:「[Phạm vi] で 何が 一番 Adj ですか。」(Trong..., cái gì là... nhất?).",
+        "A",
+        "💡 Chuẩn ngữ pháp: Trả lời so sánh nhất: [Đối tượng] + が + 一番 + [Tính từ] です ➔「すしが 一番 好きです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Trong các món ăn Nhật Bản, bạn thích món nào nhất?\"",
         [
             "日本料理で だれが 一番 好きですか。",
@@ -373,15 +373,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 17: Từ để hỏi về thời gian trong so sánh nhất: いつが 一番
     add_pair("6", "2", P6_2,
-        "Để hỏi về THỜI ĐIỂM / MÙA trong câu hỏi so sánh nhất, từ để hỏi nào được sử dụng?",
+        "Khi được hỏi:「日本は いつが 一番 きれいですか。」, nếu bạn muốn trả lời là \"Mùa xuân là đẹp nhất\" thì câu nói chuẩn ngữ pháp là:",
         [
-            "どこが 一番〜",
-            "いつが 一番〜",
-            "だれが 一番〜",
-            "なにが 一番〜"
+            "春が 一番 きれいです。",
+            "春の ほうが きれいです。",
+            "春より きれいです。",
+            "春は どちらも きれいです。"
         ],
-        "B",
-        "Hỏi về thời gian, thời điểm dùng「いつ」:「1年で いつが 一番 さむいですか。」(Trong 1 năm, khi nào là lạnh nhất?).",
+        "A",
+        "💡 Chuẩn ngữ pháp: Trả lời câu hỏi so sánh nhất「いつが 一番〜」: [Thời điểm] + が + 一番 + [Tính từ] です ➔「春が 一番 きれいです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Ở Nhật Bản, mùa nào (khi nào) là đẹp nhất?\"",
         [
             "日本は どこが 一番 きれいですか。",
@@ -395,15 +395,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 18: Từ để hỏi về nơi chốn trong so sánh nhất: どこが 一番
     add_pair("6", "2", P6_2,
-        "Để hỏi về NƠI CHỐN / ĐỊA ĐIỂM trong câu hỏi so sánh nhất, từ để hỏi nào được sử dụng?",
+        "Khi được hỏi:「お国で どこが 一番 有名ですか。」, nếu bạn muốn trả lời là \"Vịnh Hạ Long là nổi tiếng nhất\" thì câu trả lời chuẩn ngữ pháp là:",
         [
-            "どこが 一番〜",
-            "いつが 一番〜",
-            "なにが 一番〜",
-            "だれが 一番〜"
+            "ハロンわんが 一番 有名です。",
+            "ハロンわんの ほうが 有名です。",
+            "ハロンわんより 有名です。",
+            "ハロンわんは どちらも 有名です。"
         ],
         "A",
-        "Hỏi về địa điểm nơi chốn dùng「どこ」:「世界で どこが 一番 ひろいですか。」(Trên thế giới, nơi nào là rộng nhất?).",
+        "💡 Chuẩn ngữ pháp: Trả lời so sánh nhất nơi chốn: [Địa danh] + が + 一番 + 有名です ➔「ハロンわんが 一番 有名です。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Ở đất nước của bạn, nơi nào là nổi tiếng nhất?\"",
         [
             "お国で どこが 一番 有名(ゆうめい)ですか。",
@@ -429,7 +429,7 @@ def register_lesson_6(add_pair):
             "Hỏi lý do tại sao chưa làm việc gì"
         ],
         "B",
-        "「もう Vましたか」dùng để kiểm tra tiến độ, hành động đã hoàn tất chưa: \"Bạn đã làm V chưa / rồi phải không?\".",
+        "💡 Chuẩn ngữ pháp:「もう Vましたか」dùng để kiểm tra tiến độ xem hành động đã hoàn tất hay chưa: \"Bạn đã làm V chưa / rồi phải không?\". Ví dụ: もう 宿題を しましたか。",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Bạn đã làm bài tập về nhà chưa?\"",
         [
             "もう しゅくだいを しましたか。",
@@ -443,15 +443,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 20: Trả lời khẳng định đã làm rồi: はい、もう Vました
     add_pair("6", "3", P6_3,
-        "Khi trả lời KHẲNG ĐỊNH cho câu hỏi「もう Vましたか。」(Đã làm rồi), mẫu câu trả lời chuẩn là gì?",
+        "Khi được hỏi:「もう 昼ごはんを食べましたか。」, nếu bạn muốn trả lời khẳng định là \"Vâng, tôi đã ăn rồi\" thì câu nói chuẩn ngữ pháp là:",
         [
-            "はい、まだ Vました。",
-            "はい、もう Vました。",
-            "いいえ、もう Vました。",
-            "はい、これから Vました。"
+            "はい、まだ 食べました。",
+            "はい、もう 食べました。",
+            "いいえ、もう 食べました。",
+            "はい、これから 食べました。"
         ],
         "B",
-        "Trả lời khẳng định:「はい、もう Vました。」(Vâng, tôi đã làm rồi; Ví dụ: はい、もう 食べました).",
+        "💡 Chuẩn ngữ pháp: Trả lời khẳng định cho「もう Vましたか」:「はい、もう Vました。」➔「はい、もう 食べました。」(Vâng, tôi đã ăn rồi).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Vâng, tôi đã ăn cơm trưa rồi.\"",
         [
             "はい、まだ ひるごはんを 食べました。",
@@ -465,15 +465,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 21: Quy tắc bắt buộc khi trả lời phủ định: いいえ、まだです
     add_pair("6", "3", P6_3,
-        "QUY TẮC BẮT BUỘC: Khi trả lời PHỦ ĐỊNH cho câu hỏi「もう Vましたか。」(Chưa làm), câu trả lời chuẩn xác là gì?",
+        "QUY TẮC BẮT BUỘC: Khi được hỏi「もう 飛行機のチケットを 買いましたか。」, nếu bạn muốn trả lời là \"Chưa, tôi vẫn chưa mua\" thì theo chuẩn ngữ pháp BẮT BUỘC phải nói như thế nào?",
         [
-            "いいえ、Vませんでした (Sai ngữ pháp nghiêm trọng)",
-            "いいえ、まだです。(Hoặc: いいえ、まだ Vていません)",
-            "いいえ、もう Vません。",
-            "いいえ、ぜんぜん Vました。"
+            "いいえ、買いませんでした (Sai ngữ pháp nghiêm trọng)",
+            "いいえ、まだです。(Hoặc: いいえ、まだ 買っていません)",
+            "いいえ、もう 買いません。",
+            "いいえ、ぜんぜん 買いました。"
         ],
         "B",
-        "LƯU Ý ĐẶC BIỆT: Đối với「もう Vましたか」, nếu chưa làm thì BẮT BUỘC trả lời「いいえ、まだです」(Chưa, tôi chưa làm). Tuyệt đối KHÔNG trả lời「いいえ、Vませんでした」vì câu đó có nghĩa là \"tôi đã không làm và sẽ không làm nữa\".",
+        "💡 Chuẩn ngữ pháp: Đối với câu hỏi「もう Vましたか」, nếu chưa làm thì BẮT BUỘC trả lời「いいえ、まだです」(Chưa, tôi chưa làm). Tuyệt đối KHÔNG trả lời「いいえ、Vませんでした」vì câu đó mang nghĩa là bạn đã không mua và từ chối không mua nữa.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Bạn đã mua vé máy bay chưa?\" - \"Chưa, tôi vẫn chưa mua.\"",
         [
             "「もう ひこうきの チケットを 買いましたか。」「いいえ、買いませんでした。」",
@@ -487,15 +487,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 22: Gợi ý, đề xuất phương án: N は どうですか
     add_pair("6", "3", P6_3,
-        "SO SÁNH NGỮ PHÁP QUAN TRỌNG: Mẫu câu「N は どうですか。」ở BÀI 6.3 có ý nghĩa gì khác so với BÀI 4.2?",
+        "Khi cùng bạn bè bàn「何を食べますか。」, nếu bạn muốn GỢI Ý ĐỀ XUẤT \"Món sushi thì sao / thế nào?\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "Không có gì khác biệt, cả hai đều dùng để miêu tả phòng ốc",
-            "Ở Bài 4.2 dùng để hỏi tính chất đặc điểm nơi chốn, còn ở Bài 6.3 dùng để đưa ra GỢI Ý, ĐỀ XUẤT một giải pháp/món ăn (\"Phương án N thì sao?\")",
-            "Ở Bài 6.3 chỉ dùng để hỏi giá tiền",
-            "Ở Bài 6.3 chỉ dùng để từ chối lời mời"
+            "すしは どこですか。",
+            "すしは どうですか。",
+            "すしは なんですか。",
+            "すしは だれですか。"
         ],
         "B",
-        "Ở Bài 6.3,「N は どうですか」mang chức năng đề xuất/gợi ý một ý kiến: \"Ăn sushi thì sao?\" (Ví dụ: なにを食べますか。➔ すしは どうですか).",
+        "💡 Chuẩn ngữ pháp: Ở Bài 6.3, mẫu câu「[Danh từ] は どうですか。」mang chức năng đưa ra đề xuất, gợi ý giải pháp: \"Phương án/món... thì thế nào/sao?\" ➔「すしは どうですか。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Trưa nay cùng đi ăn nhé. Món sushi thì sao/thế nào?\"",
         [
             "ひるごはんを 食べませんか。すしは どうですか。",
@@ -509,15 +509,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 23: Đề xuất địa điểm du lịch: N は どうですか
     add_pair("6", "3", P6_3,
-        "Khi bàn bạc kế hoạch đi chơi và một người đề xuất:「東京は どうですか。」, câu này mang ý nghĩa gì?",
+        "Khi bàn bạc kế hoạch đi chơi「どこに旅行しますか。」, nếu bạn muốn GỢI Ý \"Đi Kyoto thì thế nào?\" thì câu nói chuẩn ngữ pháp là:",
         [
-            "Tokyo là một nơi như thế nào?",
-            "Đi Tokyo thì thế nào / có được không? (Đưa ra gợi ý về địa điểm)",
-            "Tokyo ở đâu?",
-            "Tokyo có đông dân không?"
+            "京都は どうですか。",
+            "京都は どこですか。",
+            "京都は なんですか。",
+            "京都は だれですか。"
         ],
-        "B",
-        "Trong bối cảnh bàn kế hoạch,「[Địa điểm] は どうですか」nghĩa là \"Đi địa điểm đó thì thế nào/sao?\".",
+        "A",
+        "💡 Chuẩn ngữ pháp: Trong bối cảnh bàn kế hoạch du lịch, dùng「[Địa điểm] は どうですか」để gợi ý địa điểm:「京都は どうですか。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Sắp đến kỳ nghỉ rồi. Đi du lịch Kyoto thì thế nào?\"",
         [
             "もうすぐ 休みですね。京都は どうですか。",
@@ -531,15 +531,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 24: Trợ từ cuối câu ね (Đồng cảm, tìm kiếm sự đồng thuận)
     add_pair("6", "3", P6_3,
-        "Chức năng chính của trợ từ cuối câu「ね」trong hội thoại giao tiếp là gì?",
+        "Khi cùng bạn dạo phố Tokyo và muốn chia sẻ cảm thán đồng cảm (\"Cuộc sống ở Tokyo thật thú vị và tiện lợi nhỉ!\"), theo chuẩn ngữ pháp ta dùng trợ từ cuối câu nào?",
         [
-            "Thông báo thông tin mới mà đối phương hoàn toàn chưa biết",
-            "Bày tỏ sự đồng cảm, tìm kiếm sự đồng thuận hoặc xác nhận thông tin mà CẢ HAI BÊN CÙNG BIẾT",
-            "Bày tỏ sự phản đối kịch liệt",
-            "Chỉ dùng khi tức giận"
+            "Trợ từ よ",
+            "Trợ từ ね",
+            "Trợ từ か",
+            "Trợ từ も"
         ],
         "B",
-        "Trợ từ「ね」dùng khi người nói và người nghe cùng nhìn thấy hoặc cùng biết một sự việc (đồng cảm, đồng thuận, chia sẻ cảm xúc).",
+        "💡 Chuẩn ngữ pháp: Trợ từ「ね」dùng khi cả người nói và người nghe cùng nhìn thấy hoặc cùng chia sẻ một trải nghiệm chung (đồng cảm, đồng thuận):「東京の 生活は おもしろいですね。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Cuộc sống ở Tokyo thật là thú vị và tiện lợi nhỉ!\"",
         [
             "東京の 生活は おもしろいですね。そして、べんりです。",
@@ -561,7 +561,7 @@ def register_lesson_6(add_pair):
             "Dùng khi chào tạm biệt"
         ],
         "B",
-        "Trợ từ「よ」dùng khi người nói muốn truyền đạt một thông tin mới mà đối phương chưa biết, hoặc nhắc nhở, cảnh báo (Ví dụ: この映画は おもしろいですよ: Phim này hay lắm đấy nhé!).",
+        "💡 Chuẩn ngữ pháp: Trợ từ「よ」dùng khi người nói muốn truyền đạt một thông tin mới mà đối phương chưa biết:「あの店は おいしくて、やすいですよ。」(Quán kia đồ ăn ngon và rẻ lắm đấy nhé!).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Quán ăn kia đồ ăn ngon và rẻ lắm đấy nhé! (cho người chưa biết)\"",
         [
             "あの店は おいしくて、やすいですね。",
@@ -575,15 +575,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 26: Tình huống phân biệt ね và よ trong thực tế
     add_pair("6", "3", P6_3,
-        "PHÂN BIỆT THỰC HÀNH: Khi bạn và người kia đang cùng đứng dưới trời mưa to, bạn quay sang trò chuyện thì nên dùng trợ từ nào?",
+        "Khi thấy đã muộn (12 giờ đêm) và bạn muốn NHẮC NHỞ bạn cùng phòng đi ngủ vì người đó chưa để ý giờ thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "Dùng trợ từ「よ」vì trời đang mưa",
-            "Dùng trợ từ「ね」(Ví dụ: すごい雨ですね) vì cả hai người đều đang cùng nhìn thấy và trải nghiệm trời mưa",
-            "Dùng trợ từ「か」",
-            "Không dùng trợ từ nào cả"
+            "もう 12じですね。寝ましょう。",
+            "もう 12じですよ。寝ましょう。",
+            "もう 12じですか。寝ましょう。",
+            "もう 12じでした。寝ましょう。"
         ],
         "B",
-        "Khi cả hai người cùng chứng kiến sự việc (trời mưa to) ➔ dùng「ね」(すごい雨ですね: Mưa to quá nhỉ). Nếu đối phương ở trong phòng không biết bên ngoài đang mưa ➔ dùng「よ」(雨が 降っていますよ: Trời đang mưa đấy nhé).",
+        "💡 Chuẩn ngữ pháp: Nhắc nhở người chưa để ý giờ (thông tin mới với người đó) ➔ BẮT BUỘC dùng trợ từ「よ」:「もう 12じですよ。寝ましょう。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Đã 12 giờ đêm rồi đấy, đi ngủ thôi nào! (nhắc nhở người đang mải chơi chưa để ý giờ)\"",
         [
             "もう 12じですね。寝ましょう。",
@@ -597,15 +597,15 @@ def register_lesson_6(add_pair):
 
     # Cặp 27: Đồng ý làm theo một gợi ý: そうしましょう
     add_pair("6", "3", P6_3,
-        "Khi đồng ý làm theo một gợi ý / kế hoạch của người khác, câu tiếng Nhật nào sau đây có nghĩa là \"Cùng làm như thế nhé!\":",
+        "Khi đối phương đưa ra một gợi ý kế hoạch hay và bạn muốn ĐỒNG Ý \"Hay quá, chúng ta hãy cùng làm như vậy nhé!\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "そうでした。",
-            "そうしましょう。",
-            "そうしません。",
-            "そうですよ。"
+            "いいですね。そうでした。",
+            "いいですね。そうしましょう。",
+            "いいですね。そうしません。",
+            "いいですね。そうですよ。"
         ],
         "B",
-        "「そうしましょう。」(Hãy cùng làm như vậy nhé!) dùng để đồng ý một cách nhiệt tình với một gợi ý, đề xuất vừa được đưa ra.",
+        "💡 Chuẩn ngữ pháp: Khi đồng ý nhiệt tình với một gợi ý đề xuất:「いいですね。そうしましょう。」(Hay quá, chúng ta cùng làm như vậy đi!).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Hay quá, chúng ta hãy cùng làm như vậy nhé!\"",
         [
             "いいですね。そうでした。",

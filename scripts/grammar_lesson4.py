@@ -2,7 +2,7 @@
 """
 Dữ liệu câu hỏi ngữ pháp Bài 4 - Dekiru Nihongo
 Chia làm 2 dạng câu hỏi rõ ràng:
-1. [HỎI NGỮ PHÁP]: Hỏi khái niệm, cấu trúc, quy tắc, ý nghĩa ngữ pháp
+1. [HỎI NGỮ PHÁP]: Hỏi khái niệm, cấu trúc, quy tắc, cách trả lời theo chuẩn ngữ pháp
 2. [DỊCH CÂU]: Dịch từ câu tiếng Việt sang tiếng Nhật tương ứng
 """
 
@@ -17,7 +17,6 @@ def register_lesson_4(add_pair):
 
     # Cặp 1: Vị trí thành phố / phương hướng
     add_pair("4", "1", P4_1,
-        # Hỏi ngữ pháp là gì
         "Mẫu câu「Thành phố は đất nước の [hướng] です。」dùng để làm gì?",
         [
             "Nói về dân số của một thành phố",
@@ -26,8 +25,7 @@ def register_lesson_4(add_pair):
             "Miêu tả thời tiết của đất nước"
         ],
         "B",
-        "Cấu trúc「Thành phố は đất nước の [hướng] です。」dùng để diễn đạt vị trí địa lý của thành phố nằm ở phía nào (đông, tây, nam, bắc, trung tâm) của đất nước đó.",
-        # Dịch câu tiếng Việt qua
+        "💡 Chuẩn ngữ pháp: Cấu trúc「Thành phố は đất nước の [hướng] です。」dùng để diễn đạt vị trí địa lý của thành phố nằm ở phía nào (đông, tây, nam, bắc, trung tâm) của đất nước đó. Ví dụ: Lang Sonは ベトナムの きたです。",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Lạng Sơn ở phía bắc Việt Nam.\"",
         [
             "Lang Sonは ベトナムの きたです。",
@@ -41,7 +39,7 @@ def register_lesson_4(add_pair):
 
     # Cặp 2: Phương hướng: Phía nam
     add_pair("4", "1", P4_1,
-        "Trong tiếng Nhật, để nói về phương hướng \"Phía nam\", từ vựng nào sau đây là đúng?",
+        "Khi muốn nói về phương hướng \"Phía nam\" của một quốc gia, theo chuẩn ngữ pháp tiếng Nhật ta dùng từ vựng nào?",
         [
             "きた (北)",
             "にし (西)",
@@ -49,7 +47,7 @@ def register_lesson_4(add_pair):
             "ひがし (東)"
         ],
         "C",
-        "4 phương hướng cơ bản trong tiếng Nhật: きた (Bắc), みなみ (Nam), ひがし (Đông), にし (Tây).",
+        "💡 Chuẩn ngữ pháp: 4 phương hướng cơ bản trong tiếng Nhật: きた (Bắc), みなみ (Nam), ひがし (Đông), にし (Tây). Khi nói Cà Mau ở phía nam Việt Nam:「Cà Mauは ベトナムの みなみです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Cà Mau ở phía nam Việt Nam.\"",
         [
             "Cà Mauは ベトナムの きたです。",
@@ -63,7 +61,7 @@ def register_lesson_4(add_pair):
 
     # Cặp 3: Vị trí chính giữa / miền Trung
     add_pair("4", "1", P4_1,
-        "Để nói một địa điểm nằm ở \"chính giữa / miền trung\" của một đất nước, ta dùng từ vựng nào?",
+        "Để nói một địa điểm nằm ở \"chính giữa / miền trung\" của một đất nước, theo chuẩn ngữ pháp ta dùng từ vựng nào?",
         [
             "まんなか (真ん中)",
             "ちかく (近く)",
@@ -71,7 +69,7 @@ def register_lesson_4(add_pair):
             "うしろ (後ろ)"
         ],
         "A",
-        "「まんなか (真ん中)」nghĩa là chính giữa, trung tâm (miền Trung).",
+        "💡 Chuẩn ngữ pháp:「まんなか (真ん中)」nghĩa là chính giữa, trung tâm (miền Trung). Ví dụ: Nghệ An là miền Trung Việt Nam:「Nghệ Anは ベトナムの まんなかです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Nghệ An ở miền Trung (chính giữa) Việt Nam.\"",
         [
             "Nghệ Anは ベトナムの ひがしです。",
@@ -85,15 +83,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 4: Hỏi vị trí nơi chốn lịch sự
     add_pair("4", "1", P4_1,
-        "Để hỏi \"Nhà của bạn ở đâu?\" một cách lịch sự trong tiếng Nhật, câu hỏi nào sau đây là đúng?",
+        "Khi đối phương hỏi lịch sự:「お家は どこですか。」(Nhà của bạn ở đâu?), nếu bạn muốn trả lời là \"Nhà tôi ở Hà Nội\" thì theo chuẩn ngữ pháp phải trả lời như thế nào?",
         [
             "お家は なんですか。",
+            "ハノイです。",
             "お家は だれですか。",
-            "お家は どこですか。",
             "お家は どうですか。"
         ],
-        "C",
-        "「どこ」là từ để hỏi nơi chốn, vị trí. Thêm tiền tố「お」trước「家」để thể hiện sự lịch sự tôn trọng đối phương:「お家は どこですか。」",
+        "B",
+        "💡 Chuẩn ngữ pháp: Khi trả lời câu hỏi vị trí「どこですか。」, nếu bạn muốn trả lời là ở đâu thì trả lời trực tiếp:「[Tên địa danh] です。」➔「ハノイです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Nhà bạn ở đâu?\" - \"Ở Hà Nội.\"",
         [
             "「お家は どこですか。」「ハノイです。」",
@@ -107,7 +105,7 @@ def register_lesson_4(add_pair):
 
     # Cặp 5: Trợ từ chỉ phương tiện di chuyển (で)
     add_pair("4", "1", P4_1,
-        "Trong tiếng Nhật, để chỉ phương tiện giao thông dùng để di chuyển (Phương tiện + ? + 行きます), ta dùng trợ từ nào?",
+        "Trong tiếng Nhật, để chỉ phương tiện giao thông dùng để di chuyển (Phương tiện + ? + 行きます), theo chuẩn ngữ pháp ta dùng trợ từ nào?",
         [
             "Trợ từ に",
             "Trợ từ で",
@@ -115,7 +113,7 @@ def register_lesson_4(add_pair):
             "Trợ từ へ"
         ],
         "B",
-        "Trợ từ で đứng sau danh từ chỉ phương tiện/công cụ để biểu thị phương tiện di chuyển (Ví dụ: タクシーで 行きます).",
+        "💡 Chuẩn ngữ pháp: Trợ từ で đứng sau danh từ chỉ phương tiện/công cụ để biểu thị phương tiện di chuyển: [Phương tiện] + で + 行きます (Ví dụ: タクシーで 行きます).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tôi đi đến bệnh viện bằng taxi.\"",
         [
             "タクシーに びょういんへ 行きます。",
@@ -129,15 +127,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 6: Hỏi đi bằng phương tiện gì (なんで / なにで)
     add_pair("4", "1", P4_1,
-        "Để hỏi \"Bạn đi đến [địa điểm] bằng phương tiện gì?\", cấu trúc câu hỏi nào sau đây là đúng?",
+        "Khi được hỏi:「なんで 日本へ 行きますか。」(Bạn đi Nhật bằng gì?), nếu bạn muốn trả lời là \"Tôi đi bằng máy bay\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "どこで [địa điểm] へ 行きますか。",
-            "なんで / なにで [địa điểm] へ 行きますか。",
-            "だれで [địa điểm] へ 行きますか。",
-            "いつで [địa điểm] へ 行きますか。"
+            "ひこうきを 行きます。",
+            "ひこうきで 行きます。",
+            "ひこうきに 行きます。",
+            "ひこうきへ 行きます。"
         ],
         "B",
-        "Dùng「なんで」hoặc「なにで」kết hợp với「〜へ 行きますか」để hỏi về phương tiện di chuyển.",
+        "💡 Chuẩn ngữ pháp: Đi bằng phương tiện gì thì dùng trợ từ で: [Phương tiện] + で + 行きます ➔「ひこうきで 行きます。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Bạn đi đến Nhật Bản bằng phương tiện gì?\" - \"Bằng máy bay.\"",
         [
             "「なんで 日本へ 行きますか。」「ひこうきで 行きます。」",
@@ -151,15 +149,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 7: Ngoại lệ đi bộ (あるいて 行きます)
     add_pair("4", "1", P4_1,
-        "LƯU Ý NGỮ PHÁP ĐẶC BIỆT: Khi diễn đạt \"đi bộ đến trường / ga\", quy tắc dùng trợ từ nào sau đây là ĐÚNG?",
+        "Khi được hỏi:「なんで 学校へ 行きますか。」, nếu bạn muốn trả lời là \"Tôi đi bộ đến trường\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "あるきで えきへ 行きます。",
-            "あるいて えきへ 行きます (Không dùng trợ từ で)",
-            "あるいてで えきへ 行きます。",
-            "あるくで えきへ 行きます。"
+            "あるきで 学校へ 行きます。",
+            "あるいて 学校へ 行きます。",
+            "あるいてで 学校へ 行きます。",
+            "あるくで 学校へ 行きます。"
         ],
         "B",
-        "Khi đi bộ, ta dùng thể te của động từ đi bộ là「あるいて 行きます」và TUYỆT ĐỐI KHÔNG dùng trợ từ で.",
+        "💡 Chuẩn ngữ pháp: Khi muốn trả lời là \"đi bộ\", bắt buộc dùng thể te của động từ đi bộ là「あるいて 行きます」và TUYỆT ĐỐI KHÔNG dùng trợ từ で.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Mỗi ngày tôi đi bộ đến trường.\"",
         [
             "まいにち あるきで がっこうへ 行きます。",
@@ -173,15 +171,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 8: Hỏi khoảng thời gian di chuyển (〜から 〜まで どのくらい)
     add_pair("4", "1", P4_1,
-        "Mẫu câu「[Địa điểm 1] から [Địa điểm 2] まで どのくらい かかりますか。」có ý nghĩa ngữ pháp là gì?",
+        "Khi được hỏi:「うちから 学校まで どのくらい かかりますか。」, nếu bạn muốn trả lời là \"Mất khoảng 30 phút bằng xe buýt\" thì câu nói chuẩn ngữ pháp là:",
         [
-            "Từ địa điểm 1 đến địa điểm 2 có những phương tiện nào?",
-            "Từ địa điểm 1 đến địa điểm 2 mất khoảng bao lâu thời gian?",
-            "Địa điểm 1 và địa điểm 2 nơi nào đẹp hơn?",
-            "Tại sao bạn lại đi từ địa điểm 1 đến địa điểm 2?"
+            "バスで 30ぷんぐらい かかります。",
+            "バスに 30ぷんぐらい かかります。",
+            "バスで 30ぷんごろ かかります。",
+            "バスを 30ぷんまで かかります。"
         ],
-        "B",
-        "「どのくらい かかりますか / どのくらいですか」dùng để hỏi về khoảng thời gian cần thiết để di chuyển từ điểm xuất phát (から) đến đích đến (まで).",
+        "A",
+        "💡 Chuẩn ngữ pháp: Trả lời về phương tiện (バスで) + thời lượng ước lượng (30ぷんぐらい) + かかります (hoặc です):「バスで 30ぷんぐらい かかります。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Từ nhà đến trường mất khoảng bao lâu?\"",
         [
             "うちから がっこうまで どこですか。",
@@ -195,7 +193,7 @@ def register_lesson_4(add_pair):
 
     # Cặp 9: Hậu tố ước lượng khoảng thời gian (〜くらい / 〜ぐらい) và giờ rưỡi
     add_pair("4", "1", P4_1,
-        "Trong tiếng Nhật, để biểu thị mức độ ước lượng \"khoảng, chừng\", ta thêm hậu tố nào sau từ chỉ thời gian / số lượng?",
+        "Trong tiếng Nhật, để biểu thị mức độ ước lượng \"khoảng, chừng\", theo chuẩn ngữ pháp ta thêm hậu tố nào sau từ chỉ thời gian / số lượng?",
         [
             "Hậu tố 〜ごろ",
             "Hậu tố 〜から",
@@ -203,7 +201,7 @@ def register_lesson_4(add_pair):
             "Hậu tố 〜まで"
         ],
         "C",
-        "〜くらい / 〜ぐらい dùng sau khoảng thời gian/lượng từ để nói \"khoảng chừng\" (Ví dụ: 30ぷんぐらい: khoảng 30 phút). Còn 〜ごろ dùng cho mốc thời gian cụ thể (3じごろ: khoảng 3 giờ).",
+        "💡 Chuẩn ngữ pháp: 〜くらい / 〜ぐらい dùng sau khoảng thời gian/lượng từ để nói \"khoảng chừng\" (Ví dụ: 1時間半ぐらい: khoảng 1 tiếng rưỡi). Còn 〜ごろ chỉ dùng cho mốc thời gian cụ thể (3じごろ: khoảng 3 giờ).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Từ nhà đến công ty mất khoảng 1 tiếng rưỡi bằng tàu điện.\"",
         [
             "うちから 会社まで でんしゃで 1じかんはんぐらい です。",
@@ -221,15 +219,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 10: Hỏi tính chất đặc điểm: N は どうですか
     add_pair("4", "2", P4_2,
-        "Trong Bài 4.2, câu hỏi「N は どうですか。」khi hỏi về nơi chốn, nhà cửa dùng để làm gì?",
+        "Khi được hỏi:「すずきさんの家は どうですか。」(Nhà của bạn Suzuki thế nào?), nếu bạn muốn trả lời là \"Rất yên tĩnh\" thì câu nói chuẩn ngữ pháp là:",
         [
-            "Hỏi N nằm ở phương hướng nào",
-            "Hỏi giá tiền của N là bao nhiêu",
-            "Hỏi về tính chất, đặc điểm cảm nhận về N (N trông như thế nào?)",
-            "Rủ rê đối phương cùng đến N"
+            "とても しずかなです。",
+            "とても しずかです。",
+            "とても しずかでした。",
+            "とても しずかくないです。"
         ],
-        "C",
-        "Trong ngữ cảnh miêu tả nơi chốn,「N は どうですか。」dùng để hỏi tính chất, đặc điểm của N (Ví dụ: Nhà bạn thế nào? - Đẹp và rộng).",
+        "B",
+        "💡 Chuẩn ngữ pháp: Tính từ đuôi な khi làm vị ngữ đứng trước です thì bỏ な ➔「とても しずかです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Nhà của bạn Suzuki như thế nào?\" - \"Rất yên tĩnh.\"",
         [
             "「すずきさんの家は どこですか。」「とても しずかです。」",
@@ -243,7 +241,7 @@ def register_lesson_4(add_pair):
 
     # Cặp 11: Tính từ đuôi い bổ nghĩa cho danh từ
     add_pair("4", "2", P4_2,
-        "Quy tắc ngữ pháp khi dùng TÍNH TỪ ĐUÔI い đứng trước để bổ nghĩa cho danh từ là gì?",
+        "Khi muốn diễn đạt \"căn phòng mới và rộng rãi\", theo chuẩn ngữ pháp khi dùng tính từ đuôi い bổ nghĩa cho danh từ へや ta làm thế nào?",
         [
             "Bỏ đuôi い rồi mới nối với danh từ",
             "Giữ nguyên đuôi い rồi đi trực tiếp với danh từ [Adj(い) + N]",
@@ -251,7 +249,7 @@ def register_lesson_4(add_pair):
             "Phải thêm trợ từ の vào giữa tính từ và danh từ"
         ],
         "B",
-        "Tính từ đuôi い giữ nguyên い khi đứng trước bổ nghĩa cho danh từ (Ví dụ: あたらしい へや: căn phòng mới, ひろい いえ: ngôi nhà rộng).",
+        "💡 Chuẩn ngữ pháp: Tính từ đuôi い giữ nguyên い khi đứng trước bổ nghĩa cho danh từ: [Tính từ い] + [Danh từ] ➔「あたらしい ひろい へや」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Đây là một căn phòng mới và rộng rãi.\"",
         [
             "これは あたらしな ひろい へやです。",
@@ -265,15 +263,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 12: Tính từ đuôi な bổ nghĩa cho danh từ
     add_pair("4", "2", P4_2,
-        "Quy tắc ngữ pháp khi dùng TÍNH TỪ ĐUÔI な đứng trước để bổ nghĩa cho danh từ là gì?",
+        "Khi muốn diễn đạt \"thành phố náo nhiệt\", theo chuẩn ngữ pháp khi dùng tính từ đuôi な (にぎやか) đứng trước bổ nghĩa cho danh từ まち ta phải làm thế nào?",
         [
             "Giữ nguyên và không cần thêm gì cả",
-            "Bắt buộc phải giữ lại hoặc thêm「な」vào trước danh từ [Adj(な) + な + N]",
+            "Bắt buộc phải thêm「な」vào trước danh từ [Adj(な) + な + N]",
             "Bắt buộc phải thêm trợ từ「の」vào trước danh từ",
             "Bỏ chữ な đi và nối trực tiếp"
         ],
         "B",
-        "Tính từ đuôi な khi đứng trước bổ nghĩa cho danh từ bắt buộc phải có chữ「な」: [Tính từ な] + な + Danh từ (Ví dụ: しずかな まち, にぎやかな まち).",
+        "💡 Chuẩn ngữ pháp: Tính từ đuôi な khi đứng trước bổ nghĩa cho danh từ bắt buộc phải có chữ「な」➔「にぎやかな まち」(thành phố náo nhiệt).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tokyo là một thành phố náo nhiệt.\"",
         [
             "とうきょうは にぎやか まちです。",
@@ -287,15 +285,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 13: Cấu trúc hỏi loại nơi chốn: N1 は どんな N2 ですか
     add_pair("4", "2", P4_2,
-        "Cấu trúc câu hỏi「N1 は どんな N2 ですか。」có ý nghĩa ngữ pháp là gì?",
+        "Khi được hỏi:「みどり公園は どんなところですか。」, nếu bạn muốn trả lời là \"Là một nơi rất đẹp\" thì theo chuẩn ngữ pháp tính từ đuôi な phải nói như thế nào?",
         [
-            "N1 nằm ở vị trí nào của N2?",
-            "N1 có giá bao nhiêu trong số các N2?",
-            "N1 là một N2 như thế nào? (Hỏi bản chất, chủng loại, đặc tính của danh từ)",
-            "N1 có bao nhiêu cái N2?"
+            "きれい ところです。",
+            "きれいな ところです。",
+            "きれいの ところです。",
+            "きれいに ところです。"
         ],
-        "C",
-        "「どんな」là từ nghi vấn có nghĩa \"như thế nào\", luôn đi kèm trước danh từ để hỏi về tính chất, đặc điểm của danh từ đó (Ví dụ: どんな まちですか: thành phố như thế nào?).",
+        "B",
+        "💡 Chuẩn ngữ pháp: Khi tính từ đuôi な đứng trước bổ nghĩa cho danh từ ところ (nơi chốn), bắt buộc phải có chữ な ➔「きれいな ところです。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Công viên Midori là một nơi như thế nào?\" - \"Là một nơi rất đẹp.\"",
         [
             "「みどり公園は どこですか。」「きれいな ところです。」",
@@ -317,7 +315,7 @@ def register_lesson_4(add_pair):
             "Thời gian mở cửa của địa điểm"
         ],
         "B",
-        "Cấu trúc tồn tại: Địa điểm + に + Danh từ (vô tri / công trình) + が + あります (Ở địa điểm có cái gì).",
+        "💡 Chuẩn ngữ pháp: Cấu trúc tồn tại tĩnh: Địa điểm + に + Danh từ (vô tri / công trình) + が + あります (Ở địa điểm có cái gì). Ví dụ: まちに ふるい おてらが あります。",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Ở trong thị trấn của tôi có một ngôi chùa cổ.\"",
         [
             "わたしの まちに ふるい おてらが あります。",
@@ -331,15 +329,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 15: Hỏi ở địa điểm có cái gì: [Địa điểm] に 何が ありますか
     add_pair("4", "2", P4_2,
-        "Để hỏi \"Ở [địa điểm] có cái gì / có những gì?\", cấu trúc câu hỏi tiếng Nhật nào sau đây là đúng?",
+        "Khi được hỏi:「家の ちかくに 何が ありますか。」, nếu bạn muốn trả lời là \"Có siêu thị và công viên\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "[Địa điểm] で なにを しますか。",
-            "[Địa điểm] に なにが ありますか。",
-            "[Địa điểm] は なんですか。",
-            "[Địa điểm] から なにが きますか。"
+            "スーパーと 公園を あります。",
+            "スーパーと 公園が あります。",
+            "スーパーと 公園で あります。",
+            "スーパーと 公園に あります。"
         ],
         "B",
-        "Hỏi về đồ vật, công trình tồn tại ở nơi chốn:「[Địa điểm] に なにが ありますか。」(Ở... có cái gì?).",
+        "💡 Chuẩn ngữ pháp: Trong mẫu câu tồn tại [Địa điểm] に [Vật] が あります, danh từ tồn tại bắt buộc đi với trợ từ が ➔「スーパーと 公園が あります。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Ở gần nhà bạn có cái gì?\" - \"Có siêu thị và công viên.\"",
         [
             "「家の ちかくに 何が ありますか。」「スーパーと 公園が あります。」",
@@ -353,15 +351,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 16: Nối câu đồng thuận: そして (và, rồi thì)
     add_pair("4", "2", P4_2,
-        "Liên từ「そして、」(và, thêm nữa) dùng để nối hai câu/mệnh đề có tính chất như thế nào?",
+        "Khi muốn nối 2 câu cùng một hướng khen ngợi \"Khách sạn này đẹp, và lại còn yên tĩnh nữa\", theo chuẩn ngữ pháp ta dùng liên từ nào?",
         [
-            "Hai mệnh đề có ý nghĩa tương phản, trái ngược nhau (khen và chê)",
-            "Hai mệnh đề có cùng hướng đánh giá (cùng khen hoặc cùng chê, bổ sung thông tin)",
-            "Mệnh đề sau giải thích nguyên nhân cho mệnh đề trước",
-            "Mệnh đề sau phủ định hoàn toàn mệnh đề trước"
+            "Liên từ が、",
+            "Liên từ そして、",
+            "Liên từ から、",
+            "Liên từ でも、"
         ],
         "B",
-        "「そして、」dùng để liên kết 2 câu có tính chất bổ sung, cùng chiều (Ví dụ: Đẹp và yên tĩnh, Bẩn và chật hẹp).",
+        "💡 Chuẩn ngữ pháp:「そして、」(và, thêm nữa) dùng để liên kết 2 câu có tính chất bổ sung, cùng chiều khen ngợi hoặc cùng chiều chê:「きれいです。そして、しずかです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Khách sạn này đẹp, và lại còn yên tĩnh nữa.\"",
         [
             "このホテルは きれいです。が、しずかです。",
@@ -375,15 +373,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 17: Trợ từ nối tương phản: 〜が、 (nhưng...)
     add_pair("4", "2", P4_2,
-        "Trợ từ liên kết「〜が、」(nhưng...) dùng để nối hai mệnh đề có mối quan hệ như thế nào?",
+        "Khi muốn diễn đạt ý tương phản giữa 2 vế câu \"Món ăn này rất ngon nhưng hơi đắt\", theo chuẩn ngữ pháp ta dùng trợ từ nối nào?",
         [
-            "Hai mệnh đề có ý nghĩa đối lập, tương phản nhau (một vế khen, một vế chê)",
-            "Hai mệnh đề hoàn toàn giống nhau",
-            "Mệnh đề trước là lý do, mệnh đề sau là kết quả",
-            "Chỉ dùng khi cả hai mệnh đề đều mang nghĩa phủ định"
+            "Trợ từ 〜そして",
+            "Trợ từ 〜ですが、(hoặc 〜が、)",
+            "Trợ từ 〜から",
+            "Trợ từ 〜と"
         ],
-        "A",
-        "「〜が、」được đặt ở giữa câu mang nghĩa \"nhưng\", nối hai vế tương phản nhau (Ví dụ: Ngon nhưng đắt, Nhỏ nhưng sạch sẽ).",
+        "B",
+        "💡 Chuẩn ngữ pháp:「〜が、」được đặt ở giữa câu mang nghĩa \"nhưng\", nối hai vế tương phản nhau (một vế khen, một vế chê):「とても おいしいですが、すこし 高いです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Đồ ăn của nhà hàng này rất ngon nhưng hơi đắt.\"",
         [
             "この店の 料理は とても おいしいです。そして、すこし 高いです。",
@@ -397,7 +395,7 @@ def register_lesson_4(add_pair):
 
     # Cặp 18: Phủ định tính từ đuôi い: 〜くないです
     add_pair("4", "2", P4_2,
-        "Quy tắc ngữ pháp khi chuyển TÍNH TỪ ĐUÔI い sang THỂ PHỦ ĐỊNH (không...) là gì?",
+        "Khi muốn diễn đạt phủ định \"Căn phòng này không rộng\", theo chuẩn ngữ pháp tính từ đuôi い (ひろい) được chia như thế nào?",
         [
             "Bỏ đuôi い và thêm じゃないです",
             "Bỏ đuôi い và thêm くないです",
@@ -405,7 +403,7 @@ def register_lesson_4(add_pair):
             "Đổi đuôi い thành くありませんでした"
         ],
         "B",
-        "Quy tắc phủ định tính từ đuôi い hiện tại: Bỏ đuôi「い」➔ thêm「くないです」(Ví dụ: ひろい ➔ ひろくないです, たかい ➔ たかくないです).",
+        "💡 Chuẩn ngữ pháp: Phủ định tính từ đuôi い hiện tại: Bỏ đuôi「い」➔ thêm「くないです」➔ ひろい thành「ひろくないです」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Căn phòng này không rộng.\"",
         [
             "このへやは ひろいじゃないです。",
@@ -419,15 +417,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 19: Ngoại lệ phủ định của いい (tốt)
     add_pair("4", "2", P4_2,
-        "NGOẠI LỆ QUAN TRỌNG: Thể phủ định của tính từ đặc biệt「いい」(tốt, đẹp) là gì?",
+        "Khi được hỏi:「きょうの てんきは どうですか。」, nếu bạn muốn trả lời là \"Thời tiết hôm nay không tốt lắm\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "いくないです",
-            "よくないです",
-            "いいじゃないです",
-            "よかないです"
+            "きょうの てんきは あまり いくないです。",
+            "きょうの てんきは あまり よくないです。",
+            "きょうの てんきは あまり いいじゃないです。",
+            "きょうの てんきは あまり よいじゃないです。"
         ],
         "B",
-        "Tính từ「いい」có nguồn gốc là「よい」. Mọi dạng biến đổi (phủ định, quá khứ) đều dựa trên「よい」➔ Phủ định là「よくないです」(TUYỆT ĐỐI không nói いくないです).",
+        "💡 Chuẩn ngữ pháp: Tính từ「いい」có nguồn gốc là「よい」➔ Khi muốn trả lời phủ định \"không tốt\", chuẩn ngữ pháp BẮT BUỘC là「よくないです」(TUYỆT ĐỐI không nói いくないです).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Thời tiết hôm nay không tốt lắm.\"",
         [
             "きょうの てんきは あまり いくないです。",
@@ -441,15 +439,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 20: Phủ định tính từ đuôi な: 〜じゃないです
     add_pair("4", "2", P4_2,
-        "Quy tắc ngữ pháp khi chuyển TÍNH TỪ ĐUÔI な sang THỂ PHỦ ĐỊNH thông thường (không...) là gì?",
+        "Khi được hỏi:「このまちは にぎやかですか。」, nếu bạn muốn trả lời là \"Không, thị trấn này không náo nhiệt\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "Bỏ đuôi な và thêm くないです",
-            "Bỏ đuôi な và thêm じゃないです (hoặc ではありません)",
-            "Giữ nguyên đuôi な và thêm ないです",
-            "Thêm 不 (bất) vào đầu tính từ"
+            "いいえ、にぎやかじゃないです。",
+            "いいえ、にぎやかくなないです。",
+            "いいえ、にぎやかないです。",
+            "いいえ、にぎやかでした。"
         ],
-        "B",
-        "Tính từ đuôi な phủ định: Bỏ「な」➔ thêm「じゃないです」(hoặc trang trọng là「ではありません」) (Ví dụ: しずか ➔ しずかじゃないです, にぎやか ➔ にぎやかじゃないです).",
+        "A",
+        "💡 Chuẩn ngữ pháp: Tính từ đuôi な khi chia phủ định: Bỏ「な」➔ thêm「じゃないです」(hoặc「ではありません」) ➔「にぎやかじゃないです。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Thị trấn này không náo nhiệt.\"",
         [
             "このまちは にぎやかじゃないです。",
@@ -471,7 +469,7 @@ def register_lesson_4(add_pair):
             "〜ませんでした"
         ],
         "B",
-        "Trong văn viết hoặc giao tiếp trang trọng,「〜じゃないです」được thay thế bằng「〜ではありません」.",
+        "💡 Chuẩn ngữ pháp: Trong văn viết hoặc giao tiếp trang trọng,「〜じゃないです」được thay thế bằng dạng lịch sự「〜ではありません」(Ví dụ: べんりではありません).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Nơi này hoàn toàn không tiện lợi chút nào (cách nói lịch sự).\"",
         [
             "ここは ぜんぜん べんりじゃないです。",
@@ -489,15 +487,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 22: Trợ từ cảm thán đồng tình cuối câu ね
     add_pair("4", "3", P4_3,
-        "Trợ từ「ね」ở cuối câu trong giao tiếp tiếng Nhật có chức năng ngữ pháp chính là gì?",
+        "Khi thấy trời nóng và bạn muốn chia sẻ cảm thán với người bên cạnh để tìm kiếm sự đồng cảm (\"Hôm nay trời nóng thật đấy nhỉ!\"), theo chuẩn ngữ pháp ta dùng trợ từ cuối câu nào?",
         [
-            "Hỏi thông tin mới mà người nói hoàn toàn chưa biết",
-            "Bày tỏ cảm xúc, tìm kiếm sự đồng cảm hoặc xác nhận thông tin từ người nghe",
-            "Bắt buộc người nghe phải làm theo mệnh lệnh của mình",
-            "Biểu thị sự nghi ngờ, không tin tưởng đối phương"
+            "Trợ từ よ",
+            "Trợ từ ね",
+            "Trợ từ か",
+            "Trợ từ も"
         ],
         "B",
-        "Trợ từ「ね」đặt cuối câu dùng để tìm kiếm sự đồng tình, chia sẻ cảm xúc với đối phương (tương đương với \"... nhỉ, ... nhé\").",
+        "💡 Chuẩn ngữ pháp: Trợ từ「ね」đặt cuối câu dùng để tìm kiếm sự đồng tình, chia sẻ cảm xúc với đối phương (tương đương với \"... nhỉ, ... nhé\"):「きょうは あついですね。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Hôm nay trời nóng thật đấy nhỉ!\"",
         [
             "きょうは あついですよ。",
@@ -511,15 +509,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 23: Phó từ mức độ cao: とても (rất)
     add_pair("4", "3", P4_3,
-        "Phó từ mức độ「とても」(rất) kết hợp với tính từ ở dạng nào và đứng ở vị trí nào?",
+        "Khi muốn diễn đạt mức độ cao khẳng định \"Món lẩu này rất ngon\", theo chuẩn ngữ pháp ta dùng phó từ nào đứng trước tính từ?",
         [
-            "Đứng trước tính từ và luôn đi với thể khẳng định",
-            "Đứng sau tính từ và đi với thể phủ định",
-            "Chỉ đi với động từ thể quá khứ",
-            "Đứng ở cuối câu sau です"
+            "Phó từ あまり",
+            "Phó từ とても",
+            "Phó từ ぜんぜん",
+            "Phó từ すこし"
         ],
-        "A",
-        "「とても」đứng trước tính từ/động từ để biểu thị mức độ cao \"rất...\", luôn đi với dạng khẳng định (Ví dụ: とても おいしいです: rất ngon).",
+        "B",
+        "💡 Chuẩn ngữ pháp:「とても」đứng trước tính từ để biểu thị mức độ cao \"rất...\", luôn đi với dạng khẳng định ➔「とても おいしいです。」",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Món lẩu này rất ngon.\"",
         [
             "このなべは あまり おいしいです。",
@@ -533,15 +531,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 24: Phó từ mức độ nhẹ: すこし (hơi, một chút)
     add_pair("4", "3", P4_3,
-        "Phó từ「すこし」(một chút, hơi...) kết hợp với tính từ ở dạng nào?",
+        "Khi muốn diễn đạt mức độ nhẹ khẳng định \"Thời tiết hôm nay hơi lạnh một chút\", theo chuẩn ngữ pháp ta dùng phó từ nào?",
         [
-            "Đi với tính từ thể khẳng định để diễn đạt mức độ nhẹ",
-            "Bắt buộc phải đi với thể phủ định",
-            "Chỉ đi với tính từ đuôi な",
-            "Chỉ dùng trong câu hỏi nghi vấn"
+            "Phó từ とても",
+            "Phó từ すこし",
+            "Phó từ あまり",
+            "Phó từ ぜんぜん"
         ],
-        "A",
-        "「すこし」(hoặc ちょっと trong khẩu ngữ) đi với dạng khẳng định để diễn đạt mức độ nhẹ \"hơi, một chút\" (Ví dụ: すこし さむいです: hơi lạnh).",
+        "B",
+        "💡 Chuẩn ngữ pháp:「すこし」(một chút, hơi...) đi với dạng khẳng định để diễn đạt mức độ nhẹ ➔「すこし さむいです。」(hơi lạnh một chút).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Thời tiết hôm nay hơi lạnh một chút.\"",
         [
             "きょうは とても さむいです。",
@@ -555,15 +553,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 25: Phó từ phủ định nhẹ: あまり + Phủ định
     add_pair("4", "3", P4_3,
-        "QUY TẮC BẮT BUỘC: Phó từ「あまり」(không... lắm) có quy tắc kết hợp ngữ pháp như thế nào?",
+        "Khi được hỏi:「冬は 寒いですか。」(Mùa đông có lạnh không?), nếu bạn muốn trả lời là \"Không lạnh lắm\" thì theo chuẩn ngữ pháp bắt buộc phải nói như thế nào?",
         [
-            "Luôn luôn đi với tính từ / động từ ở thể khẳng định",
-            "Luôn luôn đi với tính từ / động từ ở thể phủ định",
-            "Có thể đi với cả khẳng định lẫn phủ định mà không đổi nghĩa",
-            "Chỉ đi với danh từ chỉ số lượng"
+            "あまり 寒いです。",
+            "あまり 寒くないです。",
+            "とても 寒くないです。",
+            "ぜんぜん 寒いです。"
         ],
         "B",
-        "「あまり」bắt buộc phải đi với vị ngữ ở thể PHỦ ĐỊNH mang nghĩa \"không... lắm\" (Ví dụ: あまり さむくないです: không lạnh lắm).",
+        "💡 Chuẩn ngữ pháp: Phó từ「あまり」(không... lắm) BẮT BUỘC phải đi cùng với vị ngữ ở thể PHỦ ĐỊNH ➔「あまり 寒くないです。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Mùa đông ở quê tôi không lạnh lắm.\"",
         [
             "わたしの くには ふゆが あまり さむいです。",
@@ -577,15 +575,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 26: Phó từ phủ định tuyệt đối: ぜんぜん + Phủ định
     add_pair("4", "3", P4_3,
-        "Phó từ「ぜんぜん」(hoàn toàn không...) có quy tắc kết hợp ngữ pháp như thế nào?",
+        "Khi được hỏi:「日本語は 簡単ですか。」(Tiếng Nhật có đơn giản không?), nếu bạn muốn trả lời là \"Hoàn toàn không đơn giản chút nào\" thì theo chuẩn ngữ pháp phải nói như thế nào?",
         [
-            "Bắt buộc đi với thể phủ định để nhấn mạnh mức độ phủ định 0%",
-            "Luôn đi với câu khẳng định",
-            "Chỉ đi với tính từ chỉ màu sắc",
-            "Chỉ dùng khi hỏi ý kiến đối phương"
+            "ぜんぜん 簡単です。",
+            "ぜんぜん 簡単じゃないです。",
+            "あまり 簡単です。",
+            "とても 簡単じゃないです。"
         ],
-        "A",
-        "「ぜんぜん」đi với thể phủ định biểu thị \"hoàn toàn không... chút nào\" (Ví dụ: ぜんぜん むずかしくないです: hoàn toàn không khó).",
+        "B",
+        "💡 Chuẩn ngữ pháp: Phó từ「ぜんぜん」(hoàn toàn không...) BẮT BUỘC kết hợp với thể PHỦ ĐỊNH ➔「ぜんぜん 簡単じゃないです。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Tiếng Nhật hoàn toàn không dễ chút nào.\"",
         [
             "日本語は ぜんぜん やさしいです。",
@@ -607,7 +605,7 @@ def register_lesson_4(add_pair):
             "Rủ bạn bè đi chơi vào mùa hè"
         ],
         "B",
-        "Cấu trúc: Địa danh + は + Mùa (はる, なつ, あき, ふゆ) + Tính từ + です (Ví dụ: 日本は なつ、あついです: Nhật Bản vào mùa hè thì nóng).",
+        "💡 Chuẩn ngữ pháp: Cấu trúc: [Địa danh] は [Mùa]、[Tính từ] です (Ví dụ: 日本は なつ、とても あついです: Nhật Bản vào mùa hè thì rất nóng).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Nhật Bản vào mùa hè thì rất nóng.\"",
         [
             "日本は なつ、とても あついです。",
@@ -629,7 +627,7 @@ def register_lesson_4(add_pair):
             "[Địa điểm] から [Mùa] まで Adj です。"
         ],
         "B",
-        "Dùng trợ từ の để xác định danh từ thời tiết/mùa thuộc địa điểm:「[Địa điểm] の [Mùa] は [Tính từ] です。」(Ví dụ: ハノイの あきは すずしいです).",
+        "💡 Chuẩn ngữ pháp: Dùng trợ từ の để xác định danh từ thời tiết/mùa thuộc địa điểm:「[Địa điểm] の [Mùa] は [Tính từ] です。」(Ví dụ: ハノイの あきは すずしいです).",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Mùa thu của Hà Nội rất mát mẻ và dễ chịu.\"",
         [
             "ハノイの なつは とても すずしいです。",
@@ -643,15 +641,15 @@ def register_lesson_4(add_pair):
 
     # Cặp 29: Hỏi thời tiết theo mùa: [Mùa] は どうですか
     add_pair("4", "3", P4_3,
-        "Để hỏi người khác \"Mùa xuân ở đất nước của bạn như thế nào?\", câu hỏi tiếng Nhật nào sau đây là đúng?",
+        "Khi người khác hỏi:「お国の はるは どうですか。」, nếu bạn muốn trả lời là \"Mùa xuân ấm áp và rất đẹp\" thì câu nói chuẩn ngữ pháp là:",
         [
-            "お国の はるは どこですか。",
-            "お国の はるは どうですか。",
-            "お国の はるは なんですか。",
-            "お国の はるは だれですか。"
+            "あたたかくて、とても きれいです。",
+            "あたたかいで、とても きれいです。",
+            "あたたかくて、とても きれいなです。",
+            "あたたかいと、とても きれいです。"
         ],
-        "B",
-        "Hỏi về đặc điểm thời tiết của một mùa:「[Địa điểm] の [Mùa] は どうですか。」(Mùa... ở... như thế nào?).",
+        "A",
+        "💡 Chuẩn ngữ pháp: Nối 2 tính từ tương đồng: Tính từ đuôi い đổi đuôi「い」➔「くて」(あたたかくて) rồi nối tiếp với「とても きれいです。」.",
         "Dịch câu tiếng Việt sau sang tiếng Nhật: \"Mùa xuân ở đất nước bạn như thế nào?\" - \"Ấm áp và rất đẹp.\"",
         [
             "「お国の はるは どうですか。」「あたたかくて、とても きれいです。」",
