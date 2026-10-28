@@ -648,7 +648,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
         otherAnswers = otherMatch[1].trim().split('\n').map(l => l.trim()).filter(l => l);
     }
 
-    const tipMatch = raw.match(/💡\s*Mẹo giao tiếp:\s*([\s\S]*)$/i);
+    const tipMatch = raw.match(/💡\s*Mẹo(?:\s+giao\s+tiếp|\s+ngữ\s+pháp)?:\s*([\s\S]*)$/i);
     const tipText = tipMatch ? tipMatch[1].trim() : "";
 
     return `
@@ -680,7 +680,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
             <div class="p-3.5 bg-emerald-50/90 border-2 border-emerald-300 rounded-xl shadow-xs">
                 <div class="flex items-center justify-between gap-2 mb-1.5">
                     <span class="text-xs uppercase font-extrabold text-emerald-700 flex items-center gap-1">
-                        <span>💬</span> <span>Câu trả lời chuẩn (phù hợp ngữ cảnh):</span>
+                        <span>💬</span> <span>Câu trả lời chuẩn (đơn giản, đúng trọng tâm):</span>
                     </span>
                     <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeCorrect}')" class="px-2.5 py-1 text-xs bg-white text-emerald-700 border border-emerald-200 rounded-lg hover:bg-emerald-100 flex items-center gap-1 font-bold shadow-xs active:scale-95 transition">
                         <span>🔊</span> <span>Nghe câu đáp</span>
@@ -693,7 +693,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
             ${otherAnswers.length > 0 ? `
                 <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs md:text-sm text-amber-950 shadow-xs">
                     <div class="font-bold text-amber-900 flex items-center gap-1.5 mb-1.5">
-                        <span>🌟</span> <span>Các cách trả lời thực tế khác để luyện nói:</span>
+                        <span>🌟</span> <span>Các cách trả lời thực tế khác:</span>
                     </div>
                     <ul class="space-y-1.5 pl-1 text-gray-800">
                         ${otherAnswers.map(ans => `<li class="flex items-start gap-1.5"><span class="text-amber-500 font-bold">•</span><span class="flex-1">${ans.replace(/^•\s*/, '')}</span></li>`).join('')}
@@ -704,7 +704,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
             ${tipText ? `
                 <div class="p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl text-xs md:text-sm text-indigo-950 shadow-xs">
                     <div class="font-bold text-indigo-900 flex items-center gap-1.5 mb-1">
-                        <span>💡</span> <span>Mẹo giao tiếp & Phân tích cấu trúc:</span>
+                        <span>💡</span> <span>Mẹo ngữ pháp & Cấu trúc:</span>
                     </div>
                     <div class="text-gray-800 leading-relaxed">${tipText}</div>
                 </div>
