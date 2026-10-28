@@ -635,7 +635,7 @@ function updateSelectAllButtonState() {
     btn.classList.toggle('cursor-not-allowed', allSelected);
 }
 
-function formatSpeakingExplanation(expl, safeQuestion, safeCorrect) {
+function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected = null, isWrong = false) {
     const raw = expl || '';
     const qMatch = raw.match(/🗣️\s*Dịch câu hỏi:\s*["“]?(.*?)["”]?(\n|$)/i);
     const aMatch = raw.match(/💬\s*Dịch câu trả lời:\s*["“]?(.*?)["”]?(\n|$)/i);
@@ -652,33 +652,46 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect) {
     const tipText = tipMatch ? tipMatch[1].trim() : "";
 
     return `
-        <div class="mt-3 space-y-2.5">
-            <div class="p-3.5 bg-blue-50/90 border border-blue-200 rounded-xl">
-                <div class="flex items-center justify-between gap-2 mb-1">
+        <div class="mt-3 space-y-3">
+            ${isWrong && userSelected ? `
+                <div class="p-3.5 bg-red-100/90 border-2 border-red-300 rounded-xl text-red-950 shadow-xs">
+                    <div class="text-xs uppercase font-extrabold text-red-700 mb-1 flex items-center gap-1">
+                        <span>⚠️</span> <span>Bạn đã chọn:</span>
+                    </div>
+                    <div class="text-base font-bold text-red-900 leading-snug">${userSelected}</div>
+                </div>
+            ` : ''}
+
+            <!-- Câu hỏi hội thoại & Dịch nghĩa -->
+            <div class="p-3.5 bg-blue-50/90 border border-blue-200 rounded-xl shadow-xs">
+                <div class="flex items-center justify-between gap-2 mb-1.5">
                     <span class="text-xs uppercase font-extrabold text-blue-700 flex items-center gap-1">
-                        <span>🗣️</span> <span>Dịch nghĩa câu hỏi:</span>
+                        <span>🗣️</span> <span>Câu hỏi hội thoại:</span>
                     </span>
                     <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeQuestion}')" class="px-2.5 py-1 text-xs bg-white text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100 flex items-center gap-1 font-bold shadow-xs active:scale-95 transition">
                         <span>🔊</span> <span>Nghe câu hỏi</span>
                     </button>
                 </div>
-                <div class="text-sm font-bold text-gray-900">${qMeaning}</div>
+                <div class="text-base md:text-lg font-bold text-blue-950 mb-1 leading-snug">${safeQuestion}</div>
+                ${qMeaning ? `<div class="text-xs md:text-sm text-blue-900 font-semibold bg-blue-100/70 p-2 rounded-lg">💬 Dịch nghĩa: "${qMeaning}"</div>` : ''}
             </div>
 
-            <div class="p-3.5 bg-emerald-50/90 border border-emerald-200 rounded-xl">
-                <div class="flex items-center justify-between gap-2 mb-1">
+            <!-- Câu trả lời chuẩn & Dịch nghĩa -->
+            <div class="p-3.5 bg-emerald-50/90 border-2 border-emerald-300 rounded-xl shadow-xs">
+                <div class="flex items-center justify-between gap-2 mb-1.5">
                     <span class="text-xs uppercase font-extrabold text-emerald-700 flex items-center gap-1">
-                        <span>💬</span> <span>Dịch nghĩa câu trả lời chuẩn:</span>
+                        <span>💬</span> <span>Câu trả lời chuẩn (phù hợp ngữ cảnh):</span>
                     </span>
                     <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeCorrect}')" class="px-2.5 py-1 text-xs bg-white text-emerald-700 border border-emerald-200 rounded-lg hover:bg-emerald-100 flex items-center gap-1 font-bold shadow-xs active:scale-95 transition">
-                        <span>🔊</span> <span>Nghe câu trả lời</span>
+                        <span>🔊</span> <span>Nghe câu đáp</span>
                     </button>
                 </div>
-                <div class="text-sm font-bold text-emerald-950">${aMeaning}</div>
+                <div class="text-base md:text-lg font-bold text-emerald-950 mb-1 leading-snug">${safeCorrect}</div>
+                ${aMeaning ? `<div class="text-xs md:text-sm text-emerald-900 font-semibold bg-emerald-100/80 p-2 rounded-lg">➔ Nghĩa: "${aMeaning}"</div>` : ''}
             </div>
 
             ${otherAnswers.length > 0 ? `
-                <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs md:text-sm text-amber-950">
+                <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs md:text-sm text-amber-950 shadow-xs">
                     <div class="font-bold text-amber-900 flex items-center gap-1.5 mb-1.5">
                         <span>🌟</span> <span>Các cách trả lời thực tế khác để luyện nói:</span>
                     </div>
@@ -689,7 +702,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect) {
             ` : ''}
 
             ${tipText ? `
-                <div class="p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl text-xs md:text-sm text-indigo-950">
+                <div class="p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl text-xs md:text-sm text-indigo-950 shadow-xs">
                     <div class="font-bold text-indigo-900 flex items-center gap-1.5 mb-1">
                         <span>💡</span> <span>Mẹo giao tiếp & Phân tích cấu trúc:</span>
                     </div>
@@ -1119,8 +1132,9 @@ function checkAnswer() {
             const expl = currentQuestion.baseQ?.explanation || '';
             const safePrompt = (currentQuestion.prompt || '').replace(/'/g, "\\'");
             const safeCorrect = (currentQuestion.correct[0] || '').replace(/'/g, "\\'");
+            const safeSelected = (selected[0] || '').replace(/'/g, "\\'");
             ui.feedbackText.innerHTML = `
-                ${formatSpeakingExplanation(expl, safePrompt, safeCorrect)}
+                ${formatSpeakingExplanation(expl, safePrompt, safeCorrect, safeSelected, false)}
                 <p class="text-xs text-green-600 mt-3 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
             reviewQueue.shift();
@@ -1189,8 +1203,9 @@ function checkAnswer() {
             const expl = currentQuestion.baseQ?.explanation || '';
             const safePrompt = (currentQuestion.prompt || '').replace(/'/g, "\\'");
             const safeCorrect = (currentQuestion.correct[0] || '').replace(/'/g, "\\'");
+            const safeSelected = (selected[0] || '').replace(/'/g, "\\'");
             ui.feedbackText.innerHTML = `
-                ${formatSpeakingExplanation(expl, safePrompt, safeCorrect)}
+                ${formatSpeakingExplanation(expl, safePrompt, safeCorrect, safeSelected, true)}
                 <p class="text-xs text-red-600 mt-3 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         } else if (isGrammar) {

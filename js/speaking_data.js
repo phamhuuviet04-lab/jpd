@@ -84,26 +84,26 @@ Câu 4 [BÀI 4 - PHẦN 2: どんなところ？ (Đặc điểm, Tính từ, T�
   C. いいえ、まちじゃありません。
   D. らいしゅう、まちへ かえります。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Thành phố / Quê của Nam là một nơi như thế nào?"
-💬 Dịch câu trả lời: "Là nơi nhiều cây xanh và yên bình."
+Giải thích: 🗣️ Dịch câu hỏi: "Quê / Thành phố của Nam là một nơi như thế nào?"
+💬 Dịch câu trả lời: "Là nơi nhiều cây xanh và yên tĩnh."
 🌟 Cách trả lời khác để luyện nói:
 • にぎやかですが、ちょっと うるさいところです。(Náo nhiệt nhưng là nơi hơi ồn ào một chút.)
 • うみが きれいで、さかなが おいしいところですよ。(Là nơi biển đẹp và cá rất ngon đấy.)
 💡 Mẹo giao tiếp: Khi được hỏi về quê hương, hãy nêu từ 1 đến 2 nét đặc trưng nổi bật (thiên nhiên, nhịp sống, ẩm thực) kèm cảm xúc của mình.
 ────────────────────────────────────────────────────────────
-Câu 5 [BÀI 4 - PHẦN 2: どんなところ？ (Đặc điểm, Tính từ, Tồn tại)] [LUYỆN NÓI]
-にほんの せいかつは どうですか。
-  A. いそがしいですが、とても おもしろいです。  ✓
-  B. にほんへ いきました。
-  C. にほんじんが すきです。
-  D. でんしゃで いきます。
+Câu 5 [BÀI 4 - PHẦN 3: きせつ・りょうり (Thời tiết, Món ăn)] [LUYỆN NÓI]
+ベトナムの りょうりは どうですか。
+  A. おいしいですが、ちょっと からいです。  ✓
+  B. きのう フォーを たべました。
+  C. まいにち りょうりを つくります。
+  D. レストランで たべます。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Cuộc sống ở Nhật Bản như thế nào?"
-💬 Dịch câu trả lời: "Bận rộn nhưng rất thú vị."
+Giải thích: 🗣️ Dịch câu hỏi: "Món ăn Việt Nam thì thế nào?"
+💬 Dịch câu trả lời: "Ngon nhưng hơi cay một chút."
 🌟 Cách trả lời khác để luyện nói:
-• たのしいですよ。まいにちが しんせんです。(Vui lắm! Ngày nào cũng thấy mới mẻ.)
-• ちょっと たいへんですが、なれました。(Hơi vất vả một chút nhưng tôi đã quen rồi.)
-💡 Mẹo giao tiếp:「〜はどうですか」dùng hỏi cảm nhận, tình trạng trải nghiệm hiện tại. Dùng「〜が」(nhưng) để nối 2 vế tính từ tương phản (vất vả nhưng vui).
+• とても おいしいですよ。フォーが すきです。(Rất ngon đấy ạ. Mình thích phở.)
+• あまいですが、たべやすいです。(Hơi ngọt một chút nhưng rất dễ ăn.)
+💡 Mẹo giao tiếp:「〜はどうですか」dùng hỏi cảm nhận, ấn tượng trực tiếp về đồ ăn hoặc trải nghiệm. Dùng「〜が」(nhưng) để nối 2 vế tính từ tương phản.
 ────────────────────────────────────────────────────────────
 Câu 6 [BÀI 4 - PHẦN 2: どんなところ？ (Đặc điểm, Tính từ, Tồn tại)] [LUYỆN NÓI]
 リンさんの まちは にぎやかですか。
@@ -134,17 +134,17 @@ Giải thích: 🗣️ Dịch câu hỏi: "Thành phố của Hoàng có lớn k
 💡 Mẹo giao tiếp: Phủ định của tính từ đuôi い: bỏ「い」thay bằng「〜くないです」(おおきい ➔ おおきくないです).
 ────────────────────────────────────────────────────────────
 Câu 8 [BÀI 4 - PHẦN 2: どんなところ？ (Đặc điểm, Tính từ, Tồn tại)] [LUYỆN NÓI]
-マイさんの まちに ゆうめいな おてらが ありますか。
-  A. はい、ふるくて ゆうめいな おてらが ありますよ。  ✓
+マイさんの まちに おてらが ありますか。
+  A. はい、ふるい おてらが ありますよ。  ✓
   B. はい、おてらへ いきます。
   C. いいえ、おてらが います。
   D. おてらは あしたです。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Ở thị trấn của Mai có ngôi chùa nổi tiếng nào không?"
-💬 Dịch câu trả lời: "Vâng, có một ngôi chùa cổ kính và nổi tiếng đấy."
+Giải thích: 🗣️ Dịch câu hỏi: "Ở quê / thành phố của Mai có chùa không?"
+💬 Dịch câu trả lời: "Vâng, có một ngôi chùa cổ kính đấy."
 🌟 Cách trả lời khác để luyện nói:
 • いいえ、おてらは ありませんが、きょうかいが あります。(Không, không có chùa nhưng có nhà thờ.)
-• はい、たかい やまや きれいな かわが ありますよ。(Vâng, có núi cao và sông đẹp đấy.)
+• はい、ゆうめいな おてらが ありますよ。(Vâng, có một ngôi chùa rất nổi tiếng đấy.)
 💡 Mẹo giao tiếp: Tồn tại của vật thể, công trình, danh lam:「[Nơi chốn]に [Vật]が あります」. Khẳng định dùng「あります」, phủ định dùng「ありません」.
 ────────────────────────────────────────────────────────────
 Câu 9 [BÀI 4 - PHẦN 3: きせつ・りょうり (Thời tiết, Món ăn)] [LUYỆN NÓI]
@@ -182,8 +182,8 @@ Câu 11 [BÀI 5 - PHẦN 1: しゅうまつ (Cuối tuần, Hành động quá k
   C. きのう いきます。
   D. にちようびでした。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Hôm qua bạn có đi đâu chơi không?"
-💬 Dịch câu trả lời: "Không, tôi chẳng đi đâu cả. Tôi đã ở nhà."
+Giải thích: 🗣️ Dịch câu hỏi: "Hôm qua bạn có đi đâu không?"
+💬 Dịch câu trả lời: "Không, tôi không đi đâu cả. Tôi đã ở nhà."
 🌟 Cách trả lời khác để luyện nói:
 • はい、スーパーへ かいものに いきました。(Có, tôi đã đi siêu thị mua sắm.)
 • はい、ともだちの うちへ あそびに いきました。(Có, tôi đã đến nhà bạn chơi.)
@@ -232,27 +232,27 @@ Giải thích: 🗣️ Dịch câu hỏi: "Hiện giờ Tuấn muốn có thứ 
 💡 Mẹo giao tiếp:「[Danh từ] が ほしいです」dùng để biểu đạt mong muốn sở hữu một đồ vật/vật chất. Không dùng「ほしい」cho hành động (động từ).
 ────────────────────────────────────────────────────────────
 Câu 15 [BÀI 5 - PHẦN 3: こんどのやすみに (Mong muốn ほしい・〜たい, Mục đích di chuyển)] [LUYỆN NÓI]
-いま、マイさんは スポーツで なにが いちばん すきですか。
-  A. バドミントンが いちばん すきです。  ✓
-  B. スポーツを します。
-  C. きのう サッカーを みました。
-  D. すきじゃありません。
+いま、マイさんは なにが いちばん すきですか。
+  A. にほんの アニメが いちばん すきです。  ✓
+  B. サッカーを します。
+  C. きのう アニメを みました。
+  D. はい、すきです。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Hiện tại trong các môn thể thao, Mai thích môn nào nhất?"
-💬 Dịch câu trả lời: "Mình thích nhất môn cầu lông."
+Giải thích: 🗣️ Dịch câu hỏi: "Hiện tại Mai thích cái gì nhất?"
+💬 Dịch câu trả lời: "Mình thích anime Nhật Bản nhất."
 🌟 Cách trả lời khác để luyện nói:
-• サッカーが だいすきです。(Tôi cực kỳ thích bóng đá.)
-• にほんの アニメが いちばん すきですね。(Tôi thích anime Nhật Bản nhất.)
-💡 Mẹo giao tiếp: Cấu trúc hỏi sở thích nổi bật nhất:「[Phạm vi]で なにが いちばん すきですか」. Trả lời:「[Danh từ]が いちばん すきです」.
+• バドミントンが いちばん すきです。(Tôi thích cầu lông nhất.)
+• ベトナムの たべものが だいすきです。(Tôi cực kỳ thích đồ ăn Việt Nam.)
+💡 Mẹo giao tiếp: Cấu trúc hỏi sở thích nổi bật nhất:「なにが いちばん すきですか」. Trả lời:「[Danh từ]が いちばん すきです」.
 ────────────────────────────────────────────────────────────
 Câu 16 [BÀI 5 - PHẦN 3: こんどのやすみに (Mong muốn ほしい・〜たい, Mục đích di chuyển)] [LUYỆN NÓI]
-いま、おかねが たくさん あります。なにを したいですか。
+いま、ナムさんは おかねが たくさん あります。なにを したいですか。
   A. せかいじゅうを りょこうしたいです。  ✓
   B. おかねが ほしいです。
   C. ぎんこうへ いきました。
   D. おかねが ありません。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Bây giờ nếu có nhiều tiền, bạn muốn làm gì?"
+Giải thích: 🗣️ Dịch câu hỏi: "Bây giờ Nam có rất nhiều tiền. Bạn muốn làm gì?"
 💬 Dịch câu trả lời: "Tôi muốn đi du lịch vòng quanh thế giới."
 🌟 Cách trả lời khác để luyện nói:
 • りょうしんに おおきな うちを かってあげたいです。(Tôi muốn mua nhà to cho bố mẹ.)
@@ -260,14 +260,14 @@ Giải thích: 🗣️ Dịch câu hỏi: "Bây giờ nếu có nhiều tiền, 
 💡 Mẹo giao tiếp: Biểu đạt mong muốn làm hành động gì của bản thân: chia động từ sang thể「V-たいです」(V-ます bỏ ます thêm たいです).
 ────────────────────────────────────────────────────────────
 Câu 17 [BÀI 5 - PHẦN 3: こんどのやすみに (Mong muốn ほしい・〜たい, Mục đích di chuyển)] [LUYỆN NÓI]
-フンさんは あした モールへ なにを しに いきますか。
-  A. ふくを かいに いきます。  ✓
-  B. モールは おおきいです。
-  C. あした いきません。
-  D. ひとりで いきました。
+フンさんは あした なにを しに いきますか。
+  A. まちへ ふくを かいに いきます。  ✓
+  B. ふくを きています。
+  C. きのう かいものに いきました。
+  D. あした がっこうです。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Ngày mai Hưng đến trung tâm thương mại để làm gì thế?"
-💬 Dịch câu trả lời: "Mình đi để mua quần áo."
+Giải thích: 🗣️ Dịch câu hỏi: "Ngày mai Hưng đi làm gì thế?"
+💬 Dịch câu trả lời: "Mình lên phố để mua quần áo."
 🌟 Cách trả lời khác để luyện nói:
 • ともだちと えいがを みに いきます。(Tôi đi để xem phim cùng bạn.)
 • おいしいものを たべに いきますよ。(Tôi đi để ăn đồ ngon đấy.)
@@ -291,7 +291,7 @@ Câu 19 [BÀI 6 - PHẦN 1: いっしょにいきませんか (Rủ rê 〜ま�
 にちようび、FPTだいがくで なにが ありますか。
   A. おんがくの フェスティバルが ありますよ。  ✓
   B. だいがくに としょかんが あります。
-  C. べんきょうします。
+  C. だいがくで べんきょうします。
   D. はい、あります。
 → Đáp án: A
 Giải thích: 🗣️ Dịch câu hỏi: "Chủ nhật này ở Đại học FPT có sự kiện gì thế?"
@@ -303,31 +303,31 @@ Giải thích: 🗣️ Dịch câu hỏi: "Chủ nhật này ở Đại học FP
 ────────────────────────────────────────────────────────────
 Câu 20 [BÀI 6 - PHẦN 2: どちらがいいですか (So sánh hơn, So sánh nhất いちばん)] [LUYỆN NÓI]
 ベトナムりょうりで なにが いちばん おいしいですか。
-  A. フォーが いちばん おいしいと おもいます。  ✓
-  B. フォーも ブンチャーも どちらも おいしいです。
+  A. フォーが いちばん おいしいです。  ✓
+  B. まいにち フォーを たべます。
   C. りょうりを つくります。
   D. きのう フォーを たべました。
 → Đáp án: A
 Giải thích: 🗣️ Dịch câu hỏi: "Trong các món ăn Việt Nam, món nào ngon nhất?"
-💬 Dịch câu trả lời: "Mình nghĩ phở là ngon nhất."
+💬 Dịch câu trả lời: "Phở là ngon nhất."
 🌟 Cách trả lời khác để luyện nói:
 • ブンチャーが いちばん すきですね。(Tôi thích bún chả nhất đấy.)
-• ぜんぶ おいしいですから、えらべません！(Món nào cũng ngon nên tôi chẳng chọn nổi!)
+• フォーが いちばん おいしいと おもいますよ。(Tôi nghĩ phở là ngon nhất đấy.)
 💡 Mẹo giao tiếp: So sánh nhất đồ vật:「[Nhóm/Phạm vi]で なにが いちばん [Tính từ]ですか」. Trả lời:「[Vật]が いちばん [Tính từ]です」. Thêm「とおもいます」(tôi nghĩ là) để câu nói thêm tự nhiên.
 ────────────────────────────────────────────────────────────
 Câu 21 [BÀI 6 - PHẦN 2: どちらがいいですか (So sánh hơn, So sánh nhất いちばん)] [LUYỆN NÓI]
 クラスで だれが いちばん せが たかいですか。
-  A. ナムさんが いちばん たかいです。  ✓
+  A. ナムさんが いちばん せが たかいです。  ✓
   B. ナムさんは がくせいです。
   C. クラスは 30にんです。
-  D. はい、たかいです。
+  D. はい、せが たかいです。
 → Đáp án: A
 Giải thích: 🗣️ Dịch câu hỏi: "Trong lớp học, ai là người cao nhất?"
 💬 Dịch câu trả lời: "Nam là người cao nhất."
 🌟 Cách trả lời khác để luyện nói:
 • フンさんですよ。1メートル80あります。(Là Hưng đấy, bạn ấy cao 1 mét 80.)
 • たなかせんせいが いちばん せがたかいです。(Thầy Tanaka là người cao nhất.)
-💡 Mẹo giao tiếp: So sánh nhất về người trong tập thể:「[Tập thể]で だれが いちばん [Tính từ]ですか」. Trả lời:「[Tên người]さんが いちばん [Tính từ]です」.
+💡 Mẹo giao tiếp: Chiều cao con người dùng cụm tính từ「せが たかい」. Khi so sánh nhất:「[Tên người]さんが いちばん せが たかいです」. Tuyệt đối không lược bỏ「せが」vì「たかい」đơn độc mang nghĩa đắt tiền hoặc độ cao địa hình.
 ────────────────────────────────────────────────────────────
 Câu 22 [BÀI 6 - PHẦN 2: どちらがいいですか (So sánh hơn, So sánh nhất いちばん)] [LUYỆN NÓI]
 ベトナムで どこが いちばん にぎやかですか。
@@ -345,22 +345,22 @@ Giải thích: 🗣️ Dịch câu hỏi: "Ở Việt Nam nơi nào sầm uất 
 ────────────────────────────────────────────────────────────
 Câu 23 [BÀI 6 - PHẦN 2: どちらがいいですか (So sánh hơn, So sánh nhất いちばん)] [LUYỆN NÓI]
 にほんで なんがつが いちばん さむいですか。
-  A. 1がつと 2がつが いちばん さむいです。  ✓
+  A. 1がつが いちばん さむいです。  ✓
   B. ふゆが すきです。
   C. さむくないです。
   D. ゆきが ふります。
 → Đáp án: A
 Giải thích: 🗣️ Dịch câu hỏi: "Ở Nhật Bản tháng mấy là lạnh nhất?"
-💬 Dịch câu trả lời: "Tháng 1 và tháng 2 là lạnh nhất."
+💬 Dịch câu trả lời: "Tháng 1 là lạnh nhất."
 🌟 Cách trả lời khác để luyện nói:
 • 2がつですね。ゆきがたくさん ふりますよ。(Tháng 2 đấy, tuyết rơi nhiều lắm.)
 • ハノイでは 6がつが いちばん あついです。(Ở Hà Nội thì tháng 6 là nóng nhất.)
-💡 Mẹo giao tiếp: So sánh nhất về thời gian, tháng trong năm:「なんがつが いちばん [Tính từ]ですか」.
+💡 Mẹo giao tiếp: So sánh nhất「いちばん」yêu cầu chọn một mốc thời gian đỉnh điểm nhất:「[Tháng]が いちばん [Tính từ]です」.
 ────────────────────────────────────────────────────────────
 Câu 24 [BÀI 6 - PHẦN 2: どちらがいいですか (So sánh hơn, So sánh nhất いちばん)] [LUYỆN NÓI]
 いぬと ねこと どちらが すきですか。
   A. ねこの ほうが すきです。  ✓
-  B. どちらも すきじゃありませんでした。
+  B. いぬの ほうが たかいです。
   C. ねこが いちばんです。
   D. はい、すきです。
 → Đáp án: A
@@ -369,7 +369,7 @@ Giải thích: 🗣️ Dịch câu hỏi: "Giữa chó và mèo bạn thích con
 🌟 Cách trả lời khác để luyện nói:
 • どちらも だいすきです！(Cả hai con mình đều rất thích!)
 • いぬのほうが すきですね。かわいいですから。(Mình thích chó hơn đấy, vì chúng đáng yêu.)
-💡 Mẹo giao tiếp: So sánh lựa chọn 2 đối tượng:「Aと Bと どちらが [Tính từ]ですか」. Trả lời chọn 1 bên:「[A/B]の ほうが [Tính từ]です」. Nếu bằng nhau:「どちらも [Tính từ]です」.
+💡 Mẹo giao tiếp: So sánh lựa chọn giữa 2 đối tượng:「Aと Bと どちらが [Tính từ]ですか」. Trả lời chọn 1 bên:「[A/B]の ほうが [Tính từ]です」. Nếu thích cả hai:「どちらも [Tính từ]です」.
 ────────────────────────────────────────────────────────────
 Câu 25 [BÀI 6 - PHẦN 3: やくそく (Đã làm chưa もう, Gợi ý, Hẹn ước)] [LUYỆN NÓI]
 もう ひるごはんを たべましたか。
@@ -400,18 +400,18 @@ Giải thích: 🗣️ Dịch câu hỏi: "Trường Đại học FPT nằm ở 
 💡 Mẹo giao tiếp: Vị trí của địa điểm, công trình vô tri dùng động từ「あります」:「[Địa điểm]に あります」. Câu hỏi vị trí:「どこに ありますか」.
 ────────────────────────────────────────────────────────────
 Câu 27 [BÀI 7 - PHẦN 1: みちがわかりません (Vị trí ở đâu, Xung quanh có gì)] [LUYỆN NÓI]
-たなかせんせいは どこに いますか。
-  A. 2かいの しょくいんしつに いますよ。  ✓
-  B. しょくいんしつに あります。
-  C. せんせいは にほんじんです。
+ナムさんは どこに いますか。
+  A. 2かいの きょうしつに いますよ。  ✓
+  B. きょうしつに あります。
+  C. ナムさんは がくせいです。
   D. きのう あいました。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Thầy Tanaka đang ở đâu thế?"
-💬 Dịch câu trả lời: "Thầy đang ở phòng giáo viên tầng 2 đấy."
+Giải thích: 🗣️ Dịch câu hỏi: "Bạn Nam đang ở đâu thế?"
+💬 Dịch câu trả lời: "Bạn ấy đang ở lớp học tầng 2 đấy."
 🌟 Cách trả lời khác để luyện nói:
-• きょうしつに います。いま、じゅぎょうちゅうですよ。(Thầy đang ở lớp học. Bây giờ đang giờ dạy đấy.)
-• ねこは テーブルの したに いますよ。(Con mèo đang ở dưới cái bàn đấy.)
-💡 Mẹo giao tiếp: Vị trí của con người hoặc động vật sống: dùng động từ「います」:「[Địa điểm]に います」. Hỏi vị trí:「どこに いますか」.
+• しょくいんしつに います。せんせいと はなしています。(Bạn ấy đang ở phòng giáo viên, nói chuyện với thầy cô.)
+• としょかんに いますよ。(Cậu ấy đang ở thư viện đấy.)
+💡 Mẹo giao tiếp: Vị trí của con người hoặc động vật sống: dùng động từ「います」:「[Địa điểm]に います」. Không dùng「あります」cho người hoặc động vật.
 ────────────────────────────────────────────────────────────
 Câu 28 [BÀI 7 - PHẦN 1: みちがわかりません (Vị trí ở đâu, Xung quanh có gì)] [LUYỆN NÓI]
 えきの ちかくに なにが ありますか。
@@ -444,29 +444,29 @@ Giải thích: 🗣️ Dịch câu hỏi: "Gần nhà Nam có những gì thế?
 Câu 30 [BÀI 7 - PHẦN 2: パーティーのじゅんび (Công cụ で, Đang làm gì 〜ています)] [LUYỆN NÓI]
 なにで りんごを きりますか。
   A. ナイフで きります。  ✓
-  B. スーパーで きります。
-  C. きのう きりました。
+  B. スーパーで かいました。
+  C. きのう たべました。
   D. りんごは あかいです。
 → Đáp án: A
 Giải thích: 🗣️ Dịch câu hỏi: "Bạn cắt quả táo bằng cái gì thế?"
 💬 Dịch câu trả lời: "Tôi cắt bằng dao."
 🌟 Cách trả lời khác để luyện nói:
 • ほうちょうで きりますよ。(Tôi cắt bằng dao làm bếp đấy.)
-• てで かわをむきます。(Tôi bóc vỏ bằng tay.)
+• てで かわを むきます。(Tôi bóc vỏ bằng tay.)
 💡 Mẹo giao tiếp: Hỏi công cụ, dụng cụ làm việc gì:「なにで [Hành động]か」. Trả lời:「[Dụng cụ]で [Hành động]ます」. Trợ từ「で」chỉ công cụ / phương tiện.
 ────────────────────────────────────────────────────────────
 Câu 31 [BÀI 7 - PHẦN 2: パーティーのじゅんび (Công cụ で, Đang làm gì 〜ています)] [LUYỆN NÓI]
 ベトナムじんは フォークと ナイフで ごはんを たべますか。
-  A. いいえ、はしや スプーンで たべます。  ✓
+  A. いいえ、はしで たべます。  ✓
   B. はい、フォークで たべます。
   C. ごはんを たべません。
   D. レストランで たべます。
 → Đáp án: A
 Giải thích: 🗣️ Dịch câu hỏi: "Người Việt Nam có ăn cơm bằng dao và nĩa không?"
-💬 Dịch câu trả lời: "Không, chúng tôi ăn bằng đũa hoặc thìa."
+💬 Dịch câu trả lời: "Không, người Việt ăn bằng đũa."
 🌟 Cách trả lời khác để luyện nói:
-• いいえ、ふだんは はしで たべます。(Không, bình thường ăn bằng đũa.)
-• せいようりょうりを たべる とき、フォークと ナイフを つかいます。(Khi ăn món Tây mới dùng dao và nĩa.)
+• いいえ、はしや スプーンで たべます。(Không, chúng tôi ăn bằng đũa hoặc thìa.)
+• せいようりょうりを たべるとき、フォークと ナイフを つかいます。(Khi ăn món Tây mới dùng dao và nĩa.)
 💡 Mẹo giao tiếp: Trợ từ「で」chỉ dụng cụ ăn uống:「はしで」(bằng đũa),「スプーンで」(bằng thìa),「てで」(bằng tay).
 ────────────────────────────────────────────────────────────
 Câu 32 [BÀI 7 - PHẦN 3: みんなでたのしいパーティー (Ai đang làm gì, Tập quán ăn uống)] [LUYỆN NÓI]
@@ -484,28 +484,28 @@ Giải thích: 🗣️ Dịch câu hỏi: "Người Ấn Độ ăn cơm bằng g
 💡 Mẹo giao tiếp: Điểm văn hóa trong Bài 7 Dekiru Nihongo: Các quốc gia có dụng cụ ăn uống đặc trưng: はし (Nhật, Việt), て (Ấn Độ), フォークとナイフ (Phương Tây).
 ────────────────────────────────────────────────────────────
 Câu 33 [BÀI 7 - PHẦN 2: パーティーのじゅんび (Công cụ で, Đang làm gì 〜ています)] [LUYỆN NÓI]
-マイクさんは いま、なにを していますか。
-  A. へやで レポートを かいています。  ✓
-  B. きのう かきました。
+ナムさんは いま、なにを していますか。
+  A. へやで にほんごを べんきょうしています。  ✓
+  B. きのう べんきょうしました。
   C. がくせいです。
-  D. あした かきます。
+  D. あした べんきょうします。
 → Đáp án: A
-Giải thích: 🗣️ Dịch câu hỏi: "Hiện giờ Mike đang làm gì thế?"
-💬 Dịch câu trả lời: "Bạn ấy đang viết báo cáo ở trong phòng."
+Giải thích: 🗣️ Dịch câu hỏi: "Hiện giờ Nam đang làm gì thế?"
+💬 Dịch câu trả lời: "Bạn ấy đang học tiếng Nhật ở trong phòng."
 🌟 Cách trả lời khác để luyện nói:
 • ともだちと でんわで はなしていますよ。(Cậu ấy đang nói chuyện điện thoại với bạn đấy.)
-• おんがくを ききながら、やすんでいます。(Cậu ấy đang vừa nghe nhạc vừa nghỉ ngơi.)
+• へやで レポートを かいています。(Bạn ấy đang viết báo cáo ở trong phòng.)
 💡 Mẹo giao tiếp: Diễn tả hành động đang diễn ra tại thời điểm nói: chia động từ sang thể tiếp diễn「V-ています」(V thể て + います).
 ────────────────────────────────────────────────────────────
 Câu 34 [BÀI 7 - PHẦN 3: みんなでたのしいパーティー (Ai đang làm gì, Tập quán ăn uống)] [LUYỆN NÓI]
 だれが ギターを ひいていますか。
-  A. ケンさんが ひいていますよ。じょうずですね。  ✓
+  A. ケンさんが ひいていますよ。  ✓
   B. ギターを ひきます。
   C. おんがくしつに あります。
   D. きのう ひきました。
 → Đáp án: A
 Giải thích: 🗣️ Dịch câu hỏi: "Ai đang chơi đàn ghi-ta thế?"
-💬 Dịch câu trả lời: "Anh Ken đang chơi đấy. Chơi giỏi ghê nhỉ!"
+💬 Dịch câu trả lời: "Anh Ken đang chơi đấy."
 🌟 Cách trả lời khác để luyện nói:
 • リンさんが うたいながら ひいています。(Chị Linh vừa hát vừa đàn đấy.)
 • だれも ひいていませんよ。ラジオの おとです。(Chẳng có ai chơi đâu. Là tiếng đài radio đấy.)
