@@ -2669,6 +2669,23 @@ window.APP_SUBJECTS = {
         },
         lessonParts: (typeof GRAMMAR_LESSON_PARTS !== 'undefined' ? GRAMMAR_LESSON_PARTS : (window.GRAMMAR_LESSON_PARTS || {})),
         rawText: (typeof RAW_DATABASE_GRAMMAR !== 'undefined' ? RAW_DATABASE_GRAMMAR : (window.RAW_DATABASE_GRAMMAR || ""))
+    },
+    "japanese_speaking": {
+        id: "japanese_speaking",
+        name: "Luyện nói (かいわ)",
+        fullName: "Tiếng Nhật (Luyện nói Bài 4 - 7)",
+        icon: "🗣️",
+        badge: "Luyện nói Bài 4 - 7",
+        category: "japanese",
+        hasFurigana: true,
+        quizType: "speaking",
+        langFrom: "Câu hỏi giao tiếp",
+        langTo: "Câu trả lời & Dịch nghĩa",
+        modeLabels: {
+            "standard": "🗣️ Phản xạ nói (Bấm chọn hiện dịch nghĩa)"
+        },
+        lessonParts: (typeof SPEAKING_LESSON_PARTS !== 'undefined' ? SPEAKING_LESSON_PARTS : (window.SPEAKING_LESSON_PARTS || {})),
+        rawText: (typeof RAW_DATABASE_SPEAKING !== 'undefined' ? RAW_DATABASE_SPEAKING : (window.RAW_DATABASE_SPEAKING || ""))
     }
 };
 

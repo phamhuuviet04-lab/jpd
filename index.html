@@ -47,7 +47,7 @@
         <div id="japanese-sub-tabs" class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
             <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Phần học tiếng Nhật:</span>
-                <div class="inline-flex p-0.5 bg-slate-100 rounded-lg border border-slate-200 gap-1" id="japanese-sub-buttons">
+                <div class="inline-flex p-0.5 bg-slate-100 rounded-lg border border-slate-200 gap-1 flex-wrap" id="japanese-sub-buttons">
                     <button id="sub-tab-vocab" class="px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white">
                         📖 Từ vựng (できる日本語)
                     </button>
@@ -56,6 +56,9 @@
                     </button>
                     <button id="sub-tab-grammar" class="px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
                         📐 Ngữ pháp (文法)
+                    </button>
+                    <button id="sub-tab-speaking" class="px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
+                        🗣️ Luyện nói (会話)
                     </button>
                 </div>
             </div>
@@ -283,6 +286,7 @@ Câu 1 [BÀI 1 - PHẦN 1: Chào hỏi]
     <!-- Scripts Module Hóa -->
     <script src="js/parser.js"></script>
     <script src="js/grammar_data.js"></script>
+    <script src="js/speaking_data.js"></script>
     <script src="js/database.js"></script>
     <script src="js/app.js"></script>
 </body>

@@ -4,6 +4,25 @@
  */
 
 // ==========================================
+// TRỢ LÝ PHÁT ÂM TIẾNG NHẬT (WEB SPEECH API)
+// ==========================================
+function speakJapanese(text) {
+    if (!('speechSynthesis' in window)) return;
+    try {
+        window.speechSynthesis.cancel();
+        // Xóa furigana/chú thích trong ngoặc đơn
+        const clean = (text || '').replace(/[\(（][^\)）]+[\)）]/g, '').trim();
+        const utter = new SpeechSynthesisUtterance(clean);
+        utter.lang = 'ja-JP';
+        utter.rate = 0.9;
+        window.speechSynthesis.speak(utter);
+    } catch (e) {
+        console.warn('SpeechSynthesis error:', e);
+    }
+}
+window.speakJapanese = speakJapanese;
+
+// ==========================================
 // TRẠNG THÁI ỨNG DỤNG (STATE)
 // ==========================================
 const STORAGE_KEY_SELECTED_SUBJECT = 'selectedSubject_quizlet';
@@ -68,16 +87,19 @@ function loadSubjectState() {
     const savedLast = localStorage.getItem(lastKey);
     lastMarkedQuestionId = savedLast !== null ? Number(savedLast) : null;
 
+    const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
     const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
     let defaultMode = 'jp-vi';
-    if (isGrammar) {
-        defaultMode = 'all';
-    } else if (currentSubject.quizType === 'standard') {
+    if (isSpeaking || currentSubject.quizType === 'standard') {
         defaultMode = 'standard';
+    } else if (isGrammar) {
+        defaultMode = 'all';
     }
 
     const savedMode = localStorage.getItem(modeKey);
-    if (isGrammar) {
+    if (isSpeaking) {
+        currentQuizMode = 'standard';
+    } else if (isGrammar) {
         currentQuizMode = (savedMode && ['all', 'concept', 'translation'].includes(savedMode)) ? savedMode : 'all';
     } else {
         currentQuizMode = savedMode || defaultMode;
@@ -148,6 +170,7 @@ function updateSubjectHeaderUI() {
     const subTabVocab = document.getElementById('sub-tab-vocab');
     const subTabKanji = document.getElementById('sub-tab-kanji');
     const subTabGrammar = document.getElementById('sub-tab-grammar');
+    const subTabSpeaking = document.getElementById('sub-tab-speaking');
     const japaneseSubDesc = document.getElementById('japanese-sub-desc');
 
     if (iconEl) iconEl.innerText = currentSubject.icon || '📚';
@@ -156,6 +179,8 @@ function updateSubjectHeaderUI() {
             nameEl.innerText = "Tiếng Nhật (Hán tự)";
         } else if (currentSubjectId === 'japanese_grammar') {
             nameEl.innerText = "Tiếng Nhật (Ngữ pháp)";
+        } else if (currentSubjectId === 'japanese_speaking') {
+            nameEl.innerText = "Tiếng Nhật (Luyện nói)";
         } else {
             nameEl.innerText = currentSubject.name || 'Môn học';
         }
@@ -182,29 +207,41 @@ function updateSubjectHeaderUI() {
         }
     }
 
-    // Quản lý thanh chủ đề con cho Tiếng Nhật (Từ vựng / Hán tự / Ngữ pháp)
+    // Quản lý thanh chủ đề con cho Tiếng Nhật (Từ vựng / Hán tự / Ngữ pháp / Luyện nói)
     if (japaneseSubTabs) {
         const isJapanese = currentSubject.category === 'japanese' || currentSubjectId.startsWith('japanese');
         if (isJapanese) {
             japaneseSubTabs.classList.remove('hidden');
             japaneseSubTabs.classList.add('flex');
 
+            const activeClass = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
+            const inactiveClass = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+
             if (currentSubjectId === 'japanese_kanji') {
-                if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
-                if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
-                if (subTabGrammar) subTabGrammar.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (subTabKanji) subTabKanji.className = activeClass;
+                if (subTabVocab) subTabVocab.className = inactiveClass;
+                if (subTabGrammar) subTabGrammar.className = inactiveClass;
+                if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Hán tự Bài 4 - 6'} (${allQuestions.length} câu)`;
             } else if (currentSubjectId === 'japanese_grammar') {
-                if (subTabGrammar) subTabGrammar.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
-                if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
-                if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (subTabGrammar) subTabGrammar.className = activeClass;
+                if (subTabVocab) subTabVocab.className = inactiveClass;
+                if (subTabKanji) subTabKanji.className = inactiveClass;
+                if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
                 const cCount = allQuestions.filter(q => q.grammarType === 'concept').length;
                 const tCount = allQuestions.filter(q => q.grammarType === 'translation').length;
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `Ngữ pháp Bài 4 - 6 (${allQuestions.length} câu: ${cCount} Hỏi ngữ pháp • ${tCount} Dịch câu)`;
+            } else if (currentSubjectId === 'japanese_speaking') {
+                if (subTabSpeaking) subTabSpeaking.className = activeClass;
+                if (subTabVocab) subTabVocab.className = inactiveClass;
+                if (subTabKanji) subTabKanji.className = inactiveClass;
+                if (subTabGrammar) subTabGrammar.className = inactiveClass;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `Luyện nói Hội thoại Bài 4 - 7 (${allQuestions.length} câu hỏi giao tiếp thực tế)`;
             } else {
-                if (subTabVocab) subTabVocab.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white";
-                if (subTabKanji) subTabKanji.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
-                if (subTabGrammar) subTabGrammar.className = "px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white";
+                if (subTabVocab) subTabVocab.className = activeClass;
+                if (subTabKanji) subTabKanji.className = inactiveClass;
+                if (subTabGrammar) subTabGrammar.className = inactiveClass;
+                if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `Giáo trình Dekiru Nihongo Bài 4 - 7 (${allQuestions.length} câu)`;
             }
         } else {
@@ -223,16 +260,16 @@ function renderSubjectMenu() {
     const customSubjects = JSON.parse(localStorage.getItem(STORAGE_KEY_CUSTOM_SUBJECTS) || '{}');
 
     // Gom nhóm các môn chính để thanh menu trên cùng luôn gọn đẹp
-    // Tiếng Nhật (gồm cả vocab, kanji và ngữ pháp), và các môn tự tạo
+    // Tiếng Nhật (gồm cả vocab, kanji, ngữ pháp, luyện nói), và các môn tự tạo
     const mainEntries = [
         {
             id: 'japanese',
             label: 'Tiếng Nhật',
             icon: '🇯🇵',
-            isActive: currentSubjectId === 'japanese' || currentSubjectId === 'japanese_kanji' || currentSubjectId === 'japanese_grammar',
+            isActive: currentSubjectId === 'japanese' || currentSubjectId === 'japanese_kanji' || currentSubjectId === 'japanese_grammar' || currentSubjectId === 'japanese_speaking',
             onSelect: () => {
                 // Giữ lại môn con đang học hoặc chuyển sang japanese
-                if (currentSubjectId !== 'japanese' && currentSubjectId !== 'japanese_kanji' && currentSubjectId !== 'japanese_grammar') {
+                if (currentSubjectId !== 'japanese' && currentSubjectId !== 'japanese_kanji' && currentSubjectId !== 'japanese_grammar' && currentSubjectId !== 'japanese_speaking') {
                     switchSubject('japanese');
                 }
             }
@@ -343,12 +380,22 @@ function updateQuizModeUI() {
     const listToolbar = document.getElementById('list-mode-toolbar');
     const listDesc = document.getElementById('list-mode-desc');
 
-    const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
-    const isVocab = currentSubject.quizType !== 'standard' && !isGrammar;
+    const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
+    const isGrammar = !isSpeaking && (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar');
+    const isVocab = !isSpeaking && !isGrammar && currentSubject.quizType !== 'standard';
 
     let buttonsHTML = '';
 
-    if (isGrammar) {
+    if (isSpeaking) {
+        buttonsHTML = `
+            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm" data-mode="standard">
+                🗣️ Phản xạ nói (Hỏi ➔ Đáp & Hiện nghĩa)
+            </button>
+        `;
+        currentQuizMode = 'standard';
+        if (listToolbar) listToolbar.style.display = 'flex';
+        if (listDesc) listDesc.innerText = '🗣️ Danh sách câu hỏi luyện nói tiếng Nhật (Bấm chọn câu để xem chi tiết & phát âm)';
+    } else if (isGrammar) {
         const labels = currentSubject.modeLabels || {
             'all': '🌟 Tất cả (Cả 2 dạng)',
             'concept': '📖 Hỏi ngữ pháp là gì',
@@ -429,6 +476,23 @@ function updateQuizModeUI() {
 function updateQuestionDisplay() {
     if (!currentQuestion) return;
     const hideFurigana = currentSubject.hasFurigana && document.getElementById('toggle-furigana')?.checked;
+    const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
+
+    if (isSpeaking) {
+        const promptText = hideFurigana 
+            ? currentQuestion.prompt.replace(/\s*\([^)]+\)/g, '') 
+            : currentQuestion.prompt;
+        const safePrompt = promptText.replace(/'/g, "\\'");
+        ui.question.innerHTML = `
+            <div class="flex items-start justify-between gap-3">
+                <span class="flex-1">${promptText}</span>
+                <button type="button" onclick="speakJapanese('${safePrompt}')" class="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-xs active:scale-95 transition" title="Nghe câu hỏi">
+                    <span>🔊</span> <span>Nghe</span>
+                </button>
+            </div>
+        `;
+        return;
+    }
 
     if (currentQuestion.direction === 'jp-vi' || currentQuestion.direction === 'standard') {
         ui.question.innerText = hideFurigana 
@@ -559,6 +623,71 @@ function updateSelectAllButtonState() {
     btn.classList.toggle('cursor-not-allowed', allSelected);
 }
 
+function formatSpeakingExplanation(expl, safeQuestion, safeCorrect) {
+    const raw = expl || '';
+    const qMatch = raw.match(/🗣️\s*Dịch câu hỏi:\s*["“]?(.*?)["”]?(\n|$)/i);
+    const aMatch = raw.match(/💬\s*Dịch câu trả lời:\s*["“]?(.*?)["”]?(\n|$)/i);
+    const qMeaning = qMatch ? qMatch[1].trim() : "";
+    const aMeaning = aMatch ? aMatch[1].trim() : "";
+
+    let otherAnswers = [];
+    const otherMatch = raw.match(/🌟\s*Cách trả lời khác để luyện nói:([\s\S]*?)(?:💡|$)/i);
+    if (otherMatch && otherMatch[1]) {
+        otherAnswers = otherMatch[1].trim().split('\n').map(l => l.trim()).filter(l => l);
+    }
+
+    const tipMatch = raw.match(/💡\s*Mẹo giao tiếp:\s*([\s\S]*)$/i);
+    const tipText = tipMatch ? tipMatch[1].trim() : "";
+
+    return `
+        <div class="mt-3 space-y-2.5">
+            <div class="p-3.5 bg-blue-50/90 border border-blue-200 rounded-xl">
+                <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="text-xs uppercase font-extrabold text-blue-700 flex items-center gap-1">
+                        <span>🗣️</span> <span>Dịch nghĩa câu hỏi:</span>
+                    </span>
+                    <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeQuestion}')" class="px-2.5 py-1 text-xs bg-white text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100 flex items-center gap-1 font-bold shadow-xs active:scale-95 transition">
+                        <span>🔊</span> <span>Nghe câu hỏi</span>
+                    </button>
+                </div>
+                <div class="text-sm font-bold text-gray-900">${qMeaning}</div>
+            </div>
+
+            <div class="p-3.5 bg-emerald-50/90 border border-emerald-200 rounded-xl">
+                <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="text-xs uppercase font-extrabold text-emerald-700 flex items-center gap-1">
+                        <span>💬</span> <span>Dịch nghĩa câu trả lời chuẩn:</span>
+                    </span>
+                    <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeCorrect}')" class="px-2.5 py-1 text-xs bg-white text-emerald-700 border border-emerald-200 rounded-lg hover:bg-emerald-100 flex items-center gap-1 font-bold shadow-xs active:scale-95 transition">
+                        <span>🔊</span> <span>Nghe câu trả lời</span>
+                    </button>
+                </div>
+                <div class="text-sm font-bold text-emerald-950">${aMeaning}</div>
+            </div>
+
+            ${otherAnswers.length > 0 ? `
+                <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs md:text-sm text-amber-950">
+                    <div class="font-bold text-amber-900 flex items-center gap-1.5 mb-1.5">
+                        <span>🌟</span> <span>Các cách trả lời thực tế khác để luyện nói:</span>
+                    </div>
+                    <ul class="space-y-1.5 pl-1 text-gray-800">
+                        ${otherAnswers.map(ans => `<li class="flex items-start gap-1.5"><span class="text-amber-500 font-bold">•</span><span class="flex-1">${ans.replace(/^•\s*/, '')}</span></li>`).join('')}
+                    </ul>
+                </div>
+            ` : ''}
+
+            ${tipText ? `
+                <div class="p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl text-xs md:text-sm text-indigo-950">
+                    <div class="font-bold text-indigo-900 flex items-center gap-1.5 mb-1">
+                        <span>💡</span> <span>Mẹo giao tiếp & Phân tích cấu trúc:</span>
+                    </div>
+                    <div class="text-gray-800 leading-relaxed">${tipText}</div>
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
 // ==========================================
 // MÀN HÌNH DANH SÁCH (LIST VIEW)
 // ==========================================
@@ -587,14 +716,23 @@ function renderListScreen() {
             lessonInfo = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 mb-1">${prefix}${q.lesson}${partInfo}</span>`;
         }
 
-        let grammarTypeBadge = '';
-        if (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar' || q.grammarType) {
+        const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking' || q.speakingType;
+        let badgeType = '';
+        if (isSpeaking) {
+            badgeType = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200 mb-1">🗣️ Luyện nói</span>`;
+        } else if (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar' || q.grammarType) {
             if (q.grammarType === 'concept') {
-                grammarTypeBadge = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200 mb-1">📖 Hỏi ngữ pháp là gì</span>`;
+                badgeType = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200 mb-1">📖 Hỏi ngữ pháp là gì</span>`;
             } else if (q.grammarType === 'translation') {
-                grammarTypeBadge = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200 mb-1">✍️ Dịch từ câu tiếng Việt qua</span>`;
+                badgeType = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200 mb-1">✍️ Dịch từ câu tiếng Việt qua</span>`;
             }
         }
+
+        const safeQuestionText = (q.question || '').replace(/'/g, "\\'");
+        const safeCorrectText = (q.correct[0] || '').replace(/'/g, "\\'");
+        const speakBtnHtml = isSpeaking
+            ? `<button type="button" onclick="event.stopPropagation(); speakJapanese('${safeQuestionText}')" class="ml-2 inline-flex items-center gap-1 px-2.5 py-0.5 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-md font-bold hover:bg-blue-100 active:scale-95 transition" title="Nghe câu hỏi"><span>🔊</span> <span>Nghe</span></button>`
+            : '';
 
         header.innerHTML = `
             <div class="flex items-start gap-3 flex-1">
@@ -604,9 +742,12 @@ function renderListScreen() {
                 <div class="flex-1">
                     <div class="flex items-center gap-1.5 flex-wrap">
                         ${lessonInfo}
-                        ${grammarTypeBadge}
+                        ${badgeType}
                     </div>
-                    <h3 class="font-bold text-gray-800 whitespace-pre-wrap">${q.question}</h3>
+                    <div class="flex items-baseline gap-1 flex-wrap">
+                        <h3 class="font-bold text-gray-800 whitespace-pre-wrap">${q.question}</h3>
+                        ${speakBtnHtml}
+                    </div>
                 </div>
             </div>
             <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 border rounded shadow-sm hover:bg-blue-50 transition">
@@ -629,18 +770,25 @@ function renderListScreen() {
         qDiv.appendChild(optionsDiv);
         if (q.explanation && !q.explanation.startsWith('→ Đáp án:')) {
             const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
+            const isSpeakingQ = isSpeaking;
             const explDiv = document.createElement('div');
-            explDiv.className = isGrammar
-                ? "mt-3 p-3.5 bg-indigo-50 border border-indigo-200 rounded-lg text-xs md:text-sm text-indigo-950 leading-relaxed shadow-sm"
-                : "mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs md:text-sm text-blue-900 leading-relaxed";
-            
-            const formatted = q.explanation
-                .replace(/➔/g, '<br>➔')
-                .replace(/📌/g, '<br>📌');
-            
-            explDiv.innerHTML = isGrammar 
-                ? `<div class="font-bold text-indigo-900 mb-1 flex items-center gap-1"><span>📐</span> <span>Cấu trúc ngữ pháp & Giải thích:</span></div><div class="text-gray-800 leading-relaxed">${formatted}</div>`
-                : `💡 <b>Giải thích:</b> ${q.explanation}`;
+
+            if (isSpeakingQ) {
+                explDiv.className = "mt-3";
+                explDiv.innerHTML = formatSpeakingExplanation(q.explanation, safeQuestionText, safeCorrectText);
+            } else {
+                explDiv.className = isGrammar
+                    ? "mt-3 p-3.5 bg-indigo-50 border border-indigo-200 rounded-lg text-xs md:text-sm text-indigo-950 leading-relaxed shadow-sm"
+                    : "mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs md:text-sm text-blue-900 leading-relaxed";
+                
+                const formatted = q.explanation
+                    .replace(/➔/g, '<br>➔')
+                    .replace(/📌/g, '<br>📌');
+                
+                explDiv.innerHTML = isGrammar 
+                    ? `<div class="font-bold text-indigo-900 mb-1 flex items-center gap-1"><span>📐</span> <span>Cấu trúc ngữ pháp & Giải thích:</span></div><div class="text-gray-800 leading-relaxed">${formatted}</div>`
+                    : `💡 <b>Giải thích:</b> ${q.explanation}`;
+            }
             qDiv.appendChild(explDiv);
         }
         qDiv.addEventListener('click', (event) => {
@@ -712,8 +860,9 @@ function getDistractors(baseQ, candidatePool, count = 3) {
 }
 
 function createQuizItem(baseQ, direction, candidatePool) {
-    const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
-    const isReverse = (!isGrammar && direction === 'vi-jp' && currentSubject.quizType !== 'standard');
+    const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
+    const isGrammar = !isSpeaking && (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar');
+    const isReverse = (!isSpeaking && !isGrammar && direction === 'vi-jp' && currentSubject.quizType !== 'standard');
 
     if (isReverse) {
         const distractors = getDistractors(baseQ, candidatePool, 3);
@@ -738,7 +887,7 @@ function createQuizItem(baseQ, direction, candidatePool) {
     } else {
         return {
             id: baseQ.id,
-            direction: isGrammar || direction === 'standard' ? 'standard' : 'jp-vi',
+            direction: isSpeaking || isGrammar || direction === 'standard' ? 'standard' : 'jp-vi',
             prompt: baseQ.question,
             options: [...baseQ.options].sort(() => Math.random() - 0.5),
             correct: [...baseQ.correct],
@@ -784,7 +933,7 @@ function startQuiz() {
 
     const items = questionsToLearn.map(baseQ => {
         let dir = currentQuizMode;
-        if (currentSubject.quizType === 'grammar' || currentSubject.quizType === 'standard') {
+        if (currentSubject.quizType === 'speaking' || currentSubject.quizType === 'grammar' || currentSubject.quizType === 'standard') {
             dir = 'standard';
         } else if (dir === 'mix') {
             dir = Math.random() < 0.5 ? 'jp-vi' : 'vi-jp';
@@ -840,7 +989,10 @@ function loadNextQuestion() {
     if (ui.directionBadge) {
         ui.directionBadge.style.display = "";
 
-        if (currentSubjectId === 'japanese_kanji') {
+        if (currentSubjectId === 'japanese_speaking' || currentSubject.quizType === 'speaking') {
+            ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full inline-flex items-center gap-1 border border-amber-300";
+            ui.directionBadge.innerHTML = "<span>🗣️</span><span>Luyện phản xạ nói: Chọn câu đáp phù hợp (bấm chọn hiện dịch nghĩa)</span>";
+        } else if (currentSubjectId === 'japanese_kanji') {
             if (currentQuestion.direction === 'vi-jp') {
                 ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-flex items-center gap-1 border border-emerald-300";
                 ui.directionBadge.innerHTML = "<span>🇻🇳 ➔ 🈸</span><span>Chọn chữ Hán tương ứng</span>";
@@ -944,14 +1096,25 @@ function checkAnswer() {
         node.parentElement.classList.add('bg-gray-100');
     });
 
-    const isGrammar = currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar';
-    const isVocab = !isGrammar && currentSubject.quizType !== 'standard';
+    const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
+    const isGrammar = !isSpeaking && (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar');
+    const isVocab = !isSpeaking && !isGrammar && currentSubject.quizType !== 'standard';
 
     if (isCorrect) {
-        ui.feedback.className = "mt-6 p-5 rounded-lg bg-green-50 text-green-800 border-2 border-green-200";
-        ui.feedbackTitle.innerText = "✅ Chính xác!";
-
-        if (isGrammar) {
+        if (isSpeaking) {
+            ui.feedback.className = "mt-6 p-5 rounded-xl bg-green-50 text-green-900 border-2 border-green-300 shadow-sm";
+            ui.feedbackTitle.innerText = "✅ Phản xạ chính xác! Đã trả lời đúng ngữ cảnh.";
+            const expl = currentQuestion.baseQ?.explanation || '';
+            const safePrompt = (currentQuestion.prompt || '').replace(/'/g, "\\'");
+            const safeCorrect = (currentQuestion.correct[0] || '').replace(/'/g, "\\'");
+            ui.feedbackText.innerHTML = `
+                ${formatSpeakingExplanation(expl, safePrompt, safeCorrect)}
+                <p class="text-xs text-green-600 mt-3 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+            `;
+            reviewQueue.shift();
+        } else if (isGrammar) {
+            ui.feedback.className = "mt-6 p-5 rounded-lg bg-green-50 text-green-800 border-2 border-green-200";
+            ui.feedbackTitle.innerText = "✅ Chính xác!";
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             let explHtml = '';
@@ -980,7 +1143,10 @@ function checkAnswer() {
                 ${explHtml}
                 <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
+            reviewQueue.shift();
         } else if (isVocab) {
+            ui.feedback.className = "mt-6 p-5 rounded-lg bg-green-50 text-green-800 border-2 border-green-200";
+            ui.feedbackTitle.innerText = "✅ Chính xác!";
             ui.feedbackText.innerHTML = `
                 <div class="mt-1 flex items-baseline gap-2 flex-wrap">
                     <span class="text-xl font-bold text-green-900">${currentQuestion.correctPrimary}</span>
@@ -989,7 +1155,10 @@ function checkAnswer() {
                 </div>
                 <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
+            reviewQueue.shift();
         } else {
+            ui.feedback.className = "mt-6 p-5 rounded-lg bg-green-50 text-green-800 border-2 border-green-200";
+            ui.feedbackTitle.innerText = "✅ Chính xác!";
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             ui.feedbackText.innerHTML = `
@@ -999,13 +1168,22 @@ function checkAnswer() {
                 ${hasExpl ? `<div class="mt-3 text-xs md:text-sm bg-white p-3 rounded-lg border border-green-300 text-green-900 leading-relaxed shadow-sm">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
                 <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
+            reviewQueue.shift();
         }
-        reviewQueue.shift(); 
     } else {
-        ui.feedback.className = "mt-6 p-5 rounded-lg bg-red-50 text-red-800 border-2 border-red-200";
-        ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
-
-        if (isGrammar) {
+        if (isSpeaking) {
+            ui.feedback.className = "mt-6 p-5 rounded-xl bg-red-50 text-red-900 border-2 border-red-300 shadow-sm";
+            ui.feedbackTitle.innerText = "❌ Chưa chính xác! Câu trả lời phù hợp & nghĩa:";
+            const expl = currentQuestion.baseQ?.explanation || '';
+            const safePrompt = (currentQuestion.prompt || '').replace(/'/g, "\\'");
+            const safeCorrect = (currentQuestion.correct[0] || '').replace(/'/g, "\\'");
+            ui.feedbackText.innerHTML = `
+                ${formatSpeakingExplanation(expl, safePrompt, safeCorrect)}
+                <p class="text-xs text-red-600 mt-3 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+            `;
+        } else if (isGrammar) {
+            ui.feedback.className = "mt-6 p-5 rounded-lg bg-red-50 text-red-800 border-2 border-red-200";
+            ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             let explHtml = '';
@@ -1035,6 +1213,8 @@ function checkAnswer() {
                 <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         } else if (isVocab) {
+            ui.feedback.className = "mt-6 p-5 rounded-lg bg-red-50 text-red-800 border-2 border-red-200";
+            ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
             ui.feedbackText.innerHTML = `
                 <div class="mt-2 p-3 bg-white rounded-lg border border-red-200 shadow-sm">
                     <div class="text-xl font-bold text-red-900 mb-1">${currentQuestion.correctPrimary}</div>
@@ -1043,6 +1223,8 @@ function checkAnswer() {
                 <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         } else {
+            ui.feedback.className = "mt-6 p-5 rounded-lg bg-red-50 text-red-800 border-2 border-red-200";
+            ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             ui.feedbackText.innerHTML = `
@@ -1391,6 +1573,12 @@ function initApp() {
     document.getElementById('sub-tab-grammar')?.addEventListener('click', () => {
         if (currentSubjectId !== 'japanese_grammar') {
             switchSubject('japanese_grammar');
+        }
+    });
+
+    document.getElementById('sub-tab-speaking')?.addEventListener('click', () => {
+        if (currentSubjectId !== 'japanese_speaking') {
+            switchSubject('japanese_speaking');
         }
     });
 

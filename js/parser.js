@@ -64,6 +64,8 @@ function parseRawText(text, customLessonParts = null) {
         }
 
         let parsingOptions = false;
+        let parsingExplanation = false;
+        let explanationLines = [];
         let currentOptionStr = "";
         let currentOptionLetter = "";
         let isCurrentCorrect = false;
@@ -71,7 +73,41 @@ function parseRawText(text, customLessonParts = null) {
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
-            if (line.match(/Đáp án:/i) || line.match(/^(?:Giải thích|Ghi chú|Note):/i) || line.match(/^\[MULTI-SELECT\]/i) || line.match(/^\[TRUE\/FALSE\]/i)) continue;
+
+            // Bắt đầu phần giải thích / ghi chú
+            if (line.match(/^(?:Giải thích|Ghi chú|Note):\s*(.*)/i)) {
+                if (currentOptionStr) {
+                    let cleanOpt = currentOptionStr.replace(/✓/g, '').trim();
+                    options.push(cleanOpt);
+                    if (isCurrentCorrect || fallbackAnswers.includes(currentOptionLetter)) correctOptionsText.push(cleanOpt);
+                    currentOptionStr = "";
+                }
+                parsingOptions = false;
+                parsingExplanation = true;
+                const m = line.match(/^(?:Giải thích|Ghi chú|Note):\s*(.*)/i);
+                if (m && m[1]) explanationLines.push(m[1].trim());
+                continue;
+            }
+
+            // Dòng đáp án kết thúc phần options
+            if (line.match(/^→?\s*Đáp án:/i)) {
+                if (currentOptionStr) {
+                    let cleanOpt = currentOptionStr.replace(/✓/g, '').trim();
+                    options.push(cleanOpt);
+                    if (isCurrentCorrect || fallbackAnswers.includes(currentOptionLetter)) correctOptionsText.push(cleanOpt);
+                    currentOptionStr = "";
+                }
+                parsingOptions = false;
+                continue;
+            }
+
+            // Đang đọc phần giải thích
+            if (parsingExplanation) {
+                explanationLines.push(line);
+                continue;
+            }
+
+            if (line.match(/^\[MULTI-SELECT\]/i) || line.match(/^\[TRUE\/FALSE\]/i)) continue;
 
             const match = line.match(optionRegex);
             if (match) {
@@ -127,12 +163,19 @@ function parseRawText(text, customLessonParts = null) {
                 partTitle = partsDict[lesson][part];
             }
 
-            // Trích xuất phân loại dạng câu hỏi ngữ pháp: [HỎI NGỮ PHÁP] hoặc [DỊCH CÂU]
+            // Trích xuất phân loại dạng câu hỏi: [HỎI NGỮ PHÁP], [DỊCH CÂU], [LUYỆN NÓI]
             let grammarType = null;
-            const gTypeMatch = questionText.match(/\[(HỎI NGỮ PHÁP|NGỮ PHÁP|LÝ THUYẾT|DỊCH CÂU|DỊCH|DỊCH VIỆT - NHẬT)\]/i);
+            let speakingType = null;
+            const gTypeMatch = questionText.match(/\[(HỎI NGỮ PHÁP|NGỮ PHÁP|LÝ THUYẾT|DỊCH CÂU|DỊCH|DỊCH VIỆT - NHẬT|LUYỆN NÓI|HỘI THOẠI|KAIWA|SPEAKING)\]/i);
             if (gTypeMatch) {
                 const tag = gTypeMatch[1].toUpperCase();
-                grammarType = tag.includes('DỊCH') ? 'translation' : 'concept';
+                if (tag.includes('NÓI') || tag.includes('HỘI THOẠI') || tag.includes('KAIWA') || tag.includes('SPEAKING')) {
+                    speakingType = 'speaking';
+                } else if (tag.includes('DỊCH')) {
+                    grammarType = 'translation';
+                } else {
+                    grammarType = 'concept';
+                }
             } else {
                 const lowerText = questionText.toLowerCase();
                 if (lowerText.startsWith('dịch') || lowerText.includes('sang tiếng nhật')) {
@@ -146,8 +189,12 @@ function parseRawText(text, customLessonParts = null) {
             const cleanQuestion = questionText
                 .replace(/\s*\[(?:BÀI|UNIT|CHƯƠNG|HÁN TỰ|KANJI)(?:\s*:\s*|\s+)[^\]]+\]/gi, '')
                 .replace(/\s*\[(?:PHẦN|PART|P)\s*[^\]]+\]/gi, '')
-                .replace(/\s*\[(HỎI NGỮ PHÁP|NGỮ PHÁP|LÝ THUYẾT|DỊCH CÂU|DỊCH|DỊCH VIỆT - NHẬT)\]/gi, '')
+                .replace(/\s*\[(HỎI NGỮ PHÁP|NGỮ PHÁP|LÝ THUYẾT|DỊCH CÂU|DỊCH|DỊCH VIỆT - NHẬT|LUYỆN NÓI|HỘI THOẠI|KAIWA|SPEAKING)\]/gi, '')
                 .trim();
+
+            const finalExpl = explanationLines.length > 0 
+                ? explanationLines.join('\n').trim() 
+                : (explLineStr ? explLineStr.replace(/^(?:Giải thích|Ghi chú|Note):\s*/i, '').trim() : (ansLineStr ? ("" + ansLineStr) : "Đáp án đúng đã được đánh dấu."));
 
             questions.push({
                 id: questions.length,
@@ -156,10 +203,11 @@ function parseRawText(text, customLessonParts = null) {
                 part: part,
                 partTitle: partTitle,
                 grammarType: grammarType,
+                speakingType: speakingType,
                 type: uniqueCorrect.length > 1 ? 'checkbox' : 'radio',
                 options: options,
                 correct: uniqueCorrect,
-                explanation: explLineStr ? explLineStr.replace(/^(?:Giải thích|Ghi chú|Note):\s*/i, '').trim() : (ansLineStr ? ("" + ansLineStr) : "Đáp án đúng đã được đánh dấu.")
+                explanation: finalExpl
             });
         } else {
             const reason = options.length <= 1 ? 'Không tìm thấy options' : 'Không tìm thấy đáp án đúng';

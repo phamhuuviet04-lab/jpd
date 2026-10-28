@@ -1,25 +1,23 @@
-# jpd - Ứng dụng Ôn tập Từ vựng, Hán tự & Ngữ pháp Tiếng Nhật (Hỗ trợ Đa môn học)
+# jpd - Ứng dụng Ôn tập Từ vựng, Hán tự, Ngữ pháp & Luyện nói Tiếng Nhật (Hỗ trợ Đa môn học)
 
-Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), ngữ pháp (Grammar), trắc nghiệm hỗ trợ đa môn học (mặc định gồm **Tiếng Nhật Từ vựng できる日本語**, **Tiếng Nhật Ôn tập Từ Hán Kanji** và **Tiếng Nhật Ngữ pháp 文法**, dễ dàng mở rộng thêm các môn khác như Tiếng Anh, Tiếng Hàn, Lịch sử, v.v.).
+Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), ngữ pháp (Grammar), luyện nói phản xạ giao tiếp (Speaking/Kaiwa), trắc nghiệm hỗ trợ đa môn học (mặc định gồm **📖 Tiếng Nhật Từ vựng できる日本語**, **🈸 Tiếng Nhật Ôn tập Từ Hán Kanji**, **📐 Tiếng Nhật Ngữ pháp 文法** và **🗣️ Tiếng Nhật Luyện nói Hội thoại 会話**, dễ dàng mở rộng thêm các môn khác như Tiếng Anh, Tiếng Hàn, Lịch sử, v.v.).
 
 ## Tính năng nổi bật
-- **Phân loại Tiếng Nhật chuyên sâu 3 trong 1 (Mới)**:
+- **Phân loại Tiếng Nhật chuyên sâu 4 trong 1 (Toàn diện)**:
   - **📖 Từ vựng (できる日本語)**: 249 câu từ vựng theo giáo trình Bài 4 - 7 (chia nhỏ theo 3 phần).
   - **🈸 Ôn tập Từ Hán (Kanji)**: Đầy đủ 75 từ vựng và chữ Hán ghép từ giáo trình FPT University (Bài 4 - 6).
-  - **📐 Ngữ pháp (文法 - Tách 2 dạng câu hỏi song hành)**: Trọn bộ **166 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 6, được tách thành **2 dạng câu hỏi khoa học** cho từng điểm ngữ pháp:
-    - **1. 📖 Hỏi ngữ pháp là gì (83 câu)**: Hỏi khái niệm, bản chất, cấu trúc, công thức, quy tắc chia, trợ từ, cách dùng. Ví dụ: `N は どうですか` dùng để làm gì? (Hỏi tính chất nơi chốn ở Bài 4.2; Đưa ra gợi ý/đề xuất ở Bài 6.3), phân biệt trợ từ cuối câu `ね` và `よ`, phân biệt `であります` (diễn ra sự kiện) và `にあります` (tồn tại tĩnh), quy tắc chia tính từ đuôi い/な ở hiện tại và quá khứ, phó từ chỉ mức độ (`とても`, `すこし`, `あまり`, `ぜんぜん`), câu phủ định với `まだです`, v.v.
-    - **2. ✍️ Dịch từ câu tiếng Việt qua (83 câu)**: Vận dụng ngay điểm ngữ pháp vừa học để dịch một câu tiếng Việt cụ thể sang câu tiếng Nhật chuẩn xác.
-    - **Hỗ trợ 3 chế độ lọc & học linh hoạt**:
-      - 🌟 **Tất cả (Cả 2 dạng)**: Học toàn diện cả lý thuyết và luyện dịch.
-      - 📖 **Hỏi ngữ pháp là gì**: Chuyên ôn lý thuyết, công thức và quy tắc.
-      - ✍️ **Dịch từ câu tiếng Việt qua**: Chuyên luyện dịch câu Việt ➔ Nhật.
-    - **Có thanh lọc dạng câu hỏi đồng bộ** ở cả Màn hình Học (Quiz) và Màn hình Danh sách câu hỏi (List view).
-    - **Có giải thích chi tiết (💡 Giải thích)** ngay dưới mỗi câu trả lời và trong màn hình danh sách câu hỏi.
-    - **Chuyển hóa 100% từ Hán tự (Kanji) sang Hiragana**: Giúp người học tập trung hoàn toàn vào cấu trúc và quy tắc ngữ pháp mà không bị cản trở bởi chữ Hán chưa học.
-    - **Phân chia theo từng Bài và từng Phần (Toàn bộ bằng Hiragana)**:
-      - **Bài 4**: Phần 1: *どこ？ (Vị trí, Phương tiện, Thời gian)* | Phần 2: *どんなところ？ (Tính từ, Tồn tại, Nối câu, Phủ định)* | Phần 3: *きせつ・りょうり (Phó từ, Trợ từ ね, Thời tiết)*
-      - **Bài 5**: Phần 1: *しゅうまつ (Quá khứ Động từ, Đi đâu, と, それから)* | Phần 2: *やすみのあとで (Quá khứ Tính từ, どうでしたか, Lý do 〜から)* | Phần 3: *こんどのやすみに (ほしい, 〜たい, Mục đích di chuyển)*
-      - **Bài 6**: Phần 1: *いっしょにいきませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)* | Phần 2: *どちらがいいですか。 (So sánh hơn より, どちら, いちばん)* | Phần 3: *やくそく (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)*
+  - **📐 Ngữ pháp (文法 - Tách 2 dạng câu hỏi song hành)**: Trọn bộ **166 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 6 (83 câu hỏi lý thuyết/cấu trúc và 83 câu dịch Việt ➔ Nhật).
+  - **🗣️ Luyện nói (会話 - Hội thoại thực tế Bài 4 - 7)**: Trọn bộ **34 câu hỏi luyện nói phản xạ** bao quát toàn bộ 34 cấu trúc câu hỏi giao tiếp thi vấn đáp Bài 4 - 7:
+    - **Cơ chế phản xạ thông minh**: Hiển thị câu hỏi tiếng Nhật thực tế, người học chọn câu đáp phù hợp.
+    - **Tức thì hiện dịch nghĩa**: Ngay sau khi bấm chọn đáp án, hệ thống lập tức hiển thị dịch nghĩa tiếng Việt của cả câu hỏi và câu trả lời.
+    - **Mẫu trả lời mở rộng (🌟)**: Cung cấp thêm 2 - 3 cách trả lời thực tế khác trong đời sống để học viên phong phú hóa vốn câu khi đi thi hoặc giao tiếp.
+    - **Mẹo giao tiếp & Phân tích cấu trúc (💡)**: Phân tích sắc thái, trợ từ, quy tắc trả lời chuẩn theo từng tình huống.
+    - **Tích hợp phát âm tiếng Nhật chuẩn (🔊)**: Hỗ trợ nút nghe phát âm trực tiếp câu hỏi và câu đáp qua Web Speech API giọng Nhật tự nhiên.
+    - **Phân loại đầy đủ Bài 4 - 7**:
+      - **Bài 4 (9 câu)**: Khoảng cách thời gian (`〜から〜まで`), Phương tiện di chuyển (`〜で`), Đặc điểm nơi chốn (`どんなところ`), Cảm nhận (`どうですか`), Tính từ (`にぎやか`, `大きい`), Tồn tại (`あります`), Thời tiết (`月・季節`).
+      - **Bài 5 (8 câu)**: Hành động quá khứ (`何をしましたか`), Đi đâu (`どこかへ`), Làm cùng ai (`だれと`), Hỏi lý do (`どうして〜から`), Mong muốn đồ vật (`ほしい`), Sở thích (`すき`), Mong muốn hành động (`〜たい`), Mục đích di chuyển (`〜に行きます`).
+      - **Bài 6 (8 câu)**: Lời mời & Rủ rê (`〜ませんか`), Sự kiện diễn ra (`であります`), So sánh nhất (`何・だれ・どこ・何月がいちばん`), So sánh lựa chọn (`どちらが`), Đã làm gì chưa (`もう〜ましたか / まだです`).
+      - **Bài 7 (9 câu)**: Vị trí công trình / ĐH FPT (`どこにありますか`), Vị trí người / thú cưng (`どこにいますか`), Tiện ích quanh đây (`近くに何がありますか`), Quanh nhà có gì (`うちの近くに何がありますか`), Dụng cụ (`何で切りますか`), Văn hóa ăn uống (`ベトナム人はフォークとナイフで...`), Dụng cụ ăn cơm của các nước (`何でご飯を食べますか`), Đang làm gì (`何をしていますか`), Ai đang làm gì (`だれが〜ていますか`).
     - **Bài 4 (19 từ)**:
       - **東 (ĐÔNG)**: 東 (ひがし: phía đông)
       - **京 (KINH)**: 東京 (とうきょう: Tokyo)
