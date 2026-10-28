@@ -6,6 +6,17 @@
 // ==========================================
 // TRỢ LÝ PHÁT ÂM TIẾNG NHẬT (WEB SPEECH API)
 // ==========================================
+const STORAGE_KEY_SPEECH_RATE = 'quizlet_speech_rate_v1';
+let currentSpeechRate = parseFloat(localStorage.getItem(STORAGE_KEY_SPEECH_RATE) || '0.75');
+
+function setSpeechRate(newRate) {
+    currentSpeechRate = parseFloat(newRate) || 0.75;
+    localStorage.setItem(STORAGE_KEY_SPEECH_RATE, String(currentSpeechRate));
+    document.querySelectorAll('.speech-rate-select').forEach(sel => {
+        sel.value = String(currentSpeechRate);
+    });
+}
+
 function speakJapanese(text) {
     if (!('speechSynthesis' in window)) return;
     try {
@@ -14,13 +25,14 @@ function speakJapanese(text) {
         const clean = (text || '').replace(/[\(（][^\)）]+[\)）]/g, '').trim();
         const utter = new SpeechSynthesisUtterance(clean);
         utter.lang = 'ja-JP';
-        utter.rate = 0.9;
+        utter.rate = currentSpeechRate; // Tốc độ nghe chậm rãi (mặc định 0.75x)
         window.speechSynthesis.speak(utter);
     } catch (e) {
         console.warn('SpeechSynthesis error:', e);
     }
 }
 window.speakJapanese = speakJapanese;
+window.setSpeechRate = setSpeechRate;
 
 // ==========================================
 // TRẠNG THÁI ỨNG DỤNG (STATE)
@@ -1552,9 +1564,16 @@ function initApp() {
         renderListScreen();
     });
 
-    // 4. Sự kiện Furigana
+    // 4. Sự kiện Furigana & Tốc độ phát âm
     document.getElementById('toggle-furigana')?.addEventListener('change', () => {
         updateQuestionDisplay();
+    });
+
+    document.querySelectorAll('.speech-rate-select').forEach(sel => {
+        sel.value = String(currentSpeechRate);
+        sel.addEventListener('change', (e) => {
+            setSpeechRate(e.target.value);
+        });
     });
 
     // 5. Sự kiện chuyển đổi Từ vựng / Hán tự của Tiếng Nhật
