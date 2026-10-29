@@ -197,6 +197,7 @@ let currentQuizMode = 'jp-vi';
 let reviewQueue = [];
 let currentQuestion = null;
 let focusedListIndex = 0;
+let canProceedNext = false;
 
 // Tham chiếu phần tử UI (sẽ khởi tạo khi DOM sẵn sàng)
 let ui = {};
@@ -926,11 +927,12 @@ function renderListScreen() {
             lessonInfo = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 mb-1">${prefix}${q.lesson}${partInfo}</span>`;
         }
 
-        const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking' || q.speakingType;
+        const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking' || (currentSubject.quizType === 'speaking' && q.speakingType);
+        const isGrammar = !isSpeaking && (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar');
         let badgeType = '';
         if (isSpeaking) {
             badgeType = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200 mb-1">🗣️ Luyện nói</span>`;
-        } else if (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar' || q.grammarType) {
+        } else if (isGrammar) {
             if (q.grammarType === 'concept') {
                 badgeType = `<span class="inline-block text-xs font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200 mb-1">📖 Hỏi ngữ pháp là gì</span>`;
             } else if (q.grammarType === 'translation') {
@@ -1215,6 +1217,7 @@ function loadNextQuestion() {
     }
 
     currentQuestion = reviewQueue[0];
+    canProceedNext = false;
     ui.progress.innerText = `Còn ${reviewQueue.length} câu`;
     
     const lessonBadge = document.getElementById('lesson-badge');
@@ -1295,6 +1298,9 @@ function loadNextQuestion() {
     if (currentQuestion.type === 'text') {
         ui.options.innerHTML = `
             <div class="space-y-2.5">
+                <!-- Banner hiển thị ĐÚNG/SAI ngay trên ô nhập -->
+                <div id="kanji-feedback-banner" class="hidden"></div>
+
                 <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-300 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition shadow-2xs">
                     <div class="flex items-center justify-between mb-1.5">
                         <label for="kanji-input-answer" class="text-xs sm:text-sm font-bold text-gray-700 flex items-center gap-1.5">
@@ -1325,7 +1331,7 @@ function loadNextQuestion() {
                     </div>
                 </div>
 
-                <div class="flex gap-2.5">
+                <div id="kanji-buttons-row" class="flex gap-2.5">
                     <button type="button" id="kanji-check-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-bold py-2.5 sm:py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
                         <span>Kiểm tra đáp án</span>
                         <kbd class="hidden sm:inline-block px-2 py-0.5 text-xs bg-blue-700 text-blue-100 rounded font-mono shadow-xs">↵ Enter</kbd>
@@ -1383,7 +1389,12 @@ function loadNextQuestion() {
             inputEl.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    checkAnswerWrite();
+                    e.stopPropagation();
+                    if (!ui.feedback.classList.contains('hidden')) {
+                        handleNextAction();
+                    } else {
+                        checkAnswerWrite();
+                    }
                 }
             });
         }
@@ -1397,14 +1408,25 @@ function loadNextQuestion() {
         }
 
         if (checkBtn) {
-            checkBtn.addEventListener('click', () => checkAnswerWrite());
+            checkBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                checkAnswerWrite();
+            });
         }
 
         if (giveupBtn) {
-            giveupBtn.addEventListener('click', () => checkAnswerWrite(true));
+            giveupBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                checkAnswerWrite(true);
+            });
         }
 
         updateQuestionDisplay();
+        ui.feedback.className = "p-4 sm:p-5 rounded-2xl hidden shadow-xs transition";
+        ui.feedbackTitle.innerHTML = "";
+        ui.feedbackText.innerHTML = "";
         ui.feedback.classList.add('hidden');
         ui.nextBtn.classList.add('hidden');
         ui.skipBtn.classList.remove('hidden');
@@ -1448,6 +1470,9 @@ function loadNextQuestion() {
         });
     });
 
+    ui.feedback.className = "p-4 sm:p-5 rounded-2xl hidden shadow-xs transition";
+    ui.feedbackTitle.innerHTML = "";
+    ui.feedbackText.innerHTML = "";
     ui.feedback.classList.add('hidden');
     ui.nextBtn.classList.add('hidden');
     ui.skipBtn.classList.remove('hidden');
@@ -1459,6 +1484,9 @@ function checkAnswer() {
     
     const isCorrect = selected.length === currentQuestion.correct.length && 
                       selected.every(val => currentQuestion.correct.includes(val));
+
+    canProceedNext = false;
+    setTimeout(() => { canProceedNext = true; }, 300);
 
     ui.skipBtn.classList.add('hidden');
     ui.feedback.classList.remove('hidden');
@@ -1472,12 +1500,23 @@ function checkAnswer() {
         const isRightOpt = currentQuestion.correct.includes(val);
         const isUserChecked = inp.checked;
 
+        // Xóa badge cũ nếu có
+        const oldBadge = parentLabel.querySelector('.answer-status-badge');
+        if (oldBadge) oldBadge.remove();
+
+        const badgeSpan = document.createElement('span');
+        badgeSpan.className = "answer-status-badge shrink-0 ml-auto pl-2";
+
         if (isRightOpt) {
-            parentLabel.className = "flex items-center p-3 sm:p-3.5 border-2 border-green-500 bg-green-50/90 rounded-xl transition shadow-2xs text-green-950 font-bold";
+            parentLabel.className = "flex items-center p-3 sm:p-3.5 border-2 border-emerald-500 bg-emerald-50 rounded-xl transition shadow-xs text-emerald-950 font-bold";
+            badgeSpan.innerHTML = `<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-600 text-white text-xs font-black rounded-lg shadow-2xs">✓ ĐÚNG</span>`;
+            parentLabel.appendChild(badgeSpan);
         } else if (isUserChecked) {
-            parentLabel.className = "flex items-center p-3 sm:p-3.5 border-2 border-red-400 bg-red-50/90 rounded-xl transition shadow-2xs text-red-950 font-semibold opacity-90";
+            parentLabel.className = "flex items-center p-3 sm:p-3.5 border-2 border-rose-500 bg-rose-50 rounded-xl transition shadow-xs text-rose-950 font-bold";
+            badgeSpan.innerHTML = `<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-rose-600 text-white text-xs font-black rounded-lg shadow-2xs">✕ BẠN CHỌN SAI</span>`;
+            parentLabel.appendChild(badgeSpan);
         } else {
-            parentLabel.className = "flex items-center p-3 sm:p-3.5 border-2 border-gray-100 bg-gray-50/60 rounded-xl opacity-60";
+            parentLabel.className = "flex items-center p-3 sm:p-3.5 border-2 border-gray-200 bg-gray-50/60 rounded-xl opacity-60 text-gray-500";
         }
     });
 
@@ -1487,20 +1526,20 @@ function checkAnswer() {
 
     if (isCorrect) {
         if (isSpeaking) {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-green-50 text-green-900 border-2 border-green-300 shadow-sm";
-            ui.feedbackTitle.innerText = "✅ Phản xạ chính xác! Đã trả lời đúng ngữ cảnh.";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-emerald-50 text-emerald-950 border-2 border-emerald-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">✅</span> <span>CHÍNH XÁC (ĐÚNG)! Đã phản xạ đúng ngữ cảnh.</span>`;
             const expl = currentQuestion.baseQ?.explanation || '';
             const safePrompt = (currentQuestion.prompt || '').replace(/'/g, "\\'");
             const safeCorrect = (currentQuestion.correct[0] || '').replace(/'/g, "\\'");
             const safeSelected = (selected[0] || '').replace(/'/g, "\\'");
             ui.feedbackText.innerHTML = `
                 ${formatSpeakingExplanation(expl, safePrompt, safeCorrect, safeSelected, false)}
-                <p class="text-xs text-green-600 mt-2.5 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+                <p class="text-xs text-emerald-700 mt-2.5 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
             reviewQueue.shift();
         } else if (isGrammar) {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-green-50 text-green-800 border-2 border-green-200 shadow-sm";
-            ui.feedbackTitle.innerText = "✅ Chính xác!";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-emerald-50 text-emerald-950 border-2 border-emerald-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">✅</span> <span>CHÍNH XÁC (ĐÚNG)!</span>`;
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             let explHtml = '';
@@ -1510,8 +1549,8 @@ function checkAnswer() {
                     .replace(/📌/g, '<br>📌')
                     .replace(/💡/g, '');
                 explHtml = `
-                    <div class="mt-2.5 p-3 bg-white border border-green-300 rounded-xl text-sm text-green-950 leading-relaxed shadow-xs">
-                        <div class="font-bold text-green-900 flex items-center gap-1.5 mb-1">
+                    <div class="mt-2.5 p-3 bg-white border border-emerald-300 rounded-xl text-sm text-emerald-950 leading-relaxed shadow-xs">
+                        <div class="font-bold text-emerald-900 flex items-center gap-1.5 mb-1">
                             <span class="text-base">📐</span> <span>Cấu trúc ngữ pháp & Quy tắc:</span>
                         </div>
                         <div class="text-gray-800 text-sm leading-relaxed">
@@ -1523,54 +1562,63 @@ function checkAnswer() {
 
             ui.feedbackText.innerHTML = `
                 <div class="mt-0.5">
-                    <span class="text-xs uppercase font-bold text-green-700">Đáp án đúng:</span>
-                    <div class="text-base font-bold text-green-900 mt-0.5">${currentQuestion.correct.join(', ')}</div>
+                    <span class="text-xs uppercase font-bold text-emerald-700">Đáp án đúng:</span>
+                    <div class="text-base font-bold text-emerald-900 mt-0.5">${currentQuestion.correct.join(', ')}</div>
                 </div>
                 ${explHtml}
-                <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+                <p class="text-xs text-emerald-700 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
             reviewQueue.shift();
         } else if (isVocab) {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-green-50 text-green-800 border-2 border-green-200 shadow-sm";
-            ui.feedbackTitle.innerText = "✅ Chính xác!";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-emerald-50 text-emerald-950 border-2 border-emerald-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">✅</span> <span>CHÍNH XÁC (ĐÚNG)!</span>`;
+            const kanjiReading = currentQuestion.correctSecondary ? currentQuestion.correctSecondary.split(':')[0].trim() : '';
+            const safeAudioText = (kanjiReading || currentQuestion.correctPrimary || '').replace(/'/g, "\\'");
             ui.feedbackText.innerHTML = `
-                <div class="mt-1 flex items-baseline gap-2 flex-wrap">
-                    <span class="text-xl font-bold text-green-900">${currentQuestion.correctPrimary}</span>
-                    <span class="text-gray-400">•</span>
-                    <span class="text-base font-semibold text-green-800">${currentQuestion.correctSecondary}</span>
+                <div class="mt-2 p-3 sm:p-3.5 bg-white rounded-xl border border-emerald-200 shadow-2xs space-y-1.5">
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <span class="text-2xl sm:text-3xl font-black text-emerald-950 font-serif">${currentQuestion.correctPrimary}</span>
+                        <span class="text-gray-400">•</span>
+                        <span class="text-lg sm:text-xl font-bold text-emerald-700">${currentQuestion.correctSecondary}</span>
+                        ${safeAudioText ? `
+                            <button type="button" onclick="speakJapanese('${safeAudioText}')" class="px-2.5 py-1 text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
+                                <span>🔊</span> <span>Nghe</span>
+                            </button>
+                        ` : ''}
+                    </div>
                 </div>
-                <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+                <p class="text-xs text-emerald-700 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
             reviewQueue.shift();
         } else {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-green-50 text-green-800 border-2 border-green-200 shadow-sm";
-            ui.feedbackTitle.innerText = "✅ Chính xác!";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-emerald-50 text-emerald-950 border-2 border-emerald-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">✅</span> <span>CHÍNH XÁC (ĐÚNG)!</span>`;
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             ui.feedbackText.innerHTML = `
-                <div class="mt-1 font-semibold text-green-900">
+                <div class="mt-1 font-semibold text-emerald-900">
                     Đáp án đúng: ${currentQuestion.correct.join(', ')}
                 </div>
-                ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-white p-2.5 rounded-xl border border-green-300 text-green-900 leading-relaxed shadow-xs">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
-                <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+                ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-white p-2.5 rounded-xl border border-emerald-300 text-emerald-900 leading-relaxed shadow-xs">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
+                <p class="text-xs text-emerald-700 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
             reviewQueue.shift();
         }
     } else {
         if (isSpeaking) {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-red-50 text-red-900 border-2 border-red-300 shadow-sm";
-            ui.feedbackTitle.innerText = "❌ Chưa chính xác! Câu trả lời phù hợp & nghĩa:";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-rose-50 text-rose-950 border-2 border-rose-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">❌</span> <span>CHƯA CHÍNH XÁC (SAI)! Câu trả lời phù hợp & nghĩa:</span>`;
             const expl = currentQuestion.baseQ?.explanation || '';
             const safePrompt = (currentQuestion.prompt || '').replace(/'/g, "\\'");
             const safeCorrect = (currentQuestion.correct[0] || '').replace(/'/g, "\\'");
             const safeSelected = (selected[0] || '').replace(/'/g, "\\'");
             ui.feedbackText.innerHTML = `
                 ${formatSpeakingExplanation(expl, safePrompt, safeCorrect, safeSelected, true)}
-                <p class="text-xs text-red-600 mt-2.5 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+                <p class="text-xs text-rose-700 mt-2.5 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         } else if (isGrammar) {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-red-50 text-red-800 border-2 border-red-200 shadow-sm";
-            ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-rose-50 text-rose-950 border-2 border-rose-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">❌</span> <span>CHƯA CHÍNH XÁC (SAI)! Đáp án đúng:</span>`;
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             let explHtml = '';
@@ -1580,8 +1628,8 @@ function checkAnswer() {
                     .replace(/📌/g, '<br>📌')
                     .replace(/💡/g, '');
                 explHtml = `
-                    <div class="mt-2.5 p-3 bg-red-50/80 border border-red-200 rounded-xl text-sm text-red-950 leading-relaxed shadow-xs">
-                        <div class="font-bold text-red-900 flex items-center gap-1.5 mb-1">
+                    <div class="mt-2.5 p-3 bg-rose-50/80 border border-rose-200 rounded-xl text-sm text-rose-950 leading-relaxed shadow-xs">
+                        <div class="font-bold text-rose-900 flex items-center gap-1.5 mb-1">
                             <span class="text-base">📐</span> <span>Cấu trúc ngữ pháp & Quy tắc:</span>
                         </div>
                         <div class="text-gray-800 text-sm leading-relaxed">
@@ -1592,34 +1640,51 @@ function checkAnswer() {
             }
 
             ui.feedbackText.innerHTML = `
-                <div class="mt-1 p-3 bg-white rounded-xl border border-red-200 shadow-xs">
-                    <span class="text-xs uppercase font-bold text-red-700">Đáp án đúng:</span>
-                    <div class="text-base font-bold text-red-900 mt-0.5 mb-1">${currentQuestion.correct.join(', ')}</div>
+                <div class="mt-1 p-3 bg-white rounded-xl border border-rose-200 shadow-xs">
+                    <span class="text-xs uppercase font-bold text-rose-700">Đáp án đúng:</span>
+                    <div class="text-base font-bold text-rose-900 mt-0.5 mb-1">${currentQuestion.correct.join(', ')}</div>
                     ${explHtml}
                 </div>
-                <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+                <p class="text-xs text-rose-700 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         } else if (isVocab) {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-red-50 text-red-800 border-2 border-red-200 shadow-sm";
-            ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-rose-50 text-rose-950 border-2 border-rose-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">❌</span> <span>CHƯA CHÍNH XÁC (SAI)! Đáp án đúng:</span>`;
+            const kanjiReading = currentQuestion.correctSecondary ? currentQuestion.correctSecondary.split(':')[0].trim() : '';
+            const safeAudioText = (kanjiReading || currentQuestion.correctPrimary || '').replace(/'/g, "\\'");
             ui.feedbackText.innerHTML = `
-                <div class="mt-1.5 p-3 bg-white rounded-xl border border-red-200 shadow-xs">
-                    <div class="text-lg sm:text-xl font-bold text-red-900 mb-0.5">${currentQuestion.correctPrimary}</div>
-                    <div class="text-sm font-semibold text-gray-700">Nghĩa: <span class="text-red-700 font-bold">${currentQuestion.correctSecondary}</span></div>
+                <div class="mt-2 p-3 sm:p-3.5 bg-white rounded-xl border border-rose-200 shadow-2xs space-y-1.5">
+                    ${selected.length > 0 ? `
+                        <div class="text-xs text-rose-600 font-bold flex items-center gap-1.5 mb-1">
+                            <span>Lựa chọn của bạn:</span> 
+                            <span class="text-sm font-extrabold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">${selected.join(', ')}</span>
+                        </div>
+                    ` : ''}
+                    <div class="text-xs uppercase font-bold text-gray-500">Đáp án chính xác:</div>
+                    <div class="flex items-center gap-3 flex-wrap pt-0.5">
+                        <span class="text-2xl sm:text-3xl font-black text-gray-900 font-serif">${currentQuestion.correctPrimary}</span>
+                        <span class="text-gray-400">•</span>
+                        <span class="text-lg sm:text-xl font-bold text-rose-700">${currentQuestion.correctSecondary}</span>
+                        ${safeAudioText ? `
+                            <button type="button" onclick="speakJapanese('${safeAudioText}')" class="px-2.5 py-1 text-xs bg-rose-100 hover:bg-rose-200 text-rose-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
+                                <span>🔊</span> <span>Nghe</span>
+                            </button>
+                        ` : ''}
+                    </div>
                 </div>
-                <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+                <p class="text-xs text-rose-700 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         } else {
-            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-red-50 text-red-800 border-2 border-red-200 shadow-sm";
-            ui.feedbackTitle.innerText = "❌ Sai rồi! Đáp án đúng:";
+            ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-rose-50 text-rose-950 border-2 border-rose-400 shadow-md";
+            ui.feedbackTitle.innerHTML = `<span class="text-2xl">❌</span> <span>CHƯA CHÍNH XÁC (SAI)! Đáp án đúng:</span>`;
             const expl = currentQuestion.baseQ?.explanation;
             const hasExpl = expl && !expl.startsWith('→ Đáp án:');
             ui.feedbackText.innerHTML = `
-                <div class="mt-1.5 p-3 bg-white rounded-xl border border-red-200 shadow-xs">
-                    <div class="text-base font-bold text-red-900 mb-0.5">Đáp án đúng: ${currentQuestion.correct.join(', ')}</div>
-                    ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-red-50 p-2.5 rounded-xl border border-red-200 text-red-900 leading-relaxed">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
+                <div class="mt-1.5 p-3 bg-white rounded-xl border border-rose-200 shadow-xs">
+                    <div class="text-base font-bold text-rose-900 mb-0.5">Đáp án đúng: ${currentQuestion.correct.join(', ')}</div>
+                    ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-rose-50 p-2.5 rounded-xl border border-rose-200 text-rose-900 leading-relaxed">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
                 </div>
-                <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
+                <p class="text-xs text-rose-700 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;
         }
         
@@ -1638,6 +1703,7 @@ function checkAnswerWrite(isGiveUp = false) {
     const inputEl = document.getElementById('kanji-input-answer');
     const checkBtn = document.getElementById('kanji-check-btn');
     const giveupBtn = document.getElementById('kanji-giveup-btn');
+    const bannerEl = document.getElementById('kanji-feedback-banner');
     if (!inputEl) return;
 
     let userRaw = inputEl.value.trim();
@@ -1647,6 +1713,9 @@ function checkAnswerWrite(isGiveUp = false) {
         setTimeout(() => inputEl.classList.remove('ring-4', 'ring-amber-300'), 800);
         return;
     }
+
+    canProceedNext = false;
+    setTimeout(() => { canProceedNext = true; }, 300);
 
     // Chuyển đổi ký tự Romaji còn sót lại (ví dụ chữ 'n' cuối từ)
     userRaw = convertRomajiToHiragana(userRaw, true);
@@ -1663,6 +1732,26 @@ function checkAnswerWrite(isGiveUp = false) {
     if (checkBtn) checkBtn.disabled = true;
     if (giveupBtn) giveupBtn.disabled = true;
 
+    // Cập nhật banner nổi bật ngay bên trên ô nhập
+    if (bannerEl) {
+        bannerEl.classList.remove('hidden');
+        if (isCorrect) {
+            bannerEl.innerHTML = `
+                <div class="p-3 bg-emerald-500 text-white rounded-xl font-bold text-sm sm:text-base flex items-center justify-between shadow-xs mb-2">
+                    <span class="flex items-center gap-2"><span>✅</span> <span>CHÍNH XÁC!</span></span>
+                    <span class="text-xs bg-emerald-700 px-2.5 py-0.5 rounded-full font-mono font-black tracking-wider">ĐÚNG</span>
+                </div>
+            `;
+        } else {
+            bannerEl.innerHTML = `
+                <div class="p-3 bg-rose-500 text-white rounded-xl font-bold text-sm sm:text-base flex items-center justify-between shadow-xs mb-2">
+                    <span class="flex items-center gap-2"><span>❌</span> <span>${isGiveUp ? 'ĐÃ XEM ĐÁP ÁN' : 'CHƯA CHÍNH XÁC!'}</span></span>
+                    <span class="text-xs bg-rose-700 px-2.5 py-0.5 rounded-full font-mono font-black tracking-wider">SAI</span>
+                </div>
+            `;
+        }
+    }
+
     ui.skipBtn.classList.add('hidden');
     ui.feedback.classList.remove('hidden');
     ui.nextBtn.classList.remove('hidden');
@@ -1670,49 +1759,49 @@ function checkAnswerWrite(isGiveUp = false) {
     const safeReading = targetReading.replace(/'/g, "\\'");
 
     if (isCorrect) {
-        inputEl.className = "w-full text-xl sm:text-2xl font-bold py-2.5 px-3.5 bg-green-50 border-2 border-green-500 rounded-xl text-green-900 font-sans tracking-wide shadow-inner";
-        ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-green-50 text-green-900 border-2 border-green-300 shadow-sm";
-        ui.feedbackTitle.innerText = "✅ Chính xác!";
+        inputEl.className = "w-full text-xl sm:text-2xl font-bold py-2.5 px-3.5 bg-emerald-50 border-2 border-emerald-500 rounded-xl text-emerald-900 font-sans tracking-wide shadow-inner";
+        ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-emerald-50 text-emerald-950 border-2 border-emerald-400 shadow-md";
+        ui.feedbackTitle.innerHTML = `<span class="text-2xl">✅</span> <span>CHÍNH XÁC (ĐÚNG)! Gõ cách đọc hoàn hảo.</span>`;
 
         ui.feedbackText.innerHTML = `
-            <div class="mt-1.5 p-3 sm:p-3.5 bg-white rounded-xl border border-green-200 shadow-xs space-y-1.5">
+            <div class="mt-2 p-3 sm:p-3.5 bg-white rounded-xl border border-emerald-200 shadow-2xs space-y-1.5">
                 <div class="flex items-center gap-3 flex-wrap">
-                    <span class="text-3xl font-black text-green-900 font-serif">${currentQuestion.kanji || currentQuestion.prompt}</span>
-                    <span class="text-2xl font-bold text-green-700">${targetReading}</span>
-                    <button type="button" onclick="speakJapanese('${safeReading}')" class="px-2.5 py-1 text-xs bg-green-100 hover:bg-green-200 text-green-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
+                    <span class="text-3xl font-black text-emerald-900 font-serif">${currentQuestion.kanji || currentQuestion.prompt}</span>
+                    <span class="text-2xl font-bold text-emerald-700">${targetReading}</span>
+                    <button type="button" onclick="speakJapanese('${safeReading}')" class="px-2.5 py-1 text-xs bg-emerald-100 hover:bg-emerald-200 text-emerald-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
                         <span>🔊</span> <span>Nghe phát âm</span>
                     </button>
                 </div>
-                ${targetMeaning ? `<div class="text-sm font-semibold text-gray-700">Nghĩa tiếng Việt: <span class="text-green-800 font-bold">${targetMeaning}</span></div>` : ''}
+                ${targetMeaning ? `<div class="text-sm font-semibold text-gray-700">Nghĩa tiếng Việt: <span class="text-emerald-800 font-bold">${targetMeaning}</span></div>` : ''}
             </div>
-            <p class="text-xs text-green-600 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+            <p class="text-xs text-emerald-700 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
         `;
 
         speakJapanese(targetReading);
         reviewQueue.shift();
     } else {
-        inputEl.className = "w-full text-xl sm:text-2xl font-bold py-2.5 px-3.5 bg-red-50 border-2 border-red-400 rounded-xl text-red-900 font-sans tracking-wide shadow-inner";
-        ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-red-50 text-red-900 border-2 border-red-300 shadow-sm";
-        ui.feedbackTitle.innerText = isGiveUp ? "👀 Đáp án câu này:" : "❌ Chưa chính xác! Đáp án đúng:";
+        inputEl.className = "w-full text-xl sm:text-2xl font-bold py-2.5 px-3.5 bg-rose-50 border-2 border-rose-400 rounded-xl text-rose-900 font-sans tracking-wide shadow-inner";
+        ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-rose-50 text-rose-950 border-2 border-rose-400 shadow-md";
+        ui.feedbackTitle.innerHTML = isGiveUp ? `<span class="text-2xl">👀</span> <span>ĐÁP ÁN CÂU NÀY:</span>` : `<span class="text-2xl">❌</span> <span>CHƯA CHÍNH XÁC (SAI)! Đáp án đúng:</span>`;
 
         ui.feedbackText.innerHTML = `
-            <div class="mt-1.5 p-3 sm:p-3.5 bg-white rounded-xl border border-red-200 shadow-xs space-y-2">
+            <div class="mt-2 p-3 sm:p-3.5 bg-white rounded-xl border border-rose-200 shadow-2xs space-y-2">
                 ${!isGiveUp ? `
-                    <div class="text-xs text-red-600 font-bold flex items-center gap-1.5">
-                        <span>Bạn đã nhập:</span> 
-                        <span class="text-sm font-extrabold text-red-800 bg-red-50 px-2.5 py-0.5 rounded border border-red-200">${userRaw || '(để trống)'}</span>
+                    <div class="text-xs text-rose-600 font-bold flex items-center gap-1.5">
+                        <span>Bạn đã gõ:</span> 
+                        <span class="text-sm font-extrabold text-rose-800 bg-rose-50 px-2.5 py-0.5 rounded border border-rose-200">${userRaw || '(để trống)'}</span>
                     </div>
                 ` : ''}
                 <div class="flex items-center gap-3 pt-1 border-t border-gray-100 flex-wrap">
                     <span class="text-3xl font-black text-gray-900 font-serif">${currentQuestion.kanji || currentQuestion.prompt}</span>
-                    <span class="text-2xl font-bold text-red-700">${targetReading}</span>
-                    <button type="button" onclick="speakJapanese('${safeReading}')" class="px-2.5 py-1 text-xs bg-red-100 hover:bg-red-200 text-red-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
+                    <span class="text-2xl font-bold text-rose-700">${targetReading}</span>
+                    <button type="button" onclick="speakJapanese('${safeReading}')" class="px-2.5 py-1 text-xs bg-rose-100 hover:bg-rose-200 text-rose-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
                         <span>🔊</span> <span>Nghe phát âm</span>
                     </button>
                 </div>
-                ${targetMeaning ? `<div class="text-sm font-semibold text-gray-700">Nghĩa tiếng Việt: <span class="text-red-800 font-bold">${targetMeaning}</span></div>` : ''}
+                ${targetMeaning ? `<div class="text-sm font-semibold text-gray-700">Nghĩa tiếng Việt: <span class="text-rose-800 font-bold">${targetMeaning}</span></div>` : ''}
             </div>
-            <p class="text-xs text-red-600 mt-2 font-normal">Câu này sẽ lặp lại ở cuối bài để bạn luyện tập lại.</p>
+            <p class="text-xs text-rose-700 mt-2 font-normal">Câu này sẽ lặp lại ở cuối bài để bạn luyện tập lại.</p>
         `;
 
         speakJapanese(targetReading);
@@ -1727,6 +1816,7 @@ function checkAnswerWrite(isGiveUp = false) {
 
 function handleNextAction() {
     if (!ui.feedback.classList.contains('hidden')) {
+        if (!canProceedNext) return;
         ui.nextBtn.click();
     } else if (!ui.skipBtn.classList.contains('hidden')) {
         ui.skipBtn.click();
@@ -2177,6 +2267,9 @@ function initApp() {
 
             // Khi đang hiện kết quả feedback (đã trả lời xong), bấm Enter để chuyển ngay câu tiếp theo
             if (e.key === 'Enter') {
+                if (isTyping && ui.feedback.classList.contains('hidden')) {
+                    return;
+                }
                 if (!ui.feedback.classList.contains('hidden')) {
                     e.preventDefault();
                     handleNextAction();
