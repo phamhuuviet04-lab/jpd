@@ -12,157 +12,160 @@
 <body class="bg-slate-100 min-h-screen flex flex-col items-center p-4 font-sans">
 
     <!-- Header / Brand -->
-    <div class="w-full max-w-4xl text-center mt-2 mb-1">
-        <h1 class="text-3xl font-black text-blue-600 tracking-wider">jpd</h1>
+    <div class="w-full max-w-3xl text-center mt-1 mb-1.5">
+        <h1 class="text-2xl sm:text-3xl font-black text-blue-600 tracking-wider">jpd</h1>
     </div>
 
     <!-- Subject Selection Bar (Menu Chọn Môn Học) -->
-    <div class="w-full max-w-4xl bg-white p-3.5 rounded-2xl shadow-sm border border-slate-200 mb-3 transition-all">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-2xl text-blue-600 border border-blue-100 shadow-sm" id="active-subject-icon-box">
+    <div class="w-full max-w-3xl bg-white p-2.5 sm:p-3 rounded-2xl shadow-xs border border-slate-200 mb-2.5 transition-all">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-2.5">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-xl text-blue-600 border border-blue-100 shadow-2xs" id="active-subject-icon-box">
                     <span id="active-subject-icon">🇯🇵</span>
                 </div>
                 <div>
-                    <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Môn học đang chọn</div>
+                    <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Môn học đang chọn</div>
                     <div class="flex items-center gap-2 flex-wrap">
-                        <span id="active-subject-name" class="font-extrabold text-base text-gray-800">Tiếng Nhật</span>
-                        <span id="active-subject-badge" class="text-xs bg-blue-100 text-blue-700 font-bold px-2.5 py-0.5 rounded-full border border-blue-200">できる日本語</span>
+                        <span id="active-subject-name" class="font-extrabold text-sm sm:text-base text-gray-800">Tiếng Nhật</span>
+                        <span id="active-subject-badge" class="text-xs bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full border border-blue-200">できる日本語</span>
                     </div>
                 </div>
             </div>
 
             <!-- Subject Tabs / Switcher List -->
-            <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-end">
-                <div id="subject-tabs-container" class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 gap-1 flex-wrap">
+            <div class="flex items-center gap-1.5 flex-wrap justify-center sm:justify-end">
+                <div id="subject-tabs-container" class="inline-flex p-0.5 bg-slate-100 rounded-xl border border-slate-200 gap-1 flex-wrap">
                     <!-- Rendered dynamically by app.js -->
                 </div>
-                <button id="add-subject-btn" class="px-3 py-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 hover:bg-blue-50 bg-white border border-blue-200 rounded-lg shadow-sm transition flex items-center gap-1 active:scale-95" title="Thêm môn học mới hoặc xem hướng dẫn">
+                <button id="add-subject-btn" class="px-2.5 py-1 text-xs font-bold text-blue-600 hover:text-blue-800 hover:bg-blue-50 bg-white border border-blue-200 rounded-lg shadow-2xs transition flex items-center gap-1 active:scale-95" title="Thêm môn học mới hoặc xem hướng dẫn">
                     <span>➕ Thêm môn</span>
                 </button>
             </div>
         </div>
 
         <!-- Japanese Sub-Category Bar (Chủ đề học Tiếng Nhật: Từ vựng / Hán tự) -->
-        <div id="japanese-sub-tabs" class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
-            <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Phần học tiếng Nhật:</span>
+        <div id="japanese-sub-tabs" class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
+            <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Phần học:</span>
                 <div class="inline-flex p-0.5 bg-slate-100 rounded-lg border border-slate-200 gap-1 flex-wrap" id="japanese-sub-buttons">
-                    <button id="sub-tab-vocab" class="px-3 py-1 text-xs md:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white">
-                        📖 Từ vựng (できる日本語)
+                    <button id="sub-tab-vocab" class="px-2.5 py-1 text-xs sm:text-sm font-bold rounded-md transition shadow-sm bg-blue-600 text-white">
+                        📖 Từ vựng
                     </button>
-                    <button id="sub-tab-kanji" class="px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
-                        🈸 Ôn tập Từ Hán (Kanji)
+                    <button id="sub-tab-kanji" class="px-2.5 py-1 text-xs sm:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
+                        🈸 Ôn tập Hán tự
                     </button>
-                    <button id="sub-tab-grammar" class="px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
-                        📐 Ngữ pháp (文法)
+                    <button id="sub-tab-grammar" class="px-2.5 py-1 text-xs sm:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
+                        📐 Ngữ pháp
                     </button>
-                    <button id="sub-tab-speaking" class="px-3 py-1 text-xs md:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
-                        🗣️ Luyện nói (会話)
+                    <button id="sub-tab-speaking" class="px-2.5 py-1 text-xs sm:text-sm font-bold rounded-md transition text-gray-600 hover:text-blue-600 hover:bg-white">
+                        🗣️ Luyện nói
                     </button>
                 </div>
             </div>
-            <span class="text-xs text-blue-600 font-semibold" id="japanese-sub-desc">Giáo trình Dekiru Nihongo Bài 4 - 7</span>
+            <span class="text-xs text-blue-600 font-semibold" id="japanese-sub-desc">Dekiru Nihongo</span>
         </div>
     </div>
 
     <!-- Navigation -->
-    <div class="w-full max-w-4xl flex justify-center gap-4 mb-4 mt-1">
-        <button id="nav-quiz" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold shadow-md transition">Chức năng học</button>
-        <button id="nav-list" class="px-6 py-2 bg-white text-blue-600 rounded-lg font-bold shadow-md hover:bg-blue-50 transition">Tất cả câu hỏi</button>
+    <div class="w-full max-w-3xl flex justify-center gap-2.5 mb-2 mt-0.5">
+        <button id="nav-quiz" class="px-5 py-2 bg-blue-600 text-white rounded-xl font-bold text-sm shadow-md transition active:scale-95">Chức năng học</button>
+        <button id="nav-list" class="px-5 py-2 bg-white text-blue-600 rounded-xl font-bold text-sm shadow-sm border border-slate-200 hover:bg-blue-50 transition active:scale-95">Tất cả câu hỏi</button>
     </div>
 
     <!-- Lesson Filter Tabs (Sinh động theo môn) -->
-    <div class="w-full max-w-4xl flex justify-center gap-2 mb-2 flex-wrap" id="lesson-tabs"></div>
+    <div class="w-full max-w-3xl flex justify-center gap-1.5 mb-1.5 flex-wrap" id="lesson-tabs"></div>
 
     <!-- Part Filter Tabs -->
-    <div class="w-full max-w-4xl flex justify-center gap-2 mb-6 flex-wrap" id="part-tabs"></div>
+    <div class="w-full max-w-3xl flex justify-center gap-1.5 mb-3 flex-wrap" id="part-tabs"></div>
 
     <!-- MÀN HÌNH CHỜ (Hiện lúc mới vào) -->
-    <div id="loading-screen" class="text-center text-blue-600 font-bold text-xl my-8">
+    <div id="loading-screen" class="text-center text-blue-600 font-bold text-lg my-6">
         Đang nạp dữ liệu câu hỏi...
     </div>
 
     <!-- MÀN HÌNH LÀM QUIZ -->
-    <div id="quiz-screen" class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-5xl hidden transition-all duration-300">
-        <div class="flex justify-between items-center mb-6 border-b pb-4 border-gray-100">
+    <div id="quiz-screen" class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl w-full max-w-3xl hidden transition-all duration-300">
+        <!-- Header quiz -->
+        <div class="flex justify-between items-center mb-3 pb-2.5 border-b border-gray-100">
             <div class="flex items-center gap-2 flex-wrap">
-                <div class="text-sm text-white bg-blue-600 px-4 py-1.5 rounded-full font-bold shadow-sm tracking-wide" id="progress"></div>
-                <div class="text-sm text-white bg-indigo-500 px-3 py-1.5 rounded-full font-bold shadow-sm" id="lesson-badge"></div>
+                <div class="text-xs sm:text-sm text-white bg-blue-600 px-3 py-1 rounded-full font-bold shadow-xs tracking-wide" id="progress"></div>
+                <div class="text-xs sm:text-sm text-white bg-indigo-500 px-2.5 py-1 rounded-full font-bold shadow-xs" id="lesson-badge"></div>
             </div>
-            <div class="text-xs text-gray-400 font-medium" id="quiz-subtitle">jpd • Tiếng Nhật Bài 4 - 7 (できる日本語)</div>
+            <div class="text-xs text-gray-400 font-medium" id="quiz-subtitle">jpd • Tiếng Nhật</div>
         </div>
 
-        <!-- Toolbar Chế độ & Furigana -->
-        <div class="flex flex-wrap items-center justify-between gap-3 mb-6 bg-slate-50 p-2.5 md:p-3 rounded-xl border border-slate-200">
-            <div class="flex items-center gap-2 flex-wrap">
-                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Chế độ hỏi:</span>
-                <div class="inline-flex p-1 bg-white rounded-lg border border-gray-200 shadow-sm gap-1 flex-wrap" id="quiz-mode-container">
-                    <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="jp-vi">
+        <!-- Toolbar Chế độ & Furigana & Tốc độ -->
+        <div class="flex flex-wrap items-center justify-between gap-2.5 mb-3.5 bg-slate-50 p-2 sm:p-2.5 rounded-xl border border-slate-200">
+            <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Chế độ hỏi:</span>
+                <div class="inline-flex p-0.5 bg-white rounded-lg border border-gray-200 shadow-2xs gap-1 flex-wrap" id="quiz-mode-container">
+                    <button class="quiz-mode-btn px-2.5 py-1 text-xs sm:text-sm font-bold rounded-md transition" data-mode="jp-vi">
                         🇯🇵 ➔ 🇻🇳 Nhật - Việt
                     </button>
-                    <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="vi-jp">
+                    <button class="quiz-mode-btn px-2.5 py-1 text-xs sm:text-sm font-bold rounded-md transition" data-mode="vi-jp">
                         🇻🇳 ➔ 🇯🇵 Việt - Nhật
                     </button>
-                    <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="mix">
+                    <button class="quiz-mode-btn px-2.5 py-1 text-xs sm:text-sm font-bold rounded-md transition" data-mode="mix">
                         🔀 Trộn cả hai
                     </button>
                 </div>
             </div>
             
             <div class="flex items-center gap-2 ml-auto flex-wrap">
-                <div id="speech-speed-wrapper" class="flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-white px-3 py-1.5 rounded-lg border border-gray-200 shadow-sm">
-                    <span>🔊 Tốc độ nghe:</span>
-                    <select class="speech-rate-select bg-slate-50 border border-gray-200 rounded px-1.5 py-0.5 text-xs font-bold text-blue-700 cursor-pointer focus:outline-none">
-                        <option value="0.7">0.7x (Rất chậm)</option>
-                        <option value="0.75" selected>0.75x (Chậm - Dễ nghe)</option>
-                        <option value="0.85">0.85x (Vừa phải)</option>
-                        <option value="1.0">1.0x (Tự nhiên)</option>
+                <div id="speech-speed-wrapper" class="flex items-center gap-1 text-xs font-semibold text-gray-600 bg-white px-2.5 py-1 rounded-lg border border-gray-200 shadow-2xs">
+                    <span>🔊 Tốc độ:</span>
+                    <select class="speech-rate-select bg-slate-50 border border-gray-200 rounded px-1 py-0.5 text-xs font-bold text-blue-700 cursor-pointer focus:outline-none">
+                        <option value="0.7">0.7x</option>
+                        <option value="0.75" selected>0.75x</option>
+                        <option value="0.85">0.85x</option>
+                        <option value="1.0">1.0x</option>
                     </select>
                 </div>
 
-                <label id="furigana-toggle-wrapper" class="flex items-center gap-1.5 cursor-pointer text-xs font-semibold text-gray-600 hover:text-blue-600 select-none bg-white hover:bg-blue-50 px-3 py-1.5 rounded-lg transition border border-gray-200 shadow-sm">
-                    <input type="checkbox" id="toggle-furigana" class="w-4 h-4 accent-blue-600 rounded">
-                    <span>Ẩn cách đọc (chỉ hiện Hán tự)</span>
+                <label id="furigana-toggle-wrapper" class="flex items-center gap-1.5 cursor-pointer text-xs font-semibold text-gray-600 hover:text-blue-600 select-none bg-white hover:bg-blue-50 px-2.5 py-1 rounded-lg transition border border-gray-200 shadow-2xs">
+                    <input type="checkbox" id="toggle-furigana" class="w-3.5 h-3.5 accent-blue-600 rounded">
+                    <span>Ẩn cách đọc</span>
                 </label>
             </div>
         </div>
         
-        <div class="flex flex-col md:flex-row gap-8">
-            <!-- Cột trái: Câu hỏi và Phản hồi -->
-            <div class="flex-1 md:w-1/2">
-                <!-- Badge phân loại câu hỏi & Hướng câu hỏi -->
-                <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
-                    <span id="direction-badge" class="text-xs font-bold px-3 py-1 rounded-full inline-flex items-center gap-1 border"></span>
-                    <div id="question-type-badge" class="text-xs font-bold px-2 py-1 bg-yellow-100 text-yellow-800 rounded inline-block hidden">MULTI-SELECT</div>
-                </div>
-                
-                <h2 class="text-xl md:text-2xl font-bold text-gray-800 leading-relaxed whitespace-pre-wrap" id="question-text"></h2>
-                
-                <div id="feedback" class="mt-6 p-5 rounded-lg hidden">
-                    <h3 id="feedback-title" class="font-bold text-lg mb-2"></h3>
-                    <div id="feedback-text" class="text-base font-semibold opacity-90"></div>
-                    <button id="next-btn" class="mt-5 w-full bg-blue-600 text-white py-3 rounded-lg font-bold shadow-md hover:bg-blue-700 transition">
-                        Tiếp tục ➔
-                    </button>
-                </div>
+        <!-- Khu vực câu hỏi & đáp án (Đồng bộ một khối liền mạch, không bị tách xa) -->
+        <div class="space-y-3.5">
+            <!-- Badge phân loại câu hỏi & Hướng câu hỏi -->
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+                <span id="direction-badge" class="text-xs font-bold px-3 py-1 rounded-full inline-flex items-center gap-1 border"></span>
+                <div id="question-type-badge" class="text-xs font-bold px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded inline-block hidden">MULTI-SELECT</div>
+            </div>
+            
+            <!-- Khung Câu hỏi -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs">
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-800 leading-relaxed whitespace-pre-wrap" id="question-text"></h2>
+            </div>
+            
+            <!-- Khung Đáp án (Trắc nghiệm hoặc Ô nhập tự luận) -->
+            <div id="options-container" class="space-y-2"></div>
+
+            <!-- Khung Phản hồi Kết quả (Nằm ngay bên dưới đáp án) -->
+            <div id="feedback" class="p-4 sm:p-5 rounded-2xl hidden shadow-xs transition">
+                <h3 id="feedback-title" class="font-bold text-base sm:text-lg mb-1.5"></h3>
+                <div id="feedback-text" class="text-sm sm:text-base font-semibold opacity-95"></div>
+                <button id="next-btn" class="mt-4 w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-base shadow-md hover:bg-blue-700 active:scale-98 transition flex items-center justify-center gap-2">
+                    <span>Tiếp tục</span> ➔
+                    <kbd class="hidden sm:inline-block px-2 py-0.5 text-xs bg-blue-700 text-blue-100 rounded font-mono shadow-xs">↵ Enter</kbd>
+                </button>
             </div>
 
-            <!-- Cột phải: Các đáp án -->
-            <div class="flex-1 md:w-1/2 flex flex-col justify-between">
-                <div id="options-container" class="space-y-3 mb-6"></div>
-
-                <div class="flex gap-4">
-                    <button id="skip-btn" class="w-full bg-gray-200 text-gray-800 py-4 rounded-lg font-bold text-lg hover:bg-gray-300 transition shadow-lg mt-auto">
-                        Đổi câu
-                    </button>
-                </div>
+            <!-- Nút Đổi câu -->
+            <div class="pt-1">
+                <button id="skip-btn" class="w-full bg-slate-100 text-gray-700 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-200 active:scale-98 transition border border-slate-200 shadow-2xs">
+                    ⏭️ Đổi câu khác
+                </button>
             </div>
         </div>
     </div>
 
     <!-- MÀN HÌNH DANH SÁCH -->
-    <div id="list-screen" class="bg-white p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-4xl hidden transition-all duration-300">
+    <div id="list-screen" class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl w-full max-w-3xl hidden transition-all duration-300">
         <h2 class="text-2xl font-bold mb-4 text-gray-800 border-b pb-2" id="list-screen-title">Danh sách từ vựng</h2>
         <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
             <div class="text-sm text-gray-600">
@@ -204,7 +207,7 @@
             </div>
         </div>
 
-        <div id="questions-list-container" class="space-y-6"></div>
+        <div id="questions-list-container" class="space-y-3"></div>
 
         <!-- Nút Về đầu trang -->
         <button id="back-to-top-btn" title="Về đầu trang"
