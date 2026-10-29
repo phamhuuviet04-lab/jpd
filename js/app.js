@@ -35,6 +35,149 @@ window.speakJapanese = speakJapanese;
 window.setSpeechRate = setSpeechRate;
 
 // ==========================================
+// BỘ CHUYỂN ĐỔI ROMAJI ➔ HIRAGANA (TỰ LUẬN)
+// ==========================================
+const ROMAJI_TABLE = {
+    // 4 chars
+    'tchi': 'っち', 'cchi': 'っち',
+    // 3 chars
+    'nna': 'んな', 'nni': 'んに', 'nnu': 'んぬ', 'nne': 'んね', 'nno': 'んの',
+    'kya': 'きゃ', 'kyu': 'きゅ', 'kyo': 'きょ',
+    'sha': 'しゃ', 'shu': 'しゅ', 'sho': 'しょ', 'shi': 'し',
+    'sya': 'しゃ', 'syu': 'しゅ', 'syo': 'しょ',
+    'cha': 'ちゃ', 'chu': 'ちゅ', 'cho': 'ちょ', 'chi': 'ち',
+    'tya': 'ちゃ', 'tyu': 'ちゅ', 'tyo': 'ちょ',
+    'tsu': 'つ', 'tu': 'つ',
+    'nya': 'にゃ', 'nyu': 'にゅ', 'nyo': 'にょ',
+    'hya': 'ひゃ', 'hyu': 'ひゅ', 'hyo': 'ひょ',
+    'mya': 'みゃ', 'myu': 'みゅ', 'myo': 'みょ',
+    'rya': 'りゃ', 'ryu': 'りゅ', 'ryo': 'りょ',
+    'gya': 'ぎゃ', 'gyu': 'ぎゅ', 'gyo': 'ぎょ',
+    'zya': 'じゃ', 'zyu': 'じゅ', 'zyo': 'じょ',
+    'jya': 'じゃ', 'jyu': 'じゅ', 'jyo': 'じょ',
+    'bya': 'びゃ', 'byu': 'びゅ', 'byo': 'びょ',
+    'pya': 'ぴゃ', 'pyu': 'ぴゅ', 'pyo': 'ぴょ',
+    'dya': 'ぢゃ', 'dyu': 'ぢゅ', 'dyo': 'ぢょ',
+    'xtu': 'っ', 'ltu': 'っ',
+    // 2 chars
+    'ka': 'か', 'ki': 'き', 'ku': 'く', 'ke': 'け', 'ko': 'こ',
+    'sa': 'さ', 'si': 'し', 'su': 'す', 'se': 'せ', 'so': 'そ',
+    'ta': 'た', 'ti': 'ち', 'te': 'て', 'to': 'と',
+    'na': 'な', 'ni': 'に', 'nu': 'ぬ', 'ne': 'ね', 'no': 'の',
+    'ha': 'は', 'hi': 'ひ', 'fu': 'ふ', 'hu': 'ふ', 'he': 'へ', 'ho': 'ほ',
+    'ma': 'ま', 'mi': 'み', 'mu': 'む', 'me': 'め', 'mo': 'も',
+    'ya': 'や', 'yu': 'ゆ', 'yo': 'よ',
+    'ra': 'ら', 'ri': 'り', 'ru': 'る', 're': 'れ', 'ro': 'ろ',
+    'wa': 'わ', 'wo': 'を',
+    'ga': 'が', 'gi': 'ぎ', 'gu': 'ぐ', 'ge': 'げ', 'go': 'ご',
+    'za': 'ざ', 'zi': 'じ', 'zu': 'ず', 'ze': 'ぜ', 'zo': 'ぞ',
+    'da': 'だ', 'di': 'ぢ', 'du': 'づ', 'de': 'で', 'do': 'ど',
+    'ba': 'ば', 'bi': 'び', 'bu': 'ぶ', 'be': 'べ', 'bo': 'ぼ',
+    'pa': 'ぱ', 'pi': 'ぴ', 'pu': 'ぷ', 'pe': 'ぺ', 'po': 'ぽ',
+    'ja': 'じゃ', 'ji': 'じ', 'ju': 'じゅ', 'je': 'じぇ', 'jo': 'じょ',
+    'nn': 'ん', "n'": 'ん',
+    // 1 char
+    'a': 'あ', 'i': 'い', 'u': 'う', 'e': 'え', 'o': 'お',
+    '-': 'ー'
+};
+
+function katakanaToHiragana(text) {
+    if (!text) return '';
+    return text.replace(/[\u30a1-\u30f6]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+}
+
+function convertRomajiToHiragana(text, isFinal = false) {
+    if (!text) return '';
+    let result = '';
+    let str = text;
+    let i = 0;
+
+    while (i < str.length) {
+        // Xử lý phụ âm đôi (sokuon: っ)
+        if (i + 1 < str.length && 
+            str[i].toLowerCase() === str[i + 1].toLowerCase() && 
+            /[bcdfghjklmpqrstvwxyz]/i.test(str[i]) && 
+            str[i].toLowerCase() !== 'n') {
+            result += 'っ';
+            i++;
+            continue;
+        }
+
+        // Cụm 4 ký tự
+        if (i + 4 <= str.length) {
+            const chunk4 = str.slice(i, i + 4).toLowerCase();
+            if (ROMAJI_TABLE[chunk4]) {
+                result += ROMAJI_TABLE[chunk4];
+                i += 4;
+                continue;
+            }
+        }
+
+        // Cụm 3 ký tự
+        if (i + 3 <= str.length) {
+            const chunk3 = str.slice(i, i + 3).toLowerCase();
+            if (ROMAJI_TABLE[chunk3]) {
+                result += ROMAJI_TABLE[chunk3];
+                i += 3;
+                continue;
+            }
+        }
+
+        // Cụm 2 ký tự
+        if (i + 2 <= str.length) {
+            const chunk2 = str.slice(i, i + 2).toLowerCase();
+            if (ROMAJI_TABLE[chunk2]) {
+                result += ROMAJI_TABLE[chunk2];
+                i += 2;
+                continue;
+            }
+        }
+
+        // Ký tự 'n' đứng cuối hoặc trước phụ âm (trừ a, e, i, o, u, y)
+        if (str[i].toLowerCase() === 'n') {
+            if (i + 1 === str.length) {
+                if (isFinal) {
+                    result += 'ん';
+                    i++;
+                    continue;
+                }
+            } else if (!/[aeiouy]/i.test(str[i + 1])) {
+                result += 'ん';
+                i++;
+                continue;
+            }
+        }
+
+        // 1 ký tự nguyên âm
+        const chunk1 = str[i].toLowerCase();
+        if (ROMAJI_TABLE[chunk1]) {
+            result += ROMAJI_TABLE[chunk1];
+            i += 1;
+            continue;
+        }
+
+        // Giữ nguyên ký tự tiếng Nhật hoặc ký tự khác
+        result += str[i];
+        i++;
+    }
+
+    return result;
+}
+
+function normalizeKana(str) {
+    if (!str) return '';
+    let s = str.trim().toLowerCase();
+    s = convertRomajiToHiragana(s, true);
+    s = katakanaToHiragana(s);
+    s = s.replace(/[\s\u3000]/g, '');
+    return s;
+}
+
+window.convertRomajiToHiragana = convertRomajiToHiragana;
+window.normalizeKana = normalizeKana;
+
+
+// ==========================================
 // TRẠNG THÁI ỨNG DỤNG (STATE)
 // ==========================================
 const STORAGE_KEY_SELECTED_SUBJECT = 'selectedSubject_quizlet';
@@ -443,20 +586,31 @@ function updateQuizModeUI() {
             'mix': '🔀 Trộn cả hai'
         };
 
-        buttonsHTML = `
-            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="jp-vi">
-                ${labels['jp-vi']}
-            </button>
-            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="vi-jp">
-                ${labels['vi-jp']}
-            </button>
-            <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="mix">
-                ${labels['mix']}
-            </button>
-        `;
+        buttonsHTML = '';
+        Object.keys(labels).forEach(modeKey => {
+            buttonsHTML += `
+                <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition" data-mode="${modeKey}">
+                    ${labels[modeKey]}
+                </button>
+            `;
+        });
 
         if (listToolbar) listToolbar.style.display = 'flex';
-        if (listDesc) listDesc.innerText = '';
+        if (listDesc) {
+            if (currentSubjectId === 'japanese_kanji') {
+                if (currentQuizMode === 'write') {
+                    listDesc.innerText = '✍️ Chế độ tự luận: Gõ cách đọc Hiragana cho từng chữ Hán';
+                } else if (currentQuizMode === 'jp-vi') {
+                    listDesc.innerText = '🈸 ➔ 🇻🇳 Chế độ trắc nghiệm: Chọn cách đọc & nghĩa từ chữ Hán';
+                } else if (currentQuizMode === 'vi-jp') {
+                    listDesc.innerText = '🇻🇳 ➔ 🈸 Chế độ trắc nghiệm: Chọn chữ Hán từ nghĩa tiếng Việt';
+                } else {
+                    listDesc.innerText = '🔀 Chế độ trắc nghiệm xáo trộn';
+                }
+            } else {
+                listDesc.innerText = '';
+            }
+        }
     } else {
         buttonsHTML = `
             <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm" data-mode="standard">
@@ -489,6 +643,27 @@ function updateQuestionDisplay() {
     if (!currentQuestion) return;
     const hideFurigana = currentSubject.hasFurigana && document.getElementById('toggle-furigana')?.checked;
     const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
+
+    if (currentQuestion.direction === 'write') {
+        const meaningText = currentQuestion.meaning || '';
+        ui.question.innerHTML = `
+            <div class="space-y-3">
+                <div class="text-4xl md:text-5xl font-black text-gray-900 tracking-wider py-1 font-serif select-none">
+                    ${currentQuestion.prompt}
+                </div>
+                ${meaningText ? `
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-50 border border-blue-200 rounded-xl text-blue-900 text-sm font-semibold shadow-xs">
+                        <span>💡 Nghĩa:</span>
+                        <span class="font-bold text-blue-700">${meaningText}</span>
+                    </div>
+                ` : ''}
+                <div class="text-xs text-gray-400 font-medium">
+                    Nhập cách đọc Hiragana tương ứng với chữ Hán ở bên phải.
+                </div>
+            </div>
+        `;
+        return;
+    }
 
     if (isSpeaking) {
         const promptText = hideFurigana 
@@ -755,9 +930,15 @@ function renderListScreen() {
 
         const safeQuestionText = (q.question || '').replace(/'/g, "\\'");
         const safeCorrectText = (q.correct[0] || '').replace(/'/g, "\\'");
+        const isKanji = currentSubjectId === 'japanese_kanji';
+        let kanjiReading = '';
+        if (isKanji && q.correct && q.correct[0]) {
+            kanjiReading = q.correct[0].split(':')[0].trim();
+        }
+        const safeKanjiReading = kanjiReading.replace(/'/g, "\\'");
         const speakBtnHtml = isSpeaking
             ? `<button type="button" onclick="event.stopPropagation(); speakJapanese('${safeQuestionText}')" class="ml-2 inline-flex items-center gap-1 px-2.5 py-0.5 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-md font-bold hover:bg-blue-100 active:scale-95 transition" title="Nghe câu hỏi"><span>🔊</span> <span>Nghe</span></button>`
-            : '';
+            : (isKanji && kanjiReading ? `<button type="button" onclick="event.stopPropagation(); speakJapanese('${safeKanjiReading}')" class="ml-2 inline-flex items-center gap-1 px-2.5 py-0.5 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-md font-bold hover:bg-blue-100 active:scale-95 transition" title="Nghe phát âm (${kanjiReading})"><span>🔊</span> <span>Nghe</span></button>` : '');
 
         header.innerHTML = `
             <div class="flex items-start gap-3 flex-1">
@@ -888,8 +1069,37 @@ function createQuizItem(baseQ, direction, candidatePool) {
     const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
     const isGrammar = !isSpeaking && (currentSubject.quizType === 'grammar' || currentSubjectId === 'japanese_grammar');
     const isReverse = (!isSpeaking && !isGrammar && direction === 'vi-jp' && currentSubject.quizType !== 'standard');
+    const isWrite = (!isSpeaking && !isGrammar && direction === 'write');
 
-    if (isReverse) {
+    if (isWrite) {
+        let targetReading = '';
+        let targetMeaning = '';
+        if (baseQ.correct && baseQ.correct[0]) {
+            const parts = baseQ.correct[0].split(':');
+            targetReading = parts[0].trim();
+            targetMeaning = (parts[1] || '').trim();
+        }
+        return {
+            id: baseQ.id,
+            direction: 'write',
+            prompt: baseQ.question,
+            kanji: baseQ.question,
+            reading: targetReading,
+            meaning: targetMeaning,
+            options: [],
+            correct: [targetReading],
+            lesson: baseQ.lesson,
+            part: baseQ.part,
+            partTitle: baseQ.partTitle,
+            type: 'text',
+            correctPrimary: baseQ.question,
+            correctSecondary: baseQ.correct[0],
+            // Giữ alias cho Tiếng Nhật
+            correctJapanese: targetReading,
+            correctVietnamese: targetMeaning,
+            baseQ: baseQ
+        };
+    } else if (isReverse) {
         const distractors = getDistractors(baseQ, candidatePool, 3);
         const options = [baseQ.question, ...distractors].sort(() => Math.random() - 0.5);
         return {
@@ -1021,6 +1231,9 @@ function loadNextQuestion() {
             if (currentQuestion.direction === 'vi-jp') {
                 ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-flex items-center gap-1 border border-emerald-300";
                 ui.directionBadge.innerHTML = "<span>🇻🇳 ➔ 🈸</span><span>Chọn chữ Hán tương ứng</span>";
+            } else if (currentQuestion.direction === 'write') {
+                ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full inline-flex items-center gap-1 border border-amber-300";
+                ui.directionBadge.innerHTML = "<span>✍️ 🈸 ➔ あ</span><span>Tự luận: Gõ cách đọc Hiragana của chữ Hán</span>";
             } else {
                 ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-blue-100 text-blue-800 rounded-full inline-flex items-center gap-1 border border-blue-200";
                 ui.directionBadge.innerHTML = "<span>🈸 ➔ 🇻🇳</span><span>Chọn cách đọc & nghĩa của từ này</span>";
@@ -1056,12 +1269,137 @@ function loadNextQuestion() {
 
     if (currentQuestion.type === 'checkbox') {
         ui.qTypeBadge.classList.remove('hidden');
+        ui.qTypeBadge.className = "text-xs font-bold px-2 py-1 bg-yellow-100 text-yellow-800 rounded inline-block";
         ui.qTypeBadge.innerText = `CHỌN ${currentQuestion.correct.length} ĐÁP ÁN`;
+    } else if (currentQuestion.type === 'text') {
+        ui.qTypeBadge.classList.remove('hidden');
+        ui.qTypeBadge.className = "text-xs font-bold px-2.5 py-1 bg-amber-100 text-amber-800 rounded inline-block";
+        ui.qTypeBadge.innerText = "TỰ LUẬN (GÕ HIRAGANA)";
     } else {
         ui.qTypeBadge.classList.add('hidden');
     }
     
     ui.options.innerHTML = "";
+
+    // Chế độ tự luận: Hiển thị ô nhập văn bản Hiragana
+    if (currentQuestion.type === 'text') {
+        ui.options.innerHTML = `
+            <div class="space-y-4">
+                <div class="bg-slate-50 p-4 md:p-5 rounded-2xl border-2 border-slate-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition shadow-xs">
+                    <div class="flex items-center justify-between mb-2">
+                        <label for="kanji-input-answer" class="text-xs md:text-sm font-bold text-gray-700 flex items-center gap-1.5">
+                            <span>⌨️</span> <span>Cách đọc Hiragana:</span>
+                        </label>
+                        <span class="text-[11px] text-gray-400 font-medium hidden sm:inline">Nhấn Enter để kiểm tra</span>
+                    </div>
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="kanji-input-answer" 
+                            class="w-full text-2xl md:text-3xl font-bold py-3 px-4 bg-white border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-gray-800 transition shadow-inner font-sans tracking-wide"
+                            placeholder="vd: ひがし" 
+                            autocomplete="off" 
+                            autocapitalize="none" 
+                            spellcheck="false"
+                        />
+                        <button type="button" id="kanji-clear-input-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition hidden text-sm font-bold" title="Xóa">
+                            ✕
+                        </button>
+                    </div>
+                    
+                    <div class="mt-3 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2 pt-2.5 border-t border-slate-200">
+                        <label class="flex items-center gap-1.5 cursor-pointer select-none text-gray-600 hover:text-blue-600 font-medium">
+                            <input type="checkbox" id="toggle-romaji-convert" checked class="w-3.5 h-3.5 accent-blue-600 rounded">
+                            <span>Tự chuyển Romaji ➔ Hiragana khi gõ (vd: gõ "higashi" ra "ひがし")</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button type="button" id="kanji-check-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm md:text-base cursor-pointer">
+                        <span>Kiểm tra đáp án</span>
+                        <kbd class="hidden sm:inline-block px-2 py-0.5 text-xs bg-blue-700 text-blue-100 rounded font-mono shadow-xs">↵ Enter</kbd>
+                    </button>
+                    <button type="button" id="kanji-giveup-btn" class="px-4 py-3.5 bg-gray-100 hover:bg-gray-200 active:scale-98 text-gray-700 font-bold rounded-xl border border-gray-300 shadow-xs transition text-xs md:text-sm whitespace-nowrap cursor-pointer" title="Bỏ cuộc và xem đáp án câu này">
+                        <span>👀 Xem đáp án</span>
+                    </button>
+                </div>
+            </div>
+        `;
+
+        const inputEl = document.getElementById('kanji-input-answer');
+        const clearBtn = document.getElementById('kanji-clear-input-btn');
+        const checkBtn = document.getElementById('kanji-check-btn');
+        const giveupBtn = document.getElementById('kanji-giveup-btn');
+        const romajiToggle = document.getElementById('toggle-romaji-convert');
+
+        const savedRomajiPref = localStorage.getItem('romaji_convert_pref');
+        if (savedRomajiPref !== null && romajiToggle) {
+            romajiToggle.checked = savedRomajiPref === 'true';
+        }
+        if (romajiToggle) {
+            romajiToggle.addEventListener('change', () => {
+                localStorage.setItem('romaji_convert_pref', String(romajiToggle.checked));
+                if (inputEl) inputEl.focus();
+            });
+        }
+
+        if (inputEl) {
+            setTimeout(() => inputEl.focus(), 60);
+
+            let isComposing = false;
+            inputEl.addEventListener('compositionstart', () => { isComposing = true; });
+            inputEl.addEventListener('compositionend', () => { isComposing = false; });
+
+            inputEl.addEventListener('input', () => {
+                if (clearBtn) {
+                    clearBtn.classList.toggle('hidden', !inputEl.value);
+                }
+                if (isComposing) return;
+                if (!romajiToggle || !romajiToggle.checked) return;
+
+                const cursor = inputEl.selectionStart;
+                const originalVal = inputEl.value;
+                const convertedVal = convertRomajiToHiragana(originalVal, false);
+
+                if (convertedVal !== originalVal) {
+                    inputEl.value = convertedVal;
+                    const diff = convertedVal.length - originalVal.length;
+                    const newPos = Math.max(0, cursor + diff);
+                    inputEl.setSelectionRange(newPos, newPos);
+                }
+            });
+
+            inputEl.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    checkAnswerWrite();
+                }
+            });
+        }
+
+        if (clearBtn && inputEl) {
+            clearBtn.addEventListener('click', () => {
+                inputEl.value = '';
+                clearBtn.classList.add('hidden');
+                inputEl.focus();
+            });
+        }
+
+        if (checkBtn) {
+            checkBtn.addEventListener('click', () => checkAnswerWrite());
+        }
+
+        if (giveupBtn) {
+            giveupBtn.addEventListener('click', () => checkAnswerWrite(true));
+        }
+
+        updateQuestionDisplay();
+        ui.feedback.classList.add('hidden');
+        ui.nextBtn.classList.add('hidden');
+        ui.skipBtn.classList.remove('hidden');
+        return;
+    }
     const hideFurigana = currentSubject.hasFurigana && document.getElementById('toggle-furigana')?.checked;
 
     currentQuestion.options.forEach((opt, index) => {
@@ -1266,6 +1604,99 @@ function checkAnswer() {
         const failedItem = reviewQueue.shift();
         reviewQueue.push(failedItem);
     }
+}
+
+function checkAnswerWrite(isGiveUp = false) {
+    if (!currentQuestion || currentQuestion.type !== 'text') return;
+
+    const inputEl = document.getElementById('kanji-input-answer');
+    const checkBtn = document.getElementById('kanji-check-btn');
+    const giveupBtn = document.getElementById('kanji-giveup-btn');
+    if (!inputEl) return;
+
+    let userRaw = inputEl.value.trim();
+    if (!userRaw && !isGiveUp) {
+        inputEl.focus();
+        inputEl.classList.add('ring-4', 'ring-amber-300');
+        setTimeout(() => inputEl.classList.remove('ring-4', 'ring-amber-300'), 800);
+        return;
+    }
+
+    // Chuyển đổi ký tự Romaji còn sót lại (ví dụ chữ 'n' cuối từ)
+    userRaw = convertRomajiToHiragana(userRaw, true);
+    inputEl.value = userRaw;
+
+    const targetReading = currentQuestion.reading || (currentQuestion.correct && currentQuestion.correct[0] ? currentQuestion.correct[0].split(':')[0].trim() : '');
+    const targetMeaning = currentQuestion.meaning || (currentQuestion.correctSecondary ? (currentQuestion.correctSecondary.split(':')[1] || '').trim() : '');
+    const normUser = normalizeKana(userRaw);
+    const normTarget = normalizeKana(targetReading);
+
+    const isCorrect = !isGiveUp && (normUser === normTarget);
+
+    inputEl.disabled = true;
+    if (checkBtn) checkBtn.disabled = true;
+    if (giveupBtn) giveupBtn.disabled = true;
+
+    ui.skipBtn.classList.add('hidden');
+    ui.feedback.classList.remove('hidden');
+    ui.nextBtn.classList.remove('hidden');
+
+    const safeReading = targetReading.replace(/'/g, "\\'");
+
+    if (isCorrect) {
+        inputEl.className = "w-full text-2xl md:text-3xl font-bold py-3 px-4 bg-green-50 border-2 border-green-500 rounded-xl text-green-900 font-sans tracking-wide shadow-inner";
+        ui.feedback.className = "mt-6 p-5 rounded-xl bg-green-50 text-green-900 border-2 border-green-300 shadow-sm";
+        ui.feedbackTitle.innerText = "✅ Chính xác!";
+
+        ui.feedbackText.innerHTML = `
+            <div class="mt-2 p-3.5 bg-white rounded-xl border border-green-200 shadow-xs space-y-1.5">
+                <div class="flex items-center gap-3 flex-wrap">
+                    <span class="text-3xl font-black text-green-900 font-serif">${currentQuestion.kanji || currentQuestion.prompt}</span>
+                    <span class="text-2xl font-bold text-green-700">${targetReading}</span>
+                    <button type="button" onclick="speakJapanese('${safeReading}')" class="px-2.5 py-1 text-xs bg-green-100 hover:bg-green-200 text-green-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
+                        <span>🔊</span> <span>Nghe phát âm</span>
+                    </button>
+                </div>
+                ${targetMeaning ? `<div class="text-sm font-semibold text-gray-700">Nghĩa tiếng Việt: <span class="text-green-800 font-bold">${targetMeaning}</span></div>` : ''}
+            </div>
+            <p class="text-xs text-green-600 mt-2.5 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+        `;
+
+        speakJapanese(targetReading);
+        reviewQueue.shift();
+    } else {
+        inputEl.className = "w-full text-2xl md:text-3xl font-bold py-3 px-4 bg-red-50 border-2 border-red-400 rounded-xl text-red-900 font-sans tracking-wide shadow-inner";
+        ui.feedback.className = "mt-6 p-5 rounded-xl bg-red-50 text-red-900 border-2 border-red-300 shadow-sm";
+        ui.feedbackTitle.innerText = isGiveUp ? "👀 Đáp án câu này:" : "❌ Chưa chính xác! Đáp án đúng:";
+
+        ui.feedbackText.innerHTML = `
+            <div class="mt-2 p-3.5 bg-white rounded-xl border border-red-200 shadow-xs space-y-2">
+                ${!isGiveUp ? `
+                    <div class="text-xs text-red-600 font-bold flex items-center gap-1.5">
+                        <span>Bạn đã nhập:</span> 
+                        <span class="text-sm font-extrabold text-red-800 bg-red-50 px-2.5 py-0.5 rounded border border-red-200">${userRaw || '(để trống)'}</span>
+                    </div>
+                ` : ''}
+                <div class="flex items-center gap-3 pt-1 border-t border-gray-100 flex-wrap">
+                    <span class="text-3xl font-black text-gray-900 font-serif">${currentQuestion.kanji || currentQuestion.prompt}</span>
+                    <span class="text-2xl font-bold text-red-700">${targetReading}</span>
+                    <button type="button" onclick="speakJapanese('${safeReading}')" class="px-2.5 py-1 text-xs bg-red-100 hover:bg-red-200 text-red-800 rounded-lg font-bold transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe phát âm">
+                        <span>🔊</span> <span>Nghe phát âm</span>
+                    </button>
+                </div>
+                ${targetMeaning ? `<div class="text-sm font-semibold text-gray-700">Nghĩa tiếng Việt: <span class="text-red-800 font-bold">${targetMeaning}</span></div>` : ''}
+            </div>
+            <p class="text-xs text-red-600 mt-2.5 font-normal">Câu này sẽ lặp lại ở cuối bài để bạn luyện tập lại.</p>
+        `;
+
+        speakJapanese(targetReading);
+        const failedItem = reviewQueue.shift();
+        reviewQueue.push(failedItem);
+    }
+
+    setTimeout(() => {
+        if (ui.nextBtn) ui.nextBtn.focus();
+    }, 60);
 }
 
 function handleNextAction() {
@@ -1716,6 +2147,22 @@ function initApp() {
 
         // Trong màn hình Quiz
         if (!ui.quizScreen.classList.contains('hidden')) {
+            const isTyping = e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA');
+
+            // Khi đang hiện kết quả feedback (đã trả lời xong), bấm Enter để chuyển ngay câu tiếp theo
+            if (e.key === 'Enter') {
+                if (!ui.feedback.classList.contains('hidden')) {
+                    e.preventDefault();
+                    handleNextAction();
+                    return;
+                }
+            }
+
+            // Nếu đang gõ trong ô nhập tự luận, không can thiệp phím số và phím mũi tên
+            if (isTyping) {
+                return;
+            }
+
             if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
                 handleNextAction();
             }

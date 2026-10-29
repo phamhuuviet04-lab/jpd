@@ -2646,7 +2646,8 @@ window.APP_SUBJECTS = {
         modeLabels: {
             "jp-vi": "🈸 ➔ 🇻🇳 Hán - Việt",
             "vi-jp": "🇻🇳 ➔ 🈸 Việt - Hán",
-            "mix": "🔀 Trộn cả hai"
+            "mix": "🔀 Trộn cả hai",
+            "write": "✍️ Tự luận (Gõ Hiragana)"
         },
         lessonParts: {},
         rawText: window.RAW_DATABASE_KANJI
