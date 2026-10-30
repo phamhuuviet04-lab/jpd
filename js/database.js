@@ -2674,16 +2674,16 @@ window.APP_SUBJECTS = {
     "japanese_speaking": {
         id: "japanese_speaking",
         name: "Luyện nói (かいわ)",
-        fullName: "Tiếng Nhật (Luyện nói Bài 4 - 7)",
+        fullName: "Tiếng Nhật (Sổ tay ôn thi Speaking Bài 4 - 7)",
         icon: "🗣️",
-        badge: "Luyện nói Bài 4 - 7",
+        badge: "Speaking 32 dạng (Bài 4 - 7)",
         category: "japanese",
         hasFurigana: true,
         quizType: "speaking",
         langFrom: "Câu hỏi giao tiếp",
-        langTo: "Câu trả lời & Dịch nghĩa",
+        langTo: "Cấu trúc trả lời & Dịch nghĩa",
         modeLabels: {
-            "standard": "🗣️ Phản xạ nói (Bấm chọn hiện dịch nghĩa)"
+            "standard": "🗣️ Luyện phản xạ nói (Gõ câu trả lời & Kiểm tra cấu trúc)"
         },
         lessonParts: (typeof SPEAKING_LESSON_PARTS !== 'undefined' ? SPEAKING_LESSON_PARTS : (window.SPEAKING_LESSON_PARTS || {})),
         rawText: (typeof RAW_DATABASE_SPEAKING !== 'undefined' ? RAW_DATABASE_SPEAKING : (window.RAW_DATABASE_SPEAKING || ""))

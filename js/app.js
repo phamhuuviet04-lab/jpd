@@ -392,7 +392,7 @@ function updateSubjectHeaderUI() {
                 if (subTabVocab) subTabVocab.className = inactiveClass;
                 if (subTabKanji) subTabKanji.className = inactiveClass;
                 if (subTabGrammar) subTabGrammar.className = inactiveClass;
-                if (japaneseSubDesc) japaneseSubDesc.innerText = `Luyện nói Hội thoại Bài 4 - 7 (${allQuestions.length} câu hỏi giao tiếp thực tế)`;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `Sổ tay ôn thi Speaking Bài 4 - 7 (${allQuestions.length} câu • 32 dạng kiểm tra cấu trúc)`;
             } else {
                 if (subTabVocab) subTabVocab.className = activeClass;
                 if (subTabKanji) subTabKanji.className = inactiveClass;
@@ -545,12 +545,12 @@ function updateQuizModeUI() {
     if (isSpeaking) {
         buttonsHTML = `
             <button class="quiz-mode-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-md transition bg-blue-600 text-white shadow-sm" data-mode="standard">
-                🗣️ Phản xạ nói (Hỏi ➔ Đáp & Hiện nghĩa)
+                🗣️ Phản xạ nói (Gõ câu trả lời & Kiểm tra cấu trúc)
             </button>
         `;
         currentQuizMode = 'standard';
         if (listToolbar) listToolbar.style.display = 'flex';
-        if (listDesc) listDesc.innerText = '🗣️ Danh sách câu hỏi luyện nói tiếng Nhật (Bấm chọn câu để xem chi tiết & phát âm)';
+        if (listDesc) listDesc.innerText = '🗣️ Danh sách câu hỏi luyện nói tiếng Nhật (Bấm chọn câu để nghe & xem cấu trúc trả lời)';
     } else if (isGrammar) {
         const labels = currentSubject.modeLabels || {
             'all': '🌟 Tất cả (Cả 2 dạng)',
@@ -669,12 +669,29 @@ function updateQuestionDisplay() {
             ? currentQuestion.prompt.replace(/\s*\([^)]+\)/g, '') 
             : currentQuestion.prompt;
         const safePrompt = promptText.replace(/'/g, "\\'");
+        const sampleAnswer = (currentQuestion.sampleAnswer || (currentQuestion.correct && currentQuestion.correct[0]) || '').replace(/'/g, "\\'");
+        const rawExpl = currentQuestion.baseQ?.explanation || '';
+        const qMatch = rawExpl.match(/🗣️\s*Dịch câu hỏi:\s*["“]?(.*?)["”]?(\n|$)/i);
+        const qMeaning = qMatch ? qMatch[1].trim() : '';
+
         ui.question.innerHTML = `
-            <div class="flex items-start justify-between gap-3">
-                <span class="flex-1 text-lg sm:text-xl font-bold text-gray-800">${promptText}</span>
-                <button type="button" onclick="speakJapanese('${safePrompt}')" class="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu hỏi">
-                    <span>🔊</span> <span>Nghe</span>
-                </button>
+            <div class="space-y-2.5">
+                <div class="flex items-start justify-between gap-3">
+                    <div class="flex-1">
+                        <div class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">${promptText}</div>
+                        ${qMeaning ? `<div class="mt-1.5 text-xs sm:text-sm text-blue-700 font-semibold bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl inline-flex items-center gap-1.5 shadow-2xs"><span>💬 Nghĩa:</span> <span>"${qMeaning}"</span></div>` : ''}
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-1.5 shrink-0">
+                        <button type="button" onclick="speakJapanese('${safePrompt}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-xl text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu hỏi">
+                            <span>🔊</span> <span>Nghe câu hỏi</span>
+                        </button>
+                        ${sampleAnswer ? `
+                            <button type="button" onclick="speakJapanese('${sampleAnswer}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-300 rounded-xl text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu trả lời mẫu">
+                                <span>🎧</span> <span>Nghe câu trả lời</span>
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
             </div>
         `;
         return;
@@ -834,7 +851,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
         otherAnswers = otherMatch[1].trim().split('\n').map(l => l.trim()).filter(l => l);
     }
 
-    const tipMatch = raw.match(/💡\s*Mẹo(?:\s+giao\s+tiếp|\s+ngữ\s+pháp)?:\s*([\s\S]*)$/i);
+    const tipMatch = raw.match(/(?:💡|🎯)\s*(?:Mẹo|Ghi\s*nhớ|Cấu\s*trúc|Ngữ\s*pháp)(?:\s+giao\s+tiếp|\s+ngữ\s+pháp|\s+trọng\s+tâm)?:\s*([\s\S]*)$/i);
     const tipText = tipMatch ? tipMatch[1].trim() : "";
 
     return `
@@ -842,7 +859,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
             ${isWrong && userSelected ? `
                 <div class="p-3.5 bg-red-100/90 border-2 border-red-300 rounded-xl text-red-950 shadow-xs">
                     <div class="text-xs uppercase font-extrabold text-red-700 mb-1 flex items-center gap-1">
-                        <span>⚠️</span> <span>Bạn đã chọn:</span>
+                        <span>⚠️</span> <span>Bạn đã nhập / chọn:</span>
                     </div>
                     <div class="text-base font-bold text-red-900 leading-snug">${userSelected}</div>
                 </div>
@@ -850,7 +867,7 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
 
             <!-- Câu hỏi hội thoại & Dịch nghĩa -->
             <div class="p-3.5 bg-blue-50/90 border border-blue-200 rounded-xl shadow-xs">
-                <div class="flex items-center justify-between gap-2 mb-1.5">
+                <div class="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
                     <span class="text-xs uppercase font-extrabold text-blue-700 flex items-center gap-1">
                         <span>🗣️</span> <span>Câu hỏi hội thoại:</span>
                     </span>
@@ -864,12 +881,12 @@ function formatSpeakingExplanation(expl, safeQuestion, safeCorrect, userSelected
 
             <!-- Câu trả lời chuẩn & Dịch nghĩa -->
             <div class="p-3.5 bg-emerald-50/90 border-2 border-emerald-300 rounded-xl shadow-xs">
-                <div class="flex items-center justify-between gap-2 mb-1.5">
+                <div class="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
                     <span class="text-xs uppercase font-extrabold text-emerald-700 flex items-center gap-1">
-                        <span>💬</span> <span>Câu trả lời chuẩn (đơn giản, đúng trọng tâm):</span>
+                        <span>💬</span> <span>Câu trả lời mẫu trong đề cương:</span>
                     </span>
                     <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeCorrect}')" class="px-2.5 py-1 text-xs bg-white text-emerald-700 border border-emerald-200 rounded-lg hover:bg-emerald-100 flex items-center gap-1 font-bold shadow-xs active:scale-95 transition">
-                        <span>🔊</span> <span>Nghe câu đáp</span>
+                        <span>🎧</span> <span>Nghe câu trả lời mẫu</span>
                     </button>
                 </div>
                 <div class="text-base md:text-lg font-bold text-emerald-950 mb-1 leading-snug">${safeCorrect}</div>
@@ -949,7 +966,10 @@ function renderListScreen() {
         }
         const safeKanjiReading = kanjiReading.replace(/'/g, "\\'");
         const speakBtnHtml = isSpeaking
-            ? `<button type="button" onclick="event.stopPropagation(); speakJapanese('${safeQuestionText}')" class="ml-2 inline-flex items-center gap-1 px-2.5 py-0.5 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-md font-bold hover:bg-blue-100 active:scale-95 transition" title="Nghe câu hỏi"><span>🔊</span> <span>Nghe</span></button>`
+            ? `<div class="inline-flex items-center gap-1.5 ml-2 flex-wrap">
+                <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeQuestionText}')" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-md font-bold hover:bg-blue-100 active:scale-95 transition" title="Nghe câu hỏi"><span>🔊</span> <span>Nghe câu hỏi</span></button>
+                <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeCorrectText}')" class="inline-flex items-center gap-1 px-2.5 py-1 text-xs bg-emerald-50 text-emerald-700 border border-emerald-300 rounded-md font-bold hover:bg-emerald-100 active:scale-95 transition" title="Nghe câu trả lời mẫu"><span>🎧</span> <span>Nghe câu trả lời</span></button>
+               </div>`
             : (isKanji && kanjiReading ? `<button type="button" onclick="event.stopPropagation(); speakJapanese('${safeKanjiReading}')" class="ml-2 inline-flex items-center gap-1 px-2.5 py-0.5 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-md font-bold hover:bg-blue-100 active:scale-95 transition" title="Nghe phát âm (${kanjiReading})"><span>🔊</span> <span>Nghe</span></button>` : '');
 
         header.innerHTML = `
@@ -976,13 +996,28 @@ function renderListScreen() {
         
         const optionsDiv = document.createElement('div');
         optionsDiv.className = "space-y-1.5";
-        q.options.forEach(opt => {
-            const isCorrect = q.correct.includes(opt);
+        if (isSpeaking) {
             const optDiv = document.createElement('div');
-            optDiv.className = `p-2 sm:p-2.5 rounded-lg text-xs sm:text-sm ${isCorrect ? 'bg-green-100/90 font-bold border border-green-400 text-green-900' : 'bg-slate-50 border border-slate-200 text-gray-700'}`;
-            optDiv.innerHTML = `${isCorrect ? '✅ ' : '⬜ '}${opt}`;
+            optDiv.className = "p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-950 flex items-center justify-between gap-2 shadow-2xs";
+            optDiv.innerHTML = `
+                <div>
+                    <span class="text-xs font-bold text-emerald-700 uppercase flex items-center gap-1"><span>💬</span> <span>Câu trả lời mẫu trong đề:</span></span>
+                    <div class="text-sm sm:text-base font-bold text-emerald-900 mt-0.5">${q.correct[0]}</div>
+                </div>
+                <button type="button" onclick="event.stopPropagation(); speakJapanese('${safeCorrectText}')" class="shrink-0 px-2.5 py-1 text-xs bg-white text-emerald-700 border border-emerald-300 rounded-lg font-bold hover:bg-emerald-100 shadow-2xs active:scale-95 transition flex items-center gap-1">
+                    <span>🎧</span> <span>Nghe</span>
+                </button>
+            `;
             optionsDiv.appendChild(optDiv);
-        });
+        } else {
+            q.options.forEach(opt => {
+                const isCorrect = q.correct.includes(opt);
+                const optDiv = document.createElement('div');
+                optDiv.className = `p-2 sm:p-2.5 rounded-lg text-xs sm:text-sm ${isCorrect ? 'bg-green-100/90 font-bold border border-green-400 text-green-900' : 'bg-slate-50 border border-slate-200 text-gray-700'}`;
+                optDiv.innerHTML = `${isCorrect ? '✅ ' : '⬜ '}${opt}`;
+                optionsDiv.appendChild(optDiv);
+            });
+        }
         
         qDiv.appendChild(header);
         qDiv.appendChild(optionsDiv);
@@ -1083,7 +1118,25 @@ function createQuizItem(baseQ, direction, candidatePool) {
     const isReverse = (!isSpeaking && !isGrammar && direction === 'vi-jp' && currentSubject.quizType !== 'standard');
     const isWrite = (!isSpeaking && !isGrammar && direction === 'write');
 
-    if (isWrite) {
+    if (isSpeaking) {
+        return {
+            id: baseQ.id,
+            direction: 'standard',
+            prompt: baseQ.question,
+            options: [...baseQ.options],
+            correct: [...baseQ.correct],
+            lesson: baseQ.lesson,
+            part: baseQ.part,
+            partTitle: baseQ.partTitle,
+            type: 'speaking_input',
+            sampleAnswer: baseQ.correct[0] || '',
+            correctPrimary: baseQ.question,
+            correctSecondary: baseQ.correct[0],
+            correctJapanese: baseQ.question,
+            correctVietnamese: baseQ.correct[0],
+            baseQ: baseQ
+        };
+    } else if (isWrite) {
         let targetReading = '';
         let targetMeaning = '';
         if (baseQ.correct && baseQ.correct[0]) {
@@ -1239,7 +1292,7 @@ function loadNextQuestion() {
 
         if (currentSubjectId === 'japanese_speaking' || currentSubject.quizType === 'speaking') {
             ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full inline-flex items-center gap-1 border border-amber-300";
-            ui.directionBadge.innerHTML = "<span>🗣️</span><span>Luyện phản xạ nói: Chọn câu đáp phù hợp (bấm chọn hiện dịch nghĩa)</span>";
+            ui.directionBadge.innerHTML = "<span>🗣️</span><span>Luyện phản xạ nói: Gõ câu trả lời (kiểm tra đúng cấu trúc ngữ pháp)</span>";
         } else if (currentSubjectId === 'japanese_kanji') {
             if (currentQuestion.direction === 'vi-jp') {
                 ui.directionBadge.className = "text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-flex items-center gap-1 border border-emerald-300";
@@ -1288,11 +1341,21 @@ function loadNextQuestion() {
         ui.qTypeBadge.classList.remove('hidden');
         ui.qTypeBadge.className = "text-xs font-bold px-2.5 py-1 bg-amber-100 text-amber-800 rounded inline-block";
         ui.qTypeBadge.innerText = "TỰ LUẬN (GÕ HIRAGANA)";
+    } else if (currentQuestion.type === 'speaking_input') {
+        ui.qTypeBadge.classList.remove('hidden');
+        ui.qTypeBadge.className = "text-xs font-bold px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded inline-block";
+        ui.qTypeBadge.innerText = "LUYỆN NÓI (KIỂM TRA CẤU TRÚC)";
     } else {
         ui.qTypeBadge.classList.add('hidden');
     }
     
     ui.options.innerHTML = "";
+
+    // Chế độ luyện nói: Gõ câu trả lời & kiểm tra cấu trúc
+    if (currentQuestion.type === 'speaking_input') {
+        renderSpeakingInputUI();
+        return;
+    }
 
     // Chế độ tự luận: Hiển thị ô nhập văn bản Hiragana
     if (currentQuestion.type === 'text') {
@@ -1814,6 +1877,381 @@ function checkAnswerWrite(isGiveUp = false) {
     }, 60);
 }
 
+// ==========================================
+// CHỨC NĂNG LUYỆN NÓI: TỰ DO NHẬP & KIỂM TRA CẤU TRÚC
+// ==========================================
+function normalizeJapaneseForValidation(text) {
+    if (!text) return '';
+    let s = text.trim();
+    // Chuyển ký tự số fullwidth sang halfwidth
+    s = s.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
+    // Chuyển Romaji còn sót lại sang Hiragana
+    s = convertRomajiToHiragana(s, true);
+    // Xóa dấu câu và khoảng trắng
+    s = s.replace(/[\s\u3000\.,!?;:。、！？・…~～\(\)（）「」『』\[\]【】\-_]+/g, '');
+
+    // Đưa các Hán tự thông dụng về Hiragana để kiểm tra cấu trúc chính xác
+    const kanjiMap = [
+        [/時間/g, 'じかん'], [/分/g, 'ふん'], [/半/g, 'はん'], [/時/g, 'じ'],
+        [/飛行機/g, 'ひこうき'], [/町/g, 'まち'], [/大学/g, 'だいがく'], [/国/g, 'くに'],
+        [/大きい|大き/g, 'おおき'], [/小さい|小さ/g, 'ちいさ'], [/静か/g, 'しずか'], [/綺麗|きれい/g, 'きれい'],
+        [/賑やか/g, 'にぎやか'], [/友達|友だち/g, 'ともだち'], [/家族/g, 'かぞく'], [/家/g, 'いえ'],
+        [/昨日/g, 'きのう'], [/先週/g, 'せんしゅう'], [/明日/g, 'あした'], [/今/g, 'いま'],
+        [/お金|金/g, 'おかね'], [/一番/g, 'いちばん'], [/好き|好/g, 'すき'], [/欲しい|欲/g, 'ほし'],
+        [/料理/g, 'りょうり'], [/旅行/g, 'りょこう'], [/世界/g, 'せかい'],
+        [/果物/g, 'くだもの'], [/歌手/g, 'かしゅ'], [/寒い/g, 'さむい'], [/暑い/g, 'あつい'],
+        [/安い/g, 'やすい'], [/高い/g, 'たかい'], [/広い/g, 'ひろい'],
+        [/前/g, 'まえ'], [/後/g, 'うしろ'], [/下/g, 'した'], [/上/g, 'うえ'], [/近く/g, 'ちかく'],
+        [/寺|お寺/g, 'おてら'], [/山/g, 'やま'], [/川/g, 'かわ'], [/切る|切ります/g, 'きります'],
+        [/箸|お箸/g, 'はし'], [/手/g, 'て'],
+        [/電話/g, 'でんわ'], [/誰/g, 'だれ'], [/何/g, 'なに'], [/どこ/g, 'どこ'],
+        [/行く|行きます|行きました/g, m => m === '行きました' ? 'いきました' : 'いきます'],
+        [/行かない|行きません|行きませんでした/g, m => m === '行きませんでした' ? 'いきませんでした' : 'いきません'],
+        [/食べる|食べます|食べました/g, m => m === '食べました' ? 'たべました' : 'たべます'],
+        [/見る|見ます|見ました/g, m => m === '見ました' ? 'みました' : 'みます'],
+        [/買う|買います|買いました/g, m => m === '買いました' ? 'かいまし' : 'かいま'],
+        [/掃除/g, 'そうじ'], [/映画/g, 'えいが'], [/自転車/g, 'じてんしゃ'],
+        [/車/g, 'くるま'], [/風邪/g, 'かぜ'], [/雨/g, 'あめ'],
+        [/歌う|歌います|歌っています/g, 'うたっています'],
+        [/弾く|弾きます|弾いています/g, 'ひいています'],
+        [/洗う|洗います|洗っています/g, 'あらっています'],
+        [/話す|話します|話しています/g, 'はなしています'],
+        [/犬/g, 'いぬ'], [/猫/g, 'ねこ'], [/駅/g, 'えき'], [/公園/g, 'こうえん'], [/銀行/g, 'ぎんこう'],
+        [/病院/g, 'びょういん'], [/教室/g, 'きょうしつ'], [/部屋/g, 'へや']
+    ];
+    for (const [re, rep] of kanjiMap) {
+        s = s.replace(re, rep);
+    }
+    return s;
+}
+
+function validateSpeakingAnswer(userInput, currentQuestion, rule) {
+    if (!userInput || !userInput.trim()) {
+        return { isValid: false, message: 'Vui lòng nhập câu trả lời.' };
+    }
+
+    const norm = normalizeJapaneseForValidation(userInput);
+    if (!norm) {
+        return { isValid: false, message: 'Vui lòng nhập câu trả lời bằng tiếng Nhật hoặc Romaji.' };
+    }
+
+    // 1. Nếu khớp trực tiếp với câu mẫu trong đề
+    const sampleAnswer = currentQuestion.sampleAnswer || (currentQuestion.correct && currentQuestion.correct[0]) || '';
+    const normSample = normalizeJapaneseForValidation(sampleAnswer);
+    if (norm === normSample || norm.includes(normSample) || normSample.includes(norm)) {
+        return { isValid: true };
+    }
+
+    // 2. Nếu khớp với bất kỳ ví dụ mẫu nào trong rule
+    if (rule && rule.examples) {
+        for (const ex of rule.examples) {
+            const normEx = normalizeJapaneseForValidation(ex);
+            if (norm === normEx || norm.includes(normEx) || normEx.includes(norm)) {
+                return { isValid: true };
+            }
+        }
+    }
+
+    // 3. Kiểm tra theo cấu trúc ngữ pháp (không bắt buộc trùng từ vựng)
+    if (rule && typeof rule.validate === 'function') {
+        const passes = rule.validate(norm, userInput);
+        if (passes) {
+            return { isValid: true };
+        } else {
+            return {
+                isValid: false,
+                message: rule.errorMessage || `Cấu trúc cần dùng: ${rule.structure}`
+            };
+        }
+    }
+
+    // Fallback: nếu câu có đuôi vị ngữ lịch sự chuẩn
+    if (/(です|ます|ました|ています|でいます|ません|ありません|います|あります)$/.test(norm)) {
+        return { isValid: true };
+    }
+
+    return { isValid: false, message: 'Câu trả lời chưa đúng cấu trúc ngữ pháp chuẩn.' };
+}
+
+function renderSpeakingInputUI() {
+    const safeQuestion = (currentQuestion.prompt || '').replace(/'/g, "\\'");
+    const sampleAnswer = (currentQuestion.sampleAnswer || (currentQuestion.correct && currentQuestion.correct[0]) || '');
+    const safeSampleAnswer = sampleAnswer.replace(/'/g, "\\'");
+    
+    const ruleKey = `${currentQuestion.lesson}_${currentQuestion.part}`;
+    const rule = (typeof window.SPEAKING_STRUCTURE_RULES !== 'undefined' && window.SPEAKING_STRUCTURE_RULES[ruleKey])
+        ? window.SPEAKING_STRUCTURE_RULES[ruleKey]
+        : null;
+    const structureHint = rule ? rule.structure : 'Trả lời đúng cấu trúc câu giao tiếp tiếng Nhật';
+
+    ui.options.innerHTML = `
+        <div class="space-y-3">
+            <!-- Banner hiển thị ĐÚNG CẤU TRÚC / CHƯA ĐÚNG ngay trên ô nhập -->
+            <div id="speaking-feedback-banner" class="hidden"></div>
+
+            <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-300 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition shadow-2xs">
+                <div class="flex items-center justify-between mb-1.5 flex-wrap gap-1">
+                    <label for="speaking-input-answer" class="text-xs sm:text-sm font-bold text-gray-700 flex items-center gap-1.5">
+                        <span>⌨️</span> <span>Gõ câu trả lời của bạn:</span>
+                    </label>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="speakJapanese('${safeSampleAnswer}')" class="text-xs text-emerald-700 hover:text-emerald-800 font-bold bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe câu trả lời mẫu">
+                            <span>🎧</span> <span>Nghe câu trả lời mẫu</span>
+                        </button>
+                        <span class="text-[11px] text-gray-400 font-medium hidden sm:inline">Nhấn Enter để kiểm tra</span>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="speaking-input-answer" 
+                        class="w-full text-base sm:text-xl font-bold py-2.5 px-3.5 bg-white border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-gray-800 transition shadow-inner font-sans tracking-wide"
+                        placeholder="vd: gõ câu trả lời (Romaji tự chuyển sang Hiragana)..." 
+                        autocomplete="off" 
+                        autocapitalize="none" 
+                        spellcheck="false"
+                    />
+                    <button type="button" id="speaking-clear-input-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition hidden text-sm font-bold" title="Xóa">
+                        ✕
+                    </button>
+                </div>
+
+                <div class="mt-2 text-xs text-indigo-800 bg-indigo-50 border border-indigo-200 px-3 py-2 rounded-lg flex items-start gap-1.5 leading-relaxed">
+                    <span class="text-indigo-600 font-bold shrink-0">💡 Cấu trúc:</span>
+                    <div class="flex-1">
+                        <span class="font-bold text-indigo-950">${structureHint}</span>
+                        <div class="text-[11px] text-indigo-600 mt-0.5 font-normal">✨ Chỉ cần trả lời đúng cấu trúc ngữ pháp (nội dung linh hoạt, không bắt buộc giống y hệt câu mẫu).</div>
+                    </div>
+                </div>
+                
+                <div class="mt-2.5 flex items-center justify-between text-xs text-gray-500 flex-wrap gap-2 pt-2 border-t border-slate-200">
+                    <label class="flex items-center gap-1.5 cursor-pointer select-none text-gray-600 hover:text-blue-600 font-medium text-xs">
+                        <input type="checkbox" id="toggle-speaking-romaji" checked class="w-3.5 h-3.5 accent-blue-600 rounded">
+                        <span>Tự chuyển Romaji ➔ Hiragana khi gõ (vd: "2jikan" ➔ "2じかん")</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex gap-2.5">
+                <button type="button" id="speaking-check-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 active:scale-98 text-white font-bold py-2.5 sm:py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
+                    <span>Kiểm tra cấu trúc</span>
+                    <kbd class="hidden sm:inline-block px-2 py-0.5 text-xs bg-blue-700 text-blue-100 rounded font-mono shadow-xs">↵ Enter</kbd>
+                </button>
+                <button type="button" id="speaking-giveup-btn" class="px-3.5 py-2.5 sm:py-3 bg-gray-100 hover:bg-gray-200 active:scale-98 text-gray-700 font-bold rounded-xl border border-gray-300 shadow-2xs transition text-xs sm:text-sm whitespace-nowrap cursor-pointer" title="Xem câu trả lời mẫu & giải thích">
+                    <span>👀 Xem câu mẫu</span>
+                </button>
+            </div>
+        </div>
+    `;
+
+    const inputEl = document.getElementById('speaking-input-answer');
+    const clearBtn = document.getElementById('speaking-clear-input-btn');
+    const checkBtn = document.getElementById('speaking-check-btn');
+    const giveupBtn = document.getElementById('speaking-giveup-btn');
+    const romajiToggle = document.getElementById('toggle-speaking-romaji');
+
+    const savedRomajiPref = localStorage.getItem('romaji_convert_pref');
+    if (savedRomajiPref !== null && romajiToggle) {
+        romajiToggle.checked = savedRomajiPref === 'true';
+    }
+    if (romajiToggle) {
+        romajiToggle.addEventListener('change', () => {
+            localStorage.setItem('romaji_convert_pref', String(romajiToggle.checked));
+            if (inputEl) inputEl.focus();
+        });
+    }
+
+    if (inputEl) {
+        setTimeout(() => inputEl.focus(), 60);
+
+        let isComposing = false;
+        inputEl.addEventListener('compositionstart', () => { isComposing = true; });
+        inputEl.addEventListener('compositionend', () => { isComposing = false; });
+
+        inputEl.addEventListener('input', () => {
+            if (clearBtn) {
+                clearBtn.classList.toggle('hidden', !inputEl.value);
+            }
+            if (isComposing) return;
+            if (!romajiToggle || !romajiToggle.checked) return;
+
+            const cursor = inputEl.selectionStart;
+            const originalVal = inputEl.value;
+            const convertedVal = convertRomajiToHiragana(originalVal, false);
+
+            if (convertedVal !== originalVal) {
+                inputEl.value = convertedVal;
+                const diff = convertedVal.length - originalVal.length;
+                const newPos = Math.max(0, cursor + diff);
+                inputEl.setSelectionRange(newPos, newPos);
+            }
+        });
+
+        inputEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!ui.feedback.classList.contains('hidden')) {
+                    handleNextAction();
+                } else {
+                    checkAnswerSpeaking();
+                }
+            }
+        });
+    }
+
+    if (clearBtn && inputEl) {
+        clearBtn.addEventListener('click', () => {
+            inputEl.value = '';
+            clearBtn.classList.add('hidden');
+            inputEl.focus();
+        });
+    }
+
+    if (checkBtn) {
+        checkBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            checkAnswerSpeaking();
+        });
+    }
+
+    if (giveupBtn) {
+        giveupBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            checkAnswerSpeaking(true);
+        });
+    }
+
+    updateQuestionDisplay();
+    ui.feedback.className = "p-4 sm:p-5 rounded-2xl hidden shadow-xs transition";
+    ui.feedbackTitle.innerHTML = "";
+    ui.feedbackText.innerHTML = "";
+    ui.feedback.classList.add('hidden');
+    ui.nextBtn.classList.add('hidden');
+    ui.skipBtn.classList.remove('hidden');
+}
+
+function checkAnswerSpeaking(isGiveUp = false) {
+    if (!currentQuestion || currentQuestion.type !== 'speaking_input') return;
+
+    const inputEl = document.getElementById('speaking-input-answer');
+    const checkBtn = document.getElementById('speaking-check-btn');
+    const giveupBtn = document.getElementById('speaking-giveup-btn');
+    const bannerEl = document.getElementById('speaking-feedback-banner');
+    if (!inputEl) return;
+
+    let userRaw = inputEl.value.trim();
+    if (!userRaw && !isGiveUp) {
+        inputEl.focus();
+        inputEl.classList.add('ring-4', 'ring-amber-300');
+        setTimeout(() => inputEl.classList.remove('ring-4', 'ring-amber-300'), 800);
+        return;
+    }
+
+    canProceedNext = false;
+    setTimeout(() => { canProceedNext = true; }, 300);
+
+    userRaw = convertRomajiToHiragana(userRaw, true);
+    inputEl.value = userRaw;
+
+    const sampleAnswer = currentQuestion.sampleAnswer || (currentQuestion.correct && currentQuestion.correct[0]) || '';
+    const safeSampleAnswer = sampleAnswer.replace(/'/g, "\\'");
+    const ruleKey = `${currentQuestion.lesson}_${currentQuestion.part}`;
+    const rule = (typeof window.SPEAKING_STRUCTURE_RULES !== 'undefined' && window.SPEAKING_STRUCTURE_RULES[ruleKey])
+        ? window.SPEAKING_STRUCTURE_RULES[ruleKey]
+        : null;
+
+    let isCorrect = false;
+    let feedbackReason = '';
+
+    if (!isGiveUp) {
+        const validation = validateSpeakingAnswer(userRaw, currentQuestion, rule);
+        isCorrect = validation.isValid;
+        feedbackReason = validation.message || '';
+    }
+
+    inputEl.disabled = true;
+    if (checkBtn) checkBtn.disabled = true;
+    if (giveupBtn) giveupBtn.disabled = true;
+
+    if (bannerEl) {
+        bannerEl.classList.remove('hidden');
+        if (isCorrect) {
+            bannerEl.innerHTML = `
+                <div class="p-3 bg-emerald-500 text-white rounded-xl font-bold text-sm sm:text-base flex items-center justify-between shadow-xs mb-2">
+                    <span class="flex items-center gap-2"><span>✅</span> <span>ĐÚNG CẤU TRÚC NGỮ PHÁP!</span></span>
+                    <span class="text-xs bg-emerald-700 px-2.5 py-0.5 rounded-full font-mono font-black tracking-wider">CHÍNH XÁC</span>
+                </div>
+            `;
+        } else {
+            bannerEl.innerHTML = `
+                <div class="p-3 bg-rose-500 text-white rounded-xl font-bold text-sm sm:text-base flex items-center justify-between shadow-xs mb-2">
+                    <span class="flex items-center gap-2"><span>❌</span> <span>${isGiveUp ? 'ĐÃ XEM CÂU TRẢ LỜI MẪU' : 'CHƯA ĐÚNG CẤU TRÚC NGỮ PHÁP!'}</span></span>
+                    <span class="text-xs bg-rose-700 px-2.5 py-0.5 rounded-full font-mono font-black tracking-wider">CHƯA ĐẠT</span>
+                </div>
+            `;
+        }
+    }
+
+    ui.skipBtn.classList.add('hidden');
+    ui.feedback.classList.remove('hidden');
+    ui.nextBtn.classList.remove('hidden');
+
+    const expl = currentQuestion.baseQ?.explanation || '';
+    const safePrompt = (currentQuestion.prompt || '').replace(/'/g, "\\'");
+
+    if (isCorrect) {
+        inputEl.className = "w-full text-base sm:text-xl font-bold py-2.5 px-3.5 bg-emerald-50 border-2 border-emerald-500 rounded-xl text-emerald-900 font-sans tracking-wide shadow-inner";
+        ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-emerald-50 text-emerald-950 border-2 border-emerald-400 shadow-md";
+        ui.feedbackTitle.innerHTML = `<span class="text-2xl">✅</span> <span>CHÍNH XÁC (ĐÚNG CẤU TRÚC)! Trả lời câu hỏi rất chuẩn.</span>`;
+
+        ui.feedbackText.innerHTML = `
+            <div class="space-y-3 mt-2">
+                <div class="p-3 bg-emerald-100/90 border border-emerald-300 rounded-xl">
+                    <div class="text-xs font-bold text-emerald-800 uppercase mb-1">🗣️ Câu bạn đã trả lời:</div>
+                    <div class="text-base sm:text-lg font-bold text-emerald-950">${userRaw}</div>
+                </div>
+                ${formatSpeakingExplanation(expl, safePrompt, safeSampleAnswer, userRaw, false)}
+            </div>
+            <p class="text-xs text-emerald-700 mt-2.5 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
+        `;
+
+        speakJapanese(userRaw || sampleAnswer);
+        reviewQueue.shift();
+    } else {
+        inputEl.className = "w-full text-base sm:text-xl font-bold py-2.5 px-3.5 bg-rose-50 border-2 border-rose-400 rounded-xl text-rose-900 font-sans tracking-wide shadow-inner";
+        ui.feedback.className = "p-4 sm:p-5 rounded-2xl bg-rose-50 text-rose-950 border-2 border-rose-400 shadow-md";
+        ui.feedbackTitle.innerHTML = isGiveUp ? `<span class="text-2xl">👀</span> <span>CÂU MẪU & CẤU TRÚC:</span>` : `<span class="text-2xl">❌</span> <span>CHƯA ĐÚNG CẤU TRÚC NGỮ PHÁP!</span>`;
+
+        ui.feedbackText.innerHTML = `
+            <div class="space-y-3 mt-2">
+                ${!isGiveUp ? `
+                    <div class="p-3 bg-rose-100/90 border border-rose-300 rounded-xl text-rose-950">
+                        <div class="text-xs font-bold text-rose-800 uppercase mb-1">⚠️ Câu bạn đã gõ:</div>
+                        <div class="text-base font-bold text-rose-900 mb-1.5">${userRaw}</div>
+                        ${feedbackReason ? `<div class="text-xs sm:text-sm text-rose-800 font-semibold bg-white/80 p-2 rounded-lg border border-rose-200">💡 Gợi ý cấu trúc: ${feedbackReason}</div>` : ''}
+                    </div>
+                ` : ''}
+                ${formatSpeakingExplanation(expl, safePrompt, safeSampleAnswer, userRaw, !isGiveUp)}
+            </div>
+            <p class="text-xs text-rose-700 mt-2.5 font-normal">Câu này sẽ xuất hiện lại ở cuối lượt để bạn luyện tập lại.</p>
+        `;
+
+        if (sampleAnswer) {
+            speakJapanese(sampleAnswer);
+        }
+        const missed = reviewQueue.shift();
+        reviewQueue.push(missed);
+    }
+
+    setTimeout(() => {
+        if (ui.nextBtn) ui.nextBtn.focus();
+    }, 60);
+}
+
 function handleNextAction() {
     if (!ui.feedback.classList.contains('hidden')) {
         if (!canProceedNext) return;
@@ -1919,14 +2357,20 @@ function renderPartTabs() {
     parts.forEach(p => {
         let label = '';
         let count = 0;
+        const isSpeaking = currentSubject.quizType === 'speaking' || currentSubjectId === 'japanese_speaking';
         if (p === 'all') {
-            label = 'Tất cả phần';
+            label = isSpeaking ? 'Tất cả dạng' : 'Tất cả phần';
             count = allQuestions.filter(q => (selectedLesson === 'all' || q.lesson === selectedLesson) && countMatchesGrammar(q)).length;
         } else {
-            const title = (selectedLesson !== 'all' && lessonPartsDict[selectedLesson]?.[p])
-                ? `: ${lessonPartsDict[selectedLesson][p]}`
+            const partInfo = (selectedLesson !== 'all' && lessonPartsDict[selectedLesson]?.[p])
+                ? lessonPartsDict[selectedLesson][p]
                 : '';
-            label = `Phần ${p}${title}`;
+            if (isSpeaking && partInfo) {
+                label = partInfo;
+            } else {
+                const title = partInfo ? `: ${partInfo}` : '';
+                label = `${isSpeaking ? 'Dạng ' : 'Phần '}${p}${title}`;
+            }
             count = allQuestions.filter(q => (selectedLesson === 'all' || q.lesson === selectedLesson) && q.part === p && countMatchesGrammar(q)).length;
         }
 
