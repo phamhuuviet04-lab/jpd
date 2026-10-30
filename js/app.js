@@ -34,6 +34,37 @@ function speakJapanese(text) {
 window.speakJapanese = speakJapanese;
 window.setSpeechRate = setSpeechRate;
 
+function speakCurrentQuestion() {
+    if (!currentQuestion) return;
+    const hideFurigana = currentSubject?.hasFurigana && document.getElementById('toggle-furigana')?.checked;
+    let promptText = currentQuestion.prompt || '';
+    if (hideFurigana) {
+        promptText = promptText.replace(/\s*\([^)]+\)/g, '');
+    }
+    if (currentQuestion.direction === 'write' && currentQuestion.reading) {
+        speakJapanese(currentQuestion.reading);
+        return;
+    }
+    speakJapanese(promptText);
+}
+window.speakCurrentQuestion = speakCurrentQuestion;
+
+function speakFocusedListQuestion() {
+    if (typeof allQuestions === 'undefined' || !allQuestions) return;
+    if (focusedListIndex >= 0 && focusedListIndex < allQuestions.length) {
+        const q = allQuestions[focusedListIndex];
+        if (q) {
+            const hideFurigana = currentSubject?.hasFurigana && document.getElementById('toggle-furigana')?.checked;
+            let text = q.question || q.prompt || '';
+            if (hideFurigana) {
+                text = text.replace(/\s*\([^)]+\)/g, '');
+            }
+            speakJapanese(text);
+        }
+    }
+}
+window.speakFocusedListQuestion = speakFocusedListQuestion;
+
 // ==========================================
 // BỘ CHUYỂN ĐỔI ROMAJI ➔ HIRAGANA (TỰ LUẬN)
 // ==========================================
@@ -671,8 +702,8 @@ function updateQuestionDisplay() {
             `<div class="flex items-center justify-between gap-3 flex-wrap">` +
                 `<span class="text-lg sm:text-2xl font-bold text-gray-900 leading-snug">${promptText}</span>` +
                 `<div class="flex items-center gap-1.5 shrink-0">` +
-                    `<button type="button" onclick="speakJapanese('${safePrompt}')" class="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu hỏi"><span>🔊</span> <span>Nghe câu hỏi</span></button>` +
-                    (sampleAnswer ? `<button type="button" onclick="speakJapanese('${sampleAnswer}')" class="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-300 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu trả lời mẫu"><span>🎧</span> <span>Nghe câu trả lời</span></button>` : '') +
+                    `<button type="button" onclick="speakCurrentQuestion()" class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition cursor-pointer" title="Nghe câu hỏi (Phím tắt: Shift)"><span>🔊</span> <span>Nghe câu hỏi</span> <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-blue-200/80 text-blue-800 rounded font-mono text-[10px] font-bold shadow-3xs">Shift</kbd></button>` +
+                    (sampleAnswer ? `<button type="button" onclick="speakJapanese('${sampleAnswer}')" class="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-300 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition cursor-pointer" title="Nghe câu trả lời mẫu"><span>🎧</span> <span>Nghe câu trả lời</span></button>` : '') +
                 `</div>` +
             `</div>` +
             (qMeaning ? `<div class="text-xs sm:text-sm text-blue-700 font-semibold bg-blue-50/90 border border-blue-200 px-2.5 py-1 rounded-lg inline-flex items-center gap-1.5 shadow-2xs"><span>💬 Nghĩa:</span> <span>"${qMeaning}"</span></div>` : '') +
@@ -688,7 +719,7 @@ function updateQuestionDisplay() {
         const isJapanese = currentSubjectId.startsWith('japanese');
         ui.question.innerHTML = `<div class="flex items-center justify-between gap-3">` +
             `<span class="text-lg sm:text-xl font-bold text-gray-800">${displayText}</span>` +
-            (isJapanese ? `<button type="button" onclick="speakJapanese('${safePrompt}')" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe phát âm"><span>🔊</span> <span>Nghe</span></button>` : '') +
+            (isJapanese ? `<button type="button" onclick="speakCurrentQuestion()" class="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition cursor-pointer" title="Nghe phát âm (Phím tắt: Shift)"><span>🔊</span> <span>Nghe</span> <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-blue-200/80 text-blue-800 rounded font-mono text-[10px] font-bold shadow-3xs">Shift</kbd></button>` : '') +
         `</div>`;
     } else {
         ui.question.innerHTML = `<span class="text-lg sm:text-xl font-bold text-gray-800">${currentQuestion.prompt}</span>`;
@@ -1971,7 +2002,13 @@ function renderSpeakingInputUI() {
                     <label for="speaking-input-answer" class="text-xs sm:text-sm font-bold text-gray-700 flex items-center gap-1.5">
                         <span>⌨️</span> <span>Gõ câu trả lời của bạn:</span>
                     </label>
-                    <span class="text-[11px] text-gray-400 font-medium hidden sm:inline">Nhấn Enter để kiểm tra</span>
+                    <span class="text-[11px] text-gray-500 font-medium hidden sm:inline-flex items-center gap-1.5">
+                        <span>🔊</span> <kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-700 rounded text-[10px] font-mono font-bold">Shift</kbd> <span>nghe</span>
+                        <span>•</span>
+                        <kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-700 rounded text-[10px] font-mono font-bold">Enter</kbd> <span>kiểm tra</span>
+                        <span>•</span>
+                        <kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-700 rounded text-[10px] font-mono font-bold">Ctrl</kbd> <span>đổi câu</span>
+                    </span>
                 </div>
 
                 <div class="relative">
@@ -2228,8 +2265,14 @@ function handleNextAction() {
     if (!ui.feedback.classList.contains('hidden')) {
         if (!canProceedNext) return;
         ui.nextBtn.click();
-    } else if (!ui.skipBtn.classList.contains('hidden')) {
-        ui.skipBtn.click();
+    } else if (reviewQueue && reviewQueue.length > 0) {
+        if (ui.skipBtn && !ui.skipBtn.classList.contains('hidden')) {
+            ui.skipBtn.click();
+        } else {
+            const skippedItem = reviewQueue.shift();
+            reviewQueue.push(skippedItem);
+            loadNextQuestion();
+        }
     }
 }
 
@@ -2650,7 +2693,47 @@ function initApp() {
     });
 
     // 10. Xử lý phím tắt
+    let isCtrlComboActive = false;
+
     document.addEventListener('keydown', (e) => {
+        // Phím Shift: Nghe phát âm câu hỏi (hoạt động ngay cả khi đang gõ trong input)
+        if (e.key === 'Shift') {
+            if (!ui.quizScreen.classList.contains('hidden')) {
+                e.preventDefault();
+                speakCurrentQuestion();
+                return;
+            } else if (!ui.listScreen.classList.contains('hidden')) {
+                e.preventDefault();
+                speakFocusedListQuestion();
+                return;
+            }
+        }
+
+        // Theo dõi phím Ctrl (hỗ trợ chuyển câu kể cả khi đang gõ)
+        if (e.key === 'Control') {
+            isCtrlComboActive = false;
+            const isTyping = e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA');
+            // Nếu không đang gõ văn bản hoặc feedback đã hiện: chuyển câu ngay lập tức trên keydown
+            if (!isTyping || !ui.feedback.classList.contains('hidden')) {
+                if (!ui.quizScreen.classList.contains('hidden')) {
+                    e.preventDefault();
+                    handleNextAction();
+                    return;
+                } else if (!ui.listScreen.classList.contains('hidden')) {
+                    e.preventDefault();
+                    const listItems = document.querySelectorAll('#questions-list-container > div');
+                    if (focusedListIndex < listItems.length - 1) {
+                        focusedListIndex++;
+                        updateFocus();
+                        listItems[focusedListIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+            }
+        } else if (e.ctrlKey) {
+            isCtrlComboActive = true;
+        }
+
         // Trong màn hình danh sách
         if (!ui.listScreen.classList.contains('hidden')) {
             const listItems = document.querySelectorAll('#questions-list-container > div');
@@ -2718,6 +2801,21 @@ function initApp() {
                     }
                 }
             }
+        }
+    });
+
+    document.addEventListener('keyup', (e) => {
+        // Phím Ctrl khi đang gõ ô nhập: nhả phím Ctrl đơn lẻ (không phải tổ hợp Ctrl+C, Ctrl+V) để chuyển câu
+        if (e.key === 'Control') {
+            if (!isCtrlComboActive) {
+                const isTyping = e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA');
+                if (isTyping && ui.feedback.classList.contains('hidden')) {
+                    if (!ui.quizScreen.classList.contains('hidden')) {
+                        handleNextAction();
+                    }
+                }
+            }
+            isCtrlComboActive = false;
         }
     });
 
