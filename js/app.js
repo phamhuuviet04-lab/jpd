@@ -647,20 +647,13 @@ function updateQuestionDisplay() {
 
     if (currentQuestion.direction === 'write') {
         const meaningText = currentQuestion.meaning || '';
-        ui.question.innerHTML = `
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-                <div class="flex items-baseline gap-2.5">
-                    <span class="text-4xl sm:text-5xl font-black text-gray-900 tracking-wider font-serif select-none">${currentQuestion.prompt}</span>
-                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">(Hán tự)</span>
-                </div>
-                ${meaningText ? `
-                    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-xl text-blue-900 text-xs sm:text-sm font-semibold shadow-2xs self-center sm:self-auto">
-                        <span class="text-blue-600 font-bold">💡 Nghĩa:</span>
-                        <span class="font-bold text-blue-800">${meaningText}</span>
-                    </div>
-                ` : ''}
-            </div>
-        `;
+        ui.question.innerHTML = `<div class="flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center sm:text-left">` +
+            `<div class="flex items-baseline gap-2.5">` +
+                `<span class="text-3xl sm:text-4xl font-black text-gray-900 tracking-wider font-serif select-none">${currentQuestion.prompt}</span>` +
+                `<span class="text-xs text-gray-400 font-bold uppercase tracking-wider">(Hán tự)</span>` +
+            `</div>` +
+            (meaningText ? `<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 border border-blue-200 rounded-xl text-blue-900 text-xs sm:text-sm font-semibold shadow-2xs self-center sm:self-auto"><span class="text-blue-600 font-bold">💡 Nghĩa:</span> <span class="font-bold text-blue-800">${meaningText}</span></div>` : '') +
+        `</div>`;
         return;
     }
 
@@ -674,26 +667,16 @@ function updateQuestionDisplay() {
         const qMatch = rawExpl.match(/🗣️\s*Dịch câu hỏi:\s*["“]?(.*?)["”]?(\n|$)/i);
         const qMeaning = qMatch ? qMatch[1].trim() : '';
 
-        ui.question.innerHTML = `
-            <div class="space-y-2.5">
-                <div class="flex items-start justify-between gap-3">
-                    <div class="flex-1">
-                        <div class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">${promptText}</div>
-                        ${qMeaning ? `<div class="mt-1.5 text-xs sm:text-sm text-blue-700 font-semibold bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl inline-flex items-center gap-1.5 shadow-2xs"><span>💬 Nghĩa:</span> <span>"${qMeaning}"</span></div>` : ''}
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-1.5 shrink-0">
-                        <button type="button" onclick="speakJapanese('${safePrompt}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-xl text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu hỏi">
-                            <span>🔊</span> <span>Nghe câu hỏi</span>
-                        </button>
-                        ${sampleAnswer ? `
-                            <button type="button" onclick="speakJapanese('${sampleAnswer}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-300 rounded-xl text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu trả lời mẫu">
-                                <span>🎧</span> <span>Nghe câu trả lời</span>
-                            </button>
-                        ` : ''}
-                    </div>
-                </div>
-            </div>
-        `;
+        ui.question.innerHTML = `<div class="space-y-2">` +
+            `<div class="flex items-center justify-between gap-3 flex-wrap">` +
+                `<span class="text-lg sm:text-2xl font-bold text-gray-900 leading-snug">${promptText}</span>` +
+                `<div class="flex items-center gap-1.5 shrink-0">` +
+                    `<button type="button" onclick="speakJapanese('${safePrompt}')" class="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu hỏi"><span>🔊</span> <span>Nghe câu hỏi</span></button>` +
+                    (sampleAnswer ? `<button type="button" onclick="speakJapanese('${sampleAnswer}')" class="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-300 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe câu trả lời mẫu"><span>🎧</span> <span>Nghe câu trả lời</span></button>` : '') +
+                `</div>` +
+            `</div>` +
+            (qMeaning ? `<div class="text-xs sm:text-sm text-blue-700 font-semibold bg-blue-50/90 border border-blue-200 px-2.5 py-1 rounded-lg inline-flex items-center gap-1.5 shadow-2xs"><span>💬 Nghĩa:</span> <span>"${qMeaning}"</span></div>` : '') +
+        `</div>`;
         return;
     }
 
@@ -703,16 +686,10 @@ function updateQuestionDisplay() {
             : currentQuestion.prompt;
         const safePrompt = displayText.replace(/'/g, "\\'");
         const isJapanese = currentSubjectId.startsWith('japanese');
-        ui.question.innerHTML = `
-            <div class="flex items-center justify-between gap-3">
-                <span class="text-lg sm:text-xl font-bold text-gray-800">${displayText}</span>
-                ${isJapanese ? `
-                    <button type="button" onclick="speakJapanese('${safePrompt}')" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe phát âm">
-                        <span>🔊</span> <span>Nghe</span>
-                    </button>
-                ` : ''}
-            </div>
-        `;
+        ui.question.innerHTML = `<div class="flex items-center justify-between gap-3">` +
+            `<span class="text-lg sm:text-xl font-bold text-gray-800">${displayText}</span>` +
+            (isJapanese ? `<button type="button" onclick="speakJapanese('${safePrompt}')" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition" title="Nghe phát âm"><span>🔊</span> <span>Nghe</span></button>` : '') +
+        `</div>`;
     } else {
         ui.question.innerHTML = `<span class="text-lg sm:text-xl font-bold text-gray-800">${currentQuestion.prompt}</span>`;
     }
@@ -1994,12 +1971,7 @@ function renderSpeakingInputUI() {
                     <label for="speaking-input-answer" class="text-xs sm:text-sm font-bold text-gray-700 flex items-center gap-1.5">
                         <span>⌨️</span> <span>Gõ câu trả lời của bạn:</span>
                     </label>
-                    <div class="flex items-center gap-2">
-                        <button type="button" onclick="speakJapanese('${safeSampleAnswer}')" class="text-xs text-emerald-700 hover:text-emerald-800 font-bold bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1 rounded-lg transition flex items-center gap-1 shadow-2xs active:scale-95" title="Nghe câu trả lời mẫu">
-                            <span>🎧</span> <span>Nghe câu trả lời mẫu</span>
-                        </button>
-                        <span class="text-[11px] text-gray-400 font-medium hidden sm:inline">Nhấn Enter để kiểm tra</span>
-                    </div>
+                    <span class="text-[11px] text-gray-400 font-medium hidden sm:inline">Nhấn Enter để kiểm tra</span>
                 </div>
 
                 <div class="relative">
