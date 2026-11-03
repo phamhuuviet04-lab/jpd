@@ -6,7 +6,7 @@
 - **Phân loại Tiếng Nhật chuyên sâu 4 trong 1 (Toàn diện)**:
   - **📖 Từ vựng (できる日本語)**: 249 câu từ vựng theo giáo trình Bài 4 - 7 (chia nhỏ theo 3 phần).
   - **🈸 Ôn tập Từ Hán (Kanji)**: Đầy đủ 75 từ vựng và chữ Hán ghép từ giáo trình FPT University (Bài 4 - 6).
-  - **📐 Ngữ pháp (文法 - Tách 2 dạng câu hỏi song hành)**: Trọn bộ **166 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 6 (83 câu hỏi lý thuyết/cấu trúc và 83 câu dịch Việt ➔ Nhật).
+  - **📐 Ngữ pháp (文法 - Tách 2 dạng câu hỏi song hành)**: Trọn bộ **220 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 7 (110 câu hỏi lý thuyết/cấu trúc và 110 câu dịch Việt ➔ Nhật), bao gồm trọn vẹn cả Bài 7 (Vị trí không gian, Chỉ đường を/へ, Vてください, Công cụ & Phương tiện で, Cho/Nhận に/から, Tiếp diễn Vています, Đề nghị giúp đỡ Vましょうか).
   - **🗣️ Luyện nói (会話 - Hội thoại thực tế Bài 4 - 7)**: Trọn bộ **34 câu hỏi luyện nói phản xạ** bao quát toàn bộ 34 cấu trúc câu hỏi giao tiếp thi vấn đáp Bài 4 - 7:
     - **Cơ chế phản xạ thông minh**: Hiển thị câu hỏi tiếng Nhật thực tế, người học chọn câu đáp phù hợp.
     - **Tức thì hiện dịch nghĩa**: Ngay sau khi bấm chọn đáp án, hệ thống lập tức hiển thị dịch nghĩa tiếng Việt của cả câu hỏi và câu trả lời.
@@ -81,7 +81,7 @@ quizlet/
 │   └── style.css       # Tùy chỉnh giao diện, thanh cuộn, hiệu ứng
 ├── js/
 │   ├── database.js     # Kho dữ liệu câu hỏi (Từ vựng, Hán tự) & cấu hình APP_SUBJECTS
-│   ├── grammar_data.js # Kho 160 câu hỏi ngữ pháp (Bài 4 - 6) & phân loại GRAMMAR_LESSON_PARTS
+│   ├── grammar_data.js # Kho 220 câu hỏi ngữ pháp (Bài 4 - 7) & phân loại GRAMMAR_LESSON_PARTS
 │   ├── parser.js       # Bộ phân tích dữ liệu câu hỏi và ánh xạ bài học
 │   └── app.js          # Logic điều khiển chính (Chuyển môn, Quiz, Danh sách, Phím tắt, LocalStorage)
 └── README.md           # Tài liệu hướng dẫn

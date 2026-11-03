@@ -417,7 +417,7 @@ function updateSubjectHeaderUI() {
                 if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
                 const cCount = allQuestions.filter(q => q.grammarType === 'concept').length;
                 const tCount = allQuestions.filter(q => q.grammarType === 'translation').length;
-                if (japaneseSubDesc) japaneseSubDesc.innerText = `Ngữ pháp Bài 4 - 6 (${allQuestions.length} câu: ${cCount} Hỏi ngữ pháp • ${tCount} Dịch câu)`;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Ngữ pháp Bài 4 - 7'} (${allQuestions.length} câu: ${cCount} Hỏi ngữ pháp • ${tCount} Dịch câu)`;
             } else if (currentSubjectId === 'japanese_speaking') {
                 if (subTabSpeaking) subTabSpeaking.className = activeClass;
                 if (subTabVocab) subTabVocab.className = inactiveClass;

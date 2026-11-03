@@ -2655,9 +2655,9 @@ window.APP_SUBJECTS = {
     "japanese_grammar": {
         id: "japanese_grammar",
         name: "Ngữ pháp (ぶんぽう)",
-        fullName: "Tiếng Nhật (Ngữ pháp Bài 4 - 6)",
+        fullName: "Tiếng Nhật (Ngữ pháp Bài 4 - 7)",
         icon: "📐",
-        badge: "Ngữ pháp Bài 4 - 6",
+        badge: "Ngữ pháp Bài 4 - 7",
         category: "japanese",
         hasFurigana: true,
         quizType: "grammar",

@@ -1,5 +1,5 @@
 /**
- * KHO DỮ LIỆU CÂU HỎI NGỮ PHÁP TIẾNG NHẬT (BÀI 4 - 6)
+ * KHO DỮ LIỆU CÂU HỎI NGỮ PHÁP TIẾNG NHẬT (BÀI 4 - 7)
  * Được biên soạn chi tiết theo chuẩn 2 dạng câu hỏi song hành cho từng điểm ngữ pháp:
  * 1. [HỎI NGỮ PHÁP]: Hỏi khái niệm, công thức, cấu trúc, quy tắc ngữ pháp
  * 2. [DỊCH CÂU]: Dịch từ câu tiếng Việt sang câu tiếng Nhật tương ứng
@@ -8,6 +8,7 @@
  * - Bài 4: Phương hướng, Vị trí, Phương tiện, Thời gian di chuyển, Tính từ い/な, Tồn tại にあります, Nối câu そして/が, Phó từ, Trợ từ ね, Thời tiết
  * - Bài 5: Quá khứ Động từ, どこか/どこも, Làm cùng ai と/ひとりで, それから, Quá khứ Tính từ, どうでしたか, Lý do 〜から, ほしい, 〜たい, Mục đích di chuyển にいきます
  * - Bài 6: Rủ rê 〜ませんか/〜ましょう, Từ chối 〜から, Sự kiện diễn ra であります, Lượng từ 〜まい, So sánh hơn より, So sánh lựa chọn どちら, So sánh nhất いちばん, Đã làm chưa もう〜ましたか, Gợi ý Nはどうですか, Phân biệt ね/よ, Đồng ý そうしましょう
+ * - Bài 7: Vị trí あります/います, N1 の N2 に, Chuyển động qua không gian を, Hướng rẽ へ/に, Chỉ đường Vてください, Công cụ/phương tiện で, Cách ăn uống で, Ngôn ngữ で, Cho/nhận あげます/もらいます, Cho mượn かします/かります, Dạy/học おしえます/ならいます, Đặt vào/lấy ra にいれます/からだします, Tiếp diễn Vています, Đang làm gì なにをしていますか, Chủ ngữ だれが, Đề nghị giúp đỡ Vましょうか
  */
 
 window.RAW_DATABASE_GRAMMAR = `
@@ -1505,6 +1506,494 @@ Dịch câu tiếng Việt sau sang tiếng Nhật: "Hay quá, chúng ta hãy c�
 → Đáp án: B
 Giải thích: Đồng ý với gợi ý đề xuất:「いいですね。そうしましょう。」 ➔ 📐 Cấu trúc ngữ pháp: Khi đồng ý nhiệt tình với một gợi ý đề xuất:「いいですね。そうしましょう。」(Hay quá, chúng ta cùng làm như vậy đi!).
 ────────────────────────────────────────────────────────────
+Câu 167 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Để miêu tả vị trí của một đồ vật hoặc công trình so với một vật làm mốc, cấu trúc chuẩn trong tiếng Nhật là gì?
+  A. N1 の [vị trí] で N2 が あります
+  B. N1 の [vị trí] に N2 が あります  ✓
+  C. N1 の [vị trí] を N2 が あります
+  D. N1 の [vị trí] へ N2 が あります
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Cấu trúc chỉ vị trí tồn tại của đồ vật/công trình:「N1 の [vị trí] に N2 が あります」hoặc「N2 は N1 の [vị trí] に あります」. Trong đó vị trí gồm: まえ (trước), うしろ (sau), なか (trong), そと (ngoài), となり (bên cạnh), うえ (trên), した (dưới).
+────────────────────────────────────────────────────────────
+Câu 168 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Trạm xe buýt ở phía trước cửa hàng tiện lợi."
+  A. バスていは コンビニの まえに あります。  ✓
+  B. バスていは コンビニの まえで あります。
+  C. バスていは コンビニの まえを あります。
+  D. バスていは コンビニの まえへ あります。
+→ Đáp án: A
+Giải thích: Vị trí tồn tại của vật mốc:「バスていは コンビニの まえに あります。」 ➔ 📐 Cấu trúc ngữ pháp: Cấu trúc chỉ vị trí tồn tại của đồ vật/công trình:「N1 の [vị trí] に N2 が あります」hoặc「N2 は N1 の [vị trí] に あります」. Trong đó vị trí gồm: まえ (trước), うしろ (sau), なか (trong), そと (ngoài), となり (bên cạnh), うえ (trên), した (dưới).
+────────────────────────────────────────────────────────────
+Câu 169 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Quy tắc phân biệt động từ tồn tại「あります」và「います」trong tiếng Nhật là gì?
+  A. 「あります」chỉ dùng cho thời gian,「います」chỉ dùng cho tiền bạc
+  B. 「あります」dùng cho đồ vật vô tri, thực vật, công trình; còn「います」bắt buộc dùng cho sinh vật sống có thể tự chuyển động (người, động vật)  ✓
+  C. 「あります」dùng cho người lớn,「います」dùng cho trẻ em và đồ chơi
+  D. Hai động từ này hoàn toàn giống nhau, dùng thay thế cho nhau tùy ý
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp:「あります」dùng cho đồ vật vô tri, công trình, cây cối, địa điểm; còn「います」dùng cho người và động vật (những đối tượng sống có ý chí và tự di chuyển). Ví dụ:「たなかさんは とけいの したに います。」
+────────────────────────────────────────────────────────────
+Câu 170 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Anh Tanaka đang ở dưới cái đồng hồ."
+  A. たなかさんは とけいの したに あります。
+  B. たなかさんは とけいの したに います。  ✓
+  C. たなかさんは とけいの したで います。
+  D. たなかさんは とけいの したを あります。
+→ Đáp án: B
+Giải thích: Tanaka là người nên dùng います:「たなかさんは とけいの したに います。」 ➔ 📐 Cấu trúc ngữ pháp: 💡 Chuẩn ngữ pháp:「あります」dùng cho đồ vật vô tri, công trình, cây cối, địa điểm; còn「います」dùng cho người và động vật (những đối tượng sống có ý chí và tự di chuyển). Ví dụ:「たなかさんは とけいの したに います。」
+────────────────────────────────────────────────────────────
+Câu 171 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Khi muốn nói một địa điểm nằm ở "chính giữa hai địa điểm N1 và N2", ta dùng cụm từ chỉ vị trí nào?
+  A. N1 と N2 の となり に あります
+  B. N1 と N2 の あいだ に あります  ✓
+  C. N1 と N2 の まんなか を あります
+  D. N1 と N2 の ちかく へ あります
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Vị trí ở giữa hai vật/địa điểm là:「N1 と N2 の あいだ に あります」(nằm ở khoảng giữa N1 và N2).
+────────────────────────────────────────────────────────────
+Câu 172 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Ngân hàng nằm ở giữa siêu thị và bưu điện."
+  A. ぎんこうは スーパーと ゆうびんきょくの となりに あります。
+  B. ぎんこうは スーパーと ゆうびんきょくの あいだに あります。  ✓
+  C. ぎんこうは スーパーと ゆうびんきょくの なかに あります。
+  D. ぎんこうは スーパーと ゆうびんきょくの まえに あります。
+→ Đáp án: B
+Giải thích: Ở giữa hai vật dùng あいだ:「ぎんこうは スーパーと ゆうびんきょくの あいだに あります。」 ➔ 📐 Cấu trúc ngữ pháp: Vị trí ở giữa hai vật/địa điểm là:「N1 と N2 の あいだ に あります」(nằm ở khoảng giữa N1 và N2).
+────────────────────────────────────────────────────────────
+Câu 173 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Từ「となり」và「ちかく」khác nhau như thế nào khi miêu tả vị trí?
+  A. 「となり」là ở xa,「ちかく」là ở ngay bên cạnh sát vách
+  B. 「となり」là bên cạnh sát vách (cùng dãy/tiếp giáp), còn「ちかく」là khu vực lân cận, gần xung quanh  ✓
+  C. 「となり」chỉ dùng cho người,「ちかく」chỉ dùng cho đồ vật
+  D. Hai từ này có nghĩa hoàn toàn giống nhau và cách dùng như nhau
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp:「となり」(bên cạnh) chỉ vị trí tiếp giáp ngay kề sát bên cạnh. Còn「ちかく」(gần) chỉ một phạm vi khoảng cách gần trong khu vực xung quanh:「さくらえきの ちかくに スーパーが あります。」
+────────────────────────────────────────────────────────────
+Câu 174 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Gần ga Sakura có siêu thị."
+  A. さくらえきの となりに スーパーが あります。
+  B. さくらえきの ちかくに スーパーが あります。  ✓
+  C. さくらえきの まえに スーパーが います。
+  D. さくらえきの なかに スーパーが います。
+→ Đáp án: B
+Giải thích: Gần địa điểm nào đó dùng ちかく:「さくらえきの ちかくに スーパーが あります。」 ➔ 📐 Cấu trúc ngữ pháp: 💡 Chuẩn ngữ pháp:「となり」(bên cạnh) chỉ vị trí tiếp giáp ngay kề sát bên cạnh. Còn「ちかく」(gần) chỉ một phạm vi khoảng cách gần trong khu vực xung quanh:「さくらえきの ちかくに スーパーが あります。」
+────────────────────────────────────────────────────────────
+Câu 175 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Điền trợ từ thích hợp vào chỗ trống để chỉ hành động băng qua cây cầu:「あのはし（　）わたります。」
+  A. で
+  B. を  ✓
+  C. に
+  D. へ
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Trợ từ「を」đi kèm với các động từ chuyển động (わたります: băng qua, あるきます: đi bộ, とおります: đi ngang qua) để chỉ không gian/đoạn đường mà chuyển động xuyên qua:「はしを わたります」(qua cầu),「みちを わたります」(qua đường).
+────────────────────────────────────────────────────────────
+Câu 176 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Xin hãy đi qua cây cầu kia."
+  A. あのはしで わたってください。
+  B. あのはしを わたってください。  ✓
+  C. あのはしに わたってください。
+  D. あのはしへ わたってください。
+→ Đáp án: B
+Giải thích: Chuyển động qua không gian dùng trợ từ を:「あのはしを わたってください。」 ➔ 📐 Cấu trúc ngữ pháp: Trợ từ「を」đi kèm với các động từ chuyển động (わたります: băng qua, あるきます: đi bộ, とおります: đi ngang qua) để chỉ không gian/đoạn đường mà chuyển động xuyên qua:「はしを わたります」(qua cầu),「みちを わたります」(qua đường).
+────────────────────────────────────────────────────────────
+Câu 177 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Điền trợ từ thích hợp vào câu chỉ hướng rẽ:「ひとつめの かどを みぎ（　）まがってください。」
+  A. を
+  B. へ  ✓
+  C. で
+  D. から
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Để chỉ hướng rẽ (quẹo), ta dùng trợ từ「へ」hoặc「に」sau phương hướng:「みぎへ / みぎに まがります」(rẽ sang phải),「ひだりへ / ひだりに まがります」(rẽ sang trái). Còn ngã rẽ/khúc quanh xuyên qua dùng trợ từ「を」:「かどを みぎへ まがります」.
+────────────────────────────────────────────────────────────
+Câu 178 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Hãy rẽ phải ở góc cua đầu tiên."
+  A. ひとつめの かどに みぎを まがってください。
+  B. ひとつめの かどを みぎへ まがってください。  ✓
+  C. ひとつめの かどで みぎから まがってください。
+  D. ひとつめの かどへ みぎで まがってください。
+→ Đáp án: B
+Giải thích: Góc rẽ đi qua dùng を, hướng rẽ dùng へ:「ひとつめの かどを みぎへ まがってください。」 ➔ 📐 Cấu trúc ngữ pháp: Để chỉ hướng rẽ (quẹo), ta dùng trợ từ「へ」hoặc「に」sau phương hướng:「みぎへ / みぎに まがります」(rẽ sang phải),「ひだりへ / ひだりに まがります」(rẽ sang trái). Còn ngã rẽ/khúc quanh xuyên qua dùng trợ từ「を」:「かどを みぎへ まがります」.
+────────────────────────────────────────────────────────────
+Câu 179 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Khi muốn hướng dẫn người khác đi đường "Hãy đi thẳng con đường này", câu nói chuẩn ngữ pháp là:
+  A. このみちを まっすぐ いきます。
+  B. このみちを まっすぐ いってください。  ✓
+  C. このみちを まっすぐ いきたいです。
+  D. このみちを まっすぐ いきませんか。
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Thể「Vてください」dùng để yêu cầu, chỉ dẫn hoặc nhờ vả đối phương thực hiện một hành động một cách lịch sự:「まっすぐ いってください」(Hãy đi thẳng).
+────────────────────────────────────────────────────────────
+Câu 180 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Xin hãy đi thẳng con đường này."
+  A. このみちを まっすぐ いきます。
+  B. このみちを まっすぐ いってください。  ✓
+  C. このみちを まっすぐ いきました。
+  D. このみちを まっすぐ いきましょう。
+→ Đáp án: B
+Giải thích: Chỉ dẫn lịch sự dùng Vてください:「このみちを まっすぐ いってください。」 ➔ 📐 Cấu trúc ngữ pháp: Thể「Vてください」dùng để yêu cầu, chỉ dẫn hoặc nhờ vả đối phương thực hiện một hành động một cách lịch sự:「まっすぐ いってください」(Hãy đi thẳng).
+────────────────────────────────────────────────────────────
+Câu 181 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Khi bắt đầu hỏi đường người lạ: "Xin lỗi, tôi muốn đến nhà ga nhưng... (không biết đường)", người Nhật thường dùng từ nối nào ở cuối vế mở đầu?
+  A. すみませんが、えきへ いきたいですから、…
+  B. すみませんが、えきへ いきたいですが、…  ✓
+  C. すみませんが、えきへ いきたいそして、…
+  D. すみませんが、えきへ いきたいですからして、…
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Khi mở đầu câu chuyện để hỏi thông tin hoặc nhờ vả, người Nhật dùng trợ từ nối「〜が」(nhưng / với ý đệm nhẹ nhàng):「すみませんが、えきへ いきたいですが、…」(Xin lỗi, tôi muốn đến ga nhưng mà...).
+────────────────────────────────────────────────────────────
+Câu 182 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Xin lỗi, tôi không biết đường..."
+  A. すみません、みちが わかりませんから…
+  B. すみません、みちが わかりませんが…  ✓
+  C. すみません、みちが わかりますですが…
+  D. すみません、みちが わかりませんそして…
+→ Đáp án: B
+Giải thích: Mở lời nhờ vả / báo tình huống đệm nhẹ:「すみません、みちが わかりませんが…」 ➔ 📐 Cấu trúc ngữ pháp: Khi mở đầu câu chuyện để hỏi thông tin hoặc nhờ vả, người Nhật dùng trợ từ nối「〜が」(nhưng / với ý đệm nhẹ nhàng):「すみませんが、えきへ いきたいですが、…」(Xin lỗi, tôi muốn đến ga nhưng mà...).
+────────────────────────────────────────────────────────────
+Câu 183 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [HỎI NGỮ PHÁP]
+Khi nói "Tôi sẽ đi ra tận cổng soát vé để đón bạn", cụm từ chỉ mục đích di chuyển chuẩn là:
+  A. かいさつまで むかえに いきます。  ✓
+  B. かいさつまで むかえを いきます。
+  C. かいさつまで むかえで いきます。
+  D. かいさつまで むかえから いきます。
+→ Đáp án: A
+Giải thích: 💡 Chuẩn ngữ pháp: Cấu trúc mục đích di chuyển:「[Hành động thể Vます bỏ ます] に いきます」➔ Đón ai là「むかえに いきます」. Đến địa điểm nào đón:「[Địa điểm] まで むかえに いきます」.
+────────────────────────────────────────────────────────────
+Câu 184 [BÀI 7 - PHẦN 1: みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Tôi sẽ đi đến cổng soát vé để đón bạn."
+  A. かいさつまで むかえに いきます。  ✓
+  B. かいさつまで むかえを いきます。
+  C. かいさつまで むかえで いきます。
+  D. かいさつまで むかえから いきます。
+→ Đáp án: A
+Giải thích: Đi đón ở cổng soát vé:「かいさつまで むかえに いきます。」 ➔ 📐 Cấu trúc ngữ pháp: Cấu trúc mục đích di chuyển:「[Hành động thể Vます bỏ ます] に いきます」➔ Đón ai là「むかえに いきます」. Đến địa điểm nào đón:「[Địa điểm] まで むかえに いきます」.
+────────────────────────────────────────────────────────────
+Câu 185 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Điền trợ từ thích hợp vào chỗ trống để chỉ dụng cụ cắt bánh:「ナイフ（　）パンを きります。」
+  A. を
+  B. で  ✓
+  C. に
+  D. へ
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Trợ từ「で」đứng sau danh từ chỉ dụng cụ, công cụ hoặc phương tiện thực hiện hành động:「[Dụng cụ] で [Hành động] を します」. Ví dụ:「ナイフで きります」(cắt bằng dao),「はさみで きります」(cắt bằng kéo).
+────────────────────────────────────────────────────────────
+Câu 186 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Cắt bánh mì bằng dao."
+  A. ナイフを パンで きります。
+  B. ナイフで パンを きります。  ✓
+  C. ナイフに パンを きります。
+  D. ナイフへ パンで きります。
+→ Đáp án: B
+Giải thích: Dụng cụ cắt dùng trợ từ で:「ナイフで パンを きります。」 ➔ 📐 Cấu trúc ngữ pháp: Trợ từ「で」đứng sau danh từ chỉ dụng cụ, công cụ hoặc phương tiện thực hiện hành động:「[Dụng cụ] で [Hành động] を します」. Ví dụ:「ナイフで きります」(cắt bằng dao),「はさみで きります」(cắt bằng kéo).
+────────────────────────────────────────────────────────────
+Câu 187 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Câu nào dưới đây dùng đúng trợ từ để miêu tả "Người Nhật ăn cơm bằng đũa"?
+  A. にほんじんは はしを ごはんを たべます。
+  B. にほんじんは はしで ごはんを たべます。  ✓
+  C. にほんじんは はしに ごはんを たべます。
+  D. にほんじんは はしへ ごはんを たべます。
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Dụng cụ dùng để ăn uống đi với trợ từ「で」:「はしで ごはんを たべます」(ăn bằng đũa),「フォークと ナイフで ごはんを たべます」(ăn bằng nĩa và dao),「てで ごはんを たべます」(ăn bằng tay).
+────────────────────────────────────────────────────────────
+Câu 188 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Người Nhật ăn cơm bằng đũa."
+  A. にほんじんは はしを ごはんを たべます。
+  B. にほんじんは はしで ごはんを たべます。  ✓
+  C. にほんじんは はしに ごはんを たべます。
+  D. にほんじんは はしから ごはんを たべます。
+→ Đáp án: B
+Giải thích: Ăn bằng đũa dùng はしで:「にほんじんは はしで ごはんを たべます。」 ➔ 📐 Cấu trúc ngữ pháp: Dụng cụ dùng để ăn uống đi với trợ từ「で」:「はしで ごはんを たべます」(ăn bằng đũa),「フォークと ナイフで ごはんを たべます」(ăn bằng nĩa và dao),「てで ごはんを たべます」(ăn bằng tay).
+────────────────────────────────────────────────────────────
+Câu 189 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Khi muốn hỏi một từ hoặc một vật "Bằng tiếng Nhật là gì?", ta dùng mẫu câu chuẩn nào?
+  A. これは にほんごを なんですか。
+  B. これは にほんごで なんですか。  ✓
+  C. これは にほんごに なんですか。
+  D. これは にほんごへ なんですか。
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Trợ từ「で」dùng sau danh từ chỉ ngôn ngữ để biểu thị phương tiện diễn đạt:「にほんごで なんですか」(bằng tiếng Nhật là gì?),「ベトナムごで いいます」(nói bằng tiếng Việt),「えいごで てがみを かきます」(viết thư bằng tiếng Anh).
+────────────────────────────────────────────────────────────
+Câu 190 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Cái này bằng tiếng Nhật là gì vậy?"
+  A. これは にほんごを なんですか。
+  B. これは にほんごで なんですか。  ✓
+  C. これは にほんごに なんですか。
+  D. これは にほんごから なんですか。
+→ Đáp án: B
+Giải thích: Bằng tiếng Nhật là gì:「これは にほんごで なんですか。」 ➔ 📐 Cấu trúc ngữ pháp: Trợ từ「で」dùng sau danh từ chỉ ngôn ngữ để biểu thị phương tiện diễn đạt:「にほんごで なんですか」(bằng tiếng Nhật là gì?),「ベトナムごで いいます」(nói bằng tiếng Việt),「えいごで てがみを かきます」(viết thư bằng tiếng Anh).
+────────────────────────────────────────────────────────────
+Câu 191 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Trong mẫu câu tặng quà:「わたしは ともだち（　）はなを あげます。」, trợ từ đứng sau người nhận quà là trợ từ nào?
+  A. で
+  B. に  ✓
+  C. を
+  D. へ
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Trong cấu trúc cho/tặng ai cái gì:「[Người tặng] は [Người nhận] に [Vật] を あげます」, người nhận đối tượng bắt buộc đi với trợ từ「に」.
+────────────────────────────────────────────────────────────
+Câu 192 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Tôi tặng hoa cho bạn bè."
+  A. わたしは ともだちで はなを あげます。
+  B. わたしは ともだちに はなを あげます。  ✓
+  C. わたしは ともだちを はなに あげます。
+  D. わたしは ともだちから はなを あげます。
+→ Đáp án: B
+Giải thích: Tặng cho ai dùng trợ từ に:「わたしは ともだちに はなを あげます。」 ➔ 📐 Cấu trúc ngữ pháp: Trong cấu trúc cho/tặng ai cái gì:「[Người tặng] は [Người nhận] に [Vật] を あげます」, người nhận đối tượng bắt buộc đi với trợ từ「に」.
+────────────────────────────────────────────────────────────
+Câu 193 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Khi bạn nhận một món quà từ bạn bè:「わたしは ともだち（　）プレゼントを もらいました。」, trợ từ có thể điền vào chỗ trống là gì?
+  A. で hoặc を
+  B. に hoặc から  ✓
+  C. へ hoặc で
+  D. まで hoặc を
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Trong cấu trúc nhận cái gì từ ai:「[Người nhận] は [Người cho] に (hoặc から) [Vật] を もらいます」. Trợ từ「に」hoặc「から」chỉ nguồn gốc xuất phát của món đồ được nhận.
+────────────────────────────────────────────────────────────
+Câu 194 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Tôi đã nhận được quà từ bạn bè."
+  A. わたしは ともだちで プレゼントを もらいました。
+  B. わたしは ともだちに プレゼントを もらいました。  ✓
+  C. わたしは ともだちを プレゼントに もらいました。
+  D. わたしは ともだちへ プレゼントを もらいました。
+→ Đáp án: B
+Giải thích: Nhận từ ai dùng に hoặc から:「わたしは ともだちに プレゼントを もらいました。」 ➔ 📐 Cấu trúc ngữ pháp: Trong cấu trúc nhận cái gì từ ai:「[Người nhận] は [Người cho] に (hoặc から) [Vật] を もらいます」. Trợ từ「に」hoặc「から」chỉ nguồn gốc xuất phát của món đồ được nhận.
+────────────────────────────────────────────────────────────
+Câu 195 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Phân biệt cặp động từ「かします」và「かります」trong tiếng Nhật:
+  A. 「かします」nghĩa là đi mượn từ người khác,「かります」nghĩa là cho người khác mượn
+  B. 「かします」nghĩa là cho người khác mượn,「かります」nghĩa là mượn từ người khác  ✓
+  C. Cả hai từ đều có nghĩa là mua bán đồ dùng
+  D. 「かします」chỉ dùng cho tiền,「かります」chỉ dùng cho sách vở
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp:「[Người cho mượn] は [Người mượn] に [Đồ vật] を かします」(cho ai mượn). Ngược lại:「[Người mượn] は [Người cho mượn] に / から [Đồ vật] を かります」(mượn từ ai).
+────────────────────────────────────────────────────────────
+Câu 196 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Tôi cho bạn tôi mượn cây bút."
+  A. わたしは ともだちから ペンを かします。
+  B. わたしは ともだちに ペンを かします。  ✓
+  C. わたしは ともだちで ペンを かります。
+  D. わたしは ともだちを ペンに かします。
+→ Đáp án: B
+Giải thích: Cho ai mượn dùng に かします:「わたしは ともだちに ペンを かします。」 ➔ 📐 Cấu trúc ngữ pháp: 💡 Chuẩn ngữ pháp:「[Người cho mượn] は [Người mượn] に [Đồ vật] を かします」(cho ai mượn). Ngược lại:「[Người mượn] は [Người cho mượn] に / から [Đồ vật] を かります」(mượn từ ai).
+────────────────────────────────────────────────────────────
+Câu 197 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Khi nói "Tôi dạy tiếng Việt cho bạn bè", câu chuẩn ngữ pháp là:
+  A. わたしは ともだちに ベトナムごを ならいます。
+  B. わたしは ともだちに ベトナムごを おしえます。  ✓
+  C. わたしは ともだちから ベトナムごを おしえます。
+  D. わたしは ともだちで ベトナムごを ならいます。
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Dạy cho ai dùng「[Người học] に おしえます」. Ngược lại, học từ ai dùng「[Người dạy] に / から ならいます」.
+────────────────────────────────────────────────────────────
+Câu 198 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Tôi dạy tiếng Việt cho bạn bè."
+  A. わたしは ともだちに ベトナムごを ならいます。
+  B. わたしは ともだちに ベトナムごを おしえます。  ✓
+  C. わたしは ともだちで ベトナムごを おしえます。
+  D. わたしは ともだちを ベトナムごに ならいます。
+→ Đáp án: B
+Giải thích: Dạy cho người khác dùng に おしえます:「わたしは ともだちに ベトナムごを おしえます。」 ➔ 📐 Cấu trúc ngữ pháp: Dạy cho ai dùng「[Người học] に おしえます」. Ngược lại, học từ ai dùng「[Người dạy] に / から ならいます」.
+────────────────────────────────────────────────────────────
+Câu 199 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Điền cặp trợ từ thích hợp vào hai câu sau:
+1. れいぞうこ（　）ジュースを いれます。(Cho vào)
+2. れいぞうこ（　）ジュースを だします。(Lấy ra)
+  A. 1. で  /  2. を
+  B. 1. に  /  2. から  ✓
+  C. 1. を  /  2. に
+  D. 1. へ  /  2. で
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Đưa vật vào bên trong một nơi:「[Nơi chốn] に いれます」(đích đến vào bên trong dùng に). Ngược lại, lấy vật ra khỏi một nơi:「[Nơi chốn] から だします」(xuất phát điểm ra ngoài dùng から).
+────────────────────────────────────────────────────────────
+Câu 200 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Cho nước ngọt vào tủ lạnh."
+  A. れいぞうこで ジュースを いれます。
+  B. れいぞうこに ジュースを いれます。  ✓
+  C. れいぞうこから ジュースを いれます。
+  D. れいぞうこを ジュースに いれます。
+→ Đáp án: B
+Giải thích: Cho vào tủ lạnh dùng に いれます:「れいぞうこに ジュースを いれます。」 ➔ 📐 Cấu trúc ngữ pháp: Đưa vật vào bên trong một nơi:「[Nơi chốn] に いれます」(đích đến vào bên trong dùng に). Ngược lại, lấy vật ra khỏi một nơi:「[Nơi chốn] から だします」(xuất phát điểm ra ngoài dùng から).
+────────────────────────────────────────────────────────────
+Câu 201 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [HỎI NGỮ PHÁP]
+Khi muốn nhờ bạn bè giúp chuẩn bị bữa tiệc một cách lịch sự, bạn nói gì và bạn của bạn sẽ vui vẻ đáp lại như thế nào?
+  A. 「すみませんが、てつだって ください。」「いいですよ。」  ✓
+  B. 「てつだいませんか。」「けっこうです。」
+  C. 「てつだいたいですか。」「はい、そうです。」
+  D. 「てつだって ください。」「いいえ、いやです。」
+→ Đáp án: A
+Giải thích: 💡 Chuẩn ngữ pháp: Lời nhờ vả lịch sự:「すみませんが、Vてください」(Xin lỗi, xin bạn hãy giúp...). Người được nhờ vui vẻ nhận lời đáp:「いいですよ。」(Được chứ! / Sẵn lòng!).
+────────────────────────────────────────────────────────────
+Câu 202 [BÀI 7 - PHẦN 2: パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Xin lỗi, hãy giúp tôi một tay nhé!" - "Được chứ!"
+  A. 「すみませんが、てつだって ください。」「いいですよ。」  ✓
+  B. 「すみませんが、てつだいませんか。」「いいですね。」
+  C. 「すみませんが、てつだいましたか。」「いいですよ。」
+  D. 「すみませんが、てつだいたいです。」「そうですね。」
+→ Đáp án: A
+Giải thích: Nhờ giúp đỡ và nhận lời:「すみませんが、てつだって ください。」「いいですよ。」 ➔ 📐 Cấu trúc ngữ pháp: Lời nhờ vả lịch sự:「すみませんが、Vてください」(Xin lỗi, xin bạn hãy giúp...). Người được nhờ vui vẻ nhận lời đáp:「いいですよ。」(Được chứ! / Sẵn lòng!).
+────────────────────────────────────────────────────────────
+Câu 203 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Để diễn tả một hành động ĐANG DIỄN RA tại thời điểm nói trong tiếng Nhật, ta dùng dạng động từ nào?
+  A. Vます
+  B. Vています  ✓
+  C. Vました
+  D. Vたいです
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Động từ chia sang thể て kết hợp với「います」(Vています) dùng để diễn tả hành động đang diễn ra ngay tại thời điểm nói:「いま おさらを あらっています」(Bây giờ tôi đang rửa bát).
+────────────────────────────────────────────────────────────
+Câu 204 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Bây giờ anh Park đang rửa bát."
+  A. いま パクさんは おさらを あらいます。
+  B. いま パクさんは おさらを あらっています。  ✓
+  C. いま パクさんは おさらを あらいました。
+  D. いま パクさんは おさらを あらいたいです。
+→ Đáp án: B
+Giải thích: Hành động đang diễn ra dùng Vています:「いま パクさんは おさらを あらっています。」 ➔ 📐 Cấu trúc ngữ pháp: Động từ chia sang thể て kết hợp với「います」(Vています) dùng để diễn tả hành động đang diễn ra ngay tại thời điểm nói:「いま おさらを あらっています」(Bây giờ tôi đang rửa bát).
+────────────────────────────────────────────────────────────
+Câu 205 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Điểm khác nhau cơ bản giữa câu「コーヒーを のみます」và「コーヒーを のんでいます」là gì?
+  A. 「のみます」chỉ quá khứ đã uống xong,「のんでいます」chỉ việc chưa làm
+  B. 「のみます」diễn tả thói quen hoặc hành động sẽ làm, còn「のんでいます」nhấn mạnh hành động ĐANG DIỄN RA ngay lúc nói  ✓
+  C. 「のみます」chỉ dùng cho buổi sáng,「のんでいます」chỉ dùng cho buổi tối
+  D. Hai câu này hoàn toàn giống nhau, không có sự khác biệt
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp:「Vます」nói về thói quen lặp đi lặp lại hoặc hành động tương lai (まいあさ コーヒーを のみます: mỗi sáng tôi đều uống cà phê). Còn「Vています」diễn tả hành động đang tiến hành ngay tại thời điểm nói (いま コーヒーを のんでいます: bây giờ tôi đang uống cà phê).
+────────────────────────────────────────────────────────────
+Câu 206 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Bây giờ tôi đang uống cà phê."
+  A. いま わたしは コーヒーを のみます。
+  B. いま わたしは コーヒーを のんでいます。  ✓
+  C. いま わたしは コーヒーを のみました。
+  D. いま わたしは コーヒーを のみたいです。
+→ Đáp án: B
+Giải thích: Đang uống cà phê dùng のんでいます:「いま わたしは コーヒーを のんでいます。」 ➔ 📐 Cấu trúc ngữ pháp: 💡 Chuẩn ngữ pháp:「Vます」nói về thói quen lặp đi lặp lại hoặc hành động tương lai (まいあさ コーヒーを のみます: mỗi sáng tôi đều uống cà phê). Còn「Vています」diễn tả hành động đang tiến hành ngay tại thời điểm nói (いま コーヒーを のんでいます: bây giờ tôi đang uống cà phê).
+────────────────────────────────────────────────────────────
+Câu 207 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Với các nhạc cụ dây hoặc phím như đàn piano (ピアノ), đàn guitar (ギター), tiếng Nhật dùng động từ nào để diễn tả việc chơi đàn?
+  A. あそびます (あそんでいます)
+  B. ひきます (ひいています)  ✓
+  C. します (しています)
+  D. とります (とっています)
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Chơi nhạc cụ dây/phím (piano, guitar) dùng động từ「ひきます」➔ Đang chơi đàn là「ひいています」:「ピアノを ひいています」(đang chơi piano),「ギターを ひいています」(đang chơi guitar).
+────────────────────────────────────────────────────────────
+Câu 208 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Chị Maria đang chơi đàn piano."
+  A. マリアさんは ピアノを します。
+  B. マリアさんは ピアノを ひいています。  ✓
+  C. マリアさんは ピアノを あそんでいます。
+  D. マリアさんは ピアノを とっています。
+→ Đáp án: B
+Giải thích: Đang chơi đàn piano dùng ピアノを ひいています:「マリアさんは ピアノを ひいています。」 ➔ 📐 Cấu trúc ngữ pháp: Chơi nhạc cụ dây/phím (piano, guitar) dùng động từ「ひきます」➔ Đang chơi đàn là「ひいています」:「ピアノを ひいています」(đang chơi piano),「ギターを ひいています」(đang chơi guitar).
+────────────────────────────────────────────────────────────
+Câu 209 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Để nói ai đó "đang nói chuyện điện thoại / đang gọi điện thoại", cụm từ chuẩn ngữ pháp là:
+  A. でんわを はなします
+  B. でんわを しています (hoặc でんわを かけています)  ✓
+  C. でんわを きいています
+  D. でんわを みています
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Nói chuyện điện thoại là「でんわを します」➔ Đang nói chuyện điện thoại là「でんわを しています」. Gọi điện thoại là「でんわを かけます」➔ Đang gọi điện là「でんわを かけています」.
+────────────────────────────────────────────────────────────
+Câu 210 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Chị Anna đang nói chuyện điện thoại."
+  A. アンナさんは でんわを します。
+  B. アンナさんは でんわを しています。  ✓
+  C. アンナさんは でんわを かけました。
+  D. アンナさんは でんわを きいています。
+→ Đáp án: B
+Giải thích: Đang nói chuyện điện thoại dùng でんわを しています:「アンナさんは でんわを しています。」 ➔ 📐 Cấu trúc ngữ pháp: Nói chuyện điện thoại là「でんわを します」➔ Đang nói chuyện điện thoại là「でんわを しています」. Gọi điện thoại là「でんわを かけます」➔ Đang gọi điện là「でんわを かけています」.
+────────────────────────────────────────────────────────────
+Câu 211 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Cụm từ biểu thị hành động "đang hát (bài hát)" trong tiếng Nhật là:
+  A. うたを いっています
+  B. うたを うたっています  ✓
+  C. うたを はなしています
+  D. うたを きいています
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Danh từ bài hát là「うた」, động từ hát là「うたいます」. Cụm từ hát bài hát:「うたを うたいます」➔ Đang hát:「うたを うたっています」.
+────────────────────────────────────────────────────────────
+Câu 212 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Anh Nishikawa đang hát."
+  A. にしかわさんは うたを いっています。
+  B. にしかわさんは うたを うたっています。  ✓
+  C. にしかわさんは うたを はなしています。
+  D. にしかわさんは うたを きいています。
+→ Đáp án: B
+Giải thích: Đang hát dùng うたを うたっています:「にしかわさんは うたを うたっています。」 ➔ 📐 Cấu trúc ngữ pháp: Danh từ bài hát là「うた」, động từ hát là「うたいます」. Cụm từ hát bài hát:「うたを うたいます」➔ Đang hát:「うたを うたっています」.
+────────────────────────────────────────────────────────────
+Câu 213 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Khi muốn hỏi đối phương hoặc người khác "Bây giờ bạn đang làm gì đấy?", mẫu câu hỏi chuẩn là:
+  A. いま なにを しますか。
+  B. いま なにを していますか。  ✓
+  C. いま なにを しましたか。
+  D. いま なにを したいですか。
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Để hỏi hành động đang diễn ra tại thời điểm hiện tại:「なにを していますか。」(Đang làm gì thế?). Trả lời bằng:「[Hành động thể て] います。」.
+────────────────────────────────────────────────────────────
+Câu 214 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Bây giờ bạn đang làm gì vậy?"
+  A. いま なにを しますか。
+  B. いま なにを していますか。  ✓
+  C. いま なにを しましたか。
+  D. いま なにを しませんか。
+→ Đáp án: B
+Giải thích: Hỏi đang làm gì dùng なにを していますか:「いま なにを していますか。」 ➔ 📐 Cấu trúc ngữ pháp: Để hỏi hành động đang diễn ra tại thời điểm hiện tại:「なにを していますか。」(Đang làm gì thế?). Trả lời bằng:「[Hành động thể て] います。」.
+────────────────────────────────────────────────────────────
+Câu 215 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Khi hỏi "Ai đang chơi đàn guitar thế?", trợ từ đi sau từ để hỏi「だれ」bắt buộc phải là gì?
+  A. だれは ギターを ひいていますか。
+  B. だれが ギターを ひいていますか。  ✓
+  C. だれを ギターを ひいていますか。
+  D. だれに ギターを ひいていますか。
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Khi từ để hỏi (như だれ - ai, なに - cái gì) làm chủ ngữ của câu, BẮT BUỘC dùng trợ từ「が」, tuyệt đối không dùng「は」. Trong câu trả lời, chủ ngữ cũng đi với「が」:「メアリーンさんが ギターを ひいています。」
+────────────────────────────────────────────────────────────
+Câu 216 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch đoạn đối thoại sau sang tiếng Nhật: "Ai đang chơi guitar vậy?" - "Maryn đang chơi đấy."
+  A. 「だれは ギターを ひいていますか。」「メアリーンさんは ひいています。」
+  B. 「だれが ギターを ひいていますか。」「メアリーンさんが ひいています。」  ✓
+  C. 「だれを ギターを ひいていますか。」「メアリーンさんを ひいています。」
+  D. 「だれに ギターを ひいていますか。」「メアリーンさんに ひいています。」
+→ Đáp án: B
+Giải thích: Hỏi chủ ngữ với だれ dùng trợ từ が:「だれが ギターを ひいていますか。」「メアリーンさんが ひいています。」 ➔ 📐 Cấu trúc ngữ pháp: Khi từ để hỏi (như だれ - ai, なに - cái gì) làm chủ ngữ của câu, BẮT BUỘC dùng trợ từ「が」, tuyệt đối không dùng「は」. Trong câu trả lời, chủ ngữ cũng đi với「が」:「メアリーンさんが ギターを ひいています。」
+────────────────────────────────────────────────────────────
+Câu 217 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Mẫu câu「Vましょうか。」dùng trong hoàn cảnh giao tiếp nào?
+  A. Hỏi xin phép đối phương cho mình làm việc gì
+  B. Người nói chủ động đề nghị làm giúp một hành động cho đối phương ("Tôi làm giúp bạn nhé?")  ✓
+  C. Bắt buộc đối phương phải làm việc gì cho mình
+  D. Hỏi xem đối phương đã hoàn thành công việc hay chưa
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp:「Vましょうか。」dùng khi người nói chủ động đề nghị giúp đỡ đối phương:「てつだいましょうか。」(Tôi giúp một tay nhé?),「もちましょうか。」(Tôi xách giúp bạn nhé?),「しゃしんを とりましょうか。」(Tôi chụp ảnh giúp bạn nhé?).
+────────────────────────────────────────────────────────────
+Câu 218 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch câu tiếng Việt sau sang tiếng Nhật: "Tôi xách hành lý giúp bạn nhé?"
+  A. にもつを もちますか。
+  B. にもつを もちましょうか。  ✓
+  C. にもつを もちたいですか。
+  D. にもつを もってください。
+→ Đáp án: B
+Giải thích: Chủ động đề nghị giúp xách đồ:「にもつを もちましょうか。」 ➔ 📐 Cấu trúc ngữ pháp: 💡 Chuẩn ngữ pháp:「Vましょうか。」dùng khi người nói chủ động đề nghị giúp đỡ đối phương:「てつだいましょうか。」(Tôi giúp một tay nhé?),「もちましょうか。」(Tôi xách giúp bạn nhé?),「しゃしんを とりましょうか。」(Tôi chụp ảnh giúp bạn nhé?).
+────────────────────────────────────────────────────────────
+Câu 219 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [HỎI NGỮ PHÁP]
+Khi ai đó đề nghị giúp bạn:「まどを あけましょうか。」(Tôi mở cửa sổ giúp bạn nhé?), nếu bạn muốn ĐỒNG Ý và nhờ họ giúp, theo chuẩn lịch sự bạn sẽ đáp như thế nào?
+  A. いいえ、けっこうです。
+  B. ええ、おねがいします。  ✓
+  C. いいえ、あけません。
+  D. ええ、あけましょう。
+→ Đáp án: B
+Giải thích: 💡 Chuẩn ngữ pháp: Khi đồng ý nhận sự giúp đỡ từ lời đề nghị「Vましょうか」, câu đáp lịch sự chuẩn mực là:「ええ、おねがいします。」(Vâng, nhờ bạn / làm ơn giúp tôi). Nếu từ chối lịch sự thì nói:「いいえ、けっこうです。」(Không cần đâu, tôi ổn rồi).
+────────────────────────────────────────────────────────────
+Câu 220 [BÀI 7 - PHẦN 3: みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)] [DỊCH CÂU]
+Dịch đoạn đối thoại sau sang tiếng Nhật: "Tôi mở cửa sổ giúp bạn nhé?" - "Vâng, nhờ bạn nhé."
+  A. 「まどを あけましょうか。」「いいえ、けっこうです。」
+  B. 「まどを あけましょうか。」「ええ、おねがいします。」  ✓
+  C. 「まどを あけませんか。」「ええ、そうしましょう。」
+  D. 「まどを あけてください。」「いいですよ。」
+→ Đáp án: B
+Giải thích: Đồng ý nhận giúp đỡ từ Vましょうか:「ええ、おねがいします。」 ➔ 📐 Cấu trúc ngữ pháp: Khi đồng ý nhận sự giúp đỡ từ lời đề nghị「Vましょうか」, câu đáp lịch sự chuẩn mực là:「ええ、おねがいします。」(Vâng, nhờ bạn / làm ơn giúp tôi). Nếu từ chối lịch sự thì nói:「いいえ、けっこうです。」(Không cần đâu, tôi ổn rồi).
+────────────────────────────────────────────────────────────
 `;
 
 window.GRAMMAR_LESSON_PARTS = {
@@ -1522,5 +2011,10 @@ window.GRAMMAR_LESSON_PARTS = {
         "1": "いっしょにいきませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)",
         "2": "どちらがいいですか。 (So sánh hơn より, どちら, いちばん)",
         "3": "やくそく (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)"
+    },
+    "7": {
+        "1": "みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)",
+        "2": "パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)",
+        "3": "みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)"
     }
 };

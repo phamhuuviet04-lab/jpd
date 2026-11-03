@@ -21,6 +21,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from grammar_lesson4 import register_lesson_4
 from grammar_lesson5 import register_lesson_5
 from grammar_lesson6 import register_lesson_6
+from grammar_lesson7 import register_lesson_7
 
 questions = []
 
@@ -73,6 +74,7 @@ Giải thích: {full_trans_expl}
 register_lesson_4(add_pair)
 register_lesson_5(add_pair)
 register_lesson_6(add_pair)
+register_lesson_7(add_pair)
 
 # Tổng hợp
 all_q_strings = [q[0] for q in questions]
@@ -86,7 +88,7 @@ print(f"  - Dạng [DỊCH CÂU]:     {trans_count} câu")
 out_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "js", "grammar_data.js")
 
 full_content = """/**
- * KHO DỮ LIỆU CÂU HỎI NGỮ PHÁP TIẾNG NHẬT (BÀI 4 - 6)
+ * KHO DỮ LIỆU CÂU HỎI NGỮ PHÁP TIẾNG NHẬT (BÀI 4 - 7)
  * Được biên soạn chi tiết theo chuẩn 2 dạng câu hỏi song hành cho từng điểm ngữ pháp:
  * 1. [HỎI NGỮ PHÁP]: Hỏi khái niệm, công thức, cấu trúc, quy tắc ngữ pháp
  * 2. [DỊCH CÂU]: Dịch từ câu tiếng Việt sang câu tiếng Nhật tương ứng
@@ -95,6 +97,7 @@ full_content = """/**
  * - Bài 4: Phương hướng, Vị trí, Phương tiện, Thời gian di chuyển, Tính từ い/な, Tồn tại にあります, Nối câu そして/が, Phó từ, Trợ từ ね, Thời tiết
  * - Bài 5: Quá khứ Động từ, どこか/どこも, Làm cùng ai と/ひとりで, それから, Quá khứ Tính từ, どうでしたか, Lý do 〜から, ほしい, 〜たい, Mục đích di chuyển にいきます
  * - Bài 6: Rủ rê 〜ませんか/〜ましょう, Từ chối 〜から, Sự kiện diễn ra であります, Lượng từ 〜まい, So sánh hơn より, So sánh lựa chọn どちら, So sánh nhất いちばん, Đã làm chưa もう〜ましたか, Gợi ý Nはどうですか, Phân biệt ね/よ, Đồng ý そうしましょう
+ * - Bài 7: Vị trí あります/います, N1 の N2 に, Chuyển động qua không gian を, Hướng rẽ へ/に, Chỉ đường Vてください, Công cụ/phương tiện で, Cách ăn uống で, Ngôn ngữ で, Cho/nhận あげます/もらいます, Cho mượn かします/かります, Dạy/học おしえます/ならいます, Đặt vào/lấy ra にいれます/からだします, Tiếp diễn Vています, Đang làm gì なにをしていますか, Chủ ngữ だれが, Đề nghị giúp đỡ Vましょうか
  */
 
 window.RAW_DATABASE_GRAMMAR = `
@@ -116,6 +119,11 @@ window.GRAMMAR_LESSON_PARTS = {
         "1": "いっしょにいきませんか (Rủ rê 〜ませんか, 〜ましょう, であります, 〜まい)",
         "2": "どちらがいいですか。 (So sánh hơn より, どちら, いちばん)",
         "3": "やくそく (Đã làm chưa もう, Gợi ý Nはどうですか, ね/よ, そうしましょう)"
+    },
+    "7": {
+        "1": "みちが わかりません (Vị trí, Chỉ đường, を/へ, Vてください)",
+        "2": "パーティーの じゅんび (Công cụ で, Cho/Nhận に, Ngôn ngữ で)",
+        "3": "みんなで たのしい パーティー (Hành động đang tiếp diễn Vています, だれが, Vましょうか)"
     }
 };
 """
