@@ -409,7 +409,7 @@ function updateSubjectHeaderUI() {
                 if (subTabVocab) subTabVocab.className = inactiveClass;
                 if (subTabGrammar) subTabGrammar.className = inactiveClass;
                 if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
-                if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Hán tự Bài 4 - 6'} (${allQuestions.length} câu)`;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Hán tự Bài 4 - 7'} (${allQuestions.length} câu)`;
             } else if (currentSubjectId === 'japanese_grammar') {
                 if (subTabGrammar) subTabGrammar.className = activeClass;
                 if (subTabVocab) subTabVocab.className = inactiveClass;

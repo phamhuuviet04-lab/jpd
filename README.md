@@ -5,7 +5,7 @@
 ## Tính năng nổi bật
 - **Phân loại Tiếng Nhật chuyên sâu 4 trong 1 (Toàn diện)**:
   - **📖 Từ vựng (できる日本語)**: 249 câu từ vựng theo giáo trình Bài 4 - 7 (chia nhỏ theo 3 phần).
-  - **🈸 Ôn tập Từ Hán (Kanji)**: Đầy đủ 75 từ vựng và chữ Hán ghép từ giáo trình FPT University (Bài 4 - 6).
+  - **🈸 Ôn tập Từ Hán (Kanji)**: Đầy đủ 108 từ vựng và chữ Hán ghép từ giáo trình FPT University (Bài 4 - 7).
   - **📐 Ngữ pháp (文法 - Tách 2 dạng câu hỏi song hành)**: Trọn bộ **220 câu hỏi ngữ pháp** bám sát 100% giáo trình và bài tập Bài 4 - 7 (110 câu hỏi lý thuyết/cấu trúc và 110 câu dịch Việt ➔ Nhật), bao gồm trọn vẹn cả Bài 7 (Vị trí không gian, Chỉ đường を/へ, Vてください, Công cụ & Phương tiện で, Cho/Nhận に/から, Tiếp diễn Vています, Đề nghị giúp đỡ Vましょうか).
   - **🗣️ Luyện nói (会話 - Hội thoại thực tế Bài 4 - 7)**: Trọn bộ **34 câu hỏi luyện nói phản xạ** bao quát toàn bộ 34 cấu trúc câu hỏi giao tiếp thi vấn đáp Bài 4 - 7:
     - **Cơ chế phản xạ thông minh**: Hiển thị câu hỏi tiếng Nhật thực tế, người học chọn câu đáp phù hợp.
@@ -51,11 +51,25 @@
       - **読 (ĐỘC)**: 読みます (よみます: đọc), 読み物 (よみもの: sách, tạp chí...), 読書 (どくしょ: đọc sách)
       - **書 (THƯ)**: 書きます (かきます: viết), 書き物 (かきもの: bút, phấn... / đồ viết)
       - **話 (THOẠI)**: 話 (はなし: câu chuyện), 話します (はなします: nói chuyện), 会話 (かいわ: hội thoại)
+    - **Bài 7 (33 từ)**:
+      - **寺 (TỰ)**: 寺 (てら: chùa), お寺 (おてら: chùa)
+      - **言 (NGÔN)**: 言います (いいます: nói), 言語 (げんご: ngôn ngữ)
+      - **貝 (BỐI)**: 貝 (かい: vỏ sò)
+      - **田 (ĐIỀN)**: 田 (た: ruộng), 水田 (すいでん: ruộng lúa nước), 田中さん (たなかさん: anh/chị Tanaka)
+      - **力 (LỰC)**: 力 (ちから: sức lực), 水力 (すいりょく: thủy lực), 火力 (かりょく: hỏa lực)
+      - **門 (MÔN)**: 門 (もん: cổng), 大学の門 (だいがくのもん: cổng trường đại học)
+      - **肉 (NHỤC)**: 肉 (にく: thịt)
+      - **料 (LIỆU)**: 料金 (りょうきん: tiền phí), 料理 (りょうり: món ăn)
+      - **理 (LÝ)**: 料理 (りょうり: món ăn)
+      - **野 (DÃ)**: 野 (の: cánh đồng), 野菜 (やさい: rau)
+      - **半 (BÁN)**: 半ば (なかば: giữa), 半年 (はんとし: nửa năm), 半月 (はんつき: nửa tháng), 半日 (はんにち: nửa ngày), 半分 (はんぶん: một nửa), 七時半 (しちじはん: 7 giờ rưỡi)
+      - **大 (ĐẠI)**: 大学 (だいがく: trường đại học), 大きい (おおきい: to, lớn), 大学生 (だいがくせい: sinh viên đại học), 大人 (おとな: người lớn), 大会 (たいかい: đại hội), 大半 (たいはん: phần lớn)
+      - **小 (TIỂU)**: 小さい (ちいさい: bé, nhỏ), 小人 (こびと: trẻ em), 小学校 (しょうがっこう: trường tiểu học)
   - **Hỗ trợ 2 chiều hỏi đáp linh hoạt cho Hán tự**:
     - **Thuận**: Câu hỏi: `前` ➔ Đáp án: `まえ: phía trước`
     - **Nghịch**: Câu hỏi: `まえ: phía trước` ➔ Đáp án: `前`
     - **Trộn cả hai chiều** ngẫu nhiên.
-  - Hỗ trợ lọc theo từng **Bài 4**, **Bài 5**, **Bài 6** hoặc chọn **Tất cả bài** để ôn luyện tổng hợp.
+  - Hỗ trợ lọc theo từng **Bài 4**, **Bài 5**, **Bài 6**, **Bài 7** hoặc chọn **Tất cả bài** để ôn luyện tổng hợp.
 - **Menu chọn môn học linh hoạt**:
   - Chuyển đổi nhanh giữa các môn học chỉ với 1 cú click ngay ở thanh đầu trang.
   - Tự động lưu môn học đang chọn vào trình duyệt (`LocalStorage`).
