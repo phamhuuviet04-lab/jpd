@@ -39,3 +39,14 @@ rt {
     font-size: 0.6em;
     color: #64748b;
 }
+
+/* Styling cho slide câu hỏi SWR */
+.swr-slide-wrapper img {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.swr-slide-wrapper img:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}

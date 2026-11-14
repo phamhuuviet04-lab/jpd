@@ -1,6 +1,23 @@
 # jpd - Ứng dụng Ôn tập Từ vựng, Hán tự, Ngữ pháp & Luyện nói Tiếng Nhật (Hỗ trợ Đa môn học)
 
-Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), ngữ pháp (Grammar), luyện nói phản xạ giao tiếp (Speaking/Kaiwa), trắc nghiệm hỗ trợ đa môn học (mặc định gồm **📖 Tiếng Nhật Từ vựng できる日本語**, **🈸 Tiếng Nhật Ôn tập Từ Hán Kanji**, **📐 Tiếng Nhật Ngữ pháp 文法** và **🗣️ Tiếng Nhật Luyện nói Hội thoại 会話**, dễ dàng mở rộng thêm các môn khác như Tiếng Anh, Tiếng Hàn, Lịch sử, v.v.).
+Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), ngữ pháp (Grammar), luyện nói phản xạ giao tiếp (Speaking/Kaiwa), trắc nghiệm hỗ trợ đa môn học (mặc định gồm **📖 Tiếng Nhật Từ vựng できる日本語**, **🈸 Tiếng Nhật Ôn tập Từ Hán Kanji**, **📐 Tiếng Nhật Ngữ pháp 文法**, **🗣️ Tiếng Nhật Luyện nói Hội thoại 会話** và **📋 SWR302 - Software Requirements (469 câu Slide có giải thích)**, dễ dàng mở rộng thêm các môn khác như Tiếng Anh, Tiếng Hàn, Lịch sử, v.v.).
+
+## Môn học SWR302 - Software Requirements (Mới bổ sung)
+- **Tổng cộng**: **469 câu hỏi trắc nghiệm** bóc tách tự động từ slide học tập và ngân hàng câu hỏi SWR302.
+- **Trực quan sinh động**: Giữ nguyên ảnh slide gốc chất lượng cao cho từng câu hỏi (bảo toàn 100% hình ảnh, sơ đồ, bảng biểu và format chuẩn).
+- **Dịch nghĩa & Giải thích chi tiết**: Tích hợp phần dịch câu hỏi tiếng Việt và giải thích lý thuyết chi tiết từ phần Speaker Notes của giảng viên.
+- **Phân loại 9 chương khoa học**:
+  - Bài 1: Tổng quan & Đa đáp án (47 câu)
+  - Bài 2: Điền vào chỗ trống (15 câu)
+  - Bài 3: Đúng / Sai & Phủ định (20 câu)
+  - Bài 4: Câu hỏi ngắn (65 câu)
+  - Bài 5: Câu hỏi trung bình (56 câu)
+  - Bài 6: Tình huống & Câu dài (71 câu)
+  - Bài 7: Ôn tập nâng cao - Đa đáp án (27 câu)
+  - Bài 8: Ôn tập phủ định NOT & Câu ngắn (85 câu)
+  - Bài 9: Tình huống thực tế nâng cao (83 câu)
+- **Hỗ trợ chọn nhiều đáp án (Multi-select)**: Tự động phát hiện các câu hỏi chọn 2 - 3 đáp án (A, B, C, D) với giao diện checkbox tiện lợi.
+- **Phím tắt**: Giữ nguyên thứ tự A, B, C, D cho phép bấm phím số `1`, `2`, `3`, `4` tương ứng siêu nhanh.
 
 ## Tính năng nổi bật
 - **Phân loại Tiếng Nhật chuyên sâu 4 trong 1 (Toàn diện)**:

@@ -394,6 +394,19 @@ function updateSubjectHeaderUI() {
         }
     }
 
+    // Hiển thị hoặc ẩn nút chỉnh tốc độ phát âm (chỉ dùng cho Tiếng Nhật)
+    const isJapanese = currentSubject.category === 'japanese' || currentSubjectId.startsWith('japanese');
+    const speechSpeedWrapper = document.getElementById('speech-speed-wrapper');
+    if (speechSpeedWrapper) {
+        if (isJapanese) {
+            speechSpeedWrapper.classList.remove('hidden');
+            speechSpeedWrapper.classList.add('flex');
+        } else {
+            speechSpeedWrapper.classList.add('hidden');
+            speechSpeedWrapper.classList.remove('flex');
+        }
+    }
+
     // Quản lý thanh chủ đề con cho Tiếng Nhật (Từ vựng / Hán tự / Ngữ pháp / Luyện nói)
     if (japaneseSubTabs) {
         const isJapanese = currentSubject.category === 'japanese' || currentSubjectId.startsWith('japanese');
@@ -462,6 +475,20 @@ function renderSubjectMenu() {
             }
         }
     ];
+
+    // Thêm các môn built-in khác (như SWR302) vào thanh menu
+    Object.keys(subjects).forEach(subId => {
+        if (subId.startsWith('japanese')) return;
+        if (customSubjects[subId]) return;
+        const sub = subjects[subId];
+        mainEntries.push({
+            id: subId,
+            label: sub.name,
+            icon: sub.icon || '📖',
+            isActive: currentSubjectId === subId,
+            onSelect: () => switchSubject(subId)
+        });
+    });
 
     // Thêm các môn custom do người dùng tự tạo
     Object.keys(customSubjects).forEach(subId => {
@@ -1197,7 +1224,7 @@ function createQuizItem(baseQ, direction, candidatePool) {
             id: baseQ.id,
             direction: isSpeaking || isGrammar || direction === 'standard' ? 'standard' : 'jp-vi',
             prompt: baseQ.question,
-            options: [...baseQ.options].sort(() => Math.random() - 0.5),
+            options: (currentSubject && currentSubject.shuffleOptions === false) ? [...baseQ.options] : [...baseQ.options].sort(() => Math.random() - 0.5),
             correct: [...baseQ.correct],
             lesson: baseQ.lesson,
             part: baseQ.part,
@@ -1670,7 +1697,7 @@ function checkAnswer() {
                 <div class="mt-1 font-semibold text-emerald-900">
                     Đáp án đúng: ${currentQuestion.correct.join(', ')}
                 </div>
-                ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-white p-2.5 rounded-xl border border-emerald-300 text-emerald-900 leading-relaxed shadow-xs">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
+                ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-white p-2.5 rounded-xl border border-emerald-300 text-emerald-900 leading-relaxed shadow-xs whitespace-pre-line text-left">💡 <b>Giải thích chi tiết:</b><br>${expl}</div>` : ''}
                 <p class="text-xs text-emerald-700 mt-2 font-normal">Tuyệt vời, câu này sẽ không lặp lại nữa.</p>
             `;
             reviewQueue.shift();
@@ -1753,7 +1780,7 @@ function checkAnswer() {
             ui.feedbackText.innerHTML = `
                 <div class="mt-1.5 p-3 bg-white rounded-xl border border-rose-200 shadow-xs">
                     <div class="text-base font-bold text-rose-900 mb-0.5">Đáp án đúng: ${currentQuestion.correct.join(', ')}</div>
-                    ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-rose-50 p-2.5 rounded-xl border border-rose-200 text-rose-900 leading-relaxed">💡 <b>Giải thích chi tiết:</b> ${expl}</div>` : ''}
+                    ${hasExpl ? `<div class="mt-2 text-xs md:text-sm bg-rose-50 p-2.5 rounded-xl border border-rose-200 text-rose-900 leading-relaxed whitespace-pre-line text-left">💡 <b>Giải thích chi tiết:</b><br>${expl}</div>` : ''}
                 </div>
                 <p class="text-xs text-rose-700 mt-2 font-normal">Câu này sẽ lặp lại ở cuối danh sách để bạn luyện tập.</p>
             `;

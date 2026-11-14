@@ -2876,7 +2876,7 @@ Câu 108 [BÀI 7]
  * ============================================================
  * Khi muốn thêm môn mới, bạn có thể thêm một cấu hình vào object window.APP_SUBJECTS dưới đây:
  */
-window.APP_SUBJECTS = {
+window.APP_SUBJECTS = Object.assign(window.APP_SUBJECTS || {}, {
     "japanese": {
         id: "japanese",
         name: "Tiếng Nhật",
@@ -2952,5 +2952,5 @@ window.APP_SUBJECTS = {
         lessonParts: (typeof SPEAKING_LESSON_PARTS !== 'undefined' ? SPEAKING_LESSON_PARTS : (window.SPEAKING_LESSON_PARTS || {})),
         rawText: (typeof RAW_DATABASE_SPEAKING !== 'undefined' ? RAW_DATABASE_SPEAKING : (window.RAW_DATABASE_SPEAKING || ""))
     }
-};
+});
 
