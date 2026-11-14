@@ -7,25 +7,46 @@ def clean_text(t):
         return ''
     return re.sub(r'[\u200b\u200c\u200d\uFEFF\xa0\ufffd]', '', t).strip()
 
-def get_lesson_info(slide_num):
-    if slide_num <= 68:
-        return '1', '1', 'Tổng quan & Đa đáp án'
+def get_category_info(slide_num):
+    """
+    Phân loại chính xác theo nội dung ghi chú ở các slide đen ngăn cách:
+    - Slide 20: Đúng / Sai (True / False)
+    - Slide 21: '2 3 đáp án' (Nhiều đáp án)
+    - Slide 69: 'Dấu ______' (Điền vào chỗ trống)
+    - Slide 85: 'Not/ is true' (Đúng / Sai & NOT)
+    - Slide 107: 'Câu ngắn'
+    - Slide 173: 'Câu trung bình'
+    - Slide 230: 'Câu dài'
+    - Slide 302-303: '2 Answers' (Ôn thêm chọn 2 đáp án)
+    - Slide 315: '3 Answers' (Ôn thêm chọn 3 đáp án)
+    - Slide 333: 'NOT question' (Ôn thêm câu hỏi NOT)
+    - Slide 366: 'Ngắn dễ học nè' (Ôn thêm câu ngắn)
+    - Slide 424: 'Dài' (Ôn thêm câu dài)
+    """
+    if slide_num == 20:
+        return '1. Đúng / Sai', 'Đúng / Sai (True / False)'
+    elif slide_num <= 68:
+        return '2. 2 3 đáp án', '2 3 đáp án (Nhiều đáp án)'
     elif slide_num <= 84:
-        return '2', '1', 'Điền vào chỗ trống'
+        return '3. Dấu ______', 'Dấu ______ (Điền vào chỗ trống)'
     elif slide_num <= 106:
-        return '3', '1', 'Đúng / Sai & Phủ định'
+        return '4. Not/ is true', 'Not/ is true (Đúng / Sai & Phủ định)'
     elif slide_num <= 172:
-        return '4', '1', 'Câu hỏi ngắn'
+        return '5. Câu ngắn', 'Câu ngắn'
     elif slide_num <= 229:
-        return '5', '1', 'Câu hỏi trung bình'
+        return '6. Câu trung bình', 'Câu trung bình'
     elif slide_num <= 301:
-        return '6', '1', 'Tình huống & Câu dài'
+        return '7. Câu dài', 'Câu dài'
+    elif slide_num <= 314:
+        return '8. Ôn thêm - 2 Answers', 'Ôn thêm - 2 Answers (Chọn 2 đáp án)'
     elif slide_num <= 332:
-        return '7', '1', 'Ôn tập nâng cao (Đa đáp án)'
+        return '9. Ôn thêm - 3 Answers', 'Ôn thêm - 3 Answers (Chọn 3 đáp án)'
+    elif slide_num <= 365:
+        return '10. Ôn thêm - NOT question', 'Ôn thêm - NOT question (Câu hỏi NOT)'
     elif slide_num <= 423:
-        return '8', '1', 'Ôn tập phủ định NOT & Câu ngắn'
+        return '11. Ôn thêm - Ngắn dễ học nè', 'Ôn thêm - Ngắn dễ học nè'
     else:
-        return '9', '1', 'Tình huống thực tế nâng cao'
+        return '12. Ôn thêm - Dài', 'Ôn thêm - Dài (Câu dài nâng cao)'
 
 def main():
     notes_path = 'scratch/swr_notes.json'
@@ -46,7 +67,7 @@ def main():
             
         first_line = lines[0]
         
-        # Bỏ qua các slide tiêu đề phân loại / divider
+        # Bỏ qua các slide tiêu đề phân loại / divider đen sì ngăn cách
         if re.match(r'^(2 3 đáp án|Dấu ______?|Not/\s*is true|Câu ngắn|Câu trung bình|Câu dài|Ôn thêm|2 Answers|3 Answers|NOT question|Ngắn dễ học nè|Dài)$', first_line, re.I):
             continue
 
@@ -72,7 +93,7 @@ def main():
         ans_list = list(ans)
         max_letter = max(ans_list)
         
-        # Determine options needed
+        # Xác định số lượng options phù hợp
         if max_letter == 'F' or any('F' in l for l in remaining_lines[:2] if 'F' in l and ('Đáp án' in l or 'F.' in l or 'F)' in l)):
             all_opts = ['A', 'B', 'C', 'D', 'E', 'F']
         elif max_letter == 'E' or any('E' in l for l in remaining_lines[:2] if 'E' in l and ('Đáp án' in l or 'E.' in l or 'E)' in l)):
@@ -80,9 +101,9 @@ def main():
         else:
             all_opts = ['A', 'B', 'C', 'D']
             
-        lesson_id, part_id, lesson_title = get_lesson_info(num)
+        cat_id, cat_title = get_category_info(num)
         
-        # Extract Vietnamese translation if any
+        # Trích xuất dịch câu hỏi tiếng Việt nếu có trong ghi chú
         rem_text = '\n'.join(remaining_lines).strip()
         q_vn = ''
         m_q = re.search(r'(?:Dịch câu hỏi|Dịch|Câu hỏi)[:\s]+(.*?)(?:\n|$)', rem_text, re.I)
@@ -94,9 +115,8 @@ def main():
                 
         questions.append({
             'slide': num,
-            'lesson_id': lesson_id,
-            'part_id': part_id,
-            'lesson_title': lesson_title,
+            'cat_id': cat_id,
+            'cat_title': cat_title,
             'ans': ans_list,
             'all_opts': all_opts,
             'q_vn': q_vn,
@@ -109,15 +129,13 @@ def main():
     blocks = []
     for idx, q in enumerate(questions, 1):
         slide_num = q['slide']
-        lesson_id = q['lesson_id']
-        part_id = q['part_id']
-        lesson_title = q['lesson_title']
+        cat_id = q['cat_id']
+        cat_title = q['cat_title']
         ans_list = q['ans']
         all_opts = q['all_opts']
         q_vn = q['q_vn']
         expl = q['expl']
         
-        # Clean expl of raw duplicate answer prefix
         clean_expl_lines = []
         for line in expl.split('\n'):
             line_s = line.strip()
@@ -131,11 +149,10 @@ def main():
             
         vn_html = ""
         if q_vn:
-            # Escape quotes
             safe_q_vn = q_vn.replace('"', '&quot;')
             vn_html = f'\n<div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> {safe_q_vn}</span></div>'
 
-        block = f"""Câu {idx} [BÀI {lesson_id} - PHẦN {part_id}: {lesson_title}]
+        block = f"""Câu {idx} [CHƯƠNG: {cat_id}]
 <div class="swr-slide-wrapper text-center my-2">
   <img src="images/swr/slide_{slide_num:03d}.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide {slide_num}" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
 </div>{vn_html}"""
@@ -153,19 +170,35 @@ def main():
     
     js_content = f"""/**
  * SWR302 - SOFTWARE REQUIREMENTS (469 CÂU HỎI TRẮC NGHIỆM TỪ SLIDE)
- * Tự động tạo từ slide ôn thi SWR302 có giải thích & dịch chi tiết trong phần Ghi chú.
+ * Tự động tạo từ slide ôn thi SWR302.
+ * Phân loại chính xác 100% theo các slide đen ngăn cách:
+ *  1. Đúng / Sai (True / False)
+ *  2. 2 3 đáp án (Nhiều đáp án)
+ *  3. Dấu ______ (Điền vào chỗ trống)
+ *  4. Not/ is true (Đúng / Sai & Phủ định NOT)
+ *  5. Câu ngắn
+ *  6. Câu trung bình
+ *  7. Câu dài
+ *  8. Ôn thêm - 2 Answers (Chọn 2 đáp án)
+ *  9. Ôn thêm - 3 Answers (Chọn 3 đáp án)
+ * 10. Ôn thêm - NOT question (Câu hỏi NOT)
+ * 11. Ôn thêm - Ngắn dễ học nè
+ * 12. Ôn thêm - Dài
  */
 
 window.SWR_LESSON_PARTS = {{
-    "1": {{ "1": "Tổng quan & Đa đáp án (Slide 20 - 68)" }},
-    "2": {{ "1": "Điền vào chỗ trống (Slide 70 - 84)" }},
-    "3": {{ "1": "Đúng / Sai & Phủ định (Slide 86 - 106)" }},
-    "4": {{ "1": "Câu hỏi ngắn (Slide 108 - 172)" }},
-    "5": {{ "1": "Câu hỏi trung bình (Slide 174 - 229)" }},
-    "6": {{ "1": "Tình huống & Câu dài (Slide 231 - 301)" }},
-    "7": {{ "1": "Ôn tập nâng cao (Đa đáp án) (Slide 304 - 332)" }},
-    "8": {{ "1": "Ôn tập phủ định NOT & Câu ngắn (Slide 334 - 423)" }},
-    "9": {{ "1": "Tình huống thực tế nâng cao (Slide 425 - 509)" }}
+    "1. Đúng / Sai": {{ "all": "Slide 20: Đúng / Sai (True / False)" }},
+    "2. 2 3 đáp án": {{ "all": "Slide 22 - 68: Dạng 2 3 đáp án (Nhiều đáp án)" }},
+    "3. Dấu ______": {{ "all": "Slide 70 - 84: Dấu ______ (Điền vào chỗ trống)" }},
+    "4. Not/ is true": {{ "all": "Slide 86 - 106: Not/ is true (Phủ định & Đúng/Sai)" }},
+    "5. Câu ngắn": {{ "all": "Slide 108 - 172: Câu ngắn" }},
+    "6. Câu trung bình": {{ "all": "Slide 174 - 229: Câu trung bình" }},
+    "7. Câu dài": {{ "all": "Slide 231 - 301: Câu dài" }},
+    "8. Ôn thêm - 2 Answers": {{ "all": "Slide 304 - 314: Ôn thêm - 2 Answers (2 đáp án)" }},
+    "9. Ôn thêm - 3 Answers": {{ "all": "Slide 316 - 332: Ôn thêm - 3 Answers (3 đáp án)" }},
+    "10. Ôn thêm - NOT question": {{ "all": "Slide 334 - 365: Ôn thêm - NOT question (Câu hỏi NOT)" }},
+    "11. Ôn thêm - Ngắn dễ học nè": {{ "all": "Slide 367 - 423: Ôn thêm - Ngắn dễ học nè" }},
+    "12. Ôn thêm - Dài": {{ "all": "Slide 425 - 509: Ôn thêm - Dài (Câu dài nâng cao)" }}
 }};
 
 window.RAW_DATABASE_SWR = `

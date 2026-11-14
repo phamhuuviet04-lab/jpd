@@ -6,16 +6,19 @@
 - **Tổng cộng**: **469 câu hỏi trắc nghiệm** bóc tách tự động từ slide học tập và ngân hàng câu hỏi SWR302.
 - **Trực quan sinh động**: Giữ nguyên ảnh slide gốc chất lượng cao cho từng câu hỏi (bảo toàn 100% hình ảnh, sơ đồ, bảng biểu và format chuẩn).
 - **Dịch nghĩa & Giải thích chi tiết**: Tích hợp phần dịch câu hỏi tiếng Việt và giải thích lý thuyết chi tiết từ phần Speaker Notes của giảng viên.
-- **Phân loại 9 chương khoa học**:
-  - Bài 1: Tổng quan & Đa đáp án (47 câu)
-  - Bài 2: Điền vào chỗ trống (15 câu)
-  - Bài 3: Đúng / Sai & Phủ định (20 câu)
-  - Bài 4: Câu hỏi ngắn (65 câu)
-  - Bài 5: Câu hỏi trung bình (56 câu)
-  - Bài 6: Tình huống & Câu dài (71 câu)
-  - Bài 7: Ôn tập nâng cao - Đa đáp án (27 câu)
-  - Bài 8: Ôn tập phủ định NOT & Câu ngắn (85 câu)
-  - Bài 9: Tình huống thực tế nâng cao (83 câu)
+- **Phân loại chính xác 100% theo các slide đen ngăn cách**:
+  - `1. Đúng / Sai`: Câu hỏi True / False (Slide 20 • 1 câu)
+  - `2. 2 3 đáp án`: Câu hỏi chọn 2 - 3 đáp án đúng (Slide 22 - 68 • 46 câu)
+  - `3. Dấu ______`: Dạng điền từ vào chỗ trống khuyết thiếu (Slide 70 - 84 • 15 câu)
+  - `4. Not/ is true`: Câu hỏi phủ định NOT & Tìm phát biểu đúng (Slide 86 - 106 • 20 câu)
+  - `5. Câu ngắn`: Dạng câu hỏi ngắn lý thuyết (Slide 108 - 172 • 65 câu)
+  - `6. Câu trung bình`: Dạng câu hỏi độ dài trung bình (Slide 174 - 229 • 56 câu)
+  - `7. Câu dài`: Dạng câu hỏi tình huống dài (Slide 231 - 301 • 71 câu)
+  - `8. Ôn thêm - 2 Answers`: Ôn tập thêm dạng chọn 2 đáp án (Slide 304 - 314 • 11 câu)
+  - `9. Ôn thêm - 3 Answers`: Ôn tập thêm dạng chọn 3 đáp án (Slide 316 - 332 • 16 câu)
+  - `10. Ôn thêm - NOT question`: Ôn tập thêm câu hỏi phủ định NOT (Slide 334 - 365 • 30 câu)
+  - `11. Ôn thêm - Ngắn dễ học nè`: Ôn tập thêm câu ngắn dễ nhớ (Slide 367 - 423 • 55 câu)
+  - `12. Ôn thêm - Dài`: Ôn tập thêm câu dài & tình huống nâng cao (Slide 425 - 509 • 83 câu)
 - **Hỗ trợ chọn nhiều đáp án (Multi-select)**: Tự động phát hiện các câu hỏi chọn 2 - 3 đáp án (A, B, C, D) với giao diện checkbox tiện lợi.
 - **Phím tắt**: Giữ nguyên thứ tự A, B, C, D cho phép bấm phím số `1`, `2`, `3`, `4` tương ứng siêu nhanh.
 
