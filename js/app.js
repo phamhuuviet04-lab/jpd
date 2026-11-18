@@ -358,6 +358,7 @@ function updateSubjectHeaderUI() {
     const subTabKanji = document.getElementById('sub-tab-kanji');
     const subTabGrammar = document.getElementById('sub-tab-grammar');
     const subTabSpeaking = document.getElementById('sub-tab-speaking');
+    const subTabFE = document.getElementById('sub-tab-fe');
     const japaneseSubDesc = document.getElementById('japanese-sub-desc');
 
     if (iconEl) iconEl.innerText = currentSubject.icon || '📚';
@@ -368,6 +369,8 @@ function updateSubjectHeaderUI() {
             nameEl.innerText = "Tiếng Nhật (Ngữ pháp)";
         } else if (currentSubjectId === 'japanese_speaking') {
             nameEl.innerText = "Tiếng Nhật (Luyện nói)";
+        } else if (currentSubjectId === 'japanese_fe') {
+            nameEl.innerText = "Tiếng Nhật (Ôn thi FE)";
         } else {
             nameEl.innerText = currentSubject.name || 'Môn học';
         }
@@ -422,12 +425,14 @@ function updateSubjectHeaderUI() {
                 if (subTabVocab) subTabVocab.className = inactiveClass;
                 if (subTabGrammar) subTabGrammar.className = inactiveClass;
                 if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
+                if (subTabFE) subTabFE.className = inactiveClass;
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Hán tự Bài 4 - 7'} (${allQuestions.length} câu)`;
             } else if (currentSubjectId === 'japanese_grammar') {
                 if (subTabGrammar) subTabGrammar.className = activeClass;
                 if (subTabVocab) subTabVocab.className = inactiveClass;
                 if (subTabKanji) subTabKanji.className = inactiveClass;
                 if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
+                if (subTabFE) subTabFE.className = inactiveClass;
                 const cCount = allQuestions.filter(q => q.grammarType === 'concept').length;
                 const tCount = allQuestions.filter(q => q.grammarType === 'translation').length;
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `${currentSubject.badge || 'Ngữ pháp Bài 4 - 7'} (${allQuestions.length} câu: ${cCount} Hỏi ngữ pháp • ${tCount} Dịch câu)`;
@@ -436,12 +441,21 @@ function updateSubjectHeaderUI() {
                 if (subTabVocab) subTabVocab.className = inactiveClass;
                 if (subTabKanji) subTabKanji.className = inactiveClass;
                 if (subTabGrammar) subTabGrammar.className = inactiveClass;
+                if (subTabFE) subTabFE.className = inactiveClass;
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `Sổ tay ôn thi Speaking Bài 4 - 7 (${allQuestions.length} câu • 32 dạng kiểm tra cấu trúc)`;
+            } else if (currentSubjectId === 'japanese_fe') {
+                if (subTabFE) subTabFE.className = activeClass;
+                if (subTabVocab) subTabVocab.className = inactiveClass;
+                if (subTabKanji) subTabKanji.className = inactiveClass;
+                if (subTabGrammar) subTabGrammar.className = inactiveClass;
+                if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
+                if (japaneseSubDesc) japaneseSubDesc.innerText = `Sổ tay ôn thi FE JPD123 (${allQuestions.length} câu Slide trắc nghiệm có giải thích)`;
             } else {
                 if (subTabVocab) subTabVocab.className = activeClass;
                 if (subTabKanji) subTabKanji.className = inactiveClass;
                 if (subTabGrammar) subTabGrammar.className = inactiveClass;
                 if (subTabSpeaking) subTabSpeaking.className = inactiveClass;
+                if (subTabFE) subTabFE.className = inactiveClass;
                 if (japaneseSubDesc) japaneseSubDesc.innerText = `Giáo trình Dekiru Nihongo Bài 4 - 7 (${allQuestions.length} câu)`;
             }
         } else {
@@ -466,10 +480,10 @@ function renderSubjectMenu() {
             id: 'japanese',
             label: 'Tiếng Nhật',
             icon: '🇯🇵',
-            isActive: currentSubjectId === 'japanese' || currentSubjectId === 'japanese_kanji' || currentSubjectId === 'japanese_grammar' || currentSubjectId === 'japanese_speaking',
+            isActive: currentSubjectId === 'japanese' || currentSubjectId === 'japanese_kanji' || currentSubjectId === 'japanese_grammar' || currentSubjectId === 'japanese_speaking' || currentSubjectId === 'japanese_fe',
             onSelect: () => {
                 // Giữ lại môn con đang học hoặc chuyển sang japanese
-                if (currentSubjectId !== 'japanese' && currentSubjectId !== 'japanese_kanji' && currentSubjectId !== 'japanese_grammar' && currentSubjectId !== 'japanese_speaking') {
+                if (currentSubjectId !== 'japanese' && currentSubjectId !== 'japanese_kanji' && currentSubjectId !== 'japanese_grammar' && currentSubjectId !== 'japanese_speaking' && currentSubjectId !== 'japanese_fe') {
                     switchSubject('japanese');
                 }
             }
@@ -2646,6 +2660,12 @@ function initApp() {
     document.getElementById('sub-tab-speaking')?.addEventListener('click', () => {
         if (currentSubjectId !== 'japanese_speaking') {
             switchSubject('japanese_speaking');
+        }
+    });
+
+    document.getElementById('sub-tab-fe')?.addEventListener('click', () => {
+        if (currentSubjectId !== 'japanese_fe') {
+            switchSubject('japanese_fe');
         }
     });
 

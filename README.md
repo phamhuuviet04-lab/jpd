@@ -1,8 +1,73 @@
 # jpd - Ứng dụng Ôn tập Từ vựng, Hán tự, Ngữ pháp & Luyện nói Tiếng Nhật (Hỗ trợ Đa môn học)
 
-Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), ngữ pháp (Grammar), luyện nói phản xạ giao tiếp (Speaking/Kaiwa), trắc nghiệm hỗ trợ đa môn học (mặc định gồm **📖 Tiếng Nhật Từ vựng できる日本語**, **🈸 Tiếng Nhật Ôn tập Từ Hán Kanji**, **📐 Tiếng Nhật Ngữ pháp 文法**, **🗣️ Tiếng Nhật Luyện nói Hội thoại 会話** và **📋 SWR302 - Software Requirements (469 câu Slide có giải thích)**, dễ dàng mở rộng thêm các môn khác như Tiếng Anh, Tiếng Hàn, Lịch sử, v.v.).
+Ứng dụng web ôn tập và luyện tập từ vựng, chữ Hán (Kanji), ngữ pháp (Grammar), luyện nói phản xạ giao tiếp (Speaking/Kaiwa), trắc nghiệm hỗ trợ đa môn học chuyên sâu ngành Kỹ thuật Phần mềm FPT:
+- **🇯🇵 Tiếng Nhật JPD123**:
+  - **📖 Từ vựng (できる日本語 Bài 4 - 7)**: 249 câu
+  - **🈸 Ôn tập Từ Hán (Kanji Bài 4 - 7)**: 108 câu
+  - **📐 Ngữ pháp (文法 Bài 4 - 7)**: 220 câu
+  - **🗣️ Luyện nói (会話 Bài 4 - 7)**: 34 câu phản xạ
+  - **🎯 Ôn thi FE (JPD123 Slide Test)**: 203 câu trắc nghiệm bóc tách từ Slide ôn thi FE kèm giải thích chi tiết
+- **🌳 CSD201 - Data Structures & Algorithms**: 304 câu hỏi trắc nghiệm Slide kèm giải thích
+- **☕ PRJ301 & PRJ302 - Java Web Application**: 396 câu hỏi trắc nghiệm Slide kèm giải thích & multi-select
+- **🌐 IOT102 - Internet of Things**: 346 câu hỏi trắc nghiệm Slide kèm giải thích
+- **📋 SWR302 - Software Requirements**: 469 câu hỏi trắc nghiệm Slide có giải thích
 
-## Môn học SWR302 - Software Requirements (Mới bổ sung)
+---
+
+## 🎯 Chức năng mới: Ôn thi FE Tiếng Nhật (JPD123)
+- **Tổng cộng**: **203 câu hỏi trắc nghiệm** bóc tách tự động từ slide học tập và ngân hàng câu hỏi JPD123.
+- **Trực quan sinh động**: Giữ nguyên ảnh slide gốc chất lượng cao cho từng câu hỏi (bảo toàn 100% hình ảnh, chữ Hán, Hiragana và format chuẩn).
+- **Giải thích chi tiết**: Tích hợp giải thích nghĩa từ, ngữ pháp, trợ từ, cấu trúc câu từ Speaker Notes.
+- **Phân loại 11 chuyên đề**:
+  - `1. Hán tự`: Hán tự Kanji (Slide 6 - 55 • 50 câu)
+  - `2. Từ để hỏi`: Câu hỏi với từ để hỏi (Slide 58 - 72 • 15 câu)
+  - `3. Giao tiếp`: Hội thoại & Giao tiếp (Slide 74 - 81 • 8 câu)
+  - `4. Địa điểm & Vị trí`: Vị trí và địa điểm (Slide 83 - 92 • 10 câu)
+  - `5. Sự vật & Sự việc`: Đồ vật, sự vật (Slide 94 - 103 • 10 câu)
+  - `6. Tính từ`: Tính từ đuôi い và な (Slide 107 - 136 • 30 câu)
+  - `7. Động từ`: Động từ và thể của động từ (Slide 140 - 174 • 35 câu)
+  - `8. Trợ từ`: Quy tắc sử dụng trợ từ に, で, を, が, へ, から, まで (Slide 176 - 207 • 32 câu)
+  - `9. Từ khác loại`: Tìm từ không cùng nhóm (Slide 209 - 215 • 7 câu)
+  - `10. Xếp câu`: Sắp xếp trật tự từ trong câu (Slide 217 - 218 • 2 câu)
+  - `11. Nghĩa của từ`: Chọn nghĩa tương đương (Slide 220 - 223 • 4 câu)
+
+---
+
+## 🌳 Môn học CSD201 - Data Structures & Algorithms
+- **Tổng cộng**: **304 câu hỏi trắc nghiệm** bóc tách từ Slide ôn thi CSD201.
+- **Phân loại 5 chuyên đề**:
+  - `1. Đúng / Sai`: True / False (Slide 18 - 27 • 10 câu)
+  - `2. Thuật toán`: Algorithm, Queue, Stack, LinkedList, BST, AVL Tree, Graph (Slide 29 - 268 • 232 câu)
+  - `3. Độ phức tạp`: Complexity of Algorithm, Big-O (Slide 270 - 285 • 16 câu)
+  - `4. Câu hỏi ngắn`: Short Questions lý thuyết (Slide 287 - 312 • 25 câu)
+  - `5. Ôn tập tổng hợp`: Ôn tập mở rộng (Slide 314 - 335 • 21 câu)
+
+---
+
+## ☕ Môn học PRJ301 & PRJ302 - Java Web Application
+- **Tổng cộng**: **396 câu hỏi trắc nghiệm** bóc tách từ Slide ôn thi PRJ301/302.
+- **Phân loại 6 chuyên đề**:
+  - `1. 2 - 3 đáp án`: Multi-select (Slide 11 - 19 • 9 câu)
+  - `2. Cú pháp & Code`: Syntax Servlet, JSP, JSTL, EL, Filter, Listener (Slide 21 - 163 • 136 câu)
+  - `3. Câu ngắn`: Short questions (Slide 165 - 247 • 81 câu)
+  - `4. Câu trung bình`: Medium questions (Slide 249 - 335 • 85 câu)
+  - `5. Câu dài`: Long questions & Tình huống code (Slide 337 - 407 • 69 câu)
+  - `6. NOT Question`: Phủ định NOT (Slide 410 - 425 • 16 câu)
+
+---
+
+## 🌐 Môn học IOT102 - Internet of Things
+- **Tổng cộng**: **346 câu hỏi trắc nghiệm** bóc tách từ Slide ôn thi IOT102.
+- **Phân loại 5 chuyên đề**:
+  - `1. Dạng bài tập`: Tính toán điện trở, mạch, PWM, cảm biến (Slide 9 - 82 • 72 câu)
+  - `2. Câu ngắn`: Short questions lý thuyết vi điều khiển, giao thức (Slide 84 - 216 • 131 câu)
+  - `3. Câu dài`: Long questions & Tình huống kiến trúc IoT (Slide 218 - 344 • 126 câu)
+  - `4. NOT Question`: Câu hỏi phủ định NOT (Slide 346 - 360 • 15 câu)
+  - `5. Đúng / Sai`: True / False (Slide 362 - 363 • 2 câu)
+
+---
+
+## 📋 Môn học SWR302 - Software Requirements
 - **Tổng cộng**: **469 câu hỏi trắc nghiệm** bóc tách tự động từ slide học tập và ngân hàng câu hỏi SWR302.
 - **Trực quan sinh động**: Giữ nguyên ảnh slide gốc chất lượng cao cho từng câu hỏi (bảo toàn 100% hình ảnh, sơ đồ, bảng biểu và format chuẩn).
 - **Dịch nghĩa & Giải thích chi tiết**: Tích hợp phần dịch câu hỏi tiếng Việt và giải thích lý thuyết chi tiết từ phần Speaker Notes của giảng viên.
