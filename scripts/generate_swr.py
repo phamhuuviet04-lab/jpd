@@ -154,7 +154,7 @@ def main():
 
         block = f"""Câu {idx} [CHƯƠNG: {cat_id}]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/swr/slide_{slide_num:03d}.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide {slide_num}" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/swr/slide_{slide_num:03d}.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide {slide_num}" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>{vn_html}"""
         
         for opt in all_opts:

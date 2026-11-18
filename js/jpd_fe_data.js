@@ -42,7 +42,7 @@ window.JPD_FE_LESSON_PARTS = {
 window.RAW_DATABASE_JPD_FE = `
 Câu 1 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_006.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 6" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_006.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 6" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -53,7 +53,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 2 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_007.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 7" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_007.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 7" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -64,7 +64,7 @@ Ghi chú: Nhân Vật (人物) có cách đọc là じんぶつ
 ────────────────────────────────────────────────────────────
 Câu 3 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_008.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 8" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_008.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 8" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -75,7 +75,7 @@ Ghi chú: おてら(chùa) là cách đọc của từ お寺 - chữ Hán là c
 ────────────────────────────────────────────────────────────
 Câu 4 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_009.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 9" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_009.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 9" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -86,7 +86,7 @@ Ghi chú: 来日 có cách đọc là らいにち, nghĩa là đi tới Nhật 
 ────────────────────────────────────────────────────────────
 Câu 5 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_010.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 10" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_010.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 10" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -97,7 +97,7 @@ Ghi chú: chữ Nam(男) có cách đọc khi đứng 1 mình là おとこ
 ────────────────────────────────────────────────────────────
 Câu 6 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_011.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 11" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_011.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 11" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -108,7 +108,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 7 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_012.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 12" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_012.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 12" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -119,7 +119,7 @@ Ghi chú: 先日(Tiên Nhật) có cách đọc là せんじつ, có nghĩa là
 ────────────────────────────────────────────────────────────
 Câu 8 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_013.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 13" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_013.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 13" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -130,7 +130,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 9 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_014.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 14" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_014.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 14" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -142,7 +142,7 @@ trước cụm từ trong ngoặc có cụm なまえを, vậy đáp án sẽ l
 ────────────────────────────────────────────────────────────
 Câu 10 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_015.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 15" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_015.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 15" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -153,7 +153,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 11 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_016.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 16" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_016.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 16" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -164,7 +164,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 12 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_017.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 17" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_017.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 17" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -175,7 +175,7 @@ Ghi chú: Tôi đến từ Osaka =&gt; chọn D có nghĩa là đến
 ────────────────────────────────────────────────────────────
 Câu 13 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_018.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 18" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_018.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 18" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -186,7 +186,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 14 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_019.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 19" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_019.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 19" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -197,7 +197,7 @@ Ghi chú: chữ Nữ(女) khi đứng một mình sẽ đọc là おんな
 ────────────────────────────────────────────────────────────
 Câu 15 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_020.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 20" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_020.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 20" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -208,7 +208,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 16 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_021.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 21" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_021.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 21" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -219,7 +219,7 @@ Ghi chú: âm đọc của cả 2 chữ đều có trường âm
 ────────────────────────────────────────────────────────────
 Câu 17 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_022.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 22" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_022.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 22" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -230,7 +230,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 18 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_023.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 23" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_023.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 23" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -241,7 +241,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 19 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_024.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 24" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_024.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 24" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -252,7 +252,7 @@ Ghi chú: chữ Nguyệt (月) khi đi cùng chữ Mỗi(毎) thì sẽ đọc l
 ────────────────────────────────────────────────────────────
 Câu 20 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_025.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 25" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_025.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 25" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -263,7 +263,7 @@ Ghi chú: Tiền Nhật, cách đọc đúng sẽ là ぜんじつ, nghĩa là n
 ────────────────────────────────────────────────────────────
 Câu 21 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_026.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 26" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_026.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 26" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -274,7 +274,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 22 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_027.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 27" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_027.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 27" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -285,7 +285,7 @@ Ghi chú: Động từ thể て của 書きます(かきます) là かいて 
 ────────────────────────────────────────────────────────────
 Câu 23 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_028.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 28" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_028.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 28" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -296,7 +296,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 24 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_029.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 29" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_029.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 29" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -307,7 +307,7 @@ Ghi chú: Ngọ Hậu (午後), nghĩa là buổi chiều tối
 ────────────────────────────────────────────────────────────
 Câu 25 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_030.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 30" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_030.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 30" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -318,7 +318,7 @@ Ghi chú: Hưu Nhật (休日), có nghĩa là ngày nghỉ, きゅう có trư�
 ────────────────────────────────────────────────────────────
 Câu 26 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_031.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 31" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_031.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 31" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -329,7 +329,7 @@ Ghi chú: động từ 会います(あいます), có nghĩa là gặp
 ────────────────────────────────────────────────────────────
 Câu 27 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_032.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 32" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_032.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 32" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -340,7 +340,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 28 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_033.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 33" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_033.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 33" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -351,7 +351,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 29 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_034.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 34" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_034.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 34" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -362,7 +362,7 @@ Ghi chú: Kiến Học (見学)
 ────────────────────────────────────────────────────────────
 Câu 30 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_035.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 35" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_035.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 35" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -373,7 +373,7 @@ Ghi chú: mỗi ngày. Tránh nhầm chữ Mỗi (毎) với chữ Hải (海)
 ────────────────────────────────────────────────────────────
 Câu 31 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_036.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 36" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_036.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 36" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -384,7 +384,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 32 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_037.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 37" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_037.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 37" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -395,7 +395,7 @@ Ghi chú: có trường âm ( 2 chữ お)
 ────────────────────────────────────────────────────────────
 Câu 33 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_038.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 38" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_038.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 38" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -406,7 +406,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 34 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_039.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 39" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_039.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 39" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -417,7 +417,7 @@ Ghi chú: âm đọc của chữ Tiểu (小) có trường âm: ちいさい
 ────────────────────────────────────────────────────────────
 Câu 35 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_040.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 40" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_040.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 40" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -428,7 +428,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 36 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_041.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 41" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_041.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 41" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -439,7 +439,7 @@ Ghi chú: tuần trước. Nếu có âm đọc là しゅう thì tìm đáp á
 ────────────────────────────────────────────────────────────
 Câu 37 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_042.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 42" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_042.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 42" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -450,7 +450,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 38 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_043.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 43" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_043.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 43" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -461,7 +461,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 39 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_044.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 44" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_044.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 44" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -472,7 +472,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 40 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_045.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 45" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_045.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 45" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -483,7 +483,7 @@ Ghi chú: Quốc Hội (国会)
 ────────────────────────────────────────────────────────────
 Câu 41 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_046.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 46" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_046.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 46" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -494,7 +494,7 @@ Ghi chú: Chữ Niên (年) khi đứng sau chữ Bán (半) thì sẽ có âm �
 ────────────────────────────────────────────────────────────
 Câu 42 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_047.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 47" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_047.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 47" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -505,7 +505,7 @@ Ghi chú: Kim Nhật (今日) nghĩa là ngày hôm nay và sẽ có cách đọ
 ────────────────────────────────────────────────────────────
 Câu 43 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_048.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 48" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_048.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 48" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -516,7 +516,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 44 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_049.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 49" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_049.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 49" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -527,7 +527,7 @@ Ghi chú: tháng này. chữ Nguyệt (月) giờ sẽ đọc là げつ
 ────────────────────────────────────────────────────────────
 Câu 45 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_050.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 50" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_050.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 50" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -538,7 +538,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 46 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_051.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 51" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_051.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 51" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -549,7 +549,7 @@ Ghi chú: Chữ Hậu (後), nghĩa là đằng sau
 ────────────────────────────────────────────────────────────
 Câu 47 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_052.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 52" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_052.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 52" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -560,7 +560,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 48 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_053.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 53" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_053.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 53" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -571,7 +571,7 @@ Ghi chú: đằng trước động từ có CD, vậy ききます sẽ có ngh�
 ────────────────────────────────────────────────────────────
 Câu 49 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_054.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 54" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_054.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 54" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -582,7 +582,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 50 [CHƯƠNG: 1. Hán tự]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_055.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 55" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_055.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 55" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -593,7 +593,7 @@ Ghi chú: trước động từ có từ 本(sách), vậy nên よみます có
 ────────────────────────────────────────────────────────────
 Câu 51 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_058.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 58" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_058.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 58" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -604,7 +604,7 @@ Ghi chú: câu trả lời có ほっかいどう, một thành phố của Nh�
 ────────────────────────────────────────────────────────────
 Câu 52 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_059.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 59" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_059.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 59" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -615,7 +615,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 53 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_060.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 60" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_060.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 60" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -626,7 +626,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 54 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_061.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 61" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_061.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 61" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -637,7 +637,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 55 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_062.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 62" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_062.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 62" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -648,7 +648,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 56 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_063.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 63" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_063.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 63" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
 <div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> sẽ phải là khi nào =&gt; A</span></div>
   A. A  ✓
@@ -660,7 +660,7 @@ Ghi chú: Câu trả lời là tháng 10 (１０月), nên câu hỏi sẽ phả
 ────────────────────────────────────────────────────────────
 Câu 57 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_064.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 64" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_064.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 64" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -674,7 +674,7 @@ Ghi chú: C ở đây khi ở trong câu có nghĩa là “Là cái đồng hồ
 ────────────────────────────────────────────────────────────
 Câu 58 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_065.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 65" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_065.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 65" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -685,7 +685,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 59 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_066.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 66" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_066.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 66" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -696,7 +696,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 60 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_067.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 67" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_067.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 67" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -707,7 +707,7 @@ Ghi chú: ngữ pháp ~と~と　どちらが + tính từ? (Cái này và cái 
 ────────────────────────────────────────────────────────────
 Câu 61 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_068.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 68" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_068.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 68" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -718,7 +718,7 @@ Ghi chú: cuối câu có động từ いません(chỉ người &amp; động
 ────────────────────────────────────────────────────────────
 Câu 62 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_069.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 69" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_069.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 69" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
 <div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> sẽ phải là “Nơi đó như thế nào?” =&gt; chọn C (どんな)</span></div>
   A. A
@@ -730,7 +730,7 @@ Ghi chú: câu trả lời của B có nghĩa là một nơi rộng lớn, như 
 ────────────────────────────────────────────────────────────
 Câu 63 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_070.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 70" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_070.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 70" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
 <div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> so sánh thích cà ri hay sushi hơn =&gt; loại B&amp;D</span></div>
   A. A
@@ -743,7 +743,7 @@ nếu như trả lời là thích cả 2 loại thì sẽ dùng trợ từ も =
 ────────────────────────────────────────────────────────────
 Câu 64 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_071.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 71" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_071.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 71" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -755,7 +755,7 @@ Ghi chú: Câu trả lời có nghĩa là “bởi vì bận” (từ から đ�
 ────────────────────────────────────────────────────────────
 Câu 65 [CHƯƠNG: 2. Từ để hỏi]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_072.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 72" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_072.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 72" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
 <div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> là 1 câu nghi vấn</span></div>
   A. A  ✓
@@ -768,7 +768,7 @@ Ghi chú: B đã trả lời là いいえ, tức là câu hỏi là 1 câu nghi
 ────────────────────────────────────────────────────────────
 Câu 66 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_074.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 74" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_074.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 74" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -781,7 +781,7 @@ Ghi chú: はい: động từ sau đó phải chia khẳng định =&gt; loại
 ────────────────────────────────────────────────────────────
 Câu 67 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_075.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 75" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_075.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 75" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -793,7 +793,7 @@ Ghi chú: B là người đc nhận sự trợ giúp từ A vì B là người n
 ────────────────────────────────────────────────────────────
 Câu 68 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_076.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 76" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_076.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 76" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -805,7 +805,7 @@ Ghi chú: ミラー là người được mời đi và sau đó trả lời là
 ────────────────────────────────────────────────────────────
 Câu 69 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_077.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 77" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_077.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 77" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
 <div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> có từ もう(đã làm gì chưa), trong câu này tức là đã ăn gì chưa</span></div>
   A. A
@@ -819,7 +819,7 @@ Trong câu hỏi có từ もう(đã làm gì chưa), trong câu này tức là
 ────────────────────────────────────────────────────────────
 Câu 70 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_078.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 78" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_078.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 78" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
 <div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> bên trên là 1 câu hỏi về ý kiến của A =&gt; chọn A, nghĩa là “Sushi thì sao?”</span></div>
   A. A  ✓
@@ -831,7 +831,7 @@ Ghi chú: A nói là いいですね, tức là câu hỏi bên trên là 1 câu
 ────────────────────────────────────────────────────────────
 Câu 71 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_079.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 79" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_079.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 79" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -842,7 +842,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 72 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_080.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 80" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_080.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 80" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -853,7 +853,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 73 [CHƯƠNG: 3. Giao tiếp]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_081.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 81" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_081.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 81" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -865,7 +865,7 @@ Ghi chú: trong trường hợp này thg bên dưới đang muốn xác nhận l
 ────────────────────────────────────────────────────────────
 Câu 74 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_083.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 83" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_083.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 83" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -877,7 +877,7 @@ Ghi chú: chủ ngữ là Los Angeles và đằng sau còn có từ アメリカ
 ────────────────────────────────────────────────────────────
 Câu 75 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_084.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 84" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_084.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 84" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -888,7 +888,7 @@ Ghi chú: cụm đằng sau trợ từ へ có nghĩa là đi trượt tuyết =
 ────────────────────────────────────────────────────────────
 Câu 76 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_085.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 85" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_085.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 85" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -899,7 +899,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 77 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_086.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 86" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_086.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 86" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -910,7 +910,7 @@ Ghi chú: vế trước là vì muốn một cái laptop, vế sau là đi tới
 ────────────────────────────────────────────────────────────
 Câu 78 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_087.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 87" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_087.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 87" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -921,7 +921,7 @@ Ghi chú: vế sau có nghĩa là đi ăn (しょくじ có nghĩa là việc ă
 ────────────────────────────────────────────────────────────
 Câu 79 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_088.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 88" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_088.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 88" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -932,7 +932,7 @@ Ghi chú: đi từ Bangkok đến Ayutaya bằng…. hết 6 tiếng =&gt; chọ
 ────────────────────────────────────────────────────────────
 Câu 80 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_089.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 89" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_089.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 89" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -943,7 +943,7 @@ Ghi chú: vế sau có nghĩa là đi mua cái túi xách =&gt; A
 ────────────────────────────────────────────────────────────
 Câu 81 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_090.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 90" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_090.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 90" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
 <div class="swr-vn-trans text-xs sm:text-sm text-blue-900 font-semibold bg-blue-50/90 border border-blue-200 px-3 py-2 rounded-xl mt-2 flex items-start gap-2 shadow-2xs"><span>🇻🇳</span> <span><b>Dịch câu hỏi:</b> sẽ là mất bao lâu =&gt; chọn A</span></div>
   A. A  ✓
@@ -955,7 +955,7 @@ Ghi chú: Câu trả lời là khoảng 5 tiếng, vậy câu hỏi sẽ là m�
 ────────────────────────────────────────────────────────────
 Câu 82 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_091.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 91" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_091.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 91" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -966,7 +966,7 @@ Ghi chú: Vế sau có nghĩa là đi mượn sách =&gt; A
 ────────────────────────────────────────────────────────────
 Câu 83 [CHƯƠNG: 4. Địa điểm & Vị trí]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_092.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 92" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_092.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 92" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -977,7 +977,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 84 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_094.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 94" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_094.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 94" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -989,7 +989,7 @@ Ghi chú: có があります, vậy đứng trước nó phải là 1 danh từ
 ────────────────────────────────────────────────────────────
 Câu 85 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_095.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 95" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_095.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 95" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1000,7 +1000,7 @@ Ghi chú: đằng sau có từ とんかつ là món thịt lợn chiên xù c�
 ────────────────────────────────────────────────────────────
 Câu 86 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_096.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 96" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_096.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 96" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1011,7 +1011,7 @@ Ghi chú: すきやき là món lẩu nhúng Nhật Bản
 ────────────────────────────────────────────────────────────
 Câu 87 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_097.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 97" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_097.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 97" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1022,7 +1022,7 @@ Ghi chú: vế trc là vì không có…… (có から), vế sau thì có ngh�
 ────────────────────────────────────────────────────────────
 Câu 88 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_098.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 98" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_098.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 98" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1033,7 +1033,7 @@ Ghi chú: trợ từ と ở đây có nghĩa là cùng với ai đó (vì có �
 ────────────────────────────────────────────────────────────
 Câu 89 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_099.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 99" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_099.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 99" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1044,7 +1044,7 @@ Ghi chú: コンサート nghĩa là concert =&gt; chọn 1 từ liên quan đ�
 ────────────────────────────────────────────────────────────
 Câu 90 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_100.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 100" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_100.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 100" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1056,7 +1056,7 @@ Ghi chú: Vé xem bóng đá
 ────────────────────────────────────────────────────────────
 Câu 91 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_101.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 101" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_101.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 101" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1068,7 +1068,7 @@ Ghi chú: Bộ phim như thế nào? =&gt; loại A&amp;B
 ────────────────────────────────────────────────────────────
 Câu 92 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_102.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 102" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_102.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 102" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1079,7 +1079,7 @@ Ghi chú: Bỏ gì đó vào trong súp/canh =&gt; chọn B (muối)
 ────────────────────────────────────────────────────────────
 Câu 93 [CHƯƠNG: 5. Sự vật & Sự việc]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_103.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 103" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_103.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 103" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1090,7 +1090,7 @@ Ghi chú: Có… vào tối nay. =&gt; D hợp lí nhất
 ────────────────────────────────────────────────────────────
 Câu 94 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_107.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 107" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_107.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 107" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1101,7 +1101,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 95 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_108.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 108" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_108.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 108" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1112,7 +1112,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 96 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_109.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 109" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_109.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 109" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1123,7 +1123,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 97 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_110.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 110" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_110.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 110" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1134,7 +1134,7 @@ Ghi chú: làm thêm mỗi ngày thì phải mệt =&gt; D
 ────────────────────────────────────────────────────────────
 Câu 98 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_111.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 111" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_111.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 111" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1145,7 +1145,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 99 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_112.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 112" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_112.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 112" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1156,7 +1156,7 @@ Ghi chú: bên trên có chia quá khứ
 ────────────────────────────────────────────────────────────
 Câu 100 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_113.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 113" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_113.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 113" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1167,7 +1167,7 @@ Ghi chú: game thì phải thú vị
 ────────────────────────────────────────────────────────────
 Câu 101 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_114.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 114" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_114.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 114" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1181,7 +1181,7 @@ Ghi chú: hơi nóng
 ────────────────────────────────────────────────────────────
 Câu 102 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_115.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 115" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_115.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 115" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1192,7 +1192,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 103 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_116.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 116" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_116.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 116" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1203,7 +1203,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 104 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_117.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 117" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_117.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 117" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1214,7 +1214,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 105 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_118.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 118" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_118.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 118" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1225,7 +1225,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 106 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_119.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 119" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_119.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 119" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1236,7 +1236,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 107 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_120.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 120" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_120.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 120" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1247,7 +1247,7 @@ Ghi chú: bởi vì mai rảnh nên sẽ ngủ tới trưa
 ────────────────────────────────────────────────────────────
 Câu 108 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_121.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 121" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_121.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 121" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1258,7 +1258,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 109 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_122.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 122" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_122.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 122" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1269,7 +1269,7 @@ Ghi chú: bài kiểm tra dễ
 ────────────────────────────────────────────────────────────
 Câu 110 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_123.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 123" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_123.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 123" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1280,7 +1280,7 @@ Ghi chú: ふゆ: mùa đông
 ────────────────────────────────────────────────────────────
 Câu 111 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_124.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 124" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_124.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 124" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1291,7 +1291,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 112 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_125.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 125" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_125.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 125" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1302,7 +1302,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 113 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_126.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 126" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_126.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 126" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1313,7 +1313,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 114 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_127.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 127" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_127.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 127" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1324,7 +1324,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 115 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_128.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 128" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_128.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 128" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1335,7 +1335,7 @@ Ghi chú: sử dụng 2 tính từ để miêu tả một sự vật, dùng そ�
 ────────────────────────────────────────────────────────────
 Câu 116 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_129.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 129" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_129.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 129" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1346,7 +1346,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 117 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_130.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 130" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_130.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 130" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1357,7 +1357,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 118 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_131.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 131" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_131.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 131" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1368,7 +1368,7 @@ Ghi chú: きもちがいい: thoải mái, sướng
 ────────────────────────────────────────────────────────────
 Câu 119 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_132.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 132" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_132.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 132" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1379,7 +1379,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 120 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_133.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 133" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_133.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 133" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1390,7 +1390,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 121 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_134.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 134" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_134.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 134" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1401,7 +1401,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 122 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_135.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 135" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_135.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 135" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1412,7 +1412,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 123 [CHƯƠNG: 6. Tính từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_136.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 136" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_136.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 136" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1423,7 +1423,7 @@ Ghi chú: chọn tính từ hợp với おてら =&gt; chọn B (cũ, cổ)
 ────────────────────────────────────────────────────────────
 Câu 124 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_140.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 140" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_140.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 140" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1434,7 +1434,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 125 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_141.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 141" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_141.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 141" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1445,7 +1445,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 126 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_142.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 142" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_142.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 142" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1456,7 +1456,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 127 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_143.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 143" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_143.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 143" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1467,7 +1467,7 @@ Ghi chú: chỉ người nên sử dụng います
 ────────────────────────────────────────────────────────────
 Câu 128 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_144.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 144" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_144.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 144" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1478,7 +1478,7 @@ Ghi chú: cả cụm nghĩa là nấu ăn
 ────────────────────────────────────────────────────────────
 Câu 129 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_145.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 145" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_145.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 145" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1489,7 +1489,7 @@ Ghi chú: B trả lời là đã rõ, vậy A là người nhờ B làm gì đó
 ────────────────────────────────────────────────────────────
 Câu 130 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_146.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 146" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_146.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 146" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1501,7 +1501,7 @@ Nếu như người nói đang ở vị trí đc nói đến =&gt; chọn A
 ────────────────────────────────────────────────────────────
 Câu 131 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_147.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 147" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_147.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 147" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1512,7 +1512,7 @@ Ghi chú: leo núi
 ────────────────────────────────────────────────────────────
 Câu 132 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_148.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 148" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_148.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 148" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1523,7 +1523,7 @@ Ghi chú: bỏ đường zô cafe
 ────────────────────────────────────────────────────────────
 Câu 133 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_149.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 149" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_149.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 149" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1534,7 +1534,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 134 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_150.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 150" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_150.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 150" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1545,7 +1545,7 @@ Ghi chú: hành động này đang diễn ra (vì ng hỏi đang hỏi là ng n�
 ────────────────────────────────────────────────────────────
 Câu 135 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_151.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 151" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_151.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 151" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1556,7 +1556,7 @@ Ghi chú: V(bỏ ます) + に + 行きます: đi đến ~ để làm V
 ────────────────────────────────────────────────────────────
 Câu 136 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_152.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 152" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_152.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 152" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1567,7 +1567,7 @@ Ghi chú: 先週 là tuần trc =&gt; quá khứ
 ────────────────────────────────────────────────────────────
 Câu 137 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_153.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 153" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_153.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 153" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1578,7 +1578,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 138 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_154.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 154" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_154.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 154" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1589,7 +1589,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 139 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_155.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 155" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_155.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 155" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1600,7 +1600,7 @@ Ghi chú: chơi đàn guitar
 ────────────────────────────────────────────────────────────
 Câu 140 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_156.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 156" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_156.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 156" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1611,7 +1611,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 141 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_157.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 157" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_157.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 157" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1622,7 +1622,7 @@ Ghi chú: V(bỏ ます) + かた: cách làm V
 ────────────────────────────────────────────────────────────
 Câu 142 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_158.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 158" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_158.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 158" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1633,7 +1633,7 @@ Ghi chú: rửa bát đĩa
 ────────────────────────────────────────────────────────────
 Câu 143 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_159.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 159" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_159.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 159" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1644,7 +1644,7 @@ Ghi chú: gọi điện thoại cho bạn
 ────────────────────────────────────────────────────────────
 Câu 144 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_160.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 160" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_160.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 160" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1655,7 +1655,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 145 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_161.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 161" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_161.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 161" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1666,7 +1666,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 146 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_162.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 162" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_162.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 162" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1677,7 +1677,7 @@ Ghi chú: ghét thịt nên ko ăn
 ────────────────────────────────────────────────────────────
 Câu 147 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_163.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 163" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_163.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 163" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1688,7 +1688,7 @@ Ghi chú: chơi bóng chày
 ────────────────────────────────────────────────────────────
 Câu 148 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_164.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 164" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_164.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 164" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1699,7 +1699,7 @@ Ghi chú: もう + Vました(quá khứ) (+ か): đã làm V (chưa?)
 ────────────────────────────────────────────────────────────
 Câu 149 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_165.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 165" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_165.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 165" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1710,7 +1710,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 150 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_166.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 166" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_166.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 166" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1721,7 +1721,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 151 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_167.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 167" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_167.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 167" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1732,7 +1732,7 @@ Ghi chú: ぜひ + ~: nhất định laf~. Ở đây là nhất định muốn �
 ────────────────────────────────────────────────────────────
 Câu 152 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_168.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 168" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_168.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 168" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1743,7 +1743,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 153 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_169.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 169" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_169.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 169" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1754,7 +1754,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 154 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_170.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 170" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_170.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 170" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1765,7 +1765,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 155 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_171.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 171" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_171.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 171" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1776,7 +1776,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 156 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_172.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 172" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_172.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 172" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1787,7 +1787,7 @@ Ghi chú: đồng ý với lời mời (~しませんか) thì sẽ nói là ~�
 ────────────────────────────────────────────────────────────
 Câu 157 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_173.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 173" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_173.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 173" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1798,7 +1798,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 158 [CHƯƠNG: 7. Động từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_174.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 174" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_174.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 174" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1809,7 +1809,7 @@ Ghi chú: Hôm qua vì đã bị ốm nên đã không đi đâu cả
 ────────────────────────────────────────────────────────────
 Câu 159 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_176.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 176" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_176.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 176" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1820,7 +1820,7 @@ Ghi chú: time đi với ni khi thời điểm chính xác, xảy ra kiểu có 
 ────────────────────────────────────────────────────────────
 Câu 160 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_177.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 177" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_177.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 177" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1832,7 +1832,7 @@ Ghi chú: Khi muốn hỏi về một vật được ai tác động vào, cụ 
 ────────────────────────────────────────────────────────────
 Câu 161 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_178.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 178" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_178.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 178" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1843,7 +1843,7 @@ Ghi chú: sth + もほしい/ほしくない: muốn/ko muốn cgi
 ────────────────────────────────────────────────────────────
 Câu 162 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_179.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 179" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_179.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 179" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1854,7 +1854,7 @@ Ghi chú: đi đến Tokyo để chụp ảnh, động từ chính vẫn là 行
 ────────────────────────────────────────────────────────────
 Câu 163 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_180.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 180" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_180.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 180" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1865,7 +1865,7 @@ Ghi chú: chỉ phương tiện, cách thức thì dùng で
 ────────────────────────────────────────────────────────────
 Câu 164 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_181.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 181" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_181.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 181" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1876,7 +1876,7 @@ Ghi chú: trợ từ に đứng sau tên người khi thực hiện hành độ
 ────────────────────────────────────────────────────────────
 Câu 165 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_182.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 182" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_182.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 182" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1890,7 +1890,7 @@ tuy..nh
 ────────────────────────────────────────────────────────────
 Câu 166 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_183.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 183" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_183.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 183" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1901,7 +1901,7 @@ Ghi chú: con mèo có mặt trong phóng thì dùng にいます.
 ────────────────────────────────────────────────────────────
 Câu 167 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_184.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 184" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_184.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 184" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1912,7 +1912,7 @@ Ghi chú: đi đón bạn ở nhà ga
 ────────────────────────────────────────────────────────────
 Câu 168 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_185.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 185" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_185.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 185" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1923,7 +1923,7 @@ Ghi chú: danh từ + がわかります/わかりません: hiểu / ko hiểu 
 ────────────────────────────────────────────────────────────
 Câu 169 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_186.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 186" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_186.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 186" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -1934,7 +1934,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 170 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_187.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 187" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_187.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 187" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -1945,7 +1945,7 @@ Ghi chú: Gọi điện thoại cho ai đó dùng trợ từ に
 ────────────────────────────────────────────────────────────
 Câu 171 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_188.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 188" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_188.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 188" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1956,7 +1956,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 172 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_189.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 189" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_189.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 189" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1967,7 +1967,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 173 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_190.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 190" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_190.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 190" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1979,7 +1979,7 @@ Ghi chú: đặt lên trên chỗ nào sử dụng trợ từ に
 ────────────────────────────────────────────────────────────
 Câu 174 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_191.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 191" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_191.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 191" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -1990,7 +1990,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 175 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_192.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 192" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_192.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 192" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -2001,7 +2001,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 176 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_193.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 193" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_193.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 193" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2014,7 +2014,7 @@ lấy bia từ trong tủ lạnh ra, ta sử dụng trợ từ から
 ────────────────────────────────────────────────────────────
 Câu 177 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_194.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 194" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_194.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 194" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2026,7 +2026,7 @@ Ghi chú: Lý do -&gt; xin về
 ────────────────────────────────────────────────────────────
 Câu 178 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_195.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 195" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_195.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 195" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -2037,7 +2037,7 @@ Ghi chú: 人+に会います: gặp ai đó
 ────────────────────────────────────────────────────────────
 Câu 179 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_196.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 196" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_196.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 196" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2048,7 +2048,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 180 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_197.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 197" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_197.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 197" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -2059,7 +2059,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 181 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_198.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 198" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_198.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 198" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2070,7 +2070,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 182 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_199.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 199" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_199.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 199" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -2082,7 +2082,7 @@ Ghi chú: Câu trả lời có はい nên phải là どこかえ
 ────────────────────────────────────────────────────────────
 Câu 183 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_200.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 200" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_200.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 200" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2093,7 +2093,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 184 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_201.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 201" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_201.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 201" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -2104,7 +2104,7 @@ Ghi chú: Đáp án đúng trên slide: A
 ────────────────────────────────────────────────────────────
 Câu 185 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_202.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 202" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_202.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 202" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2116,7 +2116,7 @@ Trong số các món ăn thì thích món nào nhất?
 ────────────────────────────────────────────────────────────
 Câu 186 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_203.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 203" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_203.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 203" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2127,7 +2127,7 @@ Ghi chú: Mẫu câu so sánh: N1 + は + N2 + より+ tính từ: N1 ~ hơn N2
 ────────────────────────────────────────────────────────────
 Câu 187 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_204.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 204" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_204.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 204" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2138,7 +2138,7 @@ Ghi chú: Đáp án đúng trên slide: D
 ────────────────────────────────────────────────────────────
 Câu 188 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_205.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 205" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_205.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 205" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -2150,7 +2150,7 @@ Ghi chú: [Địa điểm] に [Vật] を いれます (Cho/Cất cái gì vào
 ────────────────────────────────────────────────────────────
 Câu 189 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_206.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 206" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_206.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 206" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -2163,7 +2163,7 @@ Có một sự kiện đang diễn ra ở nơi nào đó: N1(place) + で + N2(s
 ────────────────────────────────────────────────────────────
 Câu 190 [CHƯƠNG: 8. Trợ từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_207.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 207" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_207.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 207" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -2174,7 +2174,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 191 [CHƯƠNG: 9. Từ khác loại]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_209.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 209" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_209.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 209" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2185,7 +2185,7 @@ Ghi chú: nghĩa là ghét, chỉ cảm giác. Các từ còn lại có nghĩa l
 ────────────────────────────────────────────────────────────
 Câu 192 [CHƯƠNG: 9. Từ khác loại]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_210.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 210" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_210.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 210" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -2196,7 +2196,7 @@ Ghi chú: nghĩa là nổi tiếng. các từ còn lại có nghĩa là ngon, ng
 ────────────────────────────────────────────────────────────
 Câu 193 [CHƯƠNG: 9. Từ khác loại]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_211.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 211" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_211.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 211" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -2207,7 +2207,7 @@ Ghi chú: nghĩa là xe hơi. Các từ còn lại đều chỉ hướng (Bắc,
 ────────────────────────────────────────────────────────────
 Câu 194 [CHƯƠNG: 9. Từ khác loại]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_212.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 212" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_212.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 212" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -2218,7 +2218,7 @@ Ghi chú: nghĩa là cũ. Các từ còn lại miêu tả vị giác (đắng, c
 ────────────────────────────────────────────────────────────
 Câu 195 [CHƯƠNG: 9. Từ khác loại]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_213.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 213" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_213.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 213" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -2229,7 +2229,7 @@ Ghi chú: nghĩa là ở giữa. Các từ còn lại chỉ phương tiện giao
 ────────────────────────────────────────────────────────────
 Câu 196 [CHƯƠNG: 9. Từ khác loại]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_214.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 214" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_214.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 214" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2240,7 +2240,7 @@ Ghi chú: nghĩa là rẻ, không dùng đc với con người. Các từ còn l
 ────────────────────────────────────────────────────────────
 Câu 197 [CHƯƠNG: 9. Từ khác loại]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_215.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 215" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_215.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 215" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2251,7 +2251,7 @@ Ghi chú: nghĩa là tòa nhà. Các từ còn lại chỉ phương tiện giao 
 ────────────────────────────────────────────────────────────
 Câu 198 [CHƯƠNG: 10. Xếp câu]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_217.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 217" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_217.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 217" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A  ✓
   B. B
@@ -2265,7 +2265,7 @@ Không có động từ, vậy là câu này miêu tả まち =&gt; 私のま�
 ────────────────────────────────────────────────────────────
 Câu 199 [CHƯƠNG: 10. Xếp câu]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_218.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 218" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_218.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 218" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2278,7 +2278,7 @@ có tính từ おおい(nhiều) và みどり(cây xanh), cta nghĩ ngay đế
 ────────────────────────────────────────────────────────────
 Câu 200 [CHƯƠNG: 11. Nghĩa của từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_220.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 220" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_220.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 220" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2289,7 +2289,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 201 [CHƯƠNG: 11. Nghĩa của từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_221.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 221" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_221.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 221" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓
@@ -2300,7 +2300,7 @@ Ghi chú: Đáp án đúng trên slide: B
 ────────────────────────────────────────────────────────────
 Câu 202 [CHƯƠNG: 11. Nghĩa của từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_222.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 222" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_222.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 222" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B
@@ -2311,7 +2311,7 @@ Ghi chú: Đáp án đúng trên slide: C
 ────────────────────────────────────────────────────────────
 Câu 203 [CHƯƠNG: 11. Nghĩa của từ]
 <div class="swr-slide-wrapper text-center my-2">
-  <img src="images/jpd/slide_223.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 223" loading="lazy" onclick="window.open(this.src)" title="Nhấp để xem ảnh kích thước gốc">
+  <img src="images/jpd/slide_223.png" class="max-h-[380px] w-auto mx-auto rounded-xl shadow-md border border-slate-200 object-contain hover:shadow-lg transition cursor-pointer" alt="Slide 223" loading="lazy" onclick="openImageModal(this.src)" title="Nhấp để phóng to ảnh">
 </div>
   A. A
   B. B  ✓

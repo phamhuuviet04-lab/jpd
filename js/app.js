@@ -2568,6 +2568,34 @@ function setupModal() {
 }
 
 // ==========================================
+// LIGHTBOX PHÓNG TO ẢNH TRỰC TIẾP TRÊN TRANG
+// ==========================================
+function openImageModal(src) {
+    if (!src) return;
+    const modal = document.getElementById('image-lightbox-modal');
+    const img = document.getElementById('lightbox-image');
+    if (!modal || !img) return;
+    img.src = src;
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('image-lightbox-modal');
+    const img = document.getElementById('lightbox-image');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+    if (img) {
+        img.src = '';
+    }
+    document.body.classList.remove('overflow-hidden');
+}
+
+window.openImageModal = openImageModal;
+window.closeImageModal = closeImageModal;
+
+// ==========================================
 // KHỞI TẠO ỨNG DỤNG & SỰ KIỆN
 // ==========================================
 function initApp() {
@@ -2739,10 +2767,30 @@ function initApp() {
         }
     });
 
+    // Bắt sự kiện nhấp vào ảnh slide để mở modal phóng to trực tiếp trên trang thay vì mở tab mới
+    document.addEventListener('click', (e) => {
+        const img = e.target.closest('.swr-slide-wrapper img');
+        if (img && img.src) {
+            e.preventDefault();
+            e.stopPropagation();
+            openImageModal(img.src);
+        }
+    }, true);
+
     // 10. Xử lý phím tắt
     let isCtrlComboActive = false;
 
     document.addEventListener('keydown', (e) => {
+        // Phím Esc: Đóng lightbox phóng to ảnh
+        if (e.key === 'Escape') {
+            const lbModal = document.getElementById('image-lightbox-modal');
+            if (lbModal && !lbModal.classList.contains('hidden')) {
+                e.preventDefault();
+                closeImageModal();
+                return;
+            }
+        }
+
         // Phím Shift: Nghe phát âm câu hỏi (hoạt động ngay cả khi đang gõ trong input)
         if (e.key === 'Shift') {
             if (!ui.quizScreen.classList.contains('hidden')) {

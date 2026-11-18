@@ -220,6 +220,21 @@
         </button>
     </div>
 
+    <!-- MODAL PHÓNG TO ẢNH TRỰC TIẾP TRÊN TRANG (LIGHTBOX) -->
+    <div id="image-lightbox-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-4 hidden transition-opacity duration-200 select-none cursor-zoom-out" onclick="closeImageModal()">
+        <div class="relative max-w-[96vw] max-h-[96vh] flex flex-col items-center justify-center">
+            <!-- Nút đóng -->
+            <button type="button" onclick="closeImageModal()" class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-9 h-9 sm:w-10 sm:h-10 bg-slate-800/90 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-xl border border-slate-700 transition cursor-pointer z-10 active:scale-95" title="Đóng (Phím Esc)">
+                &times;
+            </button>
+            <!-- Ảnh phóng to -->
+            <img id="lightbox-image" src="" alt="Slide phóng to" class="max-w-[96vw] max-h-[92vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-slate-700/60 transition-transform duration-200 cursor-default" onclick="event.stopPropagation()">
+            <div class="text-xs text-slate-400 mt-2 font-medium flex items-center gap-2">
+                <span>🔍 Nhấp bên ngoài hoặc bấm <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded font-mono text-[11px] border border-slate-700">Esc</kbd> để đóng</span>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL THÊM MÔN HỌC MỚI -->
     <div id="add-subject-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden">
