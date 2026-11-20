@@ -35,7 +35,7 @@ window.speakJapanese = speakJapanese;
 window.setSpeechRate = setSpeechRate;
 
 function speakCurrentQuestion() {
-    if (!currentQuestion) return;
+    if (!currentQuestion || currentSubjectId === 'japanese_fe') return;
     const hideFurigana = currentSubject?.hasFurigana && document.getElementById('toggle-furigana')?.checked;
     let promptText = currentQuestion.prompt || '';
     if (hideFurigana) {
@@ -50,7 +50,7 @@ function speakCurrentQuestion() {
 window.speakCurrentQuestion = speakCurrentQuestion;
 
 function speakFocusedListQuestion() {
-    if (typeof allQuestions === 'undefined' || !allQuestions) return;
+    if (typeof allQuestions === 'undefined' || !allQuestions || currentSubjectId === 'japanese_fe') return;
     if (focusedListIndex >= 0 && focusedListIndex < allQuestions.length) {
         const q = allQuestions[focusedListIndex];
         if (q) {
@@ -397,8 +397,8 @@ function updateSubjectHeaderUI() {
         }
     }
 
-    // Hiển thị hoặc ẩn nút chỉnh tốc độ phát âm (chỉ dùng cho Tiếng Nhật)
-    const isJapanese = currentSubject.category === 'japanese' || currentSubjectId.startsWith('japanese');
+    // Hiển thị hoặc ẩn nút chỉnh tốc độ phát âm (chỉ dùng cho Tiếng Nhật, trừ phần Nhật FE)
+    const isJapanese = (currentSubject.category === 'japanese' || currentSubjectId.startsWith('japanese')) && currentSubjectId !== 'japanese_fe';
     const speechSpeedWrapper = document.getElementById('speech-speed-wrapper');
     if (speechSpeedWrapper) {
         if (isJapanese) {
@@ -752,12 +752,18 @@ function updateQuestionDisplay() {
         return;
     }
 
+    if (currentSubjectId === 'japanese_fe') {
+        const displayText = currentQuestion.prompt || '';
+        ui.question.innerHTML = `<div class="w-full text-center">${displayText}</div>`;
+        return;
+    }
+
     if (currentQuestion.direction === 'jp-vi' || currentQuestion.direction === 'standard') {
         const displayText = hideFurigana 
             ? currentQuestion.prompt.replace(/\s*\([^)]+\)/g, '') 
             : currentQuestion.prompt;
         const safePrompt = displayText.replace(/'/g, "\\'");
-        const isJapanese = currentSubjectId.startsWith('japanese');
+        const isJapanese = currentSubjectId.startsWith('japanese') && currentSubjectId !== 'japanese_fe';
         ui.question.innerHTML = `<div class="flex items-center justify-between gap-3">` +
             `<span class="text-lg sm:text-xl font-bold text-gray-800">${displayText}</span>` +
             (isJapanese ? `<button type="button" onclick="speakCurrentQuestion()" class="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 rounded-lg text-xs font-bold shadow-2xs active:scale-95 transition cursor-pointer" title="Nghe phát âm (Phím tắt: Shift)"><span>🔊</span> <span>Nghe</span> <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-blue-200/80 text-blue-800 rounded font-mono text-[10px] font-bold shadow-3xs">Shift</kbd></button>` : '') +
@@ -2823,6 +2829,7 @@ function initApp() {
 
         // Phím Shift: Nghe phát âm câu hỏi (hoạt động ngay cả khi đang gõ trong input)
         if (e.key === 'Shift') {
+            if (currentSubjectId === 'japanese_fe') return;
             if (!ui.quizScreen.classList.contains('hidden')) {
                 e.preventDefault();
                 speakCurrentQuestion();
