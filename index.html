@@ -12,12 +12,12 @@
 <body class="bg-slate-100 min-h-screen flex flex-col items-center p-4 font-sans">
 
     <!-- Header / Brand -->
-    <div class="w-full max-w-3xl text-center mt-1 mb-1.5">
+    <div class="w-full max-w-4xl xl:max-w-5xl text-center mt-1 mb-1.5">
         <h1 class="text-2xl sm:text-3xl font-black text-blue-600 tracking-wider">jpd</h1>
     </div>
 
     <!-- Subject Selection Bar (Menu Chọn Môn Học) -->
-    <div class="w-full max-w-3xl bg-white p-2.5 sm:p-3 rounded-2xl shadow-xs border border-slate-200 mb-2.5 transition-all">
+    <div class="w-full max-w-4xl xl:max-w-5xl bg-white p-2.5 sm:p-3 rounded-2xl shadow-xs border border-slate-200 mb-2.5 transition-all">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-2.5">
             <div class="flex items-center gap-2.5">
                 <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-xl text-blue-600 border border-blue-100 shadow-2xs" id="active-subject-icon-box">
@@ -70,16 +70,16 @@
     </div>
 
     <!-- Navigation -->
-    <div class="w-full max-w-3xl flex justify-center gap-2.5 mb-2 mt-0.5">
+    <div class="w-full max-w-4xl xl:max-w-5xl flex justify-center gap-2.5 mb-2 mt-0.5">
         <button id="nav-quiz" class="px-5 py-2 bg-blue-600 text-white rounded-xl font-bold text-sm shadow-md transition active:scale-95">Chức năng học</button>
         <button id="nav-list" class="px-5 py-2 bg-white text-blue-600 rounded-xl font-bold text-sm shadow-sm border border-slate-200 hover:bg-blue-50 transition active:scale-95">Tất cả câu hỏi</button>
     </div>
 
     <!-- Lesson Filter Tabs (Sinh động theo môn) -->
-    <div class="w-full max-w-3xl flex justify-center gap-1.5 mb-1.5 flex-wrap" id="lesson-tabs"></div>
+    <div class="w-full max-w-4xl xl:max-w-5xl flex justify-center gap-1.5 mb-1.5 flex-wrap" id="lesson-tabs"></div>
 
     <!-- Part Filter Tabs -->
-    <div class="w-full max-w-3xl flex justify-center gap-1.5 mb-3 flex-wrap" id="part-tabs"></div>
+    <div class="w-full max-w-4xl xl:max-w-5xl flex justify-center gap-1.5 mb-3 flex-wrap" id="part-tabs"></div>
 
     <!-- MÀN HÌNH CHỜ (Hiện lúc mới vào) -->
     <div id="loading-screen" class="text-center text-blue-600 font-bold text-lg my-6">
@@ -87,7 +87,7 @@
     </div>
 
     <!-- MÀN HÌNH LÀM QUIZ -->
-    <div id="quiz-screen" class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl w-full max-w-3xl hidden transition-all duration-300">
+    <div id="quiz-screen" class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl w-full max-w-4xl xl:max-w-5xl hidden transition-all duration-300">
         <!-- Header quiz -->
         <div class="flex justify-between items-center mb-3 pb-2.5 border-b border-gray-100">
             <div class="flex items-center gap-2 flex-wrap">
@@ -169,7 +169,7 @@
     </div>
 
     <!-- MÀN HÌNH DANH SÁCH -->
-    <div id="list-screen" class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl w-full max-w-3xl hidden transition-all duration-300">
+    <div id="list-screen" class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl w-full max-w-4xl xl:max-w-5xl hidden transition-all duration-300">
         <h2 class="text-2xl font-bold mb-4 text-gray-800 border-b pb-2" id="list-screen-title">Danh sách từ vựng</h2>
         <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
             <div class="text-sm text-gray-600">
@@ -222,15 +222,15 @@
 
     <!-- MODAL PHÓNG TO ẢNH TRỰC TIẾP TRÊN TRANG (LIGHTBOX) -->
     <div id="image-lightbox-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-[100] flex items-center justify-center p-2 sm:p-4 hidden transition-opacity duration-200 select-none cursor-zoom-out" onclick="closeImageModal()">
-        <div class="relative max-w-[96vw] max-h-[96vh] flex flex-col items-center justify-center">
+        <div class="relative max-w-[98vw] max-h-[96vh] flex flex-col items-center justify-center">
             <!-- Nút đóng -->
             <button type="button" onclick="closeImageModal()" class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-9 h-9 sm:w-10 sm:h-10 bg-slate-800/90 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-xl border border-slate-700 transition cursor-pointer z-10 active:scale-95" title="Đóng (Phím Esc)">
                 &times;
             </button>
             <!-- Ảnh phóng to -->
-            <img id="lightbox-image" src="" alt="Slide phóng to" class="max-w-[96vw] max-h-[92vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-slate-700/60 transition-transform duration-200 cursor-default" onclick="event.stopPropagation()">
-            <div class="text-xs text-slate-400 mt-2 font-medium flex items-center gap-2">
-                <span>🔍 Nhấp bên ngoài hoặc bấm <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded font-mono text-[11px] border border-slate-700">Esc</kbd> để đóng</span>
+            <img id="lightbox-image" src="" alt="Slide phóng to" class="max-w-[98vw] max-h-[92vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-slate-700/60 transition-transform duration-200 cursor-zoom-in" onclick="toggleLightboxZoom(event)">
+            <div class="text-xs text-slate-300 mt-2 font-medium flex items-center gap-2 bg-slate-900/60 px-3 py-1 rounded-full border border-slate-700/50 backdrop-blur-sm">
+                <span>🔍 Nhấp ảnh để phóng to thêm • Nhấp bên ngoài hoặc bấm <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-200 rounded font-mono text-[11px] border border-slate-600">Esc</kbd> để đóng</span>
             </div>
         </div>
     </div>

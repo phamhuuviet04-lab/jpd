@@ -2570,14 +2570,39 @@ function setupModal() {
 // ==========================================
 // LIGHTBOX PHÓNG TO ẢNH TRỰC TIẾP TRÊN TRANG
 // ==========================================
+let isLightboxZoomed = false;
+
 function openImageModal(src) {
     if (!src) return;
     const modal = document.getElementById('image-lightbox-modal');
     const img = document.getElementById('lightbox-image');
     if (!modal || !img) return;
     img.src = src;
+    img.style.transform = 'scale(1)';
+    img.classList.remove('cursor-zoom-out');
+    img.classList.add('cursor-zoom-in');
+    isLightboxZoomed = false;
     modal.classList.remove('hidden');
     document.body.classList.add('overflow-hidden');
+}
+
+function toggleLightboxZoom(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const img = document.getElementById('lightbox-image');
+    if (!img) return;
+    isLightboxZoomed = !isLightboxZoomed;
+    if (isLightboxZoomed) {
+        img.style.transform = 'scale(1.35)';
+        img.classList.remove('cursor-zoom-in');
+        img.classList.add('cursor-zoom-out');
+    } else {
+        img.style.transform = 'scale(1)';
+        img.classList.remove('cursor-zoom-out');
+        img.classList.add('cursor-zoom-in');
+    }
 }
 
 function closeImageModal() {
@@ -2588,12 +2613,17 @@ function closeImageModal() {
     }
     if (img) {
         img.src = '';
+        img.style.transform = 'scale(1)';
+        img.classList.remove('cursor-zoom-out');
+        img.classList.add('cursor-zoom-in');
     }
+    isLightboxZoomed = false;
     document.body.classList.remove('overflow-hidden');
 }
 
 window.openImageModal = openImageModal;
 window.closeImageModal = closeImageModal;
+window.toggleLightboxZoom = toggleLightboxZoom;
 
 // ==========================================
 // KHỞI TẠO ỨNG DỤNG & SỰ KIỆN

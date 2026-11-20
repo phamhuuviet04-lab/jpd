@@ -40,13 +40,36 @@ rt {
     color: #64748b;
 }
 
-/* Styling cho slide câu hỏi SWR */
+/* Styling cho slide câu hỏi (SWR, CSD, PRJ, IOT, JPD FE, ...) */
+.swr-slide-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0 0.75rem 0;
+}
+
 .swr-slide-wrapper img {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-height: 480px !important;
+    width: auto;
+    max-width: 100%;
+    border-radius: 0.85rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+@media (min-width: 640px) {
+    .swr-slide-wrapper img {
+        max-height: 540px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .swr-slide-wrapper img {
+        max-height: 600px !important;
+    }
+}
+
 .swr-slide-wrapper img:hover {
-    transform: scale(1.01);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: scale(1.015);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
 }
