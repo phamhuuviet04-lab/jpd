@@ -7,6 +7,7 @@
   - **📐 Ngữ pháp (文法 Bài 4 - 7)**: 220 câu
   - **🗣️ Luyện nói (会話 Bài 4 - 7)**: 34 câu phản xạ
   - **🎯 Ôn thi FE (JPD123 Slide Test)**: 203 câu trắc nghiệm bóc tách từ Slide ôn thi FE kèm giải thích chi tiết
+  - **⚡ Động - Tính từ (Bài 4 - 7, Thuần Kana)**: 107 câu trắc nghiệm & tự luận chuyên sâu Tính từ (đuôi い, な), Động từ (Nhóm 1, 2, 3) và Cặp từ trái nghĩa (hoàn toàn không dùng chữ Hán)
 - **🌳 CSD201 - Data Structures & Algorithms**: 304 câu hỏi trắc nghiệm Slide kèm giải thích
 - **☕ PRJ301 & PRJ302 - Java Web Application**: 396 câu hỏi trắc nghiệm Slide kèm giải thích & multi-select
 - **🌐 IOT102 - Internet of Things**: 346 câu hỏi trắc nghiệm Slide kèm giải thích
